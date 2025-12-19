@@ -23,6 +23,9 @@ onAuthStateChanged(auth, (user) => {
         // User is logged in
         console.log("User logged in:", user.email);
 
+        // Reveal content
+        document.body.style.display = 'block';
+
         // If we are on login page, redirect to index
         if (window.location.href.includes('login.html')) {
             window.location.href = 'index.html';
