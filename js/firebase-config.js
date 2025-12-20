@@ -7,12 +7,13 @@
 // 6. Enable "Firestore Database" in the console
 
 export const firebaseConfig = {
-    apiKey: "YOUR_API_KEY_HERE",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyDnbn-Y2ClhZVa6KAWEXfCPe-FhTOHz6tc",
+    authDomain: "agri-smb-lu.firebaseapp.com",
+    projectId: "agri-smb-lu",
+    storageBucket: "agri-smb-lu.firebasestorage.app",
+    messagingSenderId: "786272626896",
+    appId: "1:786272626896:web:52da80af924b65dc0756d5",
+    measurementId: "G-30MWZ9MVWS"
 };
 
 // Check if config is still default
