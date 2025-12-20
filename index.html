@@ -75,6 +75,11 @@
     <div id="app-loader">
         <div class="loader-spinner"></div>
         <div class="loader-text">Loading Agri-LMS...</div>
+        <!-- Manual Fallback Button (Hidden initially) -->
+        <a id="manual-login-btn" href="login.html"
+            style="display: none; margin-top: 20px; padding: 10px 20px; background: #166534; color: white; text-decoration: none; border-radius: 5px; font-family: sans-serif;">
+            Taking too long? Click here to Login
+        </a>
     </div>
 
     <!-- Main App Content (Hidden Initially) -->
@@ -291,18 +296,17 @@
     </div> <!-- End of app-content -->
 
     <!-- Safety Fallback Script: If things take too long (5s), assume error or not logged in -->
+    <!-- Safety Fallback Script -->
     <script>
         setTimeout(() => {
             const loader = document.getElementById('app-loader');
+            const manualBtn = document.getElementById('manual-login-btn');
+
             if (loader && loader.style.display !== 'none') {
-                console.warn('App took too long to load. Checking auth state fallback...');
-                // Fallback: Check if we have a user in session or just redirect to login to be safe if no other script ran
-                // But let auth-guard handle it mostly. This is for total failure.
-                if (!window.currentUser) {
-                    window.location.href = 'login.html';
-                }
+                console.warn('App took too long. Showing manual login...');
+                if (manualBtn) manualBtn.style.display = 'block';
             }
-        }, 5000); 
+        }, 3000); 
     </script>
 
     <!-- Scripts -->
