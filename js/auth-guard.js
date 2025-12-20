@@ -7,7 +7,25 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // Check Auth State
+// Check Auth State
+console.log("Auth Guard: Initializing...");
+
+// Fallback safety: If Firebase takes too long (>4s), force redirect to login
+const authTimeout = setTimeout(() => {
+    const loader = document.getElementById('app-loader');
+    if (loader && loader.style.display !== 'none') {
+        console.warn("Auth Guard: Timeout waiting for Firebase. Redirecting to login...");
+        const path = window.location.pathname;
+        if (!path.includes('login') && !window.location.href.includes('login.html')) {
+            window.location.href = 'login.html';
+        }
+    }
+}, 4000);
+
 onAuthStateChanged(auth, (user) => {
+    clearTimeout(authTimeout); // Auth check completed
+    console.log("Auth Guard: State changed. User:", user ? user.email : "null");
+
     if (!user) {
         // Not logged in
         console.log("User not logged in. Redirecting to login...");

@@ -19,20 +19,5 @@
             ]
         }
     ],
-    "rewrites": [
-        {
-            "source": "/login",
-            "destination": "/login.html"
-        },
-        {
-            "source": "/admin-dashboard",
-            "destination": "/admin-dashboard.html"
-        },
-        {
-            "source": "/dashboard",
-            "destination": "/dashboard.html"
-        }
-    ],
-    "cleanUrls": true,
     "trailingSlash": false
 }
