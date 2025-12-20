@@ -16,9 +16,16 @@ onAuthStateChanged(auth, (user) => {
         sessionStorage.setItem('redirect_after_login', window.location.href);
 
         // If we are not already on the login page, redirect
-        if (!window.location.href.includes('login.html')) {
+        // If we are not already on the login page, redirect
+        const path = window.location.pathname;
+        if (!path.includes('login') && !window.location.href.includes('login.html')) {
             window.location.href = 'login.html';
         }
+
+        // If we ARE on the login "route" (e.g. /login handled by index.html in SPA mode),
+        // we must manually ensure the loader is hidden and login form is shown?
+        // No, if /login serves index.html, we are in trouble because index.html is NOT the login page.
+        // We need to assume Vercel serves login.html for /login.
     } else {
         // User is logged in
         console.log("User logged in:", user.email);
@@ -31,7 +38,8 @@ onAuthStateChanged(auth, (user) => {
         if (content) content.style.display = 'block';
 
         // If we are on login page, redirect to index
-        if (window.location.href.includes('login.html')) {
+        const path = window.location.pathname;
+        if (path.includes('login') || window.location.href.includes('login.html')) {
             window.location.href = 'index.html';
         }
 
