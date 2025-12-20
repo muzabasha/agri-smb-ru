@@ -15,9 +15,10 @@ const authTimeout = setTimeout(() => {
     const loader = document.getElementById('app-loader');
     if (loader && loader.style.display !== 'none') {
         console.warn("Auth Guard: Timeout waiting for Firebase. Redirecting to login...");
+        // If we are not already on the login page, redirect
         const path = window.location.pathname;
-        if (!path.includes('login') && !window.location.href.includes('login.html')) {
-            window.location.href = 'login.html';
+        if (!path.includes('signin') && !window.location.href.includes('signin.html')) {
+            window.location.href = 'signin.html';
         }
     }
 }, 4000);
@@ -34,10 +35,9 @@ onAuthStateChanged(auth, (user) => {
         sessionStorage.setItem('redirect_after_login', window.location.href);
 
         // If we are not already on the login page, redirect
-        // If we are not already on the login page, redirect
         const path = window.location.pathname;
-        if (!path.includes('login') && !window.location.href.includes('login.html')) {
-            window.location.href = 'login.html';
+        if (!path.includes('signin') && !window.location.href.includes('signin.html')) {
+            window.location.href = 'signin.html';
         }
 
         // If we ARE on the login "route" (e.g. /login handled by index.html in SPA mode),
@@ -57,7 +57,7 @@ onAuthStateChanged(auth, (user) => {
 
         // If we are on login page, redirect to index
         const path = window.location.pathname;
-        if (path.includes('login') || window.location.href.includes('login.html')) {
+        if (path.includes('signin') || window.location.href.includes('signin.html')) {
             window.location.href = 'index.html';
         }
 
