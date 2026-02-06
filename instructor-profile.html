@@ -30,7 +30,7 @@
         }
 
         .header .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
@@ -62,44 +62,111 @@
             border-color: rgba(255, 255, 255, 0.5);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .profile-section {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        /* Main Layout */
+        .main-container {
+            max-width: 1280px;
             margin: 3rem auto;
-            overflow: hidden;
-        }
-
-        .profile-header {
+            padding: 0 2rem;
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            padding: 3rem;
+            grid-template-columns: 350px 1fr;
+            gap: 2.5rem;
             align-items: start;
         }
 
-        .profile-image-wrapper {
-            display: flex;
-            justify-content: center;
+        /* Sidebar */
+        .profile-sidebar {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            position: sticky;
+            top: 2rem;
         }
 
         .profile-image {
-            width: 280px;
-            height: 350px;
+            width: 100%;
+            height: auto;
             border-radius: 12px;
             object-fit: cover;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
             border: 4px solid #f0fdf4;
         }
 
-        .profile-info h2 {
-            font-size: 2rem;
+        .sidebar-info {
+            border-top: 1px solid #e5e7eb;
+            padding-top: 1.5rem;
+        }
+
+        .sidebar-item {
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+            color: #4b5563;
+        }
+
+        .sidebar-item i {
+            color: #16a34a;
+            width: 25px;
+            text-align: center;
+            margin-right: 0.5rem;
+        }
+
+        .sidebar-item a {
+            color: #0891b2;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .sidebar-item a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: grid;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #374151;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .social-link:hover {
+            background: #f0fdf4;
+            border-color: #16a34a;
+            transform: translateY(-2px);
+        }
+
+        .social-link i {
+            color: #166534;
+        }
+
+        /* Main Content */
+        .profile-main {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 3rem;
+        }
+
+        .profile-hero {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .profile-hero h2 {
+            font-size: 2.2rem;
             color: #166534;
             margin-bottom: 0.5rem;
         }
@@ -107,225 +174,120 @@
         .profile-title {
             font-size: 1.2rem;
             color: #059669;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
         }
 
-        .profile-institution {
-            font-size: 0.95rem;
+        .profile-inst {
             color: #6b7280;
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
-        }
-
-        .contact-info {
-            background: #f9fafb;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid #16a34a;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
-        }
-
-        .contact-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .contact-item i {
-            color: #16a34a;
-            width: 20px;
-            text-align: center;
-        }
-
-        .contact-item a {
-            color: #0891b2;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-item a:hover {
-            color: #166534;
-            text-decoration: underline;
-        }
-
-        .profile-content {
-            padding: 3rem;
-            border-top: 1px solid #e5e7eb;
-        }
-
-        .section {
-            margin-bottom: 3rem;
-        }
-
-        .section:last-child {
-            margin-bottom: 0;
+            font-size: 1rem;
         }
 
         .section-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: #166534;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             display: flex;
             align-items: center;
             gap: 0.8rem;
+            padding-bottom: 0.5rem;
             border-bottom: 2px solid #dcfce7;
-            padding-bottom: 0.8rem;
         }
 
         .section-title i {
             color: #16a34a;
         }
 
-        .bio-text {
+        .content-block {
+            margin-bottom: 2.5rem;
+        }
+
+        .text-content {
             color: #374151;
             line-height: 1.8;
-            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .text-content p {
+            margin-bottom: 1rem;
+        }
+
+        ul.styled-list {
+            list-style: none;
+        }
+
+        ul.styled-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #374151;
+        }
+
+        ul.styled-list li::before {
+            content: "•";
+            color: #16a34a;
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
         }
 
         .achievements-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.5rem;
-            margin-bottom: 1.5rem;
         }
 
         .achievement-card {
-            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-            padding: 1.5rem;
-            border-radius: 10px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+            border: 1px solid #dcfce7;
+            padding: 1.2rem;
+            border-radius: 8px;
             border-left: 4px solid #16a34a;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .achievement-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 16px rgba(22, 163, 74, 0.15);
         }
 
         .achievement-card h4 {
             color: #166534;
-            margin-bottom: 0.5rem;
             font-size: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .achievement-card p {
             color: #6b7280;
             font-size: 0.9rem;
-            line-height: 1.5;
         }
 
-        .research-list {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-
-        .research-list li {
-            padding: 0.8rem 0;
-            padding-left: 1.8rem;
-            position: relative;
-            color: #374151;
-            line-height: 1.6;
-        }
-
-        .research-list li:before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: #16a34a;
-            font-weight: bold;
-        }
-
-        .expertise-tags {
+        .tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.8rem;
-            margin-bottom: 1.5rem;
         }
 
-        .expertise-tag {
-            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-            color: #0c4a6e;
-            padding: 0.6rem 1.2rem;
+        .tag {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 500;
-            border: 1px solid #7dd3fc;
         }
 
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.8rem 1.2rem;
-            background: linear-gradient(135deg, #166534 0%, #15803d 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .social-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(22, 163, 74, 0.3);
-        }
-
-        .social-link i {
-            font-size: 1.1rem;
-        }
-
-        @media (max-width: 768px) {
-            .profile-header {
+        @media (max-width: 900px) {
+            .main-container {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-                padding: 2rem;
+            }
+
+            .profile-sidebar {
+                position: static;
+                max-width: 400px;
+                margin: 0 auto;
             }
 
             .profile-image {
-                width: 100%;
                 max-width: 280px;
-                height: auto;
-            }
-
-            .profile-info h2 {
-                font-size: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.2rem;
-            }
-
-            .achievements-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .profile-content {
-                padding: 2rem;
-            }
-
-            .header .container {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-
-            .header h1 {
-                font-size: 1.4rem;
+                display: block;
+                margin: 0 auto 1.5rem;
             }
         }
     </style>
@@ -342,220 +304,197 @@
         </div>
     </header>
 
-    <!-- Main Profile Section -->
-    <div class="container">
-        <div class="profile-section">
-            <!-- Profile Header with Image and Basic Info -->
-            <div class="profile-header">
-                <!-- Image -->
-                <div class="profile-image-wrapper">
-                    <img src="images/DP_profile.png" alt="Dr. Syed Muzamil Basha" class="profile-image">
+    <div class="main-container">
+        <!-- Sidebar (Left) -->
+        <aside class="profile-sidebar">
+            <img src="images/DP_profile.png" alt="Dr. Syed Muzamil Basha" class="profile-image">
+
+            <div class="sidebar-info">
+                <div class="sidebar-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <strong>Address:</strong><br>
+                    REVA University,<br>
+                    Rukmini Knowledge Park, Kattigenahalli,<br>
+                    Yelahanka, Bengaluru,<br>
+                    Karnataka 560064
                 </div>
 
-                <!-- Basic Info -->
-                <div class="profile-info">
-                    <h2>Dr. Syed Muzamil Basha</h2>
-                    <p class="profile-title">Professor, School of Computer Science & Engineering</p>
-                    <p class="profile-institution">
-                        REVA University<br>
-                        Rukmini Knowledge Park, Kattigenahalli<br>
-                        Yelahanka, Bengaluru, Karnataka 560064<br>
-                        India
-                    </p>
+                <div class="sidebar-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:muzamilbasha.s@reva.edu.in">muzamilbasha.s@reva.edu.in</a>
+                </div>
 
-                    <!-- Contact Information -->
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:muzamilbasha.s@reva.edu.in">muzamilbasha.s@reva.edu.in</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+91 8331977568, +91 7259421438</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-award"></i>
-                            <span>VIDWAN Score: 9.5/10</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-star"></i>
-                            <span>3rd Best Scientist at REVA University (AD Scientific Index 2024)</span>
-                        </div>
-                    </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 8331977568</span><br>
+                    <i class="fas fa-phone" style="visibility: hidden;"></i> <!-- spacer -->
+                    <span>+91 7259421438</span>
+                </div>
+
+                <div class="sidebar-item">
+                    <i class="fas fa-star"></i>
+                    Vidwan Score: <strong>9.5/10</strong>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://publons.com/researcher/3362117/syed-muzamil" target="_blank" class="social-link">
+                        <i class="fas fa-graduation-cap"></i> Publons Profile
+                    </a>
+                    <a href="https://scholar.google.co.in/citations?user=weNQmW0AAAAJ&hl=en" target="_blank"
+                        class="social-link">
+                        <i class="fas fa-book"></i> Google Scholar
+                    </a>
+                    <a href="http://orcid.org/0000-0002-1169-3151" target="_blank" class="social-link">
+                        <i class="fas fa-id-card"></i> ORCID
+                    </a>
+                    <a href="https://www.scopus.com/authid/detail.uri?authorId=57195586589" target="_blank"
+                        class="social-link">
+                        <i class="fas fa-database"></i> Scopus
+                    </a>
+                    <a href="https://www.researchgate.net/profile/Muzamil_Basha" target="_blank" class="social-link">
+                        <i class="fas fa-network-wired"></i> ResearchGate
+                    </a>
+                    <a href="https://www.youtube.com/c/MuzamilBashaS" target="_blank" class="social-link">
+                        <i class="fab fa-youtube"></i> YouTube Channel
+                    </a>
                 </div>
             </div>
+        </aside>
 
-            <!-- Profile Content -->
-            <div class="profile-content">
-                <!-- About Section -->
-                <div class="section">
-                    <h3 class="section-title">
-                        <i class="fas fa-user-circle"></i> About
-                    </h3>
-                    <p class="bio-text">
+        <!-- Main Content (Right) -->
+        <main class="profile-main">
+            <div class="profile-hero">
+                <h2>Dr. Syed Muzamil Basha</h2>
+                <p class="profile-title">Professor</p>
+                <p class="profile-inst">School of Computer Science & Engineering, REVA University</p>
+            </div>
+
+            <div class="content-block">
+                <h3 class="section-title"><i class="fas fa-user"></i> About</h3>
+                <div class="text-content">
+                    <p>
                         Dr. Syed Muzamil Basha is a Professor in the School of Computer Science and Engineering at REVA
-                        University, Bangalore, Karnataka, India. He earned his Full-time Ph.D. from VIT University,
+                        University, Bangalore, Karnataka, India. He earned his Full time Ph.D. from VIT University,
                         Vellore (Deemed to be University (IoE)) (2016–2019), and has 15 years of teaching and research
                         experience, including 2 years of postdoctoral experience at University of Hail, Kingdom of Saudi
                         Arabia (2020–2022).
                     </p>
-                    <p class="bio-text">
+                    <p>
                         Dr. Basha is recognized as the 3rd Best Scientist at REVA University (AD Scientific Index 2024)
-                        with a VIDWAN Score of 9.5/10. He served as Research and Innovation Vertical Head at REVA
-                        University from June 2021 to February 2026, and holds key positions including NBA-NAAC
-                        Coordinator and IEEE Computer Society Chair.
+                        with a VIDWAN Score of 9.5/10.
+                    </p>
+                    <p>
+                        Dr. Syed Muzamil Basha has served as a reviewer and editorial board member for numerous
+                        international journals. He is an editorial member for journals such as the American Journal of
+                        Health Research and the Journal of Ubiquitous Computing and Communication Technologies. He also
+                        acts as an editorial member for Discover Analytics, the Journal of Innovative Technology
+                        Convergence, and Milestone Transactions on Medical Technometrics. Additionally, he is a senior
+                        reviewer for prestigious journals like IEEE Transactions on Consumer Electronics, IEEE Internet
+                        of Things Journal, and Plos One. He actively participates as an adhoc reviewer for several other
+                        journals, including International Journal of Project Management, International Journal of
+                        Healthcare Information Systems, and Recent Patents on Computer Science. His reviewer role
+                        extends to conference peer reviews, where he serves as session chair and technical program chair
+                        for international conferences such as the IDCIoT and WSSE.
                     </p>
                 </div>
+            </div>
 
-                <!-- Research Portfolio -->
-                <div class="section">
-                    <h3 class="section-title">
-                        <i class="fas fa-flask-vial"></i> Research Portfolio
-                    </h3>
-                    <ul class="research-list">
-                        <li><strong>65 Scopus-indexed publications:</strong> 40 journals (7 Q1, 9 Q2, 10 Q3, 6 Q4) and
-                            15 conference proceedings</li>
-                        <li><strong>High-impact publications</strong> in prestigious journals including IEEE
-                            Transactions on Consumer Electronics, IEEE Internet of Things Journal, PLOS ONE, and BMC
-                            Medical Imaging</li>
-                        <li><strong>25+ textbooks published</strong> with international publishers including Springer
-                            and IGI Global, plus 2 edited textbooks</li>
-                        <li><strong>Multiple patents</strong> including design registrations and international patents
-                            (German Utility Patent, IP Australia Patent)</li>
-                        <li><strong>PhD Supervision:</strong> 3 PhD scholars awarded degrees, 2 scholars submitted
-                            thesis, 3 currently under guidance</li>
-                    </ul>
-                </div>
+            <div class="content-block">
+                <h3 class="section-title"><i class="fas fa-flask"></i> Research Portfolio</h3>
+                <ul class="styled-list">
+                    <li><strong>65 Scopus-indexed publications:</strong> 40 journals (7 Q1, 9 Q2, 10 Q3, 6 Q4; 15
+                        conference proceedings).</li>
+                    <li><strong>High-impact publications</strong> in prestigious journals including IEEE Transactions on
+                        Consumer Electronics, IEEE Internet of Things Journal, PLOS ONE, and BMC Medical Imaging.</li>
+                    <li><strong>25+ textbooks published</strong> with international publishers including Springer and
+                        IGI Global, plus 2 edited textbooks.</li>
+                    <li><strong>Multiple patents</strong> including design registrations and international patents
+                        (German Utility Patent, IP Australia Patent).</li>
+                    <li><strong>PhD Supervision:</strong> 3 PhD scholars have been awarded their degrees, 2 Scholars
+                        submitted their Thesis, and with 3 currently under guidance.</li>
+                </ul>
+            </div>
 
-                <!-- Academic Roles -->
-                <div class="section">
-                    <h3 class="section-title">
-                        <i class="fas fa-briefcase"></i> Academic Roles & Responsibilities
-                    </h3>
-                    <ul class="research-list">
-                        <li>Research and Innovation Vertical Head at REVA University (June 2021 – Feb 2026)</li>
-                        <li>NBA-NAAC Coordinator</li>
-                        <li>IEEE Computer Society Chair</li>
-                        <li>Editorial Board Member for multiple international journals</li>
-                        <li>Senior Reviewer for IEEE Transactions on Consumer Electronics, IEEE Internet of Things
-                            Journal, and PLOS ONE</li>
-                        <li>Session Chair and Technical Program Chair for international conferences (IDCIoT, WSSE)</li>
-                        <li>Academic Council and Board of Studies member for institutions across Karnataka, Andhra
-                            Pradesh, and Tamil Nadu</li>
-                    </ul>
-                </div>
+            <div class="content-block">
+                <h3 class="section-title"><i class="fas fa-briefcase"></i> Roles & Responsibilities</h3>
+                <ul class="styled-list">
+                    <li>Research and Innovation Vertical Head at REVA University (June 2021 – Feb 2026).</li>
+                    <li>NBA-NAAC Coordinator.</li>
+                    <li>IEEE Computer Society Chair.</li>
+                    <li>ACM Professional Member & ISTE Lifetime Member.</li>
+                    <li>Academic Council and Board of Studies member for institutions across Karnataka, Andhra Pradesh,
+                        and Tamil Nadu.</li>
+                </ul>
+            </div>
 
-                <!-- Awards & Recognition -->
-                <div class="section">
-                    <h3 class="section-title">
-                        <i class="fas fa-trophy"></i> Awards & Recognition
-                    </h3>
-                    <div class="achievements-grid">
-                        <div class="achievement-card">
-                            <h4>International Outstanding Teacher Award 2024-25</h4>
-                            <p>Green ThinkerZ Society and NGO Darpan, NITI Aayog (January 2025)</p>
-                        </div>
-                        <div class="achievement-card">
-                            <h4>Best Professor for Computer Science Bengaluru North</h4>
-                            <p>Karnataka Educational Awards (September 2024)</p>
-                        </div>
-                        <div class="achievement-card">
-                            <h4>Best Researcher Award</h4>
-                            <p>Knowledge Research Academy, Coimbatore (August 2024)</p>
-                        </div>
-                        <div class="achievement-card">
-                            <h4>IEEE R10 Ethics Champion</h4>
-                            <p>Recognition for 2023–24</p>
-                        </div>
-                        <div class="achievement-card">
-                            <h4>RAMFOO Outstanding Faculty Award</h4>
-                            <p>March 2023</p>
-                        </div>
-                        <div class="achievement-card">
-                            <h4>CHSN-2022 Young Researcher Award</h4>
-                            <p>3rd International Conference on Computer Vision (December 2022)</p>
-                        </div>
-                        <div class="achievement-card">
-                            <h4>Best Paper Award</h4>
-                            <p>IACIT, REVA University (2021–22)</p>
-                        </div>
-                        <div class="achievement-card">
-                            <h4>Raman Research Award</h4>
-                            <p>VIT, SCI indexed journal, impact factor 2.101 (2019–20)</p>
-                        </div>
-                        <div class="achievement-card">
-                            <h4>Best Researcher Award for PhD Supervision</h4>
-                            <p>Dr. Sailaja Thota, 8th International Conference on ALLAM in Cognitive Science (December
-                                2024)</p>
-                        </div>
+            <div class="content-block">
+                <h3 class="section-title"><i class="fas fa-trophy"></i> Awards & Achievements</h3>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <h4>International Outstanding Teacher Award 2024-25</h4>
+                        <p>Green ThinkerZ Society and NGO Darpan, NITI Aayog (January 2025)</p>
                     </div>
-                </div>
-
-                <!-- Areas of Expertise -->
-                <div class="section">
-                    <h3 class="section-title">
-                        <i class="fas fa-lightbulb"></i> Areas of Expertise
-                    </h3>
-                    <div class="expertise-tags">
-                        <span class="expertise-tag">Agentic AI</span>
-                        <span class="expertise-tag">Natural Language Processing</span>
-                        <span class="expertise-tag">Big Data Analytics</span>
-                        <span class="expertise-tag">Blockchain Management</span>
-                        <span class="expertise-tag">Internet of Things (IoT)</span>
-                        <span class="expertise-tag">Machine Learning</span>
-                        <span class="expertise-tag">Deep Learning</span>
-                        <span class="expertise-tag">Federated Learning</span>
-                        <span class="expertise-tag">Healthcare Informatics</span>
-                        <span class="expertise-tag">Cybersecurity</span>
+                    <div class="achievement-card">
+                        <h4>Best Professor for Computer Science Bengaluru North</h4>
+                        <p>Karnataka Educational Awards (September 2024)</p>
                     </div>
-                </div>
-
-                <!-- Professional Memberships -->
-                <div class="section">
-                    <h3 class="section-title">
-                        <i class="fas fa-handshake"></i> Professional Memberships
-                    </h3>
-                    <ul class="research-list">
-                        <li>ACM Professional Member</li>
-                        <li>ISTE Lifetime Member</li>
-                        <li>Editorial Board Member for multiple international journals</li>
-                    </ul>
-                </div>
-
-                <!-- Research Profiles & Links -->
-                <div class="section">
-                    <h3 class="section-title">
-                        <i class="fas fa-link"></i> Research Profiles
-                    </h3>
-                    <div class="social-links">
-                        <a href="https://publons.com/researcher/3362117/syed-muzamil" class="social-link"
-                            target="_blank">
-                            <i class="fas fa-graduation-cap"></i> Publons Profile
-                        </a>
-                        <a href="https://scholar.google.co.in/citations?user=weNQmW0AAAAJ&hl=en" class="social-link"
-                            target="_blank">
-                            <i class="fas fa-book"></i> Google Scholar
-                        </a>
-                        <a href="http://orcid.org/0000-0002-1169-3151" class="social-link" target="_blank">
-                            <i class="fas fa-id-card"></i> ORCID
-                        </a>
-                        <a href="https://www.scopus.com/authid/detail.uri?authorId=57195586589" class="social-link"
-                            target="_blank">
-                            <i class="fas fa-database"></i> Scopus
-                        </a>
-                        <a href="https://www.researchgate.net/profile/Muzamil_Basha" class="social-link"
-                            target="_blank">
-                            <i class="fas fa-network-wired"></i> ResearchGate
-                        </a>
-                        <a href="https://www.youtube.com/c/MuzamilBashaSM" class="social-link" target="_blank">
-                            <i class="fab fa-youtube"></i> YouTube Channel
-                        </a>
+                    <div class="achievement-card">
+                        <h4>Best Researcher Award</h4>
+                        <p>Knowledge Research Academy, Coimbatore (August 2024)</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h4>IEEE R10 Ethics Champion recognition</h4>
+                        <p>2023–24</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h4>RAMFOO Outstanding Faculty Award</h4>
+                        <p>March 2023</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h4>CHSN-2022 Young Researcher Award</h4>
+                        <p>3rd International Conference on Computer Vision (December 2022)</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h4>Best Paper Award</h4>
+                        <p>IACIT, REVA University (2021–22)</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h4>Raman Research Award</h4>
+                        <p>VIT, SCI indexed journal, impact factor 2.101 (2019–20)</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h4>Research Award</h4>
+                        <p>VIT, high-quality publications (2018–19)</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h4>Best Researcher Award for PhD thesis supervision</h4>
+                        <p>Dr. Sailaja Thota, 8th International Conference on ALLAM in Cognitive Science (December 2024)
+                        </p>
+                    </div>
+                    <div class="achievement-card">
+                        <h4>Certificate of Merit</h4>
+                        <p>Securing 3rd place in M.Tech at VIT University (2010–11)</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
+            <div class="content-block">
+                <h3 class="section-title"><i class="fas fa-lightbulb"></i> Areas of Expertise</h3>
+                <div class="tags">
+                    <span class="tag">Agentic AI</span>
+                    <span class="tag">Natural Language Processing</span>
+                    <span class="tag">Big Data Analytics</span>
+                    <span class="tag">Blockchain Management</span>
+                    <span class="tag">Internet of Things (IoT)</span>
+                    <span class="tag">Machine Learning & Deep Learning</span>
+                    <span class="tag">Federated Learning</span>
+                    <span class="tag">Healthcare Informatics</span>
+                    <span class="tag">Cybersecurity</span>
+                </div>
+            </div>
+
+        </main>
+    </div>
 </body>
 
 </html>
