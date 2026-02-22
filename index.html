@@ -38,8 +38,7 @@
         }
 
         #app-content {
-            display: none;
-            /* Hidden until loaded */
+            display: block;
         }
 
         .loader-spinner {
@@ -77,25 +76,7 @@
         <div class="loader-text">Loading Agri-LMS...</div>
     </div>
 
-    <!-- Login Container (Overlay) - Initially Hidden -->
-    <div id="login-container"
-        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10000; background: linear-gradient(135deg, #166534, #15803d); flex-direction: column; justify-content: center; align-items: center;">
-        <div
-            style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px; text-align: center;">
-            <div style="font-size: 3rem; color: #16a34a; margin-bottom: 1rem;"><i class="fas fa-seedling"></i></div>
-            <h2 style="margin-bottom: 0.5rem; color: #1f2937; font-family: sans-serif;">Welcome Back</h2>
-            <p style="color: #6b7280; margin-bottom: 2rem; font-family: sans-serif;">Sign in to access your dashboard
-            </p>
-
-            <button id="spa-google-btn"
-                style="width: 100%; padding: 12px; background: white; border: 1px solid #d1d5db; color: #374151; border-radius: 8px; font-weight: 500; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px; transition: all 0.2s;">
-                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" width="20">
-                Continue with Google
-            </button>
-            <div id="login-error-msg" style="color: red; margin-top: 10px; font-size: 0.9em; display: none;"></div>
-        </div>
-    </div>
-
+    <!-- Login Container Removed -->
     <!-- Main App Content (Hidden Initially) -->
     <div id="app-content">
 
@@ -329,23 +310,18 @@
         </div>
     </div> <!-- End of app-content -->
 
-    <!-- Safety Fallback Script: If things take too long (5s), assume error or not logged in -->
-    <!-- Safety Fallback Script -->
     <script>
-        setTimeout(() => {
+        window.addEventListener('load', () => {
             const loader = document.getElementById('app-loader');
-            const manualBtn = document.getElementById('manual-login-btn');
-
-            if (loader && loader.style.display !== 'none') {
-                console.warn('App took too long. Showing manual login...');
-                if (manualBtn) manualBtn.style.display = 'block';
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 500);
             }
-        }, 3000); 
+        });
     </script>
 
     <!-- Scripts -->
     <div id="toast-container" class="toast-container"></div>
-    <script type="module" src="js/auth-guard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <!-- Core Data Scripts -->
     <script src="js/comprehensive-structure.js"></script>
