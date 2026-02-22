@@ -56,7 +56,7 @@ If you prefer deploying directly from your computer without GitHub sync (useful 
 
 ## ✅ VERIFICATION AFTER DEPLOY
 
-Once deployed, you will get a URL like `agri-lms.vercel.app`.
+Once deployed, you will get a URL like `agri-lms-ru-smb.vercel.app`.
 
 Test the following:
 1. **Homepage:** Check if the farm animation loads.

@@ -22,7 +22,7 @@ npm start
 Simply open `index.html` in any modern browser.
 
 ## 🌐 Live Demo
-- **Vercel**: [https://agri-lms.vercel.app](https://agri-lms.vercel.app)
+- **Vercel**: [https://agri-lms-ru-smb.vercel.app](https://agri-lms-ru-smb.vercel.app)
 
 ## ✨ Features
 

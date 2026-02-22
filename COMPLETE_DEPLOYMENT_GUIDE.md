@@ -17,7 +17,7 @@ We intentionally **removed `firebase.json`** from the project because it conflic
 3. **Authentication**:
    - Enable **Email/Password**.
    - Enable **Google**.
-   - **IMPORTANT**: Go to **Settings** > **Authorized domains** > Add **`agri-smb-aut.vercel.app`**.
+   - **IMPORTANT**: Go to **Settings** > **Authorized domains** > Add **`agri-lms-ru-smb.vercel.app`**.
 4. **Firestore Database**:
    - Create Database in **Production Mode**.
    - **Rules** (Copy & Paste):
@@ -46,7 +46,7 @@ We intentionally **removed `firebase.json`** from the project because it conflic
 2. Vercel automatically deploys when you push to `main`.
 
 ### Step 2.2: Verify Fixes
-1. Visit **[https://agri-smb-aut.vercel.app](https://agri-smb-aut.vercel.app)**.
+1. Visit **[https://agri-lms-ru-smb.vercel.app](https://agri-lms-ru-smb.vercel.app)**.
 2. **Hard Refresh** (`Ctrl + F5`) to clear old cache.
 3. If you aren't logged in, it should redirect to **Login** within 4 seconds.
 4. If it takes too long, click the **Green Manual Login Button**.
