@@ -540,3 +540,94 @@ pre::before {
         opacity: 0;
     }
 }
+
+/* ==================== AI KITCHEN ACADEMY HIGHLIGHT ==================== */
+
+.ai-kitchen-banner {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border: 2px solid #f59e0b;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 4rem auto;
+    max-width: 900px;
+    text-align: center;
+    box-shadow: 0 20px 40px -10px rgba(245, 158, 11, 0.2);
+    position: relative;
+    overflow: hidden;
+    border-left: 8px solid #f59e0b;
+}
+
+.ai-kitchen-banner::after {
+    content: '\f2e7'; /* fa-utensils */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 8rem;
+    color: rgba(245, 158, 11, 0.05);
+    transform: rotate(15deg);
+}
+
+.ai-kitchen-title {
+    color: #92400e;
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin-bottom: 1.2rem;
+    line-height: 1.1;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.03em;
+}
+
+.ai-kitchen-subtitle {
+    color: #b45309;
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
+
+.ai-kitchen-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #f59e0b !important;
+    color: white !important;
+    text-decoration: none;
+    padding: 16px 36px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4) !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.ai-kitchen-btn:hover {
+    background: #d97706 !important;
+    transform: translateY(-5px) scale(1.02) !important;
+    box-shadow: 0 12px 30px rgba(217, 119, 6, 0.5) !important;
+}
+
+.ai-kitchen-btn i {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .ai-kitchen-banner {
+        padding: 2rem 1.5rem;
+        margin: 2.5rem 1rem;
+    }
+    
+    .ai-kitchen-title {
+        font-size: 1.6rem;
+    }
+    
+    .ai-kitchen-subtitle {
+        font-size: 1.1rem;
+    }
+}
