@@ -48,7 +48,12 @@ const HandoutLoader = {
             newContentAdded = true;
         }
 
-        // Combine Module 3 handouts
+        // Module 3
+        if (!this.loadedModules.m3p4 && typeof module3HandoutsPart4 !== 'undefined') {
+            Object.assign(this.handouts, module3HandoutsPart4);
+            this.loadedModules.m3p4 = true;
+            newContentAdded = true;
+        }
         if (!this.loadedModules.m3 && typeof module3Handouts !== 'undefined') {
             Object.assign(this.handouts, module3Handouts);
             this.loadedModules.m3 = true;
@@ -67,6 +72,11 @@ const HandoutLoader = {
 
 
         // Combine Module 4 handouts
+        if (!this.loadedModules.m4p3 && typeof module4HandoutsPart3 !== 'undefined') {
+            Object.assign(this.handouts, module4HandoutsPart3);
+            this.loadedModules.m4p3 = true;
+            newContentAdded = true;
+        }
         if (!this.loadedModules.m4 && typeof module4Handouts !== 'undefined') {
             Object.assign(this.handouts, module4Handouts);
             this.loadedModules.m4 = true;

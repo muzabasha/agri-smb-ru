@@ -330,8 +330,7 @@ res = linprog(c, A_ub=A, b_ub=b, bounds=bounds, method='highs')
 
 print(f"Optimal Urea: {res.x[0]:.1f} kg")
 print(f"Optimal DAP: {res.x[1]:.1f} kg")
-print(f"Total Cost: ${res.fun: .2f
-}")
+print(f"Total Cost: \${res.fun: .2f}")
                 </code></pre>
             </div>
         </div>
@@ -455,7 +454,7 @@ print(f"Next 3 days temp forecast: {forecast}")
             </div>
         </div>
     `,
-    
+
     'm3-t21': `
     <div class="handout-premium" >
             <div class="topic-header">
@@ -526,7 +525,7 @@ else:
             </div>
         </div>
     `,
-    
+
     'm3-t23': `
     <div class="handout-premium" >
             <div class="topic-header">

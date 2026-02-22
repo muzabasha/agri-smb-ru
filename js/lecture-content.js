@@ -416,6 +416,18 @@ crop_efficiency = [<span style="color: #60a5fa;">95, 88, 75, 60, 98</span>]
         return mod ? mod.title : "Agri-LMS Module";
     }
 
+    getAllTopicIds() {
+        const ids = [];
+        if (this.structure) {
+            for (const module of this.structure.modules) {
+                for (const topic of module.topics) {
+                    ids.push(topic.id);
+                }
+            }
+        }
+        return ids;
+    }
+
     getTopic(topicId) {
         let topic = { id: topicId, title: "Topic " + topicId, subtopics: [] };
         if (this.structure) {
