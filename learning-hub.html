@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn by Watching Hub - AI/ML in Agriculture</title>
+    <link rel="icon" type="image/x-icon" href="/images/agri-ai-logo.jpg">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .quiz-hero {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .quiz-hero h2 {
+            font-size: 2.5rem;
+            color: #166534;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-hero p {
+            font-size: 1.2rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .quiz-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .stat-card i {
+            font-size: 2rem;
+            color: #f59e0b;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card h3 {
+            font-size: 2rem;
+            color: #92400e;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-card p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .module-section {
+            margin: 3rem 0;
+        }
+
+        .module-header {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .module-header i {
+            font-size: 2rem;
+        }
+
+        .module-header h3 {
+            font-size: 1.5rem;
+        }
+
+        .quiz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-card {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #fcd34d;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(245, 158, 11, 0.2);
+            border-color: #f59e0b;
+        }
+
+        .quiz-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+
+        .quiz-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 8px rgba(245, 158, 11, 0.3);
+        }
+
+        .quiz-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .quiz-card h4 {
+            color: #92400e;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .quiz-card p {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.85rem;
+            color: #d97706;
+        }
+
+        .meta-item i {
+            font-size: 0.9rem;
+        }
+
+        .quiz-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 0.7rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .quiz-link:hover {
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            transform: scale(1.02);
+        }
+
+        .quiz-link i {
+            font-size: 1rem;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .difficulty.easy {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .difficulty.medium {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .difficulty.hard {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .tips-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .tips-section h3 {
+            color: #166534;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tip-card {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .tip-card h4 {
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tip-card p {
+            color: #374151;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .quiz-hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .quiz-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .header .container {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .header h1 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1><i class="fas fa-video"></i> Learn by Watching Hub</h1>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Course
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="quiz-hero">
+            <h2>Learn by Watching</h2>
+            <p>Interactive audio lessons covering Python fundamentals, machine learning concepts, and agricultural
+                applications</p>
+        </div>
+
+        <!-- Stats -->
+        <div class="quiz-stats">
+            <div class="stat-card">
+                <i class="fas fa-headphones"></i>
+                <h3>18</h3>
+                <p>Audio Lessons</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-book-open"></i>
+                <h3>3</h3>
+                <p>Modules Covered</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-clock"></i>
+                <h3>Learn</h3>
+                <p>At Your Pace</p>
+            </div>
+        </div>
+
+        <!-- Module 1 Quizzes -->
+        <div class="module-section">
+            <div class="module-header">
+                <i class="fas fa-brain"></i>
+                <div>
+                    <h3>Module 1: Fundamentals</h3>
+                    <p style="font-size: 0.9rem; opacity: 0.9;">AI Basics, Math Foundations & Python</p>
+                </div>
+            </div>
+            <div class="quiz-grid">
+                <!-- Module 1 General Quiz -->
+                <div class="quiz-card">
+                    <div class="quiz-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h4>Module 1 Comprehensive Quiz</h4>
+                    <p>Test your understanding of AI/ML fundamentals and Python basics</p>
+                    <div class="quiz-meta">
+                        <span class="meta-item"><i class="fas fa-question-circle"></i> Multiple Topics</span>
+                        <span class="difficulty easy">Beginner</span>
+                    </div>
+                    <a href="https://quiz-app-three-khaki.vercel.app/" target="_blank" class="quiz-link">
+                        Start Quiz <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <!-- Linear Algebra Quiz -->
+                <div class="quiz-card">
+                    <div class="quiz-icon">
+                        <i class="fas fa-square-root-alt"></i>
+                    </div>
+                    <h4>Linear Algebra Quiz</h4>
+                    <p>Vectors, matrices, and operations essential for machine learning</p>
+                    <div class="quiz-meta">
+                        <span class="meta-item"><i class="fas fa-calculator"></i> Math Foundations</span>
+                        <span class="difficulty medium">Intermediate</span>
+                    </div>
+                    <a href="https://notebooklm.google.com/notebook/a003dc27-40b7-441f-a540-feada6110c5c?artifactId=94402f68-f4b8-46c7-bc7a-d0ba886d6b32"
+                        target="_blank" class="quiz-link">
+                        Start Quiz <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <!-- Statistics Quiz -->
+                <div class="quiz-card">
+                    <div class="quiz-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h4>Statistics Quiz</h4>
+                    <p>Probability, distributions, and statistical concepts for data science</p>
+                    <div class="quiz-meta">
+                        <span class="meta-item"><i class="fas fa-chart-pie"></i> Statistics</span>
+                        <span class="difficulty medium">Intermediate</span>
+                    </div>
+                    <a href="https://notebooklm.google.com/notebook/217f986c-ff46-463a-b53a-f984d6772604?artifactId=c8eb580d-081c-4ef2-9501-9d4f59d63a15"
+                        target="_blank" class="quiz-link">
+                        Start Quiz <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Module 2 Quizzes -->
+        <div class="module-section">
+            <div class="module-header">
+                <i class="fas fa-code"></i>
+                <div>
+                    <h3>Module 2: Python & ML Fundamentals</h3>
+                    <p style="font-size: 0.9rem; opacity: 0.9;">NumPy, Pandas, Visualization & ML Basics</p>
+                </div>
+            </div>
+            <div class="quiz-grid">
+                <!-- NumPy Quiz -->
+                <div class="quiz-card">
+                    <div class="quiz-icon">
+                        <i class="fas fa-table"></i>
+                    </div>
+                    <h4>NumPy Quiz</h4>
+                    <p>Arrays, operations, and numerical computing with NumPy</p>
+                    <div class="quiz-meta">
+                        <span class="meta-item"><i class="fas fa-code"></i> Python Libraries</span>
+                        <span class="difficulty easy">Beginner</span>
+                    </div>
+                    <a href="https://notebooklm.google.com/notebook/fd5ab6f7-b23a-48cc-af03-d7c7e7fc780b?artifactId=50c89bc9-19ef-4d32-a35d-f54357a1b583"
+                        target="_blank" class="quiz-link">
+                        Start Quiz <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <!-- Matrix Operations Quiz -->
+                <div class="quiz-card">
+                    <div class="quiz-icon">
+                        <i class="fas fa-th"></i>
+                    </div>
+                    <h4>Matrix Operations Quiz</h4>
+                    <p>Matrix multiplication, transpose, and advanced operations</p>
+                    <div class="quiz-meta">
+                        <span class="meta-item"><i class="fas fa-calculator"></i> Linear Algebra</span>
+                        <span class="difficulty medium">Intermediate</span>
+                    </div>
+                    <a href="https://notebooklm.google.com/notebook/fb166e0a-8c4c-48a6-893d-3c226836d62c?artifactId=53f04a93-750d-4bcc-b929-47b04c0bb6d8"
+                        target="_blank" class="quiz-link">
+                        Start Quiz <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <!-- Data Visualization Quiz -->
+                <div class="quiz-card">
+                    <div class="quiz-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>Data Visualization Quiz</h4>
+                    <p>Matplotlib, Seaborn, and effective data visualization techniques</p>
+                    <div class="quiz-meta">
+                        <span class="meta-item"><i class="fas fa-image"></i> Visualization</span>
+                        <span class="difficulty easy">Beginner</span>
+                    </div>
+                    <a href="https://notebooklm.google.com/notebook/6627cc83-93db-4fc0-9e8d-e84c9ad0c3ca?artifactId=b8c754d6-fe47-4ef1-ad73-4ee38f78b299"
+                        target="_blank" class="quiz-link">
+                        Start Quiz <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <!-- ML Dataflow Quiz -->
+                <div class="quiz-card">
+                    <div class="quiz-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h4>Machine Learning Dataflow Quiz</h4>
+                    <p>ML pipeline, workflow, and data processing concepts</p>
+                    <div class="quiz-meta">
+                        <span class="meta-item"><i class="fas fa-cogs"></i> ML Workflow</span>
+                        <span class="difficulty medium">Intermediate</span>
+                    </div>
+                    <a href="https://notebooklm.google.com/notebook/afde1e14-e0c3-4466-b808-6b17404bb1b7?artifactId=0e1a75ed-1928-427b-af6f-bd6b62e951c4"
+                        target="_blank" class="quiz-link">
+                        Start Quiz <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <!-- Data Analysis Quiz -->
+                <div class="quiz-card">
+                    <div class="quiz-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4>Data Analysis & Analytics Quiz</h4>
+                    <p>Pandas, data manipulation, and analytical techniques</p>
+                    <div class="quiz-meta">
+                        <span class="meta-item"><i class="fas fa-table"></i> Data Analysis</span>
+                        <span class="difficulty medium">Intermediate</span>
+                    </div>
+                    <a href="https://notebooklm.google.com/notebook/485bc58f-5d8d-4019-be36-8bfe304aa52a?artifactId=8a8e0861-5a38-4328-83a9-05bcf058c659"
+                        target="_blank" class="quiz-link">
+                        Start Quiz <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Module 3 Quizzes -->
+        <div class="module-section">
+            <div class="module-header">
+                <i class="fas fa-seedling"></i>
+                <div>
+                    <h3>Module 3: AI/ML Applications in Agriculture</h3>
+                    <p style="font-size: 0.9rem; opacity: 0.9;">Deep Learning, CNNs & Agricultural Applications</p>
+                </div>
+            </div>
+            <div class="quiz-grid">
+                <!-- ANN Quiz -->
+                <div class="quiz-card">
+                    <div class="quiz-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h4>Artificial Neural Networks Quiz</h4>
+                    <p>Neural network architecture, backpropagation, and training</p>
+                    <div class="quiz-meta">
+                        <span class="meta-item"><i class="fas fa-brain"></i> Deep Learning</span>
+                        <span class="difficulty hard">Advanced</span>
+                    </div>
+                    <a href="https://notebooklm.google.com/notebook/5a6c47b7-43a0-4452-891e-c5d39f6c97f2?artifactId=5685cebe-5be6-4fd2-a029-67ffa6db52ad"
+                        target="_blank" class="quiz-link">
+                        Start Quiz <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <!-- Feature Selection Quiz -->
+                <div class="quiz-card">
+                    <div class="quiz-icon">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <h4>Feature Selection Quiz</h4>
+                    <p>Feature engineering, selection methods, and dimensionality reduction</p>
+                    <div class="quiz-meta">
+                        <span class="meta-item"><i class="fas fa-sliders-h"></i> Feature Engineering</span>
+                        <span class="difficulty medium">Intermediate</span>
+                    </div>
+                    <a href="https://notebooklm.google.com/notebook/701e1623-6762-465d-8c58-1619b4be1440?artifactId=90188461-5647-494e-8d65-a98bed726073"
+                        target="_blank" class="quiz-link">
+                        Start Quiz <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <!-- CNN Quiz -->
+                <div class="quiz-card">
+                    <div class="quiz-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h4>Convolutional Neural Networks Quiz</h4>
+                    <p>CNN architecture, image processing, and computer vision</p>
+                    <div class="quiz-meta">
+                        <span class="meta-item"><i class="fas fa-image"></i> Computer Vision</span>
+                        <span class="difficulty hard">Advanced</span>
+                    </div>
+                    <a href="https://notebooklm.google.com/notebook/e092a44e-f8e8-4389-95d7-6ddb11581e00?artifactId=749c125d-43ed-41e0-9c64-0e96f8fba705"
+                        target="_blank" class="quiz-link">
+                        Start Quiz <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tips Section -->
+        <div class="tips-section">
+            <h3><i class="fas fa-lightbulb"></i> Quiz Tips & Best Practices</h3>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4><i class="fas fa-book-reader"></i> Review First</h4>
+                    <p>Go through the course material before attempting quizzes for better understanding</p>
+                </div>
+                <div class="tip-card">
+                    <h4><i class="fas fa-clock"></i> Take Your Time</h4>
+                    <p>Don't rush. Read each question carefully and think through your answers</p>
+                </div>
+                <div class="tip-card">
+                    <h4><i class="fas fa-redo"></i> Practice Makes Perfect</h4>
+                    <p>Retake quizzes to reinforce learning and improve your scores</p>
+                </div>
+                <div class="tip-card">
+                    <h4><i class="fas fa-notes-medical"></i> Learn from Mistakes</h4>
+                    <p>Review incorrect answers to understand concepts better</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/auth-guard.js"></script>
+</body>
+
+</html>
