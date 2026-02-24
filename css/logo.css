@@ -58,17 +58,16 @@
     /* Separate from GKVK */
 }
 
-.instructor-logo {
-    width: 55px !important;
-    height: 55px !important;
-    border-radius: 50%;
-    object-fit: cover !important;
-    border: 2px solid #16a34a;
-    background: #fff;
-    padding: 1px;
+.instructor-text {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #16a34a;
     margin-left: 15px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 6px 12px;
+    border: 1.5px solid #16a34a;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    background: white;
 }
 
 .instructor-link {
@@ -77,10 +76,11 @@
     text-decoration: none;
 }
 
-.instructor-link:hover .instructor-logo {
-    transform: scale(1.1);
-    border-color: #27ae60;
-    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
+.instructor-link:hover .instructor-text {
+    background: #16a34a;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(22, 163, 74, 0.2);
 }
 
 /* --------------------------------------------------------------------------
@@ -167,13 +167,13 @@
     }
 
     .sdg-logo,
-    .instructor-logo {
+    .instructor-text {
         margin-left: 10px;
     }
 
-    .instructor-logo {
-        height: 45px !important;
-        width: 45px !important;
+    .instructor-text {
+        font-size: 0.95rem;
+        padding: 4px 10px;
     }
 }
 
@@ -215,13 +215,13 @@
     .reva-logo,
     .gkvk-logo,
     .sdg-logo,
-    .instructor-logo {
+    .instructor-text {
         margin: 0;
     }
 
-    .instructor-logo {
-        height: 32px !important;
-        width: 32px !important;
+    .instructor-text {
+        font-size: 0.8rem;
+        padding: 2px 6px;
     }
 
     /* Resize Central Icon */
