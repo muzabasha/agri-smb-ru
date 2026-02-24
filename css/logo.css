@@ -58,6 +58,31 @@
     /* Separate from GKVK */
 }
 
+.instructor-logo {
+    width: 55px !important;
+    height: 55px !important;
+    border-radius: 50%;
+    object-fit: cover !important;
+    border: 2px solid #16a34a;
+    background: #fff;
+    padding: 1px;
+    margin-left: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.instructor-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.instructor-link:hover .instructor-logo {
+    transform: scale(1.1);
+    border-color: #27ae60;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
+}
+
 /* --------------------------------------------------------------------------
    Existing Vector Logo Styles (Preserved & Enhanced)
    -------------------------------------------------------------------------- */
@@ -141,8 +166,14 @@
         margin-left: 10px;
     }
 
-    .sdg-logo {
+    .sdg-logo,
+    .instructor-logo {
         margin-left: 10px;
+    }
+
+    .instructor-logo {
+        height: 45px !important;
+        width: 45px !important;
     }
 }
 
@@ -183,8 +214,14 @@
     /* Remove extra margins to save space */
     .reva-logo,
     .gkvk-logo,
-    .sdg-logo {
+    .sdg-logo,
+    .instructor-logo {
         margin: 0;
+    }
+
+    .instructor-logo {
+        height: 32px !important;
+        width: 32px !important;
     }
 
     /* Resize Central Icon */
