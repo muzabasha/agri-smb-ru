@@ -1,0 +1,171 @@
+/* Topic Introductions Styling */
+
+.topic-introduction {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-left: 5px solid #0ea5e9;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 30px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.topic-introduction h2 {
+    color: #0c4a6e;
+    font-size: 2em;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #0ea5e9;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.intro-content {
+    display: grid;
+    gap: 25px;
+}
+
+.intro-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.intro-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.intro-section h3 {
+    color: #0369a1;
+    font-size: 1.3em;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.intro-section p {
+    color: #334155;
+    line-height: 1.8;
+    font-size: 1.05em;
+    margin-bottom: 12px;
+}
+
+.intro-section ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.intro-section ul li {
+    color: #475569;
+    line-height: 1.8;
+    padding-left: 30px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.intro-section ul li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #10b981;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Specific section styling */
+.intro-section:nth-child(1) {
+    border-left: 4px solid #3b82f6;
+}
+
+.intro-section:nth-child(2) {
+    border-left: 4px solid #8b5cf6;
+}
+
+.intro-section:nth-child(3) {
+    border-left: 4px solid #f59e0b;
+}
+
+.intro-section:nth-child(4) {
+    border-left: 4px solid #10b981;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .topic-introduction {
+        padding: 20px;
+        margin: 20px 0;
+    }
+
+    .topic-introduction h2 {
+        font-size: 1.5em;
+    }
+
+    .intro-section {
+        padding: 15px;
+    }
+
+    .intro-section h3 {
+        font-size: 1.1em;
+    }
+
+    .intro-section p {
+        font-size: 1em;
+    }
+}
+
+/* Print styles */
+@media print {
+    .topic-introduction {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+
+    .intro-section {
+        page-break-inside: avoid;
+        box-shadow: none;
+    }
+}
+
+/* Animation for when introductions load */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.topic-introduction {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.intro-section {
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.intro-section:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.intro-section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.intro-section:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.intro-section:nth-child(4) {
+    animation-delay: 0.4s;
+}
