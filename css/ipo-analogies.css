@@ -1,0 +1,308 @@
+/* IPO Model and Analogies Styling */
+
+.farming-analogy {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-left: 5px solid #f59e0b;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+}
+
+.farming-analogy h2 {
+    color: #92400e;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.analogy-box {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.analogy-box p {
+    color: #374151;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.analogy-box strong {
+    color: #92400e;
+    font-weight: 600;
+}
+
+.analogy-box ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.analogy-box ul li {
+    padding: 0.5rem 0;
+    padding-left: 2rem;
+    position: relative;
+    color: #4b5563;
+}
+
+.analogy-box ul li:before {
+    content: "→";
+    position: absolute;
+    left: 0.5rem;
+    color: #f59e0b;
+    font-weight: bold;
+}
+
+/* IPO Model Container */
+.ipo-model {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ipo-model h2 {
+    color: #166534;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ipo-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.ipo-section {
+    border-radius: 10px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.ipo-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+}
+
+/* Input Section */
+.ipo-section.input {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+}
+
+.ipo-section.input::before {
+    background: #3b82f6;
+}
+
+.ipo-section.input h3 {
+    color: #1e40af;
+}
+
+/* Processing Section */
+.ipo-section.processing {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+}
+
+.ipo-section.processing::before {
+    background: #f59e0b;
+}
+
+.ipo-section.processing h3 {
+    color: #92400e;
+}
+
+/* Output Section */
+.ipo-section.output {
+    background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+}
+
+.ipo-section.output::before {
+    background: #16a34a;
+}
+
+.ipo-section.output h3 {
+    color: #166534;
+}
+
+.ipo-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.ipo-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.ipo-section ul li {
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #374151;
+    line-height: 1.6;
+}
+
+.ipo-section ul li:before {
+    content: "•";
+    position: absolute;
+    left: 0.3rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.ipo-section.input ul li:before {
+    color: #3b82f6;
+}
+
+.ipo-section.processing ul li:before {
+    color: #f59e0b;
+}
+
+.ipo-section.output ul li:before {
+    color: #16a34a;
+}
+
+.ipo-section ul ul {
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+}
+
+.ipo-section ul ul li {
+    font-size: 0.9rem;
+    padding: 0.3rem 0;
+}
+
+.ipo-section strong {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* IPO Code Example */
+.ipo-code-example {
+    background: #1f2937;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-left: 4px solid #16a34a;
+}
+
+.ipo-code-example h4 {
+    color: #10b981;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.ipo-code-example pre {
+    background: #111827;
+    border-radius: 6px;
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+.ipo-code-example code {
+    color: #e5e7eb;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Flow Arrows in Code */
+.ipo-code-example code::after {
+    content: '';
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .ipo-container {
+        grid-template-columns: 1fr;
+    }
+
+    .farming-analogy {
+        padding: 1.5rem;
+    }
+
+    .ipo-model {
+        padding: 1.5rem;
+    }
+
+    .ipo-code-example {
+        padding: 1rem;
+    }
+
+    .ipo-code-example code {
+        font-size: 0.8rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+
+    .farming-analogy,
+    .ipo-model {
+        page-break-inside: avoid;
+    }
+
+    .ipo-container {
+        display: block;
+    }
+
+    .ipo-section {
+        margin-bottom: 1rem;
+        page-break-inside: avoid;
+    }
+}
+
+/* Animation for IPO Flow */
+@keyframes flow-animation {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.ipo-section {
+    animation: flow-animation 3s ease-in-out infinite;
+}
+
+.ipo-section.input {
+    animation-delay: 0s;
+}
+
+.ipo-section.processing {
+    animation-delay: 1s;
+}
+
+.ipo-section.output {
+    animation-delay: 2s;
+}
+
+/* Hover Effects */
+.ipo-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.farming-analogy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(245, 158, 11, 0.25);
+    transition: all 0.3s ease;
+}
