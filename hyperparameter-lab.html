@@ -594,6 +594,14 @@
                             <option value="gradient_boosting">Gradient Boosting</option>
                             <option value="svm">Support Vector Machine</option>
                             <option value="neural_network">Neural Network (MLP)</option>
+                            <option value="knn">K-Nearest Neighbors</option>
+                            <option value="decision_tree">Decision Tree</option>
+                            <option value="logistic_regression">Logistic Regression</option>
+                            <option value="linear_regression">Linear / Ridge Regression</option>
+                            <option value="naive_bayes">Naive Bayes</option>
+                            <option value="xgboost">XGBoost</option>
+                            <option value="adaboost">AdaBoost</option>
+                            <option value="lasso">Lasso Regression</option>
                         </select>
                     </div>
                 </div>
@@ -848,6 +856,50 @@
                 { id: 'learning_rate', label: 'Learning Rate', min: 0.0001, max: 0.1, value: 0.001, step: 0.0001, hint: 'Step size for gradient descent' },
                 { id: 'epochs', label: 'Training Epochs', min: 10, max: 500, value: 100, step: 10, hint: 'Number of passes through the training data' },
                 { id: 'dropout', label: 'Dropout Rate', min: 0, max: 0.8, value: 0.2, step: 0.05, hint: 'Regularization: randomly drops neurons during training' }
+            ],
+            knn: [
+                { id: 'n_neighbors', label: 'Number of Neighbors (K)', min: 1, max: 50, value: 5, step: 1, hint: 'Small K = complex boundary (overfit risk), Large K = smooth boundary (underfit risk)' },
+                { id: 'weight_power', label: 'Distance Weight Power', min: 1, max: 5, value: 2, step: 1, hint: '1=Manhattan, 2=Euclidean, higher=Minkowski emphasis on large differences' },
+                { id: 'leaf_size', label: 'Leaf Size (tree query)', min: 10, max: 100, value: 30, step: 5, hint: 'Affects query speed, not accuracy directly' }
+            ],
+            decision_tree: [
+                { id: 'max_depth', label: 'Max Depth', min: 1, max: 30, value: 5, step: 1, hint: 'Deeper tree = more complex, higher overfit risk' },
+                { id: 'min_samples_split', label: 'Min Samples to Split', min: 2, max: 50, value: 2, step: 1, hint: 'Higher = more pruning, less overfitting' },
+                { id: 'min_samples_leaf', label: 'Min Samples per Leaf', min: 1, max: 30, value: 1, step: 1, hint: 'Larger leaves = simpler model' },
+                { id: 'max_features', label: 'Max Features (%)', min: 10, max: 100, value: 100, step: 10, hint: 'Percentage of features considered at each split' }
+            ],
+            logistic_regression: [
+                { id: 'C', label: 'Regularization Strength (C)', min: 0.01, max: 100, value: 1.0, step: 0.5, hint: 'Higher C = less regularization, tighter fit to training data' },
+                { id: 'max_iter', label: 'Max Iterations', min: 50, max: 1000, value: 100, step: 50, hint: 'More iterations for convergence on complex data' },
+                { id: 'l1_ratio', label: 'L1 Ratio (ElasticNet)', min: 0, max: 1, value: 0.5, step: 0.1, hint: '0=Ridge (L2), 1=Lasso (L1), between=ElasticNet mix' }
+            ],
+            linear_regression: [
+                { id: 'alpha', label: 'Ridge Alpha (λ)', min: 0, max: 100, value: 1.0, step: 0.5, hint: 'Regularization strength: 0=OLS, higher=more shrinkage' },
+                { id: 'fit_intercept', label: 'Fit Intercept (1=Yes)', min: 0, max: 1, value: 1, step: 1, hint: 'Whether to calculate the intercept term' },
+                { id: 'normalize_power', label: 'Feature Polynomial Degree', min: 1, max: 4, value: 1, step: 1, hint: '1=Linear, 2+=Polynomial features for non-linear patterns' }
+            ],
+            naive_bayes: [
+                { id: 'var_smoothing', label: 'Variance Smoothing (log₁₀)', min: -12, max: -1, value: -9, step: 1, hint: 'Portion of largest variance added for stability. Default 1e-9' },
+                { id: 'prior_weight', label: 'Prior Weight Strength', min: 0.1, max: 2.0, value: 1.0, step: 0.1, hint: 'How strongly class priors influence prediction' }
+            ],
+            xgboost: [
+                { id: 'n_estimators', label: 'Number of Trees', min: 10, max: 1000, value: 200, step: 10, hint: 'More trees = better fit but slower and overfit risk' },
+                { id: 'learning_rate', label: 'Learning Rate (eta)', min: 0.01, max: 1.0, value: 0.1, step: 0.01, hint: 'Shrinks contribution of each tree. Lower = needs more trees' },
+                { id: 'max_depth', label: 'Max Depth', min: 1, max: 15, value: 6, step: 1, hint: 'Deeper trees capture more interactions' },
+                { id: 'subsample', label: 'Row Subsample', min: 0.1, max: 1.0, value: 0.8, step: 0.1, hint: 'Fraction of rows used per tree (stochastic)' },
+                { id: 'colsample', label: 'Column Subsample', min: 0.1, max: 1.0, value: 0.8, step: 0.1, hint: 'Fraction of features used per tree' },
+                { id: 'reg_lambda', label: 'L2 Regularization (λ)', min: 0, max: 10, value: 1, step: 0.5, hint: 'Ridge penalty on leaf weights' },
+                { id: 'gamma', label: 'Min Split Loss (γ)', min: 0, max: 10, value: 0, step: 0.5, hint: 'Minimum loss reduction to make a split. Higher = more conservative' }
+            ],
+            adaboost: [
+                { id: 'n_estimators', label: 'Number of Weak Learners', min: 10, max: 500, value: 50, step: 10, hint: 'More learners = better fit but slower and overfit risk' },
+                { id: 'learning_rate', label: 'Learning Rate', min: 0.01, max: 2.0, value: 1.0, step: 0.05, hint: 'Shrinks contribution of each learner. Trade-off with n_estimators' },
+                { id: 'base_depth', label: 'Base Estimator Depth', min: 1, max: 5, value: 1, step: 1, hint: '1=Decision Stump (classic AdaBoost), higher=stronger base learner' }
+            ],
+            lasso: [
+                { id: 'alpha', label: 'Lasso Alpha (λ)', min: 0.001, max: 10, value: 0.1, step: 0.01, hint: 'L1 penalty: higher = more features driven to zero (feature selection)' },
+                { id: 'max_iter', label: 'Max Iterations', min: 100, max: 5000, value: 1000, step: 100, hint: 'Iterations for coordinate descent convergence' },
+                { id: 'normalize_power', label: 'Feature Polynomial Degree', min: 1, max: 4, value: 1, step: 1, hint: '1=Linear, 2+=Polynomial features before Lasso selection' }
             ]
         };
 
@@ -860,8 +912,10 @@
             const hp = params.hyperparams;
 
             // Base accuracy depends on algorithm + dataset combo
-            let baseAcc = { random_forest: 0.82, gradient_boosting: 0.85, svm: 0.78, neural_network: 0.80 }[algo];
+            let baseAcc = { random_forest: 0.82, gradient_boosting: 0.85, svm: 0.78, neural_network: 0.80, knn: 0.75, decision_tree: 0.72, logistic_regression: 0.70, linear_regression: 0.68, naive_bayes: 0.67, xgboost: 0.87, adaboost: 0.79, lasso: 0.66 }[algo];
             if (ds.type === 'classification') baseAcc -= 0.03;
+            // Linear/Ridge/Lasso get a boost on regression tasks
+            if (ds.type === 'regression' && ['linear_regression', 'lasso'].includes(algo)) baseAcc += 0.05;
 
             // Compute complexity score (0-1) from hyperparams
             let complexity = 0;
@@ -871,8 +925,24 @@
                 complexity = (hp.n_estimators / 500) * 0.3 + (hp.learning_rate / 1.0) * 0.2 + (hp.max_depth / 15) * 0.3 + (hp.subsample) * 0.2;
             } else if (algo === 'svm') {
                 complexity = Math.min(hp.C / 100, 1) * 0.4 + Math.min(hp.gamma / 10, 1) * 0.4 + (hp.kernel_degree / 5) * 0.2;
-            } else {
+            } else if (algo === 'neural_network') {
                 complexity = (hp.hidden_layers / 5) * 0.25 + (hp.neurons / 256) * 0.25 + (hp.learning_rate / 0.1) * 0.15 + (hp.epochs / 500) * 0.2 + (1 - hp.dropout / 0.8) * 0.15;
+            } else if (algo === 'knn') {
+                complexity = (1 - hp.n_neighbors / 50) * 0.7 + (hp.weight_power / 5) * 0.3;
+            } else if (algo === 'decision_tree') {
+                complexity = (hp.max_depth / 30) * 0.4 + (1 - hp.min_samples_split / 50) * 0.25 + (1 - hp.min_samples_leaf / 30) * 0.2 + (hp.max_features / 100) * 0.15;
+            } else if (algo === 'logistic_regression') {
+                complexity = Math.min(hp.C / 100, 1) * 0.5 + (hp.max_iter / 1000) * 0.2 + (hp.l1_ratio) * 0.3;
+            } else if (algo === 'linear_regression') {
+                complexity = (1 - Math.min(hp.alpha / 100, 1)) * 0.4 + (hp.normalize_power / 4) * 0.6;
+            } else if (algo === 'naive_bayes') {
+                complexity = ((hp.var_smoothing + 12) / 11) * 0.5 + (hp.prior_weight / 2) * 0.5;
+            } else if (algo === 'xgboost') {
+                complexity = (hp.n_estimators / 1000) * 0.2 + (hp.learning_rate / 1.0) * 0.15 + (hp.max_depth / 15) * 0.25 + (hp.subsample) * 0.1 + (hp.colsample) * 0.1 + (1 - hp.reg_lambda / 10) * 0.1 + (1 - hp.gamma / 10) * 0.1;
+            } else if (algo === 'adaboost') {
+                complexity = (hp.n_estimators / 500) * 0.4 + (hp.learning_rate / 2.0) * 0.3 + (hp.base_depth / 5) * 0.3;
+            } else if (algo === 'lasso') {
+                complexity = (1 - Math.min(hp.alpha / 10, 1)) * 0.4 + (hp.normalize_power / 4) * 0.5 + (hp.max_iter / 5000) * 0.1;
             }
             complexity = Math.max(0, Math.min(1, complexity));
 
@@ -892,6 +962,21 @@
             if (algo === 'gradient_boosting' && hp.learning_rate < 0.05) { testAcc += 0.02; trainAcc -= 0.01; }
             if (algo === 'neural_network' && hp.dropout > 0.4) { trainAcc -= 0.04; testAcc += 0.015; }
             if (algo === 'svm' && hp.C < 0.1) { trainAcc -= 0.05; testAcc -= 0.02; }
+            if (algo === 'knn' && hp.n_neighbors > 20) { trainAcc -= 0.06; testAcc -= 0.01; }
+            if (algo === 'knn' && hp.n_neighbors === 1) { trainAcc += 0.05; testAcc -= 0.08; }
+            if (algo === 'decision_tree' && hp.max_depth > 20) { trainAcc += 0.03; testAcc -= 0.06; }
+            if (algo === 'decision_tree' && hp.min_samples_split > 20) { trainAcc -= 0.04; testAcc += 0.015; }
+            if (algo === 'logistic_regression' && hp.C > 50) { trainAcc += 0.02; testAcc -= 0.03; }
+            if (algo === 'linear_regression' && hp.alpha > 50) { trainAcc -= 0.06; testAcc -= 0.02; }
+            if (algo === 'linear_regression' && hp.normalize_power >= 3) { trainAcc += 0.04; testAcc -= 0.05; }
+            if (algo === 'naive_bayes' && hp.var_smoothing > -3) { trainAcc -= 0.04; testAcc -= 0.02; }
+            if (algo === 'xgboost' && hp.learning_rate < 0.05 && hp.n_estimators > 300) { testAcc += 0.025; }
+            if (algo === 'xgboost' && hp.reg_lambda > 5) { trainAcc -= 0.02; testAcc += 0.01; }
+            if (algo === 'xgboost' && hp.gamma > 5) { trainAcc -= 0.03; testAcc += 0.01; }
+            if (algo === 'adaboost' && hp.learning_rate > 1.5) { trainAcc += 0.02; testAcc -= 0.04; }
+            if (algo === 'adaboost' && hp.base_depth > 3) { trainAcc += 0.03; testAcc -= 0.03; }
+            if (algo === 'lasso' && hp.alpha > 5) { trainAcc -= 0.08; testAcc -= 0.04; }
+            if (algo === 'lasso' && hp.normalize_power >= 3) { trainAcc += 0.04; testAcc -= 0.05; }
 
             // Split effect
             if (split < 0.65) { testAcc += 0.01; trainAcc -= 0.02; }
@@ -908,11 +993,11 @@
             cvScore = Math.max(0.3, Math.min(trainAcc, cvScore));
 
             // Training time simulation
-            let timeBase = { random_forest: 0.5, gradient_boosting: 1.2, svm: 0.8, neural_network: 2.0 }[algo];
+            let timeBase = { random_forest: 0.5, gradient_boosting: 1.2, svm: 0.8, neural_network: 2.0, knn: 0.3, decision_tree: 0.1, logistic_regression: 0.2, linear_regression: 0.05, naive_bayes: 0.03, xgboost: 1.5, adaboost: 0.7, lasso: 0.08 }[algo];
             let trainTime = timeBase * (1 + complexity * 3) * (ds.samples / 500);
 
             // Generate learning curve data
-            let epochs = algo === 'neural_network' ? hp.epochs : Math.round(20 + complexity * 80);
+            let epochs = algo === 'neural_network' ? hp.epochs : (algo === 'xgboost' || algo === 'gradient_boosting' || algo === 'adaboost') ? Math.min(hp.n_estimators, 200) : Math.round(20 + complexity * 80);
             let learningCurve = generateLearningCurve(trainAcc, testAcc, epochs, complexity, noise);
             let lossCurve = generateLossCurve(epochs, complexity, noise);
 
