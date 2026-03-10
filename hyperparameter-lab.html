@@ -536,6 +536,163 @@
         .tab-content.active {
             display: block;
         }
+
+        /* Dataset Info Panel */
+        .dataset-info-panel {
+            margin-top: 0.6rem;
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border: 1px solid #bae6fd;
+            border-radius: 8px;
+            padding: 0.8rem;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .dataset-info-panel .ds-desc {
+            color: #0c4a6e;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .dataset-info-panel .ds-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.3rem 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .dataset-info-panel .ds-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: #334155;
+        }
+
+        .dataset-info-panel .ds-meta-item i {
+            color: var(--primary);
+            font-size: 0.7rem;
+            width: 14px;
+            text-align: center;
+        }
+
+        .dataset-info-panel .ds-meta-item strong {
+            font-weight: 600;
+        }
+
+        .ds-section-title {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0.5rem 0 0.3rem;
+            border-top: 1px solid #bae6fd;
+            padding-top: 0.4rem;
+        }
+
+        .ds-feature-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.72rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .ds-feature-table th {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 0.25rem 0.4rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .ds-feature-table td {
+            padding: 0.2rem 0.4rem;
+            border-bottom: 1px solid #e0f2fe;
+            color: #334155;
+        }
+
+        .ds-feature-table tr:hover td {
+            background: #f0f9ff;
+        }
+
+        .ds-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.25rem 0.6rem;
+            font-size: 0.72rem;
+            color: #334155;
+        }
+
+        .ds-stats-grid span {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .ds-stats-grid .stat-label {
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .ds-usecases {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin-top: 0.3rem;
+        }
+
+        .ds-usecase-tag {
+            background: white;
+            color: #0369a1;
+            padding: 0.15rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.68rem;
+            font-weight: 500;
+            border: 1px solid #bae6fd;
+        }
+
+        .ds-classes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+            margin-top: 0.2rem;
+        }
+
+        .ds-class-tag {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.68rem;
+            font-weight: 600;
+        }
+
+        .ds-toggle-btn {
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 0.75rem;
+            cursor: pointer;
+            font-weight: 600;
+            padding: 0.2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .ds-toggle-btn:hover {
+            color: var(--primary-dark);
+        }
+
+        .ds-details-collapsible {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .ds-details-collapsible.open {
+            max-height: 600px;
+        }
     </style>
 </head>
 
@@ -585,7 +742,7 @@
                             <option value="soil">Soil Health Classification</option>
                             <option value="irrigation">Irrigation Requirement</option>
                         </select>
-                        <div class="control-hint" id="datasetHint">500 samples, 6 features, regression task</div>
+                        <div id="datasetInfoPanel"></div>
                     </div>
                     <div class="control-group">
                         <div class="control-label">Algorithm</div>
@@ -825,10 +982,86 @@
 
         // ===== DATASET CONFIGS =====
         const DATASETS = {
-            crop_yield: { name: 'Crop Yield', samples: 500, features: ['Rainfall', 'Temperature', 'Fertilizer', 'Soil pH', 'Irrigation', 'Pest Pressure'], type: 'regression', hint: '500 samples, 6 features, regression task' },
-            disease: { name: 'Plant Disease', samples: 3000, features: ['Leaf Color', 'Spot Size', 'Spot Count', 'Texture', 'Wilting', 'Discoloration'], type: 'classification', hint: '3000 images, 6 extracted features, 5-class classification' },
-            soil: { name: 'Soil Health', samples: 800, features: ['pH', 'Nitrogen', 'Phosphorus', 'Potassium', 'Organic Matter', 'Moisture'], type: 'classification', hint: '800 samples, 6 features, 3-class classification' },
-            irrigation: { name: 'Irrigation Need', samples: 600, features: ['Soil Moisture', 'Temperature', 'Humidity', 'Wind Speed', 'Crop Stage', 'ET₀'], type: 'regression', hint: '600 samples, 6 features, regression task' }
+            crop_yield: {
+                name: 'Crop Yield Prediction',
+                samples: 500, features: ['Rainfall', 'Temperature', 'Fertilizer', 'Soil pH', 'Irrigation', 'Pest Pressure'],
+                type: 'regression',
+                target: 'Yield (kg/hectare)',
+                classes: null,
+                source: 'Simulated from Indian Agricultural Statistics (Kharif & Rabi seasons)',
+                region: 'Karnataka, India',
+                description: 'Predict crop yield based on weather, soil, and management factors.',
+                featureDetails: [
+                    { name: 'Rainfall', unit: 'mm/season', range: '200–600', dtype: 'Continuous' },
+                    { name: 'Temperature', unit: '°C (avg)', range: '22–35', dtype: 'Continuous' },
+                    { name: 'Fertilizer', unit: 'kg/ha', range: '30–100', dtype: 'Continuous' },
+                    { name: 'Soil pH', unit: 'pH scale', range: '5.5–7.5', dtype: 'Continuous' },
+                    { name: 'Irrigation', unit: 'mm applied', range: '0–100', dtype: 'Continuous' },
+                    { name: 'Pest Pressure', unit: 'index (0–10)', range: '0–10', dtype: 'Continuous' }
+                ],
+                stats: { mean_target: '~2800 kg/ha', std_target: '~650 kg/ha', missing: '0%', imbalance: 'N/A (regression)' },
+                useCases: ['Harvest planning', 'Price negotiation', 'Storage allocation', 'Insurance assessment']
+            },
+            disease: {
+                name: 'Plant Disease Classification',
+                samples: 3000, features: ['Leaf Color', 'Spot Size', 'Spot Count', 'Texture', 'Wilting', 'Discoloration'],
+                type: 'classification',
+                target: 'Disease Class',
+                classes: ['Healthy', 'Bacterial Blight', 'Leaf Rust', 'Powdery Mildew', 'Leaf Spot'],
+                source: 'Derived from PlantVillage dataset (image features extracted via CNN)',
+                region: 'Global (14 crop species)',
+                description: 'Classify plant leaf images into healthy or one of 4 disease categories.',
+                featureDetails: [
+                    { name: 'Leaf Color', unit: 'HSV mean hue', range: '20–120', dtype: 'Continuous' },
+                    { name: 'Spot Size', unit: 'px² (avg)', range: '0–5000', dtype: 'Continuous' },
+                    { name: 'Spot Count', unit: 'count', range: '0–50', dtype: 'Integer' },
+                    { name: 'Texture', unit: 'GLCM entropy', range: '0.5–4.0', dtype: 'Continuous' },
+                    { name: 'Wilting', unit: 'score (0–1)', range: '0–1', dtype: 'Continuous' },
+                    { name: 'Discoloration', unit: '% area', range: '0–80', dtype: 'Continuous' }
+                ],
+                stats: { mean_target: 'N/A', std_target: 'N/A', missing: '0%', imbalance: 'Moderate (Healthy: 35%, others: ~16% each)' },
+                useCases: ['Early disease detection', 'Targeted pesticide application', 'Crop loss prevention', 'Farmer advisory apps']
+            },
+            soil: {
+                name: 'Soil Health Classification',
+                samples: 800, features: ['pH', 'Nitrogen', 'Phosphorus', 'Potassium', 'Organic Matter', 'Moisture'],
+                type: 'classification',
+                target: 'Soil Health Class',
+                classes: ['Poor', 'Moderate', 'Healthy'],
+                source: 'Simulated from ICAR soil survey data (Indian Council of Agricultural Research)',
+                region: 'South India (Red, Black, Laterite soils)',
+                description: 'Classify soil samples into health categories for fertilizer recommendation.',
+                featureDetails: [
+                    { name: 'pH', unit: 'pH scale', range: '4.5–8.5', dtype: 'Continuous' },
+                    { name: 'Nitrogen', unit: 'kg/ha', range: '100–500', dtype: 'Continuous' },
+                    { name: 'Phosphorus', unit: 'kg/ha', range: '10–80', dtype: 'Continuous' },
+                    { name: 'Potassium', unit: 'kg/ha', range: '50–400', dtype: 'Continuous' },
+                    { name: 'Organic Matter', unit: '% weight', range: '0.5–5.0', dtype: 'Continuous' },
+                    { name: 'Moisture', unit: '% vol', range: '10–45', dtype: 'Continuous' }
+                ],
+                stats: { mean_target: 'N/A', std_target: 'N/A', missing: '2.5%', imbalance: 'Slight (Poor: 25%, Moderate: 40%, Healthy: 35%)' },
+                useCases: ['Fertilizer optimization', 'Crop selection', 'Land valuation', 'Sustainable farming']
+            },
+            irrigation: {
+                name: 'Irrigation Requirement Prediction',
+                samples: 600, features: ['Soil Moisture', 'Temperature', 'Humidity', 'Wind Speed', 'Crop Stage', 'ET₀'],
+                type: 'regression',
+                target: 'Water Needed (mm/day)',
+                classes: null,
+                source: 'Simulated from FAO-56 Penman-Monteith reference data',
+                region: 'Semi-arid Karnataka, India',
+                description: 'Predict daily irrigation water requirement based on weather and crop conditions.',
+                featureDetails: [
+                    { name: 'Soil Moisture', unit: '% vol', range: '8–40', dtype: 'Continuous' },
+                    { name: 'Temperature', unit: '°C', range: '18–42', dtype: 'Continuous' },
+                    { name: 'Humidity', unit: '% RH', range: '20–90', dtype: 'Continuous' },
+                    { name: 'Wind Speed', unit: 'km/h', range: '2–25', dtype: 'Continuous' },
+                    { name: 'Crop Stage', unit: 'encoded (1–4)', range: '1–4', dtype: 'Ordinal' },
+                    { name: 'ET₀', unit: 'mm/day', range: '2–9', dtype: 'Continuous' }
+                ],
+                stats: { mean_target: '~4.2 mm/day', std_target: '~1.8 mm/day', missing: '1%', imbalance: 'N/A (regression)' },
+                useCases: ['Smart irrigation scheduling', 'Water conservation', 'Drip system control', 'Drought management']
+            }
         };
 
         // ===== ALGORITHM HYPERPARAMS =====
@@ -1345,12 +1578,83 @@
             renderHyperparams();
         }
 
+        // ===== DATASET INFO RENDERER =====
+        function renderDatasetInfo() {
+            const key = document.getElementById('dataset').value;
+            const ds = DATASETS[key];
+            const panel = document.getElementById('datasetInfoPanel');
+            const featCount = ds.features.length;
+
+            let html = `<div class="dataset-info-panel">
+                <div class="ds-desc">${ds.description}</div>
+                <div class="ds-meta">
+                    <div class="ds-meta-item"><i class="fas fa-table"></i> <strong>${ds.samples}</strong> samples</div>
+                    <div class="ds-meta-item"><i class="fas fa-columns"></i> <strong>${featCount}</strong> features</div>
+                    <div class="ds-meta-item"><i class="fas fa-bullseye"></i> ${ds.type}</div>
+                    <div class="ds-meta-item"><i class="fas fa-map-marker-alt"></i> ${ds.region}</div>
+                </div>
+                <div class="ds-meta-item" style="margin-bottom:0.3rem;"><i class="fas fa-crosshairs" style="color:var(--primary);font-size:0.7rem;width:14px;text-align:center;margin-right:0.3rem;"></i> <strong>Target:</strong>&nbsp;${ds.target}</div>`;
+
+            // Classes (for classification)
+            if (ds.classes) {
+                html += `<div style="margin-bottom:0.3rem;font-size:0.75rem;"><strong>Classes:</strong>
+                    <div class="ds-classes">${ds.classes.map(c => `<span class="ds-class-tag">${c}</span>`).join('')}</div></div>`;
+            }
+
+            // Toggle button for details
+            html += `<button class="ds-toggle-btn" onclick="toggleDatasetDetails()">
+                <i class="fas fa-chevron-down" id="dsToggleIcon"></i> Show Feature Details & Stats
+            </button>`;
+
+            // Collapsible details
+            html += `<div class="ds-details-collapsible" id="dsDetailsCollapsible">`;
+
+            // Feature table
+            html += `<div class="ds-section-title"><i class="fas fa-list"></i> Feature Details</div>
+                <table class="ds-feature-table">
+                    <thead><tr><th>Feature</th><th>Unit</th><th>Range</th><th>Type</th></tr></thead>
+                    <tbody>${ds.featureDetails.map(f => `<tr>
+                        <td>${f.name}</td><td>${f.unit}</td><td>${f.range}</td><td>${f.dtype}</td>
+                    </tr>`).join('')}</tbody>
+                </table>`;
+
+            // Stats
+            html += `<div class="ds-section-title"><i class="fas fa-chart-bar"></i> Dataset Statistics</div>
+                <div class="ds-stats-grid">
+                    <span><span class="stat-label">Mean Target:</span> ${ds.stats.mean_target}</span>
+                    <span><span class="stat-label">Std Target:</span> ${ds.stats.std_target}</span>
+                    <span><span class="stat-label">Missing:</span> ${ds.stats.missing}</span>
+                    <span><span class="stat-label">Imbalance:</span> ${ds.stats.imbalance}</span>
+                </div>`;
+
+            // Source
+            html += `<div class="ds-section-title"><i class="fas fa-database"></i> Source</div>
+                <div style="font-size:0.72rem;color:#475569;">${ds.source}</div>`;
+
+            // Use cases
+            html += `<div class="ds-section-title"><i class="fas fa-lightbulb"></i> Use Cases</div>
+                <div class="ds-usecases">${ds.useCases.map(u => `<span class="ds-usecase-tag">${u}</span>`).join('')}</div>`;
+
+            html += `</div></div>`;
+            panel.innerHTML = html;
+        }
+
+        function toggleDatasetDetails() {
+            const el = document.getElementById('dsDetailsCollapsible');
+            const icon = document.getElementById('dsToggleIcon');
+            el.classList.toggle('open');
+            if (el.classList.contains('open')) {
+                icon.className = 'fas fa-chevron-up';
+                icon.parentElement.innerHTML = '<i class="fas fa-chevron-up" id="dsToggleIcon"></i> Hide Feature Details & Stats';
+            } else {
+                icon.className = 'fas fa-chevron-down';
+                icon.parentElement.innerHTML = '<i class="fas fa-chevron-down" id="dsToggleIcon"></i> Show Feature Details & Stats';
+            }
+        }
+
         // ===== EVENT LISTENERS =====
         document.getElementById('algorithm').addEventListener('change', renderHyperparams);
-        document.getElementById('dataset').addEventListener('change', () => {
-            const ds = DATASETS[document.getElementById('dataset').value];
-            document.getElementById('datasetHint').textContent = ds.hint;
-        });
+        document.getElementById('dataset').addEventListener('change', renderDatasetInfo);
         document.getElementById('trainSplit').addEventListener('input', function () {
             document.getElementById('splitVal').textContent = this.value + '/' + (100 - this.value);
         });
@@ -1363,6 +1667,7 @@
 
         // ===== INIT =====
         renderHyperparams();
+        renderDatasetInfo();
     </script>
 </body>
 
