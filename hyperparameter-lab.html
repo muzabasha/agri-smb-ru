@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyperparameter Tuning Lab - AI Kitchen Academy</title>
+    <link rel="icon" type="image/x-icon" href="/images/agri-ai-logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --primary: #7c3aed;
+            --primary-light: #a78bfa;
+            --primary-dark: #5b21b6;
+            --accent: #f59e0b;
+            --accent-light: #fcd34d;
+            --success: #10b981;
+            --danger: #ef4444;
+            --info: #3b82f6;
+            --bg: #f5f3ff;
+            --card: #ffffff;
+            --text: #1e1b4b;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .lab-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+        }
+
+        .lab-header .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .lab-header h1 {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .lab-header .badge {
+            background: var(--accent);
+            color: #000;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        /* NEP Banner */
+        .nep-banner {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-left: 5px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem auto;
+            max-width: 1400px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .nep-banner h3 {
+            color: #92400e;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .nep-banner p {
+            color: #78350f;
+            font-size: 0.85rem;
+        }
+
+        .nep-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .nep-tag {
+            background: white;
+            color: #92400e;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            border: 1px solid #fcd34d;
+        }
+
+        /* Layout */
+        .lab-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem 3rem;
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .lab-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Panels */
+        .panel {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+        .panel-header {
+            padding: 1rem 1.2rem;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .panel-body {
+            padding: 1.2rem;
+        }
+
+        /* Controls */
+        .control-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .control-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .control-value {
+            background: var(--primary);
+            color: white;
+            padding: 0.1rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .control-hint {
+            font-size: 0.75rem;
+            color: var(--muted);
+            margin-top: 0.2rem;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            -webkit-appearance: none;
+            background: #e5e7eb;
+            border-radius: 3px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(124, 58, 237, 0.4);
+        }
+
+        select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            background: white;
+            cursor: pointer;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.7rem 1.2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-reset {
+            background: #fee2e2;
+            color: var(--danger);
+            width: 100%;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        .btn-reset:hover {
+            background: #fecaca;
+        }
+
+        .btn-sm {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+        }
+
+        /* Metrics */
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 10px;
+            padding: 0.8rem;
+            text-align: center;
+            border: 1px solid #ddd6fe;
+        }
+
+        .metric-card.good {
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-color: #a7f3d0;
+        }
+
+        .metric-card.warn {
+            background: linear-gradient(135deg, #fffbeb, #fef3c7);
+            border-color: #fde68a;
+        }
+
+        .metric-card.bad {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            border-color: #fecaca;
+        }
+
+        .metric-label {
+            font-size: 0.7rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 0.2rem 0;
+        }
+
+        .metric-card.good .metric-value {
+            color: #059669;
+        }
+
+        .metric-card.warn .metric-value {
+            color: #d97706;
+        }
+
+        .metric-card.bad .metric-value {
+            color: #dc2626;
+        }
+
+        /* Charts */
+        .chart-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .chart-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .chart-box {
+            background: var(--card);
+            border-radius: 10px;
+            padding: 1rem;
+            border: 1px solid var(--border);
+        }
+
+        .chart-box h4 {
+            font-size: 0.85rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 220px;
+        }
+
+        /* Diagnosis */
+        .diagnosis-panel {
+            background: linear-gradient(135deg, #f0f9ff, #dbeafe);
+            border: 1px solid #bfdbfe;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .diagnosis-panel h4 {
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .diagnosis-text {
+            font-size: 0.85rem;
+            color: #1e3a5f;
+            line-height: 1.7;
+        }
+
+        .diagnosis-text .tag {
+            display: inline-block;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin: 0 0.1rem;
+        }
+
+        .tag-overfit {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .tag-underfit {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .tag-good {
+            background: #d1fae5;
+            color: #059669;
+        }
+
+        /* History */
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .history-table th {
+            background: #f5f3ff;
+            color: var(--primary-dark);
+            padding: 0.5rem;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #ddd6fe;
+        }
+
+        .history-table td {
+            padding: 0.4rem 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .history-table tr:hover {
+            background: #faf5ff;
+        }
+
+        .run-num {
+            background: var(--primary);
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        /* Section dividers */
+        .section-divider {
+            font-size: 0.75rem;
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 1rem 0 0.5rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 2px solid #ede9fe;
+        }
+
+        /* Tooltip */
+        .info-tip {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #e5e7eb;
+            color: var(--muted);
+            font-size: 0.6rem;
+            cursor: help;
+            margin-left: 0.3rem;
+        }
+
+        /* Loading animation */
+        .training-anim {
+            display: none;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .training-anim.active {
+            display: block;
+        }
+
+        .training-anim i {
+            font-size: 2rem;
+            color: var(--primary);
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Tabs */
+        .tab-bar {
+            display: flex;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 1rem;
+        }
+
+        .tab-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--muted);
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="lab-header">
+        <div class="container">
+            <h1><i class="fas fa-flask"></i> Hyperparameter Tuning Lab <span class="badge">NEP 2020</span></h1>
+            <div style="display:flex;gap:0.5rem;align-items:center;">
+                <a href="https://cnn-svm.vercel.app/" target="_blank" class="back-btn"><i class="fas fa-utensils"></i>
+                    AI Kitchen</a>
+                <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Course Home</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- NEP 2020 Banner -->
+    <div class="nep-banner">
+        <h3><i class="fas fa-graduation-cap"></i> NEP 2020 Aligned: Experiential & Competency-Based Learning</h3>
+        <p>This lab implements NEP 2020 principles: hands-on experimentation, critical thinking through parameter
+            analysis, multidisciplinary application in agriculture, and outcome-based learning with real-time feedback.
+        </p>
+        <div class="nep-tags">
+            <span class="nep-tag">Experiential Learning</span>
+            <span class="nep-tag">Critical Thinking</span>
+            <span class="nep-tag">Competency-Based</span>
+            <span class="nep-tag">Outcome-Based Education</span>
+            <span class="nep-tag">Multidisciplinary</span>
+            <span class="nep-tag">Interactive Visualization</span>
+        </div>
+    </div>
+
+    <!-- Main Lab -->
+    <div class="lab-container">
+        <!-- LEFT: Controls Panel -->
+        <div class="controls-col">
+            <!-- Dataset Selection -->
+            <div class="panel">
+                <div class="panel-header"><i class="fas fa-database" style="color:var(--info)"></i> Dataset & Model
+                </div>
+                <div class="panel-body">
+                    <div class="control-group">
+                        <div class="control-label">Agricultural Dataset</div>
+                        <select id="dataset">
+                            <option value="crop_yield">Crop Yield Prediction</option>
+                            <option value="disease">Plant Disease Classification</option>
+                            <option value="soil">Soil Health Classification</option>
+                            <option value="irrigation">Irrigation Requirement</option>
+                        </select>
+                        <div class="control-hint" id="datasetHint">500 samples, 6 features, regression task</div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">Algorithm</div>
+                        <select id="algorithm">
+                            <option value="random_forest">Random Forest</option>
+                            <option value="gradient_boosting">Gradient Boosting</option>
+                            <option value="svm">Support Vector Machine</option>
+                            <option value="neural_network">Neural Network (MLP)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hyperparameters -->
+            <div class="panel" style="margin-top:1rem;">
+                <div class="panel-header"><i class="fas fa-sliders-h" style="color:var(--primary)"></i> Hyperparameters
+                </div>
+                <div class="panel-body" id="hyperparamsPanel">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+
+            <!-- Data Split -->
+            <div class="panel" style="margin-top:1rem;">
+                <div class="panel-header"><i class="fas fa-cut" style="color:var(--accent)"></i> Data Configuration
+                </div>
+                <div class="panel-body">
+                    <div class="control-group">
+                        <div class="control-label">Train/Test Split <span class="control-value"
+                                id="splitVal">80/20</span></div>
+                        <input type="range" id="trainSplit" min="50" max="90" value="80" step="5">
+                        <div class="control-hint">Higher training % = more data to learn, less to validate</div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">Cross-Validation Folds <span class="control-value"
+                                id="cvVal">5</span></div>
+                        <input type="range" id="cvFolds" min="2" max="10" value="5" step="1">
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">Noise Level <span class="control-value" id="noiseVal">10%</span>
+                        </div>
+                        <input type="range" id="noiseLevel" min="0" max="50" value="10" step="5">
+                        <div class="control-hint">Simulates real-world data imperfections</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div style="margin-top:1rem;">
+                <button class="btn btn-primary" id="trainBtn" onclick="runTraining()"><i class="fas fa-play"></i> Train
+                    Model</button>
+                <button class="btn btn-reset" onclick="resetLab()"><i class="fas fa-undo"></i> Reset Lab</button>
+            </div>
+        </div>
+
+        <!-- RIGHT: Results -->
+        <div class="results-col">
+            <!-- Training Animation -->
+            <div class="training-anim" id="trainingAnim">
+                <i class="fas fa-cog"></i>
+                <p style="margin-top:0.5rem;color:var(--primary);font-weight:600;">Training model...</p>
+            </div>
+
+            <!-- Metrics -->
+            <div class="panel">
+                <div class="panel-header"><i class="fas fa-tachometer-alt" style="color:var(--success)"></i> Model
+                    Performance</div>
+                <div class="panel-body">
+                    <div class="metrics-row" id="metricsRow">
+                        <div class="metric-card">
+                            <div class="metric-label">Train Accuracy</div>
+                            <div class="metric-value" id="metricTrainAcc">--</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">Test Accuracy</div>
+                            <div class="metric-value" id="metricTestAcc">--</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">CV Score</div>
+                            <div class="metric-value" id="metricCV">--</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">Overfit Gap</div>
+                            <div class="metric-value" id="metricGap">--</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">Training Time</div>
+                            <div class="metric-value" id="metricTime">--</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">Model Status</div>
+                            <div class="metric-value" id="metricStatus">--</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="panel" style="margin-top:1rem;">
+                <div class="panel-header"><i class="fas fa-chart-area" style="color:var(--info)"></i> Visualizations
+                </div>
+                <div class="panel-body">
+                    <div class="tab-bar">
+                        <button class="tab-btn active" onclick="switchTab('performance')">Performance</button>
+                        <button class="tab-btn" onclick="switchTab('learning')">Learning Curves</button>
+                        <button class="tab-btn" onclick="switchTab('comparison')">Run Comparison</button>
+                        <button class="tab-btn" onclick="switchTab('sensitivity')">Sensitivity</button>
+                    </div>
+
+                    <div class="tab-content active" id="tab-performance">
+                        <div class="chart-grid">
+                            <div class="chart-box">
+                                <h4><i class="fas fa-bullseye"></i> Train vs Test Accuracy</h4>
+                                <div class="chart-wrapper"><canvas id="chartAccuracy"></canvas></div>
+                            </div>
+                            <div class="chart-box">
+                                <h4><i class="fas fa-balance-scale"></i> Bias-Variance Tradeoff</h4>
+                                <div class="chart-wrapper"><canvas id="chartBiasVar"></canvas></div>
+                            </div>
+                            <div class="chart-box">
+                                <h4><i class="fas fa-chart-pie"></i> Feature Importance</h4>
+                                <div class="chart-wrapper"><canvas id="chartFeatures"></canvas></div>
+                            </div>
+                            <div class="chart-box">
+                                <h4><i class="fas fa-clock"></i> Complexity vs Time</h4>
+                                <div class="chart-wrapper"><canvas id="chartComplexity"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab-learning">
+                        <div class="chart-grid">
+                            <div class="chart-box" style="grid-column: span 2;">
+                                <h4><i class="fas fa-graduation-cap"></i> Learning Curve (Train vs Validation over
+                                    Epochs)</h4>
+                                <div class="chart-wrapper" style="height:280px;"><canvas id="chartLearning"></canvas>
+                                </div>
+                            </div>
+                            <div class="chart-box">
+                                <h4><i class="fas fa-chart-line"></i> Loss Curve</h4>
+                                <div class="chart-wrapper"><canvas id="chartLoss"></canvas></div>
+                            </div>
+                            <div class="chart-box">
+                                <h4><i class="fas fa-wave-square"></i> Validation Score per Fold</h4>
+                                <div class="chart-wrapper"><canvas id="chartFolds"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab-comparison">
+                        <div class="chart-grid">
+                            <div class="chart-box" style="grid-column: span 2;">
+                                <h4><i class="fas fa-history"></i> Run History Comparison</h4>
+                                <div class="chart-wrapper" style="height:280px;"><canvas id="chartHistory"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top:1rem; max-height:200px; overflow-y:auto;">
+                            <table class="history-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Algorithm</th>
+                                        <th>Key Params</th>
+                                        <th>Train</th>
+                                        <th>Test</th>
+                                        <th>Gap</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="historyBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab-sensitivity">
+                        <div class="chart-grid">
+                            <div class="chart-box" style="grid-column: span 2;">
+                                <h4><i class="fas fa-search"></i> Hyperparameter Sensitivity Analysis</h4>
+                                <div class="chart-wrapper" style="height:280px;"><canvas id="chartSensitivity"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="font-size:0.8rem;color:var(--muted);margin-top:0.5rem;">Shows how test accuracy
+                            changes as the primary hyperparameter varies (other params held constant).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Diagnosis -->
+            <div class="diagnosis-panel" id="diagnosisPanel" style="display:none;">
+                <h4><i class="fas fa-stethoscope"></i> AI Diagnosis & Recommendations</h4>
+                <div class="diagnosis-text" id="diagnosisText"></div>
+            </div>
+
+            <!-- Learning Objectives -->
+            <div class="panel" style="margin-top:1rem;">
+                <div class="panel-header"><i class="fas fa-lightbulb" style="color:var(--accent)"></i> Learning
+                    Objectives (NEP 2020 Outcomes)</div>
+                <div class="panel-body" style="font-size:0.85rem;">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;">
+                        <div
+                            style="padding:0.6rem;background:#f5f3ff;border-radius:8px;border-left:3px solid var(--primary);">
+                            <strong>CO1:</strong> Distinguish between model parameters and hyperparameters
+                        </div>
+                        <div
+                            style="padding:0.6rem;background:#ecfdf5;border-radius:8px;border-left:3px solid var(--success);">
+                            <strong>CO2:</strong> Analyze the impact of hyperparameters on model performance
+                        </div>
+                        <div
+                            style="padding:0.6rem;background:#eff6ff;border-radius:8px;border-left:3px solid var(--info);">
+                            <strong>CO3:</strong> Identify overfitting and underfitting through visual cues
+                        </div>
+                        <div
+                            style="padding:0.6rem;background:#fffbeb;border-radius:8px;border-left:3px solid var(--accent);">
+                            <strong>CO4:</strong> Apply systematic tuning strategies to optimize agricultural ML models
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== STATE =====
+        let charts = {};
+        let runHistory = [];
+        let runCount = 0;
+
+        // ===== DATASET CONFIGS =====
+        const DATASETS = {
+            crop_yield: { name: 'Crop Yield', samples: 500, features: ['Rainfall', 'Temperature', 'Fertilizer', 'Soil pH', 'Irrigation', 'Pest Pressure'], type: 'regression', hint: '500 samples, 6 features, regression task' },
+            disease: { name: 'Plant Disease', samples: 3000, features: ['Leaf Color', 'Spot Size', 'Spot Count', 'Texture', 'Wilting', 'Discoloration'], type: 'classification', hint: '3000 images, 6 extracted features, 5-class classification' },
+            soil: { name: 'Soil Health', samples: 800, features: ['pH', 'Nitrogen', 'Phosphorus', 'Potassium', 'Organic Matter', 'Moisture'], type: 'classification', hint: '800 samples, 6 features, 3-class classification' },
+            irrigation: { name: 'Irrigation Need', samples: 600, features: ['Soil Moisture', 'Temperature', 'Humidity', 'Wind Speed', 'Crop Stage', 'ET₀'], type: 'regression', hint: '600 samples, 6 features, regression task' }
+        };
+
+        // ===== ALGORITHM HYPERPARAMS =====
+        const ALGO_PARAMS = {
+            random_forest: [
+                { id: 'n_estimators', label: 'Number of Trees (n_estimators)', min: 10, max: 500, value: 100, step: 10, hint: 'More trees = better accuracy but slower training' },
+                { id: 'max_depth', label: 'Max Depth', min: 1, max: 30, value: 10, step: 1, hint: 'Deeper trees capture more patterns but risk overfitting' },
+                { id: 'min_samples_split', label: 'Min Samples to Split', min: 2, max: 20, value: 2, step: 1, hint: 'Higher = more regularization, prevents overfitting' },
+                { id: 'max_features', label: 'Max Features (%)', min: 10, max: 100, value: 70, step: 10, hint: 'Percentage of features considered at each split' }
+            ],
+            gradient_boosting: [
+                { id: 'n_estimators', label: 'Number of Boosting Rounds', min: 10, max: 500, value: 100, step: 10, hint: 'More rounds = better fit but risk of overfitting' },
+                { id: 'learning_rate', label: 'Learning Rate', min: 0.01, max: 1.0, value: 0.1, step: 0.01, hint: 'Lower = slower but more precise learning' },
+                { id: 'max_depth', label: 'Max Depth', min: 1, max: 15, value: 3, step: 1, hint: 'Shallow trees for boosting (typically 3-8)' },
+                { id: 'subsample', label: 'Subsample Ratio', min: 0.1, max: 1.0, value: 0.8, step: 0.1, hint: 'Fraction of data used per round (stochastic boosting)' }
+            ],
+            svm: [
+                { id: 'C', label: 'Regularization (C)', min: 0.01, max: 100, value: 1.0, step: 0.5, hint: 'Higher C = less regularization, tighter fit' },
+                { id: 'gamma', label: 'Kernel Width (gamma)', min: 0.001, max: 10, value: 0.1, step: 0.01, hint: 'Higher gamma = more complex decision boundary' },
+                { id: 'kernel_degree', label: 'Polynomial Degree', min: 1, max: 5, value: 3, step: 1, hint: 'Only for polynomial kernel' }
+            ],
+            neural_network: [
+                { id: 'hidden_layers', label: 'Hidden Layers', min: 1, max: 5, value: 2, step: 1, hint: 'More layers = deeper network, more capacity' },
+                { id: 'neurons', label: 'Neurons per Layer', min: 8, max: 256, value: 64, step: 8, hint: 'Width of each hidden layer' },
+                { id: 'learning_rate', label: 'Learning Rate', min: 0.0001, max: 0.1, value: 0.001, step: 0.0001, hint: 'Step size for gradient descent' },
+                { id: 'epochs', label: 'Training Epochs', min: 10, max: 500, value: 100, step: 10, hint: 'Number of passes through the training data' },
+                { id: 'dropout', label: 'Dropout Rate', min: 0, max: 0.8, value: 0.2, step: 0.05, hint: 'Regularization: randomly drops neurons during training' }
+            ]
+        };
+
+        // ===== SIMULATION ENGINE =====
+        function simulateTraining(params) {
+            const ds = DATASETS[params.dataset];
+            const algo = params.algorithm;
+            const noise = params.noise / 100;
+            const split = params.split / 100;
+            const hp = params.hyperparams;
+
+            // Base accuracy depends on algorithm + dataset combo
+            let baseAcc = { random_forest: 0.82, gradient_boosting: 0.85, svm: 0.78, neural_network: 0.80 }[algo];
+            if (ds.type === 'classification') baseAcc -= 0.03;
+
+            // Compute complexity score (0-1) from hyperparams
+            let complexity = 0;
+            if (algo === 'random_forest') {
+                complexity = (hp.n_estimators / 500) * 0.3 + (hp.max_depth / 30) * 0.4 + (1 - hp.min_samples_split / 20) * 0.2 + (hp.max_features / 100) * 0.1;
+            } else if (algo === 'gradient_boosting') {
+                complexity = (hp.n_estimators / 500) * 0.3 + (hp.learning_rate / 1.0) * 0.2 + (hp.max_depth / 15) * 0.3 + (hp.subsample) * 0.2;
+            } else if (algo === 'svm') {
+                complexity = Math.min(hp.C / 100, 1) * 0.4 + Math.min(hp.gamma / 10, 1) * 0.4 + (hp.kernel_degree / 5) * 0.2;
+            } else {
+                complexity = (hp.hidden_layers / 5) * 0.25 + (hp.neurons / 256) * 0.25 + (hp.learning_rate / 0.1) * 0.15 + (hp.epochs / 500) * 0.2 + (1 - hp.dropout / 0.8) * 0.15;
+            }
+            complexity = Math.max(0, Math.min(1, complexity));
+
+            // Train accuracy: increases with complexity
+            let trainAcc = baseAcc + complexity * 0.18;
+            trainAcc = Math.min(0.995, trainAcc);
+            trainAcc -= noise * 0.15;
+
+            // Test accuracy: peaks at moderate complexity, drops at extremes
+            let optimalComplexity = 0.45 + (1 - noise) * 0.15;
+            let distFromOptimal = Math.abs(complexity - optimalComplexity);
+            let testAcc = baseAcc + 0.12 - distFromOptimal * 0.25 - noise * 0.2;
+            testAcc = Math.max(0.35, Math.min(trainAcc - 0.005, testAcc));
+
+            // Regularization effects
+            if (algo === 'random_forest' && hp.min_samples_split > 10) { trainAcc -= 0.03; testAcc += 0.01; }
+            if (algo === 'gradient_boosting' && hp.learning_rate < 0.05) { testAcc += 0.02; trainAcc -= 0.01; }
+            if (algo === 'neural_network' && hp.dropout > 0.4) { trainAcc -= 0.04; testAcc += 0.015; }
+            if (algo === 'svm' && hp.C < 0.1) { trainAcc -= 0.05; testAcc -= 0.02; }
+
+            // Split effect
+            if (split < 0.65) { testAcc += 0.01; trainAcc -= 0.02; }
+            if (split > 0.85) { trainAcc += 0.01; testAcc -= 0.02; }
+
+            // Add small randomness
+            trainAcc += (Math.random() - 0.5) * 0.02;
+            testAcc += (Math.random() - 0.5) * 0.02;
+            trainAcc = Math.max(0.4, Math.min(0.999, trainAcc));
+            testAcc = Math.max(0.3, Math.min(trainAcc - 0.002, testAcc));
+
+            let gap = trainAcc - testAcc;
+            let cvScore = testAcc + (Math.random() - 0.5) * 0.015;
+            cvScore = Math.max(0.3, Math.min(trainAcc, cvScore));
+
+            // Training time simulation
+            let timeBase = { random_forest: 0.5, gradient_boosting: 1.2, svm: 0.8, neural_network: 2.0 }[algo];
+            let trainTime = timeBase * (1 + complexity * 3) * (ds.samples / 500);
+
+            // Generate learning curve data
+            let epochs = algo === 'neural_network' ? hp.epochs : Math.round(20 + complexity * 80);
+            let learningCurve = generateLearningCurve(trainAcc, testAcc, epochs, complexity, noise);
+            let lossCurve = generateLossCurve(epochs, complexity, noise);
+
+            // Feature importance
+            let featureImp = ds.features.map(() => Math.random());
+            let featureSum = featureImp.reduce((a, b) => a + b, 0);
+            featureImp = featureImp.map(v => v / featureSum);
+
+            // CV fold scores
+            let foldScores = [];
+            for (let i = 0; i < params.cvFolds; i++) {
+                foldScores.push(cvScore + (Math.random() - 0.5) * 0.04);
+            }
+
+            // Determine status
+            let status, statusClass;
+            if (gap > 0.15) { status = 'Overfitting'; statusClass = 'bad'; }
+            else if (testAcc < 0.6) { status = 'Underfitting'; statusClass = 'warn'; }
+            else if (gap < 0.05 && testAcc > 0.75) { status = 'Good Fit'; statusClass = 'good'; }
+            else if (gap < 0.08 && testAcc > 0.7) { status = 'Acceptable'; statusClass = 'good'; }
+            else { status = 'Needs Tuning'; statusClass = 'warn'; }
+
+            return { trainAcc, testAcc, cvScore, gap, trainTime, complexity, learningCurve, lossCurve, featureImp, foldScores, status, statusClass, epochs };
+        }
+
+        function generateLearningCurve(finalTrain, finalTest, epochs, complexity, noise) {
+            let train = [], val = [];
+            for (let i = 0; i < epochs; i++) {
+                let t = (i + 1) / epochs;
+                let tr = 0.4 + (finalTrain - 0.4) * (1 - Math.exp(-4 * t));
+                let te = 0.35 + (finalTest - 0.35) * (1 - Math.exp(-3 * t));
+                if (complexity > 0.7 && t > 0.5) { te -= (t - 0.5) * 0.08 * complexity; }
+                train.push(tr + (Math.random() - 0.5) * 0.01);
+                val.push(te + (Math.random() - 0.5) * 0.015);
+            }
+            return { train, val };
+        }
+
+        function generateLossCurve(epochs, complexity, noise) {
+            let train = [], val = [];
+            for (let i = 0; i < epochs; i++) {
+                let t = (i + 1) / epochs;
+                let tl = 2.0 * Math.exp(-3 * t) + 0.05 + noise * 0.1;
+                let vl = 2.0 * Math.exp(-2.5 * t) + 0.1 + noise * 0.15;
+                if (complexity > 0.7 && t > 0.4) { vl += (t - 0.4) * 0.5 * complexity; }
+                train.push(Math.max(0.01, tl + (Math.random() - 0.5) * 0.02));
+                val.push(Math.max(0.02, vl + (Math.random() - 0.5) * 0.03));
+            }
+            return { train, val };
+        }
+
+        // ===== UI FUNCTIONS =====
+        function renderHyperparams() {
+            const algo = document.getElementById('algorithm').value;
+            const params = ALGO_PARAMS[algo];
+            const panel = document.getElementById('hyperparamsPanel');
+            panel.innerHTML = '';
+            params.forEach(p => {
+                const displayVal = p.step < 1 ? parseFloat(p.value).toFixed(p.step < 0.01 ? 4 : 2) : p.value;
+                panel.innerHTML += `
+                <div class="control-group">
+                    <div class="control-label">${p.label} <span class="control-value" id="val_${p.id}">${displayVal}</span></div>
+                    <input type="range" id="hp_${p.id}" min="${p.min}" max="${p.max}" value="${p.value}" step="${p.step}"
+                        oninput="document.getElementById('val_${p.id}').textContent = ${p.step < 1 ? 'parseFloat(this.value).toFixed(' + (p.step < 0.01 ? 4 : 2) + ')' : 'this.value'}">
+                    <div class="control-hint">${p.hint}</div>
+                </div>`;
+            });
+        }
+
+        function getHyperparams() {
+            const algo = document.getElementById('algorithm').value;
+            const params = ALGO_PARAMS[algo];
+            const hp = {};
+            params.forEach(p => {
+                const el = document.getElementById('hp_' + p.id);
+                hp[p.id] = parseFloat(el.value);
+            });
+            return hp;
+        }
+
+        function switchTab(name) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('tab-' + name).classList.add('active');
+        }
+
+        function updateMetricCard(id, value, cls) {
+            const el = document.getElementById(id);
+            el.textContent = value;
+            const card = el.closest('.metric-card');
+            card.className = 'metric-card' + (cls ? ' ' + cls : '');
+        }
+
+        // ===== CHARTING =====
+        function destroyCharts() { Object.values(charts).forEach(c => c.destroy()); charts = {}; }
+
+        function createChart(canvasId, config) {
+            const ctx = document.getElementById(canvasId);
+            if (!ctx) return null;
+            charts[canvasId] = new Chart(ctx, config);
+            return charts[canvasId];
+        }
+
+        function renderCharts(result, params) {
+            destroyCharts();
+            const ds = DATASETS[params.dataset];
+
+            // Train vs Test bar
+            createChart('chartAccuracy', {
+                type: 'bar',
+                data: { labels: ['Train', 'Test', 'CV Mean'], datasets: [{ data: [result.trainAcc * 100, result.testAcc * 100, result.cvScore * 100], backgroundColor: ['#a78bfa', '#7c3aed', '#5b21b6'], borderRadius: 6 }] },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { min: 0, max: 100, title: { display: true, text: 'Accuracy %' } } } }
+            });
+
+            // Bias-Variance
+            let bvLabels = ['Low', 'Med-Low', 'Medium', 'Med-High', 'High'];
+            let bias = bvLabels.map((_, i) => { let c = i / 4; return 0.6 - c * 0.35 + Math.random() * 0.02; });
+            let variance = bvLabels.map((_, i) => { let c = i / 4; return 0.05 + c * 0.4 + Math.random() * 0.02; });
+            let totalErr = bias.map((b, i) => b + variance[i]);
+            let currentIdx = Math.round(result.complexity * 4);
+            createChart('chartBiasVar', {
+                type: 'line',
+                data: {
+                    labels: bvLabels, datasets: [
+                        { label: 'Bias²', data: bias, borderColor: '#3b82f6', backgroundColor: 'rgba(59,130,246,0.1)', fill: true, tension: 0.4 },
+                        { label: 'Variance', data: variance, borderColor: '#ef4444', backgroundColor: 'rgba(239,68,68,0.1)', fill: true, tension: 0.4 },
+                        { label: 'Total Error', data: totalErr, borderColor: '#8b5cf6', borderDash: [5, 5], tension: 0.4 },
+                        { label: 'You', data: bvLabels.map((_, i) => i === currentIdx ? totalErr[i] : null), pointRadius: bvLabels.map((_, i) => i === currentIdx ? 8 : 0), pointBackgroundColor: '#f59e0b', borderColor: 'transparent', showLine: false }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10 } } } }, scales: { y: { title: { display: true, text: 'Error' } } } }
+            });
+
+            // Feature importance
+            createChart('chartFeatures', {
+                type: 'doughnut',
+                data: { labels: ds.features, datasets: [{ data: result.featureImp.map(v => (v * 100).toFixed(1)), backgroundColor: ['#7c3aed', '#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#ec4899'] }] },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 9 } } } } }
+            });
+
+            // Complexity vs Time
+            let compPoints = runHistory.map(r => ({ x: r.complexity * 100, y: r.trainTime }));
+            createChart('chartComplexity', {
+                type: 'scatter',
+                data: { datasets: [{ label: 'Runs', data: compPoints, backgroundColor: compPoints.map((_, i) => i === compPoints.length - 1 ? '#f59e0b' : '#a78bfa'), pointRadius: compPoints.map((_, i) => i === compPoints.length - 1 ? 8 : 5) }] },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { title: { display: true, text: 'Complexity %' } }, y: { title: { display: true, text: 'Time (s)' } } } }
+            });
+
+            // Learning curves
+            let lcLabels = result.learningCurve.train.map((_, i) => i + 1);
+            createChart('chartLearning', {
+                type: 'line',
+                data: {
+                    labels: lcLabels, datasets: [
+                        { label: 'Train', data: result.learningCurve.train.map(v => v * 100), borderColor: '#7c3aed', borderWidth: 2, pointRadius: 0, tension: 0.3 },
+                        { label: 'Validation', data: result.learningCurve.val.map(v => v * 100), borderColor: '#f59e0b', borderWidth: 2, pointRadius: 0, tension: 0.3 }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } }, scales: { x: { title: { display: true, text: 'Epoch' } }, y: { title: { display: true, text: 'Accuracy %' }, min: 30, max: 100 } } }
+            });
+
+            // Loss curve
+            createChart('chartLoss', {
+                type: 'line',
+                data: {
+                    labels: lcLabels, datasets: [
+                        { label: 'Train Loss', data: result.lossCurve.train, borderColor: '#7c3aed', borderWidth: 2, pointRadius: 0, tension: 0.3 },
+                        { label: 'Val Loss', data: result.lossCurve.val, borderColor: '#ef4444', borderWidth: 2, pointRadius: 0, tension: 0.3 }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } }, scales: { x: { title: { display: true, text: 'Epoch' } }, y: { title: { display: true, text: 'Loss' } } } }
+            });
+
+            // CV Folds
+            createChart('chartFolds', {
+                type: 'bar',
+                data: { labels: result.foldScores.map((_, i) => 'Fold ' + (i + 1)), datasets: [{ data: result.foldScores.map(v => v * 100), backgroundColor: result.foldScores.map(v => v * 100 > result.cvScore * 100 ? '#10b981' : '#f59e0b'), borderRadius: 4 }] },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { min: Math.max(0, result.cvScore * 100 - 10), max: Math.min(100, result.cvScore * 100 + 10), title: { display: true, text: 'Accuracy %' } } } }
+            });
+
+            // History comparison
+            if (runHistory.length > 0) {
+                createChart('chartHistory', {
+                    type: 'bar',
+                    data: {
+                        labels: runHistory.map(r => '#' + r.run), datasets: [
+                            { label: 'Train', data: runHistory.map(r => r.trainAcc * 100), backgroundColor: '#a78bfa', borderRadius: 4 },
+                            { label: 'Test', data: runHistory.map(r => r.testAcc * 100), backgroundColor: '#7c3aed', borderRadius: 4 }
+                        ]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } }, scales: { y: { min: 0, max: 100, title: { display: true, text: 'Accuracy %' } } } }
+                });
+            }
+
+            // Sensitivity analysis
+            renderSensitivity(params);
+        }
+
+        function renderSensitivity(params) {
+            const algo = params.algorithm;
+            const primaryParam = ALGO_PARAMS[algo][0];
+            const steps = 15;
+            const range = [];
+            const testAccs = [];
+            const trainAccs = [];
+            const stepSize = (primaryParam.max - primaryParam.min) / steps;
+
+            for (let i = 0; i <= steps; i++) {
+                const val = primaryParam.min + stepSize * i;
+                range.push(primaryParam.step < 1 ? val.toFixed(2) : Math.round(val));
+                const hp = { ...getHyperparams() };
+                hp[primaryParam.id] = val;
+                const simResult = simulateTraining({ ...params, hyperparams: hp });
+                testAccs.push(simResult.testAcc * 100);
+                trainAccs.push(simResult.trainAcc * 100);
+            }
+
+            createChart('chartSensitivity', {
+                type: 'line',
+                data: {
+                    labels: range, datasets: [
+                        { label: 'Train Accuracy', data: trainAccs, borderColor: '#a78bfa', borderWidth: 2, tension: 0.4, pointRadius: 3 },
+                        { label: 'Test Accuracy', data: testAccs, borderColor: '#7c3aed', borderWidth: 3, tension: 0.4, pointRadius: 3 }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' }, title: { display: true, text: 'Effect of ' + primaryParam.label + ' on Accuracy', font: { size: 12 } } }, scales: { x: { title: { display: true, text: primaryParam.label } }, y: { title: { display: true, text: 'Accuracy %' }, min: 30, max: 100 } } }
+            });
+        }
+
+        // ===== DIAGNOSIS =====
+        function generateDiagnosis(result, params) {
+            const panel = document.getElementById('diagnosisPanel');
+            const text = document.getElementById('diagnosisText');
+            panel.style.display = 'block';
+            let html = '';
+            const algo = document.getElementById('algorithm').selectedOptions[0].text;
+            const ds = DATASETS[params.dataset].name;
+
+            if (result.status === 'Overfitting') {
+                html = `<p>⚠️ <span class="tag tag-overfit">OVERFITTING DETECTED</span> Your ${algo} model on the ${ds} dataset shows a <strong>${(result.gap * 100).toFixed(1)}%</strong> gap between train (${(result.trainAcc * 100).toFixed(1)}%) and test (${(result.testAcc * 100).toFixed(1)}%) accuracy.</p>
+            <p><strong>🔧 Recommendations:</strong></p>
+            <ul style="margin:0.5rem 0 0 1.2rem;font-size:0.85rem;">
+                <li>Reduce model complexity (lower depth/neurons/estimators)</li>
+                <li>Increase regularization (higher min_samples_split, dropout, or lower C)</li>
+                <li>Add more training data or increase noise tolerance</li>
+                <li>Try cross-validation with more folds to get stable estimates</li>
+            </ul>`;
+            } else if (result.status === 'Underfitting') {
+                html = `<p>⚠️ <span class="tag tag-underfit">UNDERFITTING DETECTED</span> Your ${algo} model achieves only <strong>${(result.testAcc * 100).toFixed(1)}%</strong> test accuracy on ${ds}. The model is too simple to capture data patterns.</p>
+            <p><strong>🔧 Recommendations:</strong></p>
+            <ul style="margin:0.5rem 0 0 1.2rem;font-size:0.85rem;">
+                <li>Increase model complexity (more trees, deeper network, higher C)</li>
+                <li>Add more features or engineer better features</li>
+                <li>Reduce regularization strength</li>
+                <li>Try a more powerful algorithm (e.g., Gradient Boosting or Neural Network)</li>
+            </ul>`;
+            } else if (result.status === 'Good Fit') {
+                html = `<p>✅ <span class="tag tag-good">GOOD FIT</span> Excellent! Your ${algo} model achieves <strong>${(result.testAcc * 100).toFixed(1)}%</strong> test accuracy with only a <strong>${(result.gap * 100).toFixed(1)}%</strong> overfit gap. The model generalizes well to unseen ${ds} data.</p>
+            <p><strong>🎯 Next Steps:</strong> Try fine-tuning further, or compare with other algorithms to see if you can squeeze out more performance.</p>`;
+            } else {
+                html = `<p>🔍 <span class="tag tag-underfit">NEEDS TUNING</span> Your ${algo} model on ${ds} shows <strong>${(result.testAcc * 100).toFixed(1)}%</strong> test accuracy with a <strong>${(result.gap * 100).toFixed(1)}%</strong> gap. There's room for improvement.</p>
+            <p><strong>🔧 Try:</strong> Adjusting the primary hyperparameter using the Sensitivity tab to find the sweet spot, then fine-tune secondary parameters.</p>`;
+            }
+
+            // Agricultural context
+            html += `<p style="margin-top:0.8rem;padding:0.5rem;background:#ecfdf5;border-radius:6px;border-left:3px solid #10b981;font-size:0.82rem;">
+            <strong>🌾 Agricultural Impact:</strong> ${getAgriContext(params.dataset, result.testAcc)}</p>`;
+
+            text.innerHTML = html;
+        }
+
+        function getAgriContext(dataset, acc) {
+            const contexts = {
+                crop_yield: acc > 0.8 ? 'This model can reliably predict crop yields, enabling farmers to plan storage, negotiate prices, and optimize resource allocation months before harvest.' : 'At this accuracy, yield predictions would have significant error margins. Farmers should use these as rough estimates alongside traditional methods.',
+                disease: acc > 0.8 ? 'This classifier can accurately identify plant diseases from leaf images, enabling early intervention and reducing crop losses by up to 30%.' : 'Disease misclassification at this rate could lead to wrong treatments. Consider collecting more diverse training images.',
+                soil: acc > 0.8 ? 'Reliable soil classification enables precision fertilizer application, potentially saving 20-30% on fertilizer costs while improving yields.' : 'Soil misclassification could lead to inappropriate fertilizer recommendations. More soil samples from diverse conditions would help.',
+                irrigation: acc > 0.8 ? 'Accurate irrigation prediction can reduce water usage by 30-50% while maintaining optimal crop growth, crucial for water-scarce regions.' : 'Inaccurate irrigation predictions could lead to over or under-watering. Consider adding more weather features.'
+            };
+            return contexts[dataset];
+        }
+
+        // ===== MAIN TRAINING FUNCTION =====
+        function runTraining() {
+            const btn = document.getElementById('trainBtn');
+            const anim = document.getElementById('trainingAnim');
+            btn.disabled = true;
+            anim.classList.add('active');
+
+            setTimeout(() => {
+                const params = {
+                    dataset: document.getElementById('dataset').value,
+                    algorithm: document.getElementById('algorithm').value,
+                    split: parseInt(document.getElementById('trainSplit').value),
+                    cvFolds: parseInt(document.getElementById('cvFolds').value),
+                    noise: parseInt(document.getElementById('noiseLevel').value),
+                    hyperparams: getHyperparams()
+                };
+
+                const result = simulateTraining(params);
+                runCount++;
+
+                // Update metrics
+                updateMetricCard('metricTrainAcc', (result.trainAcc * 100).toFixed(1) + '%', result.trainAcc > 0.95 ? 'warn' : 'good');
+                updateMetricCard('metricTestAcc', (result.testAcc * 100).toFixed(1) + '%', result.testAcc > 0.8 ? 'good' : result.testAcc > 0.6 ? 'warn' : 'bad');
+                updateMetricCard('metricCV', (result.cvScore * 100).toFixed(1) + '%', result.cvScore > 0.75 ? 'good' : 'warn');
+                updateMetricCard('metricGap', (result.gap * 100).toFixed(1) + '%', result.gap < 0.05 ? 'good' : result.gap < 0.15 ? 'warn' : 'bad');
+                updateMetricCard('metricTime', result.trainTime.toFixed(1) + 's', result.trainTime < 5 ? 'good' : 'warn');
+                updateMetricCard('metricStatus', result.status, result.statusClass);
+
+                // Save to history
+                const algoName = document.getElementById('algorithm').selectedOptions[0].text;
+                const hp = params.hyperparams;
+                const keyParam = Object.entries(hp).slice(0, 2).map(([k, v]) => k + '=' + (typeof v === 'number' && v < 1 ? v.toFixed(3) : v)).join(', ');
+                runHistory.push({ run: runCount, algo: algoName, keyParam, trainAcc: result.trainAcc, testAcc: result.testAcc, gap: result.gap, status: result.status, statusClass: result.statusClass, complexity: result.complexity, trainTime: result.trainTime });
+
+                // Update history table
+                const tbody = document.getElementById('historyBody');
+                const statusColors = { good: '#059669', warn: '#d97706', bad: '#dc2626' };
+                tbody.innerHTML = runHistory.map(r => `<tr>
+                <td><span class="run-num">${r.run}</span></td>
+                <td>${r.algo}</td>
+                <td style="font-size:0.75rem;">${r.keyParam}</td>
+                <td>${(r.trainAcc * 100).toFixed(1)}%</td>
+                <td>${(r.testAcc * 100).toFixed(1)}%</td>
+                <td style="color:${r.gap > 0.15 ? '#dc2626' : r.gap < 0.05 ? '#059669' : '#d97706'}">${(r.gap * 100).toFixed(1)}%</td>
+                <td style="color:${statusColors[r.statusClass] || '#666'};font-weight:600;">${r.status}</td>
+            </tr>`).reverse().join('');
+
+                renderCharts(result, params);
+                generateDiagnosis(result, params);
+
+                anim.classList.remove('active');
+                btn.disabled = false;
+            }, 800);
+        }
+
+        function resetLab() {
+            runHistory = [];
+            runCount = 0;
+            destroyCharts();
+            document.getElementById('historyBody').innerHTML = '';
+            document.getElementById('diagnosisPanel').style.display = 'none';
+            ['metricTrainAcc', 'metricTestAcc', 'metricCV', 'metricGap', 'metricTime', 'metricStatus'].forEach(id => updateMetricCard(id, '--', ''));
+            renderHyperparams();
+        }
+
+        // ===== EVENT LISTENERS =====
+        document.getElementById('algorithm').addEventListener('change', renderHyperparams);
+        document.getElementById('dataset').addEventListener('change', () => {
+            const ds = DATASETS[document.getElementById('dataset').value];
+            document.getElementById('datasetHint').textContent = ds.hint;
+        });
+        document.getElementById('trainSplit').addEventListener('input', function () {
+            document.getElementById('splitVal').textContent = this.value + '/' + (100 - this.value);
+        });
+        document.getElementById('cvFolds').addEventListener('input', function () {
+            document.getElementById('cvVal').textContent = this.value;
+        });
+        document.getElementById('noiseLevel').addEventListener('input', function () {
+            document.getElementById('noiseVal').textContent = this.value + '%';
+        });
+
+        // ===== INIT =====
+        renderHyperparams();
+    </script>
+</body>
+
+</html>
