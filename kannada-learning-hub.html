@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kannada Interactive Audio Lessons - AI/ML in Agriculture</title>
+    <link rel="icon" type="image/x-icon" href="/images/agri-ai-logo.jpg">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .quiz-hero {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .quiz-hero h2 {
+            font-size: 2.5rem;
+            color: #166534;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-hero p {
+            font-size: 1.2rem;
+            color: #374151;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .module-section {
+            margin: 3rem 0;
+        }
+
+        .module-header {
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .module-header i {
+            font-size: 2rem;
+        }
+
+        .module-header h3 {
+            font-size: 1.5rem;
+        }
+
+        .quiz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 2px solid #bbf7d0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(22, 163, 74, 0.2);
+            border-color: #16a34a;
+        }
+
+        .quiz-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 8px rgba(22, 163, 74, 0.3);
+        }
+
+        .quiz-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .quiz-card h4 {
+            color: #166534;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .quiz-card p {
+            color: #4b5563;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            color: white;
+            padding: 0.7rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .quiz-link:hover {
+            background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+            transform: scale(1.02);
+        }
+
+        .language-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #16a34a;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .quiz-hero h2 {
+                font-size: 1.8rem;
+            }
+            .quiz-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1><i class="fas fa-language"></i> Kannada Audio Hub</h1>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Course
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="quiz-hero">
+            <h2>ಕನ್ನಡ ಪರಸ್ಪರ ಆಡಿಯೋ ಪಾಠಗಳು</h2>
+            <p>Interactive Kannada audio lessons for AI/ML in Agriculture. Master Python and Machine Learning in your native language.</p>
+        </div>
+
+        <!-- Lessons Grid -->
+        <div class="module-section">
+            <div class="module-header">
+                <i class="fas fa-microphone-alt"></i>
+                <div>
+                    <h3>Kannada Audio Lessons</h3>
+                    <p style="font-size: 0.9rem; opacity: 0.9;"></p>
+                </div>
+            </div>
+            <div class="quiz-grid">
+                
+                <!-- Python File Handling -->
+                <div class="quiz-card">
+                    <span class="language-badge">KANNADA</span>
+                    <div class="quiz-icon">
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <h4>Python File Handling</h4>
+                    <p>ಫೈಲ್ ಹ್ಯಾಂಡ್ಲಿಂಗ್ ಕಲಿಕೆ (Reading and writing files in Python)</p>
+                    <a href="https://notebooklm.google.com/notebook/c77ce519-a1d3-4093-8745-b4b4b61bcf58?artifactId=9247e684-1765-441d-8892-17aa4c4d7d2e"
+                        target="_blank" class="quiz-link">
+                         Listen Now (ಕೇಳಿ) <i class="fas fa-play"></i>
+                    </a>
+                </div>
+
+                <!-- Python NumPy -->
+                <div class="quiz-card">
+                    <span class="language-badge">KANNADA</span>
+                    <div class="quiz-icon">
+                        <i class="fas fa-table"></i>
+                    </div>
+                    <h4>Python NumPy</h4>
+                    <p>NumPy ಅರೇ ಮತ್ತು ಕಾರ್ಯಾಚರಣೆಗಳು (Numerical operations with NumPy)</p>
+                    <a href="https://notebooklm.google.com/notebook/fd5ab6f7-b23a-48cc-af03-d7c7e7fc780b?artifactId=95416732-a0a6-4ec2-962a-e126a09c0014"
+                        target="_blank" class="quiz-link">
+                        Listen Now (ಕೇಳಿ) <i class="fas fa-play"></i>
+                    </a>
+                </div>
+
+                <!-- Mathematical Foundations of ML -->
+                <div class="quiz-card">
+                    <span class="language-badge">KANNADA</span>
+                    <div class="quiz-icon">
+                        <i class="fas fa-square-root-alt"></i>
+                    </div>
+                    <h4>Mathematical Foundations of ML</h4>
+                    <p>ML ಗಾಗಿ ಗಣಿತದ ಅಡಿಪಾಯಗಳು (Statistical and mathematical basics for ML)</p>
+                    <a href="https://notebooklm.google.com/notebook/a003dc27-40b7-441f-a540-feada6110c5c?artifactId=80838de9-46c1-43ee-bf5f-324dd49f4ef8"
+                        target="_blank" class="quiz-link">
+                        Listen Now (ಕೇಳಿ) <i class="fas fa-play"></i>
+                    </a>
+                </div>
+
+                <!-- Nested Loops -->
+                <div class="quiz-card">
+                    <span class="language-badge">KANNADA</span>
+                    <div class="quiz-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h4>Nested Loops</h4>
+                    <p>ನೆಸ್ಟೆಡ್ ಲೂಪ್‌ಗಳು (Advanced looping techniques in Python)</p>
+                    <a href="https://notebooklm.google.com/notebook/92471b6e-e61d-48f8-8469-2af97346959b?artifactId=6083b3c5-020c-4830-9d34-e704edd8f175"
+                        target="_blank" class="quiz-link">
+                        Listen Now (ಕೇಳಿ) <i class="fas fa-play"></i>
+                    </a>
+                </div>
+
+                <!-- Machine Learning workflow -->
+                <div class="quiz-card">
+                    <span class="language-badge">KANNADA</span>
+                    <div class="quiz-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h4>Machine Learning Workflow</h4>
+                    <p>ML ಕಾರ್ಯಪ್ರವಾಹ (End-to-end ML pipeline and processes)</p>
+                    <a href="https://notebooklm.google.com/notebook/afde1e14-e0c3-4466-b808-6b17404bb1b7?artifactId=4dce8602-af74-4ec3-942c-0722b3c4532b"
+                        target="_blank" class="quiz-link">
+                        Listen Now (ಕೇಳಿ) <i class="fas fa-play"></i>
+                    </a>
+                </div>
+
+                <!-- Three Pillars of Machine Learning Mathematics -->
+                <div class="quiz-card">
+                    <span class="language-badge">KANNADA</span>
+                    <div class="quiz-icon">
+                        <i class="fas fa-columns"></i>
+                    </div>
+                    <h4>Three Pillars of ML Math</h4>
+                    <p>ML ಗಣಿತದ ಮೂರು ಸ್ತಂಭಗಳು (Linear Algebra, Calculus, Probability)</p>
+                    <a href="https://notebooklm.google.com/notebook/e3be28bc-6e7c-424c-a133-c3f402b7dcea"
+                        target="_blank" class="quiz-link">
+                        Listen Now (ಕೇಳಿ) <i class="fas fa-play"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/auth-guard.js"></script>
+</body>
+
+</html>
