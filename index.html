@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/logo.css">
     <link rel="stylesheet" href="css/handout-only.css"> <!-- Handout-only mode styles -->
     <link rel="stylesheet" href="css/premium-ux.css"> <!-- Premium UX enhancements -->
+    <link rel="stylesheet" href="css/question-bank.css"> <!-- Question Bank styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Initial Loading State */
@@ -191,6 +192,14 @@
                         onmouseover="this.style.background='rgba(255, 255, 255, 0.2)'"
                         onmouseout="this.style.background='rgba(255, 255, 255, 0.1)'">
                         <i class="fas fa-brain"></i> Quiz Hub
+                    </a>
+
+                    <!-- Question Bank Link -->
+                    <a href="javascript:void(0)" onclick="toggleQuestionBankSection()"
+                        style="color: white; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 6px; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); margin-right: 0.5rem;"
+                        onmouseover="this.style.background='rgba(255, 255, 255, 0.2)'"
+                        onmouseout="this.style.background='rgba(255, 255, 255, 0.1)'">
+                        <i class="fas fa-fire"></i> Question Bank
                     </a>
 
                     <!-- Research Link -->
@@ -581,6 +590,18 @@
                     </div>
                 </div>
 
+                <!-- Question Bank Section (hidden by default, toggled via nav) -->
+                <div id="questionBankSection" style="display: none; padding: 2rem 0;">
+                    <button class="qb-back-btn" onclick="toggleQuestionBankSection()">
+                        <i class="fas fa-arrow-left"></i> Back to Home
+                    </button>
+                    <div style="text-align:center; margin-bottom:2rem;">
+                        <h2 style="color:#166534; font-size:2rem;"><i class="fas fa-fire"></i> HOT Question Bank</h2>
+                        <p style="color:#4b5563; max-width:700px; margin:0.5rem auto;">Higher Order Thinking Questions for Descriptive Exam Preparation &mdash; 10 Marks Each with Marking Scheme &amp; Detailed Solutions</p>
+                    </div>
+                    <div id="questionBankContainer">Loading questions...</div>
+                </div>
+
                 <!-- Module Overview (New View) -->
                 <div id="moduleOverview" class="module-overview" style="display: none;">
                     <div class="module-hero">
@@ -682,6 +703,11 @@
     <script src="js/progress.js"></script>
     <script src="js/quiz.js"></script>
     <script src="js/router.js"></script>
+    <!-- Question Bank Scripts -->
+    <script src="js/question-bank-u1u2.js"></script>
+    <script src="js/question-bank-u2.js"></script>
+    <script src="js/question-bank-u3.js"></script>
+    <script src="js/question-bank-renderer.js"></script>
     <script src="js/app.js"></script>
     <script src="js/chatbot.js"></script>
     <script src="js/content-auditor.js"></script>
