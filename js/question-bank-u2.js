@@ -5,7 +5,7 @@
 const questionBankUnit2 = {
     unitId: 2,
     unitTitle: "Unit 2: Python & ML Fundamentals",
-    topicsCovered: ["m2-t1","m2-t2","m2-t3","m2-t4","m2-t5","m2-t6","m2-t7","m2-t8","m2-t9","m2-t10","m2-t11","m2-t12","m2-t13","m2-t14","m2-t15","m2-t16","m2-t17","m2-t18","m2-t19","m2-t20","m2-t21","m2-t22","m2-t23","m2-t24","m2-t25"],
+    topicsCovered: ["m2-t1", "m2-t2", "m2-t3", "m2-t4", "m2-t5", "m2-t6", "m2-t7", "m2-t8", "m2-t9", "m2-t10"],
     questions: [
         {
             id: "u2-q1",

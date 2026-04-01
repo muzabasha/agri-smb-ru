@@ -4,7 +4,7 @@
 const questionBankUnit3 = {
     unitId: 3,
     unitTitle: "Unit 3: AI/ML Applications in Agriculture",
-    topicsCovered: ["m3-t1","m3-t2","m3-t3","m3-t4","m3-t5","m3-t6","m3-t7","m3-t8","m3-t9","m3-t10","m3-t11","m3-t12","m3-t13","m3-t14","m3-t15","m3-t16","m3-t17","m3-t18","m3-t19","m3-t20","m3-t21","m3-t22","m3-t23","m3-t24"],
+    topicsCovered: ["m3-t1", "m3-t2", "m3-t3", "m3-t4", "m3-t5", "m3-t6", "m3-t7", "m3-t8", "m3-t9", "m3-t10"],
     questions: [
         {
             id: "u3-q1",

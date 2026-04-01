@@ -9,6 +9,7 @@ function renderQuestionBank() {
     if (typeof questionBankUnit1 !== 'undefined') units.push(questionBankUnit1);
     if (typeof questionBankUnit2 !== 'undefined') units.push(questionBankUnit2);
     if (typeof questionBankUnit3 !== 'undefined') units.push(questionBankUnit3);
+    if (typeof questionBankUnit4 !== 'undefined') units.push(questionBankUnit4);
 
     if (units.length === 0) {
         container.innerHTML = '<p>No question bank data loaded.</p>';
