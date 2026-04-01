@@ -22,8 +22,8 @@ class AgriBot {
         this.knowledge = {
             en: {
                 welcome: {
-                    text: "Hello! I'm AgriBot. I can answer your questions about the course, AI, and Agriculture in 5 languages!",
-                    speech: "Hello! I'm AgriBot. I can answer your questions about the course, AI, and Agriculture in 5 languages!"
+                    text: "🌾 Welcome to AI Kitchen Academy! I'm AgriBot, your AI learning assistant. This platform has everything you need: 5 course modules, Question Bank, 70 Assignments, 70 Seminars, 70 Reports, Hyperparameter Lab, Quiz Hub, Learning Hub, Presentations, and a GitHub Guide. Ask me anything or say 'quick tour' to get started! Enable 🔊 voice to hear me speak.",
+                    speech: "Welcome to AI Kitchen Academy! I'm AgriBot, your AI learning assistant. This platform has everything you need: 5 course modules, question bank, 70 assignments, 70 seminars, 70 reports, hyperparameter lab, quiz hub, learning hub, presentations, and a GitHub guide. Ask me anything or say quick tour to get started. Enable voice to hear me speak."
                 },
                 unknown: {
                     text: "I'm not sure about that. Try asking about 'Certificate', 'Python', 'Jobs', or check the FAQ menu.",
@@ -49,7 +49,20 @@ class AgriBot {
                     { label: "Job opportunities?", key: "jobs" },
                     { label: "Real-world projects?", key: "projects" },
                     { label: "Who created this?", key: "creator" },
-                    { label: "Final Assessment?", key: "final assessment" }
+                    { label: "Final Assessment?", key: "final assessment" },
+                    { label: "What features does this app have?", key: "app features" },
+                    { label: "How to use Question Bank?", key: "question bank" },
+                    { label: "How to use Assignment Topics?", key: "assignments" },
+                    { label: "How to use Seminar Topics?", key: "seminars" },
+                    { label: "How to use Report Topics?", key: "reports" },
+                    { label: "How to push code to GitHub?", key: "github guide" },
+                    { label: "What is Hyperparameter Lab?", key: "hyperparameter lab" },
+                    { label: "How to use Quiz Hub?", key: "quiz hub" },
+                    { label: "How to use Learning Hub?", key: "learning hub" },
+                    { label: "What is Presentation Lab?", key: "presentation lab" },
+                    { label: "How to use AI Kitchen?", key: "ai kitchen" },
+                    { label: "Give me a quick tour", key: "quick tour" },
+                    { label: "What makes this app unique?", key: "usp" }
                 ],
                 faqs: {
                     "what is this course": { text: "This is the AI/ML in Agriculture training program, teaching you how to apply technology to farming.", speech: "This is the AI ML in Agriculture training program, teaching you how to apply technology to farming." },
@@ -71,7 +84,20 @@ class AgriBot {
                     "jobs": { text: "You can become an Agri-Data Analyst, Smart Farm Manager, or AI Researcher.", speech: "You can become an Agri Data Analyst, Smart Farm Manager, or AI Researcher." },
                     "projects": { text: "Yes! Module 4 and 5 are dedicated to building real-world projects like Disease Detection.", speech: "Yes! Module 4 and 5 are dedicated to building real world projects like Disease Detection." },
                     "creator": { text: "This course is part of the GKVK Training Program contribution.", speech: "This course is part of the GKVK Training Program contribution." },
-                    "final assessment": { text: "It's a quiz at the end of the course to test your knowledge before certification.", speech: "It's a quiz at the end of the course to test your knowledge before certification." }
+                    "final assessment": { text: "It's a quiz at the end of the course to test your knowledge before certification.", speech: "It's a quiz at the end of the course to test your knowledge before certification." },
+                    "app features": { text: "This app has 10+ features: 5 Module Handouts with code, Question Bank (40 HOT questions across 4 units), 70 Assignment Topics, 70 Seminar Topics, 70 Report Topics with 20 FAQs each, Quiz Hub (12 quizzes), Learning Hub (19 audio lessons), Presentation Lab (18 PPTs), Hyperparameter Tuning Lab, AI Kitchen Academy, GitHub Guide, and this multilingual AI chatbot with voice!", speech: "This app has over 10 features including module handouts, question bank, assignment topics, seminar topics, report topics with FAQs, quiz hub, learning hub, presentation lab, hyperparameter tuning lab, AI kitchen, GitHub guide, and this multilingual chatbot with voice support." },
+                    "question bank": { text: "Click the green 'Question Bank' button on the homepage banner. It has 40 Higher Order Thinking questions across 4 units (10 each), with marking schemes and detailed solutions. Great for exam preparation!", speech: "Click the green Question Bank button on the homepage. It has 40 higher order thinking questions across 4 units with marking schemes and detailed solutions. Great for exam preparation." },
+                    "assignments": { text: "Click the orange 'Assignment Topics' button on the homepage. Choose 1 of 70 unique AI/ML/IoT project topics organized in 7 categories. Each has a detailed problem statement. Submit code + report + presentation.", speech: "Click the orange Assignment Topics button on the homepage. Choose one of 70 unique project topics organized in 7 categories. Each has a detailed problem statement. Submit code, report, and presentation." },
+                    "seminars": { text: "Click the pink 'Seminar Topics' button. Pick 1 of 70 recent trendy topics like LLMs, Vision Transformers, Federated Learning, and more. Prepare a 15-minute PPT with Q&A.", speech: "Click the pink Seminar Topics button. Pick one of 70 recent trendy topics like large language models, vision transformers, and federated learning. Prepare a 15 minute presentation." },
+                    "reports": { text: "Click the red 'Report Topics' button. Choose from 70 topics, each with 20 ready-made FAQ questions. Write a minimum 3-page report with diagrams, tables, and the FAQ section.", speech: "Click the red Report Topics button. Choose from 70 topics, each with 20 ready-made FAQ questions. Write a minimum 3 page report with diagrams, tables, and the FAQ section." },
+                    "github guide": { text: "Click the dark 'GitHub Guide' button. It's a complete step-by-step guide for beginners: install Git, create account, push code, and share the link with faculty. Includes 30+ common errors with fixes!", speech: "Click the dark GitHub Guide button. It's a complete step by step guide for beginners to install Git, create an account, push code, and share the link with faculty. It includes over 30 common errors with fixes." },
+                    "hyperparameter lab": { text: "Click 'Hyperparameter Tuning Lab' on the homepage. It's an interactive lab where you control model parameters, choose from 12 algorithms and 4 agricultural datasets, and see real-time visualizations of accuracy, bias-variance, learning curves, and more!", speech: "Click Hyperparameter Tuning Lab on the homepage. It's an interactive lab where you control model parameters, choose from 12 algorithms and 4 agricultural datasets, and see real time visualizations of accuracy and learning curves." },
+                    "quiz hub": { text: "Visit the Quiz Hub from the homepage navigation. It has 12 topic-based quizzes covering all modules. Test your knowledge on Python, ML, Data Science, and Agriculture AI concepts.", speech: "Visit the Quiz Hub from the homepage navigation. It has 12 topic based quizzes covering all modules. Test your knowledge on Python, machine learning, and agriculture AI concepts." },
+                    "learning hub": { text: "Visit the Learning Hub (Learn by Watching). It has 19 audio lessons generated by NotebookLM, organized across 3 modules. Listen and learn on the go!", speech: "Visit the Learning Hub. It has 19 audio lessons organized across 3 modules. Listen and learn on the go." },
+                    "presentation lab": { text: "The Presentation Lab on the homepage has 18 Gamma presentations covering Python Fundamentals, Data Science, and Machine Learning topics. Click any card to open the interactive presentation.", speech: "The Presentation Lab has 18 interactive presentations covering Python, Data Science, and Machine Learning. Click any card to open the presentation." },
+                    "ai kitchen": { text: "AI Kitchen Academy is our flagship interactive learning space. It includes the CNN-SVM classifier app, Hyperparameter Tuning Lab, and quick access to Question Bank, Assignments, Seminars, Reports, and GitHub Guide — all from one banner!", speech: "AI Kitchen Academy is our flagship interactive learning space. It includes the CNN SVM classifier, hyperparameter lab, and quick access to all learning resources from one banner." },
+                    "quick tour": { text: "Welcome! Here's your quick tour:\n\n🏠 Homepage → Start with Module 1 in the sidebar\n📚 Handouts → Detailed notes for every topic\n🧪 Hyperparameter Lab → Experiment with ML models\n📝 Question Bank → 40 exam questions with solutions\n📋 Assignments → 70 project topics to build\n🎤 Seminars → 70 presentation topics\n📄 Reports → 70 topics with 20 FAQs each\n🎬 Presentations → 18 interactive PPTs\n🎧 Learning Hub → 19 audio lessons\n❓ Quiz Hub → 12 topic quizzes\n💻 GitHub Guide → Push your work online\n🤖 Me (AgriBot) → Ask anything, anytime!\n\nTip: Enable voice (🔊) to hear me speak!", speech: "Welcome! Here's your quick tour. Start with Module 1 in the sidebar for handouts. Use the Hyperparameter Lab to experiment with ML models. The Question Bank has 40 exam questions. Choose from 70 assignment topics, 70 seminar topics, or 70 report topics. Watch 18 presentations, listen to 19 audio lessons, and take 12 quizzes. Use the GitHub Guide to push your work online. And I'm here to help anytime! Enable voice to hear me speak." },
+                    "usp": { text: "What makes this app unique:\n\n✅ All-in-one platform — no need for multiple websites\n✅ 5 modules with 100+ topic handouts and code examples\n✅ Multilingual AI chatbot (5 languages + voice)\n✅ Interactive Hyperparameter Tuning Lab with 12 algorithms\n✅ 70 assignments + 70 seminars + 70 reports (with 1400 FAQs)\n✅ 40 HOT exam questions with marking schemes\n✅ 18 presentations + 19 audio lessons + 12 quizzes\n✅ Complete GitHub guide for beginners\n✅ Agriculture-focused — every example uses farming data\n✅ NEP 2020 aligned — experiential, competency-based learning\n✅ 100% free and accessible on any device", speech: "What makes this app unique: It's an all in one platform with 5 modules, over 100 topic handouts, a multilingual chatbot with voice in 5 languages, an interactive hyperparameter lab with 12 algorithms, 70 assignments, 70 seminars, 70 reports with 1400 FAQs, 40 exam questions, 18 presentations, 19 audio lessons, 12 quizzes, a GitHub guide, and everything is agriculture focused and NEP 2020 aligned. It's 100% free." }
                 }
             },
             hi: {
@@ -430,7 +456,7 @@ class AgriBot {
             
             <div class="chat-messages" id="chatMessages">
                 <div class="message bot">
-                    ${this.knowledge['en'].welcome.text}
+                    🌾 Welcome to AI Kitchen Academy! I'm AgriBot, your AI learning assistant. This platform has everything you need: 5 course modules, Question Bank, 70 Assignments, 70 Seminars, 70 Reports, Hyperparameter Lab, Quiz Hub, Learning Hub, Presentations, and a GitHub Guide. Ask me anything or say 'quick tour' to get started! Enable 🔊 voice to hear me speak.
                 </div>
             </div>
 
@@ -530,7 +556,13 @@ class AgriBot {
     toggle() {
         this.isOpen = !this.isOpen;
         this.window.classList.toggle('active', this.isOpen);
-        if (!this.isOpen) window.speechSynthesis.cancel();
+        if (!this.isOpen) {
+            window.speechSynthesis.cancel();
+        } else if (this.speechEnabled) {
+            // Auto-speak welcome when opening with voice enabled
+            const welcome = this.knowledge[this.language].welcome;
+            this.speakResponse(welcome.speech || welcome.text);
+        }
     }
 
     sendMessage() {
@@ -594,8 +626,22 @@ class AgriBot {
             if (!foundKey) {
                 if (lowerText.includes("module")) reply = currentKB["what is a module"];
                 else if (lowerText.includes("python")) reply = currentKB["what is python"];
-                else if (lowerText.includes("job")) reply = currentKB["jobs"];
-                else if (lowerText.includes("ce")) reply = currentKB["certificate"];
+                else if (lowerText.includes("job") || lowerText.includes("career")) reply = currentKB["jobs"];
+                else if (lowerText.includes("cert")) reply = currentKB["certificate"];
+                else if (lowerText.includes("tour") || lowerText.includes("guide me") || lowerText.includes("help me")) reply = currentKB["quick tour"];
+                else if (lowerText.includes("feature") || lowerText.includes("what can") || lowerText.includes("what does")) reply = currentKB["app features"];
+                else if (lowerText.includes("unique") || lowerText.includes("special") || lowerText.includes("usp") || lowerText.includes("best")) reply = currentKB["usp"];
+                else if (lowerText.includes("question bank") || lowerText.includes("exam question") || lowerText.includes("hot question")) reply = currentKB["question bank"];
+                else if (lowerText.includes("assignment") || lowerText.includes("project topic")) reply = currentKB["assignments"];
+                else if (lowerText.includes("seminar") || lowerText.includes("presentation topic") || lowerText.includes("ppt topic")) reply = currentKB["seminars"];
+                else if (lowerText.includes("report") || lowerText.includes("faq")) reply = currentKB["reports"];
+                else if (lowerText.includes("github") || lowerText.includes("git") || lowerText.includes("push code")) reply = currentKB["github guide"];
+                else if (lowerText.includes("hyperparameter") || lowerText.includes("tuning lab") || lowerText.includes("parameter")) reply = currentKB["hyperparameter lab"];
+                else if (lowerText.includes("quiz")) reply = currentKB["quiz hub"];
+                else if (lowerText.includes("audio") || lowerText.includes("listen") || lowerText.includes("watch") || lowerText.includes("learning hub")) reply = currentKB["learning hub"];
+                else if (lowerText.includes("presentation") || lowerText.includes("gamma") || lowerText.includes("slide")) reply = currentKB["presentation lab"];
+                else if (lowerText.includes("kitchen") || lowerText.includes("banner")) reply = currentKB["ai kitchen"];
+                else if (lowerText.includes("hello") || lowerText.includes("hi") || lowerText.includes("hey")) reply = this.knowledge[this.language].welcome;
             }
         }
 
