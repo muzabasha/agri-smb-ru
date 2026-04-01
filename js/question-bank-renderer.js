@@ -100,6 +100,7 @@ function toggleQuestionBankSection() {
     const welcome = document.getElementById('welcomeScreen');
     const assignSec = document.getElementById('assignmentSection');
     const seminarSec = document.getElementById('seminarSection');
+    const reportSec = document.getElementById('reportSection');
     if (!section) return;
     const isVisible = section.style.display !== 'none';
     if (isVisible) {
@@ -110,6 +111,7 @@ function toggleQuestionBankSection() {
         if (welcome) welcome.style.display = 'none';
         if (assignSec) assignSec.style.display = 'none';
         if (seminarSec) seminarSec.style.display = 'none';
+        if (reportSec) reportSec.style.display = 'none';
         renderQuestionBank();
         section.scrollIntoView({ behavior: 'smooth' });
     }

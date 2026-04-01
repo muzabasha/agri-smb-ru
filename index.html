@@ -595,6 +595,10 @@
                                     style="background: #be185d; color: white;">
                                     <i class="fas fa-chalkboard-teacher"></i> Seminar Topics
                                 </a>
+                                <a href="javascript:void(0)" onclick="toggleReportSection()" class="ai-kitchen-btn"
+                                    style="background: #dc2626; color: white;">
+                                    <i class="fas fa-file-alt"></i> Report Topics
+                                </a>
                             </div>
                         </div>
 
@@ -647,6 +651,21 @@
                             &mdash; Select one topic, prepare a 15-minute presentation, and present your findings.</p>
                     </div>
                     <div id="seminarContainer">Loading seminar topics...</div>
+                </div>
+
+                <!-- Report Topics Section (hidden by default) -->
+                <div id="reportSection" style="display: none; padding: 2rem 0;">
+                    <button class="qb-back-btn" onclick="toggleReportSection()">
+                        <i class="fas fa-arrow-left"></i> Back to Home
+                    </button>
+                    <div style="text-align:center; margin-bottom:2rem;">
+                        <h2 style="color:#dc2626; font-size:2rem;"><i class="fas fa-file-alt"></i> Report Writing Topics
+                        </h2>
+                        <p style="color:#4b5563; max-width:700px; margin:0.5rem auto;">70 AI/ML/IoT Topics with 20 FAQs
+                            each &mdash; Write a minimum 3-page report with diagrams, tables, and a comprehensive FAQ
+                            section.</p>
+                    </div>
+                    <div id="reportContainer">Loading report topics...</div>
                 </div>
 
                 <!-- Module Overview (New View) -->
@@ -763,6 +782,9 @@
     <!-- Seminar Scripts -->
     <script src="js/seminar-topics.js"></script>
     <script src="js/seminar-renderer.js"></script>
+    <!-- Report Scripts -->
+    <script src="js/report-topics.js"></script>
+    <script src="js/report-renderer.js"></script>
     <script src="js/app.js"></script>
     <script src="js/chatbot.js"></script>
     <script src="js/content-auditor.js"></script>

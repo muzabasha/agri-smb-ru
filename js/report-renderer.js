@@ -1,27 +1,27 @@
-// Seminar Topics Renderer
+// Report Topics Renderer with FAQ accordion
 
-function renderSeminarTopics() {
-    const container = document.getElementById('seminarContainer');
-    if (!container || typeof seminarTopics === 'undefined') {
-        if (container) container.innerHTML = '<p>No seminar data loaded.</p>';
+function renderReportTopics() {
+    const container = document.getElementById('reportContainer');
+    if (!container || typeof reportTopics === 'undefined') {
+        if (container) container.innerHTML = '<p>No report data loaded.</p>';
         return;
     }
-    const data = seminarTopics;
+    const data = reportTopics;
     let html = '';
 
     // Instructions
-    html += `<div class="st-instructions">
-        <h3><i class="fas fa-chalkboard-teacher"></i> Presentation Guidelines</h3>
+    html += `<div class="rt-instructions">
+        <h3><i class="fas fa-file-alt"></i> Report Writing Guidelines</h3>
         <ol>${data.instructions.map(i => `<li>${i}</li>`).join('')}</ol>
     </div>`;
 
     // Category filter
     html += `<div class="at-filter-bar">
-        <button class="at-filter-btn active" onclick="filterSeminars('all')">
+        <button class="at-filter-btn active" onclick="filterReports('all')">
             <i class="fas fa-th"></i> All Topics <span class="at-count">70</span>
         </button>`;
     data.categories.forEach(cat => {
-        html += `<button class="at-filter-btn" onclick="filterSeminars('${cat.id}')">
+        html += `<button class="at-filter-btn" onclick="filterReports('${cat.id}')">
             <i class="fas ${cat.icon}"></i> ${cat.name} <span class="at-count">${cat.topics.length}</span>
         </button>`;
     });
@@ -30,13 +30,14 @@ function renderSeminarTopics() {
     // Search
     html += `<div class="at-search-bar">
         <i class="fas fa-search"></i>
-        <input type="text" id="seminarSearch" placeholder="Search seminar topics..." oninput="searchSeminars(this.value)">
+        <input type="text" id="reportSearch" placeholder="Search report topics..." oninput="searchReports(this.value)">
     </div>`;
 
-    // Cards
-    html += '<div class="at-topics-grid" id="seminarGrid">';
+    // Cards with FAQ accordion
+    html += '<div class="at-topics-grid" id="reportGrid">';
     data.categories.forEach(cat => {
         cat.topics.forEach(topic => {
+            const faqId = 'rt-faq-' + topic.id;
             html += `<div class="at-topic-card" data-category="${cat.id}" data-title="${topic.title.toLowerCase()}" data-desc="${topic.description.toLowerCase()}">
                 <div class="at-topic-header">
                     <span class="at-topic-num" style="background:${cat.color}">${topic.id}</span>
@@ -46,6 +47,12 @@ function renderSeminarTopics() {
                 </div>
                 <h4 class="at-topic-title">${topic.title}</h4>
                 <p class="at-topic-desc">${topic.description}</p>
+                <button class="rt-faq-toggle" onclick="toggleReportFaq('${faqId}')">
+                    <i class="fas fa-question-circle"></i> View 20 FAQs <i class="fas fa-chevron-down rt-chevron"></i>
+                </button>
+                <div class="rt-faq-list" id="${faqId}" style="display:none">
+                    <ol>${topic.faqs.map(f => `<li>${f}</li>`).join('')}</ol>
+                </div>
             </div>`;
         });
     });
@@ -53,28 +60,43 @@ function renderSeminarTopics() {
     container.innerHTML = html;
 }
 
-function filterSeminars(category) {
-    document.querySelectorAll('#seminarContainer .at-filter-btn').forEach(b => b.classList.remove('active'));
+function toggleReportFaq(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const visible = el.style.display !== 'none';
+    el.style.display = visible ? 'none' : 'block';
+    const btn = el.previousElementSibling;
+    if (btn) {
+        const chevron = btn.querySelector('.rt-chevron');
+        if (chevron) chevron.className = visible ? 'fas fa-chevron-down rt-chevron' : 'fas fa-chevron-up rt-chevron';
+        btn.innerHTML = visible
+            ? '<i class="fas fa-question-circle"></i> View 20 FAQs <i class="fas fa-chevron-down rt-chevron"></i>'
+            : '<i class="fas fa-question-circle"></i> Hide FAQs <i class="fas fa-chevron-up rt-chevron"></i>';
+    }
+}
+
+function filterReports(category) {
+    document.querySelectorAll('#reportContainer .at-filter-btn').forEach(b => b.classList.remove('active'));
     event.target.closest('.at-filter-btn').classList.add('active');
-    document.querySelectorAll('#seminarGrid .at-topic-card').forEach(card => {
+    document.querySelectorAll('#reportGrid .at-topic-card').forEach(card => {
         card.style.display = (category === 'all' || card.dataset.category === category) ? '' : 'none';
     });
 }
 
-function searchSeminars(query) {
+function searchReports(query) {
     const q = query.toLowerCase().trim();
-    document.querySelectorAll('#seminarGrid .at-topic-card').forEach(card => {
+    document.querySelectorAll('#reportGrid .at-topic-card').forEach(card => {
         if (!q) { card.style.display = ''; return; }
         card.style.display = (card.dataset.title.includes(q) || card.dataset.desc.includes(q)) ? '' : 'none';
     });
 }
 
-function toggleSeminarSection() {
-    const section = document.getElementById('seminarSection');
+function toggleReportSection() {
+    const section = document.getElementById('reportSection');
     const welcome = document.getElementById('welcomeScreen');
     const qbSec = document.getElementById('questionBankSection');
     const asSec = document.getElementById('assignmentSection');
-    const reportSec = document.getElementById('reportSection');
+    const smSec = document.getElementById('seminarSection');
     if (!section) return;
     const isVisible = section.style.display !== 'none';
     if (isVisible) {
@@ -85,8 +107,8 @@ function toggleSeminarSection() {
         if (welcome) welcome.style.display = 'none';
         if (qbSec) qbSec.style.display = 'none';
         if (asSec) asSec.style.display = 'none';
-        if (reportSec) reportSec.style.display = 'none';
-        renderSeminarTopics();
+        if (smSec) smSec.style.display = 'none';
+        renderReportTopics();
         section.scrollIntoView({ behavior: 'smooth' });
     }
 }

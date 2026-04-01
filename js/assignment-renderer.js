@@ -77,6 +77,7 @@ function toggleAssignmentSection() {
     const welcome = document.getElementById('welcomeScreen');
     const qbSec = document.getElementById('questionBankSection');
     const seminarSec = document.getElementById('seminarSection');
+    const reportSec = document.getElementById('reportSection');
     if (!section) return;
     const isVisible = section.style.display !== 'none';
     if (isVisible) {
@@ -87,6 +88,7 @@ function toggleAssignmentSection() {
         if (welcome) welcome.style.display = 'none';
         if (qbSec) qbSec.style.display = 'none';
         if (seminarSec) seminarSec.style.display = 'none';
+        if (reportSec) reportSec.style.display = 'none';
         renderAssignmentTopics();
         section.scrollIntoView({ behavior: 'smooth' });
     }
