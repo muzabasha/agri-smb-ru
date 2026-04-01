@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Guide for Students - AI Kitchen Academy</title>
+    <link rel="icon" type="image/x-icon" href="/images/agri-ai-logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #166534;
+            --primary-light: #22c55e;
+            --bg: #f0fdf4;
+            --card: #fff;
+            --text: #1a1a2e;
+            --muted: #6b7280;
+            --border: #d1d5db;
+            --code-bg: #1e293b;
+            --code-text: #e2e8f0;
+            --warn: #f59e0b;
+            --danger: #ef4444;
+            --info: #3b82f6;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary), #15803d);
+            color: #fff;
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(22, 101, 52, 0.3);
+        }
+
+        .header .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header h1 {
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Requirement Cards */
+        .req-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .req-card {
+            background: var(--card);
+            border-radius: 10px;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .req-card i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .req-card h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .req-card p {
+            font-size: 0.82rem;
+            color: var(--muted);
+        }
+
+        /* Steps */
+        .step {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-right: 0.6rem;
+        }
+
+        .step h3 {
+            display: inline;
+            font-size: 1.05rem;
+            vertical-align: middle;
+        }
+
+        .step p {
+            margin: 0.6rem 0 0;
+            font-size: 0.9rem;
+            color: #374151;
+        }
+
+        .step img,
+        .step .screenshot {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 0.8rem 0;
+            border: 1px solid var(--border);
+        }
+
+        /* Code blocks */
+        .cmd {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            font-family: 'Cascadia Code', 'Fira Code', monospace;
+            font-size: 0.85rem;
+            margin: 0.6rem 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .cmd .comment {
+            color: #94a3b8;
+        }
+
+        .cmd .highlight {
+            color: #22c55e;
+            font-weight: 600;
+        }
+
+        .cmd-label {
+            font-size: 0.72rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Warning/Info/Error boxes */
+        .box {
+            padding: 1rem 1.2rem;
+            border-radius: 8px;
+            margin: 0.8rem 0;
+            font-size: 0.88rem;
+        }
+
+        .box-info {
+            background: #eff6ff;
+            border: 1px solid #93c5fd;
+            color: #1e40af;
+        }
+
+        .box-warn {
+            background: #fffbeb;
+            border: 1px solid #fcd34d;
+            color: #92400e;
+        }
+
+        .box-danger {
+            background: #fef2f2;
+            border: 1px solid #fca5a5;
+            color: #991b1b;
+        }
+
+        .box-success {
+            background: #ecfdf5;
+            border: 1px solid #6ee7b7;
+            color: #065f46;
+        }
+
+        .box i {
+            margin-right: 0.4rem;
+        }
+
+        /* Error table */
+        .error-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+            margin: 1rem 0;
+        }
+
+        .error-table th {
+            background: var(--primary);
+            color: #fff;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .error-table td {
+            padding: 0.5rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .error-table tr:hover {
+            background: #f0fdf4;
+        }
+
+        .error-table code {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-size: 0.78rem;
+        }
+
+        .fix-code {
+            background: #ecfdf5;
+            color: #065f46;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-size: 0.78rem;
+            font-family: monospace;
+        }
+
+        /* Section headers */
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #bbf7d0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 0.4rem 0;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .checklist li::before {
+            content: '☐';
+            font-size: 1.1rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* Folder structure */
+        .folder-tree {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.82rem;
+            line-height: 1.8;
+        }
+
+        .folder-tree .folder {
+            color: #fbbf24;
+        }
+
+        .folder-tree .file {
+            color: #94a3b8;
+        }
+
+        @media(max-width:768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .step {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container" style="padding-top:0;padding-bottom:0;">
+            <h1><i class="fab fa-github"></i> GitHub Guide for Students</h1>
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Course Home</a>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- INTRO -->
+        <div class="box box-info">
+            <i class="fas fa-info-circle"></i>
+            <strong>Why GitHub?</strong> All your project code, reports, assignments, seminar PPTs, and documentation
+            must be pushed to a public GitHub repository. Share the repository link with your faculty for evaluation.
+            GitHub is the industry standard for code hosting and collaboration.
+        </div>
+
+        <!-- SYSTEM REQUIREMENTS -->
+        <h2 class="section-title"><i class="fas fa-laptop"></i> System Requirements</h2>
+        <div class="req-grid">
+            <div class="req-card">
+                <i class="fas fa-desktop" style="color:var(--info)"></i>
+                <h4>Computer</h4>
+                <p>Windows 10/11, macOS 10.15+, or Ubuntu 20.04+</p>
+            </div>
+            <div class="req-card">
+                <i class="fas fa-wifi" style="color:var(--success)"></i>
+                <h4>Internet</h4>
+                <p>Stable internet connection for push/pull operations</p>
+            </div>
+            <div class="req-card">
+                <i class="fas fa-hdd" style="color:var(--warn)"></i>
+                <h4>Storage</h4>
+                <p>~500 MB free space for Git installation</p>
+            </div>
+            <div class="req-card">
+                <i class="fas fa-envelope" style="color:var(--danger)"></i>
+                <h4>Email</h4>
+                <p>A valid email address for GitHub account creation</p>
+            </div>
+        </div>
+
+        <!-- WHAT TO SUBMIT -->
+        <h2 class="section-title"><i class="fas fa-folder-open"></i> What to Push to GitHub</h2>
+        <ul class="checklist">
+            <li>Project source code (Python files, Jupyter notebooks)</li>
+            <li>Project report (PDF format, minimum 3 pages)</li>
+            <li>Assignment solutions (code + report)</li>
+            <li>Seminar presentation (PPT/PPTX or PDF)</li>
+            <li>Report writing document (PDF with FAQ section)</li>
+            <li>README.md file explaining your project</li>
+            <li>requirements.txt listing Python dependencies</li>
+            <li>Dataset files (if small) or links to datasets (if large)</li>
+        </ul>
+
+        <h3 style="margin-top:1rem;font-size:1rem;">Recommended Folder Structure</h3>
+        <div class="folder-tree">
+            <span class="folder">📁 your-project-name/</span><br>
+            ├── <span class="folder">📁 code/</span><br>
+            │ ├── <span class="file">main.py</span><br>
+            │ ├── <span class="file">model_training.ipynb</span><br>
+            │ └── <span class="file">utils.py</span><br>
+            ├── <span class="folder">📁 reports/</span><br>
+            │ ├── <span class="file">project_report.pdf</span><br>
+            │ ├── <span class="file">assignment_report.pdf</span><br>
+            │ └── <span class="file">report_with_faq.pdf</span><br>
+            ├── <span class="folder">📁 presentations/</span><br>
+            │ └── <span class="file">seminar_presentation.pptx</span><br>
+            ├── <span class="folder">📁 data/</span><br>
+            │ └── <span class="file">dataset.csv</span> <span class="comment">(or link in README)</span><br>
+            ├── <span class="file">README.md</span><br>
+            ├── <span class="file">requirements.txt</span><br>
+            └── <span class="file">.gitignore</span>
+        </div>
+
+    </div><!-- end container -->
+    <div class="container" style="padding-top:0;">
+
+        <!-- STEP-BY-STEP GUIDE -->
+        <h2 class="section-title"><i class="fas fa-shoe-prints"></i> Step-by-Step Guide</h2>
+
+        <!-- PHASE 1: INSTALLATION -->
+        <h3 style="color:var(--info);margin-bottom:0.8rem;"><i class="fas fa-download"></i> Phase 1: Installation</h3>
+
+        <div class="step">
+            <span class="step-num">1</span>
+            <h3>Create a GitHub Account</h3>
+            <p>Go to <a href="https://github.com" target="_blank">https://github.com</a> and click <strong>"Sign
+                    up"</strong>.</p>
+            <p>Enter your email, create a password, choose a username (e.g., <code>ramesh-agri-2024</code>), and verify
+                your email.</p>
+            <div class="box box-info"><i class="fas fa-lightbulb"></i> <strong>Tip:</strong> Use your college email if
+                possible. Choose a professional username — this will be visible to faculty and future employers.</div>
+        </div>
+
+        <div class="step">
+            <span class="step-num">2</span>
+            <h3>Download and Install Git</h3>
+            <p>Git is the version control software that runs on your computer. GitHub is the online platform.</p>
+
+            <div class="cmd-label">For Windows:</div>
+            <div class="cmd">
+                1. Go to <span class="highlight">https://git-scm.com/download/win</span><br>
+                2. Download the installer (64-bit recommended)<br>
+                3. Run the installer → Click <span class="highlight">Next</span> on every screen (keep all defaults)<br>
+                4. On "Choosing the default editor" screen → Select <span class="highlight">Notepad</span> (easier for
+                beginners)<br>
+                5. On "Adjusting PATH" screen → Select <span class="highlight">"Git from the command line and also from
+                    3rd-party software"</span><br>
+                6. Click <span class="highlight">Install</span> → Wait → Click <span class="highlight">Finish</span>
+            </div>
+
+            <div class="cmd-label">For macOS:</div>
+            <div class="cmd">
+                <span class="comment"># Open Terminal and type:</span><br>
+                xcode-select --install<br>
+                <span class="comment"># Click "Install" when prompted. Git comes with Xcode tools.</span>
+            </div>
+
+            <div class="cmd-label">For Ubuntu/Linux:</div>
+            <div class="cmd">
+                sudo apt update<br>
+                sudo apt install git -y
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-num">3</span>
+            <h3>Verify Git Installation</h3>
+            <p>Open <strong>Command Prompt</strong> (Windows) or <strong>Terminal</strong> (Mac/Linux) and type:</p>
+            <div class="cmd">git --version</div>
+            <p>You should see something like: <code>git version 2.43.0</code></p>
+            <div class="box box-danger"><i class="fas fa-exclamation-triangle"></i> If you see
+                <code>'git' is not recognized</code>, Git was not installed correctly. Reinstall and make sure to select
+                "Git from the command line" during installation.
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-num">4</span>
+            <h3>Configure Git with Your Name and Email</h3>
+            <p>This links your commits to your identity. <strong>Use the same email as your GitHub account.</strong></p>
+            <div class="cmd">
+                git config --global user.name "<span class="highlight">Your Full Name</span>"<br>
+                git config --global user.email "<span class="highlight">your.email@example.com</span>"
+            </div>
+            <div class="cmd-label">Verify configuration:</div>
+            <div class="cmd">
+                git config --global user.name<br>
+                git config --global user.email
+            </div>
+        </div>
+
+        <!-- PHASE 2: CREATE REPOSITORY -->
+        <h3 style="color:var(--success);margin:1.5rem 0 0.8rem;"><i class="fas fa-plus-circle"></i> Phase 2: Create a
+            Repository on GitHub</h3>
+
+        <div class="step">
+            <span class="step-num">5</span>
+            <h3>Create a New Repository on GitHub Website</h3>
+            <p>1. Log in to <a href="https://github.com" target="_blank">github.com</a></p>
+            <p>2. Click the <strong>"+"</strong> icon (top-right) → <strong>"New repository"</strong></p>
+            <p>3. Fill in the details:</p>
+            <ul style="margin:0.5rem 0 0.5rem 1.5rem;font-size:0.9rem;">
+                <li><strong>Repository name:</strong> <code>agri-ai-project</code> (use lowercase, hyphens, no spaces)
+                </li>
+                <li><strong>Description:</strong> "AI/ML project for Agriculture course - GKVK Training Program"</li>
+                <li><strong>Visibility:</strong> Select <strong>Public</strong> ⚠️ (faculty needs to access it)</li>
+                <li><strong>Initialize:</strong> ✅ Check "Add a README file"</li>
+            </ul>
+            <p>4. Click <strong>"Create repository"</strong></p>
+            <div class="box box-warn"><i class="fas fa-exclamation-circle"></i> <strong>Important:</strong> The
+                repository MUST be <strong>Public</strong> so your faculty can view it. Private repositories require
+                sharing access separately.</div>
+        </div>
+
+        <div class="step">
+            <span class="step-num">6</span>
+            <h3>Copy the Repository URL</h3>
+            <p>On your new repository page, click the green <strong>"&lt;&gt; Code"</strong> button and copy the HTTPS
+                URL.</p>
+            <p>It will look like: <code>https://github.com/your-username/agri-ai-project.git</code></p>
+        </div>
+
+        <!-- PHASE 3: PUSH CODE -->
+        <h3 style="color:var(--warn);margin:1.5rem 0 0.8rem;"><i class="fas fa-upload"></i> Phase 3: Push Your Files to
+            GitHub</h3>
+
+        <div class="step">
+            <span class="step-num">7</span>
+            <h3>Clone the Repository to Your Computer</h3>
+            <p>Open Command Prompt / Terminal. Navigate to where you want to store the project:</p>
+            <div class="cmd">
+                <span class="comment"># Navigate to Desktop (or any folder you prefer)</span><br>
+                cd Desktop<br><br>
+                <span class="comment"># Clone your repository (paste YOUR URL)</span><br>
+                git clone <span class="highlight">https://github.com/your-username/agri-ai-project.git</span><br><br>
+                <span class="comment"># Enter the project folder</span><br>
+                cd agri-ai-project
+            </div>
+            <div class="box box-info"><i class="fas fa-lightbulb"></i> This creates a folder called
+                <code>agri-ai-project</code> on your Desktop with the README file inside.
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-num">8</span>
+            <h3>Add Your Files to the Project Folder</h3>
+            <p>Copy all your project files (code, reports, PPTs) into the <code>agri-ai-project</code> folder on your
+                computer. You can use File Explorer (Windows) or Finder (Mac) — just drag and drop.</p>
+            <p>Organize them into subfolders as shown in the recommended structure above.</p>
+        </div>
+
+        <div class="step">
+            <span class="step-num">9</span>
+            <h3>Stage All Files for Upload</h3>
+            <p>Back in Command Prompt / Terminal (make sure you're inside the project folder):</p>
+            <div class="cmd">
+                <span class="comment"># Check which files are new or changed</span><br>
+                git status<br><br>
+                <span class="comment"># Stage ALL files for upload</span><br>
+                git add .<br><br>
+                <span class="comment"># Verify files are staged (should show green)</span><br>
+                git status
+            </div>
+            <div class="box box-info"><i class="fas fa-info-circle"></i> The dot (<code>.</code>) in
+                <code>git add .</code> means "add everything in the current folder." You can also add specific files:
+                <code>git add code/main.py</code>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-num">10</span>
+            <h3>Commit Your Files (Save a Snapshot)</h3>
+            <div class="cmd">
+                git commit -m "<span class="highlight">Add project code, report, and presentation</span>"
+            </div>
+            <p>The message in quotes describes what you're uploading. Make it meaningful.</p>
+            <div class="box box-warn"><i class="fas fa-exclamation-circle"></i> If you see an error about "nothing to
+                commit", it means you haven't added any new files, or you forgot to run <code>git add .</code> first.
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-num">11</span>
+            <h3>Push to GitHub (Upload to the Internet)</h3>
+            <div class="cmd">
+                git push origin main
+            </div>
+            <p>The first time you push, GitHub will ask you to log in:</p>
+            <ul style="margin:0.5rem 0 0.5rem 1.5rem;font-size:0.9rem;">
+                <li>A browser window will open → Log in to GitHub → Click <strong>"Authorize"</strong></li>
+                <li>Or it may ask for username and password in the terminal</li>
+            </ul>
+            <div class="box box-danger"><i class="fas fa-key"></i> <strong>Password won't work!</strong> GitHub no
+                longer accepts passwords. You need a <strong>Personal Access Token (PAT)</strong>. See the
+                troubleshooting section below.</div>
+        </div>
+
+        <div class="step">
+            <span class="step-num">12</span>
+            <h3>Verify on GitHub Website</h3>
+            <p>Go to <code>https://github.com/your-username/agri-ai-project</code> in your browser. You should see all
+                your files uploaded.</p>
+        </div>
+
+        <div class="step">
+            <span class="step-num">13</span>
+            <h3>Share the Link with Faculty</h3>
+            <p>Copy the URL from your browser address bar and share it with your faculty:</p>
+            <div class="cmd">
+                <span class="highlight">https://github.com/your-username/agri-ai-project</span>
+            </div>
+            <div class="box box-success"><i class="fas fa-check-circle"></i> <strong>Done!</strong> Your faculty can now
+                view all your code, reports, and presentations by visiting this link.</div>
+        </div>
+
+        <!-- UPDATING FILES -->
+        <h3 style="color:var(--primary);margin:1.5rem 0 0.8rem;"><i class="fas fa-sync"></i> Updating Files Later</h3>
+        <div class="step">
+            <span class="step-num">14</span>
+            <h3>Push Updated Files (Repeat These 3 Commands)</h3>
+            <p>Whenever you modify or add new files, run these 3 commands:</p>
+            <div class="cmd">
+                <span class="comment"># 1. Stage changes</span><br>
+                git add .<br><br>
+                <span class="comment"># 2. Commit with a message</span><br>
+                git commit -m "<span class="highlight">Update: added new analysis results</span>"<br><br>
+                <span class="comment"># 3. Push to GitHub</span><br>
+                git push origin main
+            </div>
+            <div class="box box-info"><i class="fas fa-lightbulb"></i> <strong>Remember:</strong> The 3-step cycle is
+                always: <code>git add .</code> → <code>git commit -m "message"</code> →
+                <code>git push origin main</code>
+            </div>
+        </div>
+
+        <!-- PERSONAL ACCESS TOKEN -->
+        <h2 class="section-title"><i class="fas fa-key"></i> Creating a Personal Access Token (PAT)</h2>
+        <div class="step">
+            <p>GitHub requires a PAT instead of your password for command-line access:</p>
+            <ol style="margin:0.5rem 0 0 1.5rem;font-size:0.9rem;line-height:2;">
+                <li>Go to <a href="https://github.com/settings/tokens" target="_blank">github.com/settings/tokens</a>
+                </li>
+                <li>Click <strong>"Generate new token (classic)"</strong></li>
+                <li>Give it a name: <code>my-laptop-token</code></li>
+                <li>Set expiration: <strong>90 days</strong> (or "No expiration" for convenience)</li>
+                <li>Check the <strong>"repo"</strong> scope (full control of repositories)</li>
+                <li>Click <strong>"Generate token"</strong></li>
+                <li>⚠️ <strong>COPY THE TOKEN IMMEDIATELY</strong> — you won't see it again!</li>
+                <li>When Git asks for your password, <strong>paste this token instead</strong></li>
+            </ol>
+            <div class="box box-warn"><i class="fas fa-save"></i> Save the token somewhere safe (e.g., a text file on
+                your computer). If you lose it, you'll need to generate a new one.</div>
+        </div>
+
+        <!-- WRITING A GOOD README -->
+        <h2 class="section-title"><i class="fas fa-file-alt"></i> Writing a Good README.md</h2>
+        <div class="step">
+            <p>Create a file called <code>README.md</code> in your project root with this template:</p>
+            <div class="cmd">
+                # 🌾 [Your Project Title]<br><br>
+                ## 📋 About<br>
+                [Brief description of your project - 2-3 sentences]<br><br>
+                ## 👤 Student Details<br>
+                - **Name:** [Your Name]<br>
+                - **USN:** [Your University Serial Number]<br>
+                - **Course:** AI/ML in Agriculture - GKVK Training Program<br>
+                - **Instructor:** Dr. Syed Muzamil Basha<br><br>
+                ## 📁 Repository Contents<br>
+                | Folder | Contents |<br>
+                |--------|----------|<br>
+                | code/ | Python source code and Jupyter notebooks |<br>
+                | reports/ | Project report, assignment, report with FAQ |<br>
+                | presentations/ | Seminar PPT |<br>
+                | data/ | Dataset files or links |<br><br>
+                ## 🛠️ How to Run<br>
+                ```<br>
+                pip install -r requirements.txt<br>
+                python code/main.py<br>
+                ```<br><br>
+                ## 📊 Results<br>
+                [Brief summary of your results - accuracy, key findings]<br><br>
+                ## 📚 References<br>
+                1. [Reference 1]<br>
+                2. [Reference 2]
+            </div>
+        </div>
+
+    </div><!-- end container -->
+    <div class="container" style="padding-top:0;">
+
+        <!-- COMMON COMMANDS REFERENCE -->
+        <h2 class="section-title"><i class="fas fa-terminal"></i> Git Commands Quick Reference</h2>
+        <table class="error-table">
+            <thead>
+                <tr>
+                    <th>Command</th>
+                    <th>What It Does</th>
+                    <th>When to Use</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>git --version</code></td>
+                    <td>Shows installed Git version</td>
+                    <td>After installation to verify</td>
+                </tr>
+                <tr>
+                    <td><code>git config --global user.name "Name"</code></td>
+                    <td>Sets your name for commits</td>
+                    <td>One-time setup after install</td>
+                </tr>
+                <tr>
+                    <td><code>git config --global user.email "email"</code></td>
+                    <td>Sets your email for commits</td>
+                    <td>One-time setup after install</td>
+                </tr>
+                <tr>
+                    <td><code>git clone &lt;URL&gt;</code></td>
+                    <td>Downloads a repository to your computer</td>
+                    <td>First time only — to get the repo</td>
+                </tr>
+                <tr>
+                    <td><code>git status</code></td>
+                    <td>Shows which files are changed/new/staged</td>
+                    <td>Before add/commit to check status</td>
+                </tr>
+                <tr>
+                    <td><code>git add .</code></td>
+                    <td>Stages all changed files for commit</td>
+                    <td>After adding/modifying files</td>
+                </tr>
+                <tr>
+                    <td><code>git add filename</code></td>
+                    <td>Stages a specific file</td>
+                    <td>When you want to commit only one file</td>
+                </tr>
+                <tr>
+                    <td><code>git commit -m "message"</code></td>
+                    <td>Saves a snapshot with a description</td>
+                    <td>After staging files with git add</td>
+                </tr>
+                <tr>
+                    <td><code>git push origin main</code></td>
+                    <td>Uploads commits to GitHub</td>
+                    <td>After committing to share online</td>
+                </tr>
+                <tr>
+                    <td><code>git pull origin main</code></td>
+                    <td>Downloads latest changes from GitHub</td>
+                    <td>Before starting work (sync)</td>
+                </tr>
+                <tr>
+                    <td><code>git log --oneline</code></td>
+                    <td>Shows commit history (short format)</td>
+                    <td>To see what you've committed</td>
+                </tr>
+                <tr>
+                    <td><code>git diff</code></td>
+                    <td>Shows what changed in files</td>
+                    <td>Before committing to review changes</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- COMMON ERRORS -->
+        <h2 class="section-title"><i class="fas fa-bug"></i> Common Errors and How to Fix Them</h2>
+
+        <h3 style="margin:1rem 0 0.5rem;color:var(--danger);font-size:1rem;">🔧 Installation Errors</h3>
+        <table class="error-table">
+            <thead>
+                <tr>
+                    <th style="width:35%">Error</th>
+                    <th style="width:30%">Cause</th>
+                    <th style="width:35%">Fix</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>'git' is not recognized as an internal or external command</code></td>
+                    <td>Git not added to system PATH during installation</td>
+                    <td>Reinstall Git and select <strong>"Git from the command line and also from 3rd-party
+                            software"</strong> option. Or add Git to PATH manually: <span class="fix-code">C:\Program
+                            Files\Git\cmd</span></td>
+                </tr>
+                <tr>
+                    <td><code>git: command not found</code> (Mac/Linux)</td>
+                    <td>Git not installed</td>
+                    <td>Mac: Run <span class="fix-code">xcode-select --install</span>. Linux: Run <span
+                            class="fix-code">sudo apt install git</span></td>
+                </tr>
+                <tr>
+                    <s!< /strong> You've successfully learned how to use GitHub. This is a valuable skill used by every
+                        software developer and data scientist in the industry. Keep using GitHub for all your future
+                        projects to build a strong portfolio.
+    </div>
+
+    </div><!-- end container -->
+
+    <footer
+        style="text-align:center;padding:2rem;color:var(--muted);font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;">
+        AI Kitchen Academy — GKVK Training Program | GitHub Guide for Students
+    </footer>
+
+</body>
+
+</html>
