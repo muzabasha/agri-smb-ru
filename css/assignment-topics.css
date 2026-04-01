@@ -170,3 +170,30 @@
     line-height: 1.6;
     flex-grow: 1;
 }
+
+/* Seminar Instructions */
+.st-instructions {
+    background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+    border: 1px solid #f9a8d4;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.st-instructions h3 {
+    color: #be185d;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.st-instructions ol {
+    margin: 0;
+    padding-left: 1.5rem;
+    color: #831843;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.st-instructions li {
+    margin-bottom: 0.3rem;
+}

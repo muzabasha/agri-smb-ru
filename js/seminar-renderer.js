@@ -1,41 +1,40 @@
-// Assignment Topics Renderer
+// Seminar Topics Renderer
 
-function renderAssignmentTopics() {
-    const container = document.getElementById('assignmentContainer');
-    if (!container || typeof assignmentTopics === 'undefined') {
-        if (container) container.innerHTML = '<p>No assignment data loaded.</p>';
+function renderSeminarTopics() {
+    const container = document.getElementById('seminarContainer');
+    if (!container || typeof seminarTopics === 'undefined') {
+        if (container) container.innerHTML = '<p>No seminar data loaded.</p>';
         return;
     }
-
-    const data = assignmentTopics;
+    const data = seminarTopics;
     let html = '';
 
-    // Instructions panel
-    html += `<div class="at-instructions">
-        <h3><i class="fas fa-clipboard-check"></i> Instructions for Students</h3>
+    // Instructions
+    html += `<div class="st-instructions">
+        <h3><i class="fas fa-chalkboard-teacher"></i> Presentation Guidelines</h3>
         <ol>${data.instructions.map(i => `<li>${i}</li>`).join('')}</ol>
     </div>`;
 
-    // Category filter tabs
+    // Category filter
     html += `<div class="at-filter-bar">
-        <button class="at-filter-btn active" onclick="filterAssignments('all')">
+        <button class="at-filter-btn active" onclick="filterSeminars('all')">
             <i class="fas fa-th"></i> All Topics <span class="at-count">70</span>
         </button>`;
     data.categories.forEach(cat => {
-        html += `<button class="at-filter-btn" onclick="filterAssignments('${cat.id}')" style="--cat-color:${cat.color}">
+        html += `<button class="at-filter-btn" onclick="filterSeminars('${cat.id}')">
             <i class="fas ${cat.icon}"></i> ${cat.name} <span class="at-count">${cat.topics.length}</span>
         </button>`;
     });
     html += `</div>`;
 
-    // Search bar
+    // Search
     html += `<div class="at-search-bar">
         <i class="fas fa-search"></i>
-        <input type="text" id="assignmentSearch" placeholder="Search topics by keyword..." oninput="searchAssignments(this.value)">
+        <input type="text" id="seminarSearch" placeholder="Search seminar topics..." oninput="searchSeminars(this.value)">
     </div>`;
 
-    // Topic cards
-    html += '<div class="at-topics-grid" id="assignmentGrid">';
+    // Cards
+    html += '<div class="at-topics-grid" id="seminarGrid">';
     data.categories.forEach(cat => {
         cat.topics.forEach(topic => {
             html += `<div class="at-topic-card" data-category="${cat.id}" data-title="${topic.title.toLowerCase()}" data-desc="${topic.description.toLowerCase()}">
@@ -51,32 +50,30 @@ function renderAssignmentTopics() {
         });
     });
     html += '</div>';
-
     container.innerHTML = html;
 }
 
-function filterAssignments(category) {
-    document.querySelectorAll('.at-filter-btn').forEach(b => b.classList.remove('active'));
+function filterSeminars(category) {
+    document.querySelectorAll('#seminarContainer .at-filter-btn').forEach(b => b.classList.remove('active'));
     event.target.closest('.at-filter-btn').classList.add('active');
-    document.querySelectorAll('.at-topic-card').forEach(card => {
+    document.querySelectorAll('#seminarGrid .at-topic-card').forEach(card => {
         card.style.display = (category === 'all' || card.dataset.category === category) ? '' : 'none';
     });
 }
 
-function searchAssignments(query) {
+function searchSeminars(query) {
     const q = query.toLowerCase().trim();
-    document.querySelectorAll('.at-topic-card').forEach(card => {
+    document.querySelectorAll('#seminarGrid .at-topic-card').forEach(card => {
         if (!q) { card.style.display = ''; return; }
-        const match = card.dataset.title.includes(q) || card.dataset.desc.includes(q);
-        card.style.display = match ? '' : 'none';
+        card.style.display = (card.dataset.title.includes(q) || card.dataset.desc.includes(q)) ? '' : 'none';
     });
 }
 
-function toggleAssignmentSection() {
-    const section = document.getElementById('assignmentSection');
+function toggleSeminarSection() {
+    const section = document.getElementById('seminarSection');
     const welcome = document.getElementById('welcomeScreen');
     const qbSec = document.getElementById('questionBankSection');
-    const seminarSec = document.getElementById('seminarSection');
+    const asSec = document.getElementById('assignmentSection');
     if (!section) return;
     const isVisible = section.style.display !== 'none';
     if (isVisible) {
@@ -86,8 +83,8 @@ function toggleAssignmentSection() {
         section.style.display = 'block';
         if (welcome) welcome.style.display = 'none';
         if (qbSec) qbSec.style.display = 'none';
-        if (seminarSec) seminarSec.style.display = 'none';
-        renderAssignmentTopics();
+        if (asSec) asSec.style.display = 'none';
+        renderSeminarTopics();
         section.scrollIntoView({ behavior: 'smooth' });
     }
 }
