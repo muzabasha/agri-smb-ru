@@ -95,6 +95,11 @@ const HandoutLoader = {
             this.loadedModules.m5 = true;
             newContentAdded = true;
         }
+        if (!this.loadedModules.m5p2 && typeof module5HandoutsPart2 !== 'undefined') {
+            Object.assign(this.handouts, module5HandoutsPart2);
+            this.loadedModules.m5p2 = true;
+            newContentAdded = true;
+        }
 
         // Combine Activities
         if (!this.loadedModules.activities && typeof activitiesHandouts !== 'undefined') {
