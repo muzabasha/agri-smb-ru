@@ -681,7 +681,7 @@ const comprehensiveCourseStructure = {
         {
             id: 5,
             title: "Module 5: Future Directions & Real-World Deployment",
-            totalHours: 10,
+            totalHours: 110,
             topics: [
                 {
                     id: "m5-t1",
@@ -808,6 +808,306 @@ const comprehensiveCourseStructure = {
                     title: "Bonus Project 20: Equipment Maintenance Predictor",
                     duration: 2,
                     subtopics: ["Predictive Maintenance", "Vibration Analysis", "Failure Forecasting"]
+                },
+                {
+                    id: "m5-t22",
+                    title: "Bonus Project 21: Leaf Area Index Estimator",
+                    duration: 2,
+                    subtopics: ["Image Segmentation", "Canopy Analysis", "Growth Tracking"]
+                },
+                {
+                    id: "m5-t23",
+                    title: "Bonus Project 22: Seed Germination Predictor",
+                    duration: 2,
+                    subtopics: ["Classification Models", "Environmental Factors", "Viability Testing"]
+                },
+                {
+                    id: "m5-t24",
+                    title: "Bonus Project 23: Pollinator Activity Monitor",
+                    duration: 2,
+                    subtopics: ["Object Detection", "Activity Counting", "Biodiversity Metrics"]
+                },
+                {
+                    id: "m5-t25",
+                    title: "Bonus Project 24: Compost Maturity Classifier",
+                    duration: 2,
+                    subtopics: ["Sensor Data", "Chemical Analysis", "Quality Grading"]
+                },
+                {
+                    id: "m5-t26",
+                    title: "Bonus Project 25: Farm Energy Consumption Optimizer",
+                    duration: 2,
+                    subtopics: ["Time Series Forecasting", "Load Scheduling", "Solar Integration"]
+                },
+                {
+                    id: "m5-t27",
+                    title: "Bonus Project 26: Milk Quality Analyzer",
+                    duration: 2,
+                    subtopics: ["Spectroscopy Data", "Adulteration Detection", "Fat/Protein Estimation"]
+                },
+                {
+                    id: "m5-t28",
+                    title: "Bonus Project 27: Crop Residue Burn Detection from Satellite",
+                    duration: 2,
+                    subtopics: ["Thermal Imaging", "Fire Hotspot Detection", "Air Quality Correlation"]
+                },
+                {
+                    id: "m5-t29",
+                    title: "Bonus Project 28: Precision Fertilizer Spreader Simulator",
+                    duration: 2,
+                    subtopics: ["Variable Rate Application", "GPS Mapping", "Nutrient Optimization"]
+                },
+                {
+                    id: "m5-t30",
+                    title: "Bonus Project 29: Aquaponics System Monitor",
+                    duration: 2,
+                    subtopics: ["Water Chemistry", "Fish-Plant Balance", "Automated Feeding"]
+                },
+                {
+                    id: "m5-t31",
+                    title: "Bonus Project 30: Grain Quality Grading Using CV",
+                    duration: 2,
+                    subtopics: ["Image Classification", "Defect Detection", "Size Sorting"]
+                },
+                {
+                    id: "m5-t32",
+                    title: "Bonus Project 31: Rainfall Prediction Using Ensemble Models",
+                    duration: 2,
+                    subtopics: ["Weather Data", "Stacking Models", "Forecast Accuracy"]
+                },
+                {
+                    id: "m5-t33",
+                    title: "Bonus Project 32: Crop Insurance Risk Calculator",
+                    duration: 2,
+                    subtopics: ["Risk Modeling", "Premium Estimation", "Claim Prediction"]
+                },
+                {
+                    id: "m5-t34",
+                    title: "Bonus Project 33: Wilt Disease Early Warning System",
+                    duration: 2,
+                    subtopics: ["Thermal Imaging", "Stress Detection", "Alert Mechanism"]
+                },
+                {
+                    id: "m5-t35",
+                    title: "Bonus Project 34: Organic vs Conventional Produce Classifier",
+                    duration: 2,
+                    subtopics: ["Chemical Fingerprinting", "Spectral Analysis", "Authenticity Verification"]
+                },
+                {
+                    id: "m5-t36",
+                    title: "Bonus Project 35: Farm Labor Demand Forecaster",
+                    duration: 2,
+                    subtopics: ["Seasonal Patterns", "Crop Calendar", "Workforce Planning"]
+                },
+                {
+                    id: "m5-t37",
+                    title: "Bonus Project 36: Soil Salinity Mapping Using Remote Sensing",
+                    duration: 2,
+                    subtopics: ["Spectral Indices", "Spatial Interpolation", "Reclamation Planning"]
+                },
+                {
+                    id: "m5-t38",
+                    title: "Bonus Project 37: Plant Height Estimation from Drone LiDAR",
+                    duration: 2,
+                    subtopics: ["Point Cloud Processing", "3D Modeling", "Growth Monitoring"]
+                },
+                {
+                    id: "m5-t39",
+                    title: "Bonus Project 38: Mushroom Edibility Classifier",
+                    duration: 2,
+                    subtopics: ["Feature Engineering", "Decision Trees", "Safety Classification"]
+                },
+                {
+                    id: "m5-t40",
+                    title: "Bonus Project 39: Agri-Waste to Energy Potential Estimator",
+                    duration: 2,
+                    subtopics: ["Biomass Calculation", "Energy Conversion", "Economic Analysis"]
+                },
+                {
+                    id: "m5-t41",
+                    title: "Bonus Project 40: Frost Damage Prediction System",
+                    duration: 2,
+                    subtopics: ["Temperature Forecasting", "Crop Vulnerability", "Alert System"]
+                },
+                {
+                    id: "m5-t42",
+                    title: "Bonus Project 41: Poultry Egg Quality Grading",
+                    duration: 2,
+                    subtopics: ["Image Processing", "Shell Defect Detection", "Weight Estimation"]
+                },
+                {
+                    id: "m5-t43",
+                    title: "Bonus Project 42: Crop Field Boundary Detection from Satellite",
+                    duration: 2,
+                    subtopics: ["Semantic Segmentation", "Edge Detection", "GIS Integration"]
+                },
+                {
+                    id: "m5-t44",
+                    title: "Bonus Project 43: Honey Adulteration Detection",
+                    duration: 2,
+                    subtopics: ["Spectroscopy", "Classification Models", "Quality Assurance"]
+                },
+                {
+                    id: "m5-t45",
+                    title: "Bonus Project 44: Livestock Feed Optimization",
+                    duration: 2,
+                    subtopics: ["Linear Programming", "Nutrient Balancing", "Cost Minimization"]
+                },
+                {
+                    id: "m5-t46",
+                    title: "Bonus Project 45: Pest Trap Image Counter",
+                    duration: 2,
+                    subtopics: ["Instance Segmentation", "Counting Algorithms", "Species Identification"]
+                },
+                {
+                    id: "m5-t47",
+                    title: "Bonus Project 46: Crop Canopy Temperature Monitor",
+                    duration: 2,
+                    subtopics: ["Thermal Sensors", "Stress Index", "Irrigation Trigger"]
+                },
+                {
+                    id: "m5-t48",
+                    title: "Bonus Project 47: Agricultural Land Use Change Detector",
+                    duration: 2,
+                    subtopics: ["Multi-temporal Satellite", "Change Detection", "Urban Encroachment"]
+                },
+                {
+                    id: "m5-t49",
+                    title: "Bonus Project 48: Vermicompost Quality Predictor",
+                    duration: 2,
+                    subtopics: ["Regression Models", "Nutrient Content", "Process Optimization"]
+                },
+                {
+                    id: "m5-t50",
+                    title: "Bonus Project 49: Smart Bird Scarer Using Sound Analysis",
+                    duration: 2,
+                    subtopics: ["Audio Classification", "Species Detection", "Deterrent Activation"]
+                },
+                {
+                    id: "m5-t51",
+                    title: "Bonus Project 50: Crop Nutrient Deficiency Detector from Leaf Color",
+                    duration: 2,
+                    subtopics: ["Color Space Analysis", "Deficiency Mapping", "Recommendation Engine"]
+                },
+                {
+                    id: "m5-t52",
+                    title: "Bonus Project 51: Farm Pond Water Level Monitor",
+                    duration: 2,
+                    subtopics: ["Ultrasonic Sensors", "Level Prediction", "Overflow Alerts"]
+                },
+                {
+                    id: "m5-t53",
+                    title: "Bonus Project 52: Silkworm Disease Detection System",
+                    duration: 2,
+                    subtopics: ["Image Classification", "Sericulture Data", "Early Warning"]
+                },
+                {
+                    id: "m5-t54",
+                    title: "Bonus Project 53: Tractor Fleet Route Optimizer",
+                    duration: 2,
+                    subtopics: ["Vehicle Routing", "Fuel Optimization", "GPS Tracking"]
+                },
+                {
+                    id: "m5-t55",
+                    title: "Bonus Project 54: Biogas Production Predictor",
+                    duration: 2,
+                    subtopics: ["Anaerobic Digestion", "Feedstock Analysis", "Yield Estimation"]
+                },
+                {
+                    id: "m5-t56",
+                    title: "Bonus Project 55: Crop Phenotyping Using Drone Imagery",
+                    duration: 2,
+                    subtopics: ["Plant Counting", "Height Estimation", "Vigor Assessment"]
+                },
+                {
+                    id: "m5-t57",
+                    title: "Bonus Project 56: Spice Adulteration Detection",
+                    duration: 2,
+                    subtopics: ["Hyperspectral Imaging", "Purity Classification", "Quality Control"]
+                },
+                {
+                    id: "m5-t58",
+                    title: "Bonus Project 57: Farmer Grievance Classifier Using NLP",
+                    duration: 2,
+                    subtopics: ["Text Classification", "Sentiment Analysis", "Priority Routing"]
+                },
+                {
+                    id: "m5-t59",
+                    title: "Bonus Project 58: Soil Microbiome Diversity Analyzer",
+                    duration: 2,
+                    subtopics: ["Metagenomics Data", "Clustering", "Health Indicators"]
+                },
+                {
+                    id: "m5-t60",
+                    title: "Bonus Project 59: Automated Nursery Plant Counter",
+                    duration: 2,
+                    subtopics: ["Aerial Image Processing", "Instance Counting", "Inventory Management"]
+                },
+                {
+                    id: "m5-t61",
+                    title: "Bonus Project 60: Crop Water Footprint Calculator",
+                    duration: 2,
+                    subtopics: ["Water Accounting", "Virtual Water", "Sustainability Metrics"]
+                },
+                {
+                    id: "m5-t62",
+                    title: "Bonus Project 61: Tea Leaf Quality Grading System",
+                    duration: 2,
+                    subtopics: ["Texture Analysis", "Color Grading", "Aroma Correlation"]
+                },
+                {
+                    id: "m5-t63",
+                    title: "Bonus Project 62: Agri-Drone Battery Life Predictor",
+                    duration: 2,
+                    subtopics: ["Flight Data Analysis", "Regression Models", "Mission Planning"]
+                },
+                {
+                    id: "m5-t64",
+                    title: "Bonus Project 63: Coconut Tree Health Assessment from Drone",
+                    duration: 2,
+                    subtopics: ["Crown Analysis", "Disease Detection", "Yield Estimation"]
+                },
+                {
+                    id: "m5-t65",
+                    title: "Bonus Project 64: Farmer Knowledge Graph from Extension Data",
+                    duration: 2,
+                    subtopics: ["NLP Extraction", "Graph Database", "Query Interface"]
+                },
+                {
+                    id: "m5-t66",
+                    title: "Bonus Project 65: Sugarcane Variety Classifier",
+                    duration: 2,
+                    subtopics: ["Morphological Features", "Image Classification", "Variety Recommendation"]
+                },
+                {
+                    id: "m5-t67",
+                    title: "Bonus Project 66: Carbon Credit Estimator for Farms",
+                    duration: 2,
+                    subtopics: ["Emission Calculation", "Sequestration Models", "Credit Marketplace"]
+                },
+                {
+                    id: "m5-t68",
+                    title: "Bonus Project 67: Automated Soil Sample Location Planner",
+                    duration: 2,
+                    subtopics: ["Spatial Sampling", "Variogram Analysis", "Optimal Grid Design"]
+                },
+                {
+                    id: "m5-t69",
+                    title: "Bonus Project 68: Mango Ripeness Detector Using Aroma Sensors",
+                    duration: 2,
+                    subtopics: ["E-Nose Data", "VOC Analysis", "Ripeness Classification"]
+                },
+                {
+                    id: "m5-t70",
+                    title: "Bonus Project 69: Agricultural Subsidy Eligibility Checker",
+                    duration: 2,
+                    subtopics: ["Rule Engine", "Document Verification", "Chatbot Interface"]
+                },
+                {
+                    id: "m5-t71",
+                    title: "Bonus Project 70: Multi-Crop Calendar Planner Using AI",
+                    duration: 2,
+                    subtopics: ["Optimization", "Climate Matching", "Market Timing"]
                 }
             ]
         }
