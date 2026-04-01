@@ -1,0 +1,172 @@
+/* Assignment Topics Styles */
+.at-instructions {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    border: 1px solid #93c5fd;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.at-instructions h3 {
+    color: #1e40af;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.at-instructions ol {
+    margin: 0;
+    padding-left: 1.5rem;
+    color: #1e3a5f;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.at-instructions li {
+    margin-bottom: 0.3rem;
+}
+
+.at-filter-bar {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.at-filter-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #4b5563;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.3s;
+}
+
+.at-filter-btn:hover {
+    border-color: #9ca3af;
+    background: #f9fafb;
+}
+
+.at-filter-btn.active {
+    background: #166534;
+    color: white;
+    border-color: #166534;
+}
+
+.at-count {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0.1rem 0.4rem;
+    border-radius: 10px;
+    font-size: 0.7rem;
+}
+
+.at-filter-btn.active .at-count {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.at-search-bar {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.at-search-bar i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+}
+
+.at-search-bar input {
+    width: 100%;
+    padding: 0.7rem 1rem 0.7rem 2.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.at-search-bar input:focus {
+    border-color: #166534;
+    box-shadow: 0 0 0 3px rgba(22, 101, 52, 0.1);
+}
+
+.at-topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .at-topics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.at-topic-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 1.2rem;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.at-topic-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+    border-color: #d1d5db;
+}
+
+.at-topic-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.6rem;
+}
+
+.at-topic-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.at-cat-badge {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.at-topic-title {
+    font-size: 0.95rem;
+    color: #111827;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.at-topic-desc {
+    font-size: 0.82rem;
+    color: #4b5563;
+    line-height: 1.6;
+    flex-grow: 1;
+}

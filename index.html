@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/handout-only.css"> <!-- Handout-only mode styles -->
     <link rel="stylesheet" href="css/premium-ux.css"> <!-- Premium UX enhancements -->
     <link rel="stylesheet" href="css/question-bank.css"> <!-- Question Bank styles -->
+    <link rel="stylesheet" href="css/assignment-topics.css"> <!-- Assignment Topics styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Initial Loading State */
@@ -586,6 +587,10 @@
                                     class="ai-kitchen-btn" style="background: #166534; color: white;">
                                     <i class="fas fa-fire"></i> Question Bank
                                 </a>
+                                <a href="javascript:void(0)" onclick="toggleAssignmentSection()" class="ai-kitchen-btn"
+                                    style="background: #b45309; color: white;">
+                                    <i class="fas fa-tasks"></i> Assignment Topics
+                                </a>
                             </div>
                         </div>
 
@@ -610,6 +615,20 @@
                             Solutions</p>
                     </div>
                     <div id="questionBankContainer">Loading questions...</div>
+                </div>
+
+                <!-- Assignment Topics Section (hidden by default, toggled via button) -->
+                <div id="assignmentSection" style="display: none; padding: 2rem 0;">
+                    <button class="qb-back-btn" onclick="toggleAssignmentSection()">
+                        <i class="fas fa-arrow-left"></i> Back to Home
+                    </button>
+                    <div style="text-align:center; margin-bottom:2rem;">
+                        <h2 style="color:#b45309; font-size:2rem;"><i class="fas fa-tasks"></i> Assignment Topics</h2>
+                        <p style="color:#4b5563; max-width:700px; margin:0.5rem auto;">70 Unique AI/ML/IoT Project
+                            Topics for Agriculture &mdash; Select one topic, build a complete solution, and present your
+                            findings.</p>
+                    </div>
+                    <div id="assignmentContainer">Loading assignments...</div>
                 </div>
 
                 <!-- Module Overview (New View) -->
@@ -719,6 +738,9 @@
     <script src="js/question-bank-u3.js"></script>
     <script src="js/question-bank-u4.js"></script>
     <script src="js/question-bank-renderer.js"></script>
+    <!-- Assignment Scripts -->
+    <script src="js/assignment-topics.js"></script>
+    <script src="js/assignment-renderer.js"></script>
     <script src="js/app.js"></script>
     <script src="js/chatbot.js"></script>
     <script src="js/content-auditor.js"></script>

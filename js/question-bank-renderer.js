@@ -98,6 +98,7 @@ function toggleQBAnswer(id) {
 function toggleQuestionBankSection() {
     const section = document.getElementById('questionBankSection');
     const welcome = document.getElementById('welcomeScreen');
+    const assignSec = document.getElementById('assignmentSection');
     if (!section) return;
     const isVisible = section.style.display !== 'none';
     if (isVisible) {
@@ -106,6 +107,7 @@ function toggleQuestionBankSection() {
     } else {
         section.style.display = 'block';
         if (welcome) welcome.style.display = 'none';
+        if (assignSec) assignSec.style.display = 'none';
         renderQuestionBank();
         section.scrollIntoView({ behavior: 'smooth' });
     }
