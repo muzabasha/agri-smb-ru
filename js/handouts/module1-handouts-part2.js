@@ -68,16 +68,84 @@ const module1HandoutsPart2 = {
                 </ul>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Career Exploration</h3>
-                    <ol>
-                        <li>Visit LinkedIn and search for "AgriTech Data Scientist India"</li>
-                        <li>Find 3 job postings and list their required skills</li>
-                        <li>Match your current skills and identify gaps</li>
-                        <li>Create a 6-month learning plan to fill those gaps</li>
-                    </ol>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live AgriTech Industry Skill-Stack Mapping</h3>
+                            <p><strong>Educator Action:</strong> The instructor navigates live industry job portals (LinkedIn, AgriTech startup job boards like CropIn, DeHaat, Fasal, Ninjacart) projecting active hiring specifications for Agricultural AI roles.</p>
+                            <ul>
+                                <li>Breaks down real job descriptions into four core competency pillars: <em>Python & ML Libraries, Geospatial/GIS (GeoPandas, Google Earth Engine), IoT/Hardware telemetry, and Agronomy Domain Mastery</em>.</li>
+                                <li>Live-evaluates anonymous sample resumes, highlighting why an applicant with agricultural domain intuition commands a 30-40% hiring premium over generic IT candidates.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An interactive visual AgriTech Career Hierarchy map co-created on the classroom display showing compensation trajectories and prerequisite skill milestones.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Agri-Startup Incubation & Pitch Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty acts as an AgriTech startup accelerator board. Student cohorts develop a target technological solution for pressing Karnataka farm challenges (e.g., silk cocoon grading in Ramanagara, cold-chain shelf-life estimation for Alphonso mangoes in Dharwad).</p>
+                            <ul>
+                                <li><strong>Faculty Role:</strong> Challenges business models on unit economics for smallholder farmers (₹500/season vs ₹50,000 capex).</li>
+                                <li><strong>Student Groups:</strong> Map team roles (Chief Agronomist, Lead ML Engineer, Embedded Systems Lead, Field Operations Manager) and outline minimum viable product (MVP) specifications.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A 3-minute executive venture pitch deck vetted by faculty evaluating algorithmic feasibility, operational constraints, and farmer return-on-investment (ROI).
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>AgriTech Job Specification Teardown & Gap Audit</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams of 3&ndash;4 select and teardown 3 contrasting job postings:</p>
+                            <ol>
+                                <li><em>Agricultural Computer Vision Engineer (Drone / Leaf Disease)</em></li>
+                                <li><em>Precision Irrigation IoT Data Scientist</em></li>
+                                <li><em>Agri-Fintech Credit Risk Modeling Specialist</em></li>
+                            </ol>
+                            <p>Teams conduct an honest gap analysis comparing their current personal skill profile against industry prerequisites, formulate a 90-day collaborative learning contract, and peer-review another team's learning roadmap.</p>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A structured 90-day AgriTech Competency Roadmap document detailing portfolio project ideas, datasets to master, and peer accountability milestones.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Build Your Professional Agri-Data Science Portfolio Roadmap</h3>
+                            <p><strong>Hands-on Task:</strong> In Google Colab or Markdown, craft a personalized technical portfolio action plan:</p>
+                            <ul>
+                                <li>Select a specific agricultural challenge you are passionate about (e.g., soil nitrogen prediction, pest counting, market price forecasting).</li>
+                                <li>Identify 3 open agricultural datasets (e.g., ICRISAT data, Kaggle Crop Recommendation dataset, Government of India data.gov.in).</li>
+                                <li>Write a Python script that loads one open agricultural dataset from URL, inspects its shape, columns, and data types, and prints a descriptive statistical summary.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An executable Colab notebook displaying data ingestion, initial exploration code, and a structured GitHub project proposal.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -219,16 +287,86 @@ for fert in [10, 25, 50, 100, 150]:
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Farm Math Challenge</h3>
-                    <p>Calculate the following for your farm (or use sample data):</p>
-                    <ol>
-                        <li>If yield = 2000 + 15×(fertilizer), what yield do you get with 40 units of fertilizer?</li>
-                        <li>Calculate the percentage increase in yield if you apply 50 units vs 30 units</li>
-                        <li>If water costs ₹2/liter and you need 5000 liters/hectare, what's the cost for 3 hectares?</li>
-                    </ol>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Visualizing Loss Landscapes & Farm Optimization</h3>
+                            <p><strong>Educator Action:</strong> The teacher projects a dynamic 2D/3D surface plot in Python/Matplotlib representing an agricultural loss function: <em>Error between Predicted Crop Yield and Actual Harvest vs Fertilizer Dose ($w_1$) and Irrigation Level ($w_2$)</em>.</p>
+                            <ul>
+                                <li>Demonstrates Gradient Descent live by dropping a virtual ball onto the loss bowl.</li>
+                                <li>Shows what happens when the learning rate is too large (&eta;=1.5): the ball oscillates wildly and overshoots, simulating excessive fertilizer that chemically burns crops.</li>
+                                <li>Shows optimal learning rate (&eta;=0.05) smoothly descending to the minimum error basin, highlighting how calculus powers automated machine learning.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An interactive live demonstration tracing mathematical convergence steps with real-time student parameter voting.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Deriving Agricultural Yield Response Curves</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty mentors student groups in mathematically formulating the classical Mitscherlich-Baule Law of Diminishing Marginal Returns: $Y(x) = Y_{\max} (1 - e^{-c \cdot x})$ where $x$ is nitrogen fertilizer input.</p>
+                            <ul>
+                                <li><strong>Faculty Guidance:</strong> Demonstrates taking the first derivative $\frac{dY}{dx}$ to find the instantaneous rate of yield gain per kg of fertilizer.</li>
+                                <li><strong>Student Groups:</strong> Introduce financial realities: Crop price $P_y = ₹25/\text{kg}$ and Fertilizer cost $P_f = ₹15/\text{kg}$. Groups calculate the exact economic optimum where marginal profit $\frac{d(\text{Profit})}{dx} = 0$.</li>
+                                <li>Faculty leads an analysis of why applying maximum fertilizer for maximum yield is economically irrational.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A co-derived mathematical proof linking partial derivatives to agricultural profit maximization, verified by faculty.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Farm Input Cost-Benefit Calculus Hackathon</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams receive multi-variable field trial records for 3 hybrid maize varieties tested across 4 moisture regimes and 5 nitrogen levels.</p>
+                            <ul>
+                                <li>Teams formulate a multi-variable linear model on paper: $\text{Yield} = \beta_0 + \beta_1 (\text{Rainfall}) + \beta_2 (\text{Nitrogen}) + \beta_3 (\text{Soil pH})$.</li>
+                                <li>Calculate partial derivatives with respect to each feature to determine which factor provides the highest return per rupee invested.</li>
+                                <li>Present team findings to a rival student syndicate acting as conservative farm owners seeking proof before buying inputs.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A collaborative mathematical model sheet containing calculated partial derivatives, sensitivity ranking, and peer validation scores.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Implement Gradient Descent from Scratch in Python</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, write a standalone Python script implementing 1D Gradient Descent from pure math (no scikit-learn, only pure Python):</p>
+                            <ul>
+                                <li>Define a quadratic cost function modeling irrigation error: $J(w) = (w - 35)^2 + 10$, where $w = 35$ hours of watering is the ideal biological point.</li>
+                                <li>Compute the derivative algebraically: $\frac{dJ}{dw} = 2(w - 35)$.</li>
+                                <li>Start with a bad initial guess $w_0 = 5$ and update $w_{t+1} = w_t - \eta \cdot \frac{dJ}{dw}$ over 30 iterations with $\eta = 0.1$.</li>
+                                <li>Print the iteration log showing weight $w$ converging accurately to 35.0.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A self-contained Colab notebook displaying code, printed convergence history table, and an optional Matplotlib loss curve.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -344,18 +482,85 @@ else:
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Calculate Your Farm Statistics</h3>
-                    <p>Use the rainfall data for your village (or sample data):</p>
-                    <p>Monthly rainfall (mm): [45, 60, 120, 180, 250, 320, 280, 200, 150, 80, 40, 30]</p>
-                    <ol>
-                        <li>Calculate mean monthly rainfall</li>
-                        <li>Find the median</li>
-                        <li>Which months are above average?</li>
-                        <li>If good monsoon needs >200mm for 3 months, what's the probability?</li>
-                    </ol>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Monte Carlo Monsoon Rainfall & Risk Simulation</h3>
+                            <p><strong>Educator Action:</strong> The instructor live-codes a 1,000-season Monte Carlo simulation in Python modeling historical rainfall probability distributions in Karnataka's dryland zones (e.g., Tumakuru / Kolar).</p>
+                            <ul>
+                                <li>Plots a histogram live and visually exposes the <strong>"Flaw of Averages"</strong>: showing that while mean annual rainfall is 650mm, skewed variance results in a 34% probability of drought conditions (&lt;450mm).</li>
+                                <li>Demonstrates live calculation of Variance, Standard Deviation, and 95% Confidence Intervals for rainfed groundnut yield.</li>
+                                <li>Asks students to guess the financial risk premium an insurance underwriter should charge per acre.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An interactive Monte Carlo distribution plot displaying probability density, standard deviations, and risk thresholds.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Field Trial Hypothesis Testing & Statistical Significance Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty presents genuine experimental data comparing 20 plots treated with a novel microbial bio-stimulant against 20 control plots receiving conventional NPK fertilizer.</p>
+                            <ul>
+                                <li><strong>Faculty Mentoring:</strong> Walks student groups through calculating Mean, Variance, Standard Error of the Mean, and degrees of freedom.</li>
+                                <li><strong>Hypothesis Formulation:</strong> Groups define Null Hypothesis ($H_0$: no yield difference) vs Alternative ($H_1$: bio-stimulant increases yield).</li>
+                                <li>Faculty demonstrates computing a Student's t-test statistic and interpreting $p$-value ($p &lt; 0.05$) to definitively prove whether higher yield was real or sheer random chance.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A co-authored Agronomic Trial Statistical Audit Report with hypothesis statements, calculated t-statistics, and statistical significance verdict.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Mandi Price Volatility & Outlier Detection Syndicate</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams analyze a real 365-day dataset of onion prices (₹/quintal) and arrival quantities across 4 Karnataka agricultural markets (APMC Bengaluru, Hubballi, Belagavi, Mysuru).</p>
+                            <ul>
+                                <li>Calculate Summary Statistics: <em>Mean, Median, Mode, Quartiles ($Q_1, Q_2, Q_3$), and Interquartile Range (IQR)</em>.</li>
+                                <li>Identify price anomaly outliers (spikes &gt; $Q_3 + 1.5 \times \text{IQR}$) and cross-reference them against monsoon flooding vs artificial trader hoarding.</li>
+                                <li>Present statistical findings to a peer team representing farmer producer organizations (FPOs) deciding when to hold vs sell grain.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A completed Mandi Price Volatility Dossier featuring box-plot summary stats, detected outliers, and peer-graded recommendations.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Code an Agricultural Statistical Summary & Risk Engine</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, write a complete Python script using the built-in <code>statistics</code> module and basic math:</p>
+                            <ul>
+                                <li>Input a 12-month series of farm soil moisture readings: <code>[22, 24, 18, 15, 12, 35, 42, 38, 29, 25, 20, 19]</code>.</li>
+                                <li>Compute and display: <em>Mean, Median, Sample Standard Deviation, and Coefficient of Variation (CV%)</em>.</li>
+                                <li>Write a Bayesian conditional probability function <code>prob_pest_outbreak(temp_high, humidity_high)</code> using Bayes' theorem: $P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$ to calculate pest outbreak probability given high humidity.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A self-tested Python script printing clean formatted statistical tables and computed Bayesian risk probabilities.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -482,16 +687,86 @@ for i, pred in enumerate(predictions):
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Create Your Farm Matrix</h3>
-                    <ol>
-                        <li>Open Google Colab</li>
-                        <li>Create a matrix with 5 plots and 3 features each</li>
-                        <li>Calculate column means (average temp, average rain, etc.)</li>
-                        <li>Find which plot has the highest sum of features</li>
-                    </ol>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Multi-Spectral Matrix Transformation Live Walkthrough</h3>
+                            <p><strong>Educator Action:</strong> The instructor demonstrates how a drone multi-spectral image of an agricultural field is fundamentally a 3D NumPy Tensor (Height &times; Width &times; 5 Spectral Channels: Blue, Green, Red, RedEdge, NIR).</p>
+                            <ul>
+                                <li>Live-codes the NDVI formula: $\text{NDVI} = \frac{\text{NIR} - \text{Red}}{\text{NIR} + \text{Red}}$ applied across 1,000,000 pixels simultaneously.</li>
+                                <li>Benchmarks computation speed: runs a traditional nested Python <code>for</code>-loop (takes 3.8 seconds) versus vectorized matrix arithmetic via NumPy (takes 0.004 seconds).</li>
+                                <li>Visualizes how linear algebra unlocks real-time edge processing on battery-constrained agricultural drones.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A live matrix execution benchmark displaying visual vegetation heatmaps and execution speedup metrics.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>High-Dimensional Farm Feature Space Geometry Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty leads a collaborative spatial geometry session demonstrating how 8 distinct soil parameters (N, P, K, pH, EC, Organic Carbon, Moisture, Bulk Density) form an 8-dimensional agronomic feature vector for each management zone.</p>
+                            <ul>
+                                <li><strong>Faculty Demonstration:</strong> Explains how vector dot products and cosine similarity measure distance between different soil zones: $\cos(\theta) = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \|\mathbf{v}\|}$.</li>
+                                <li><strong>Student Groups:</strong> Given feature vectors for 4 experimental plots, groups compute pairwise cosine similarities to identify which plot is most agronomically identical to a high-yield benchmark plot.</li>
+                                <li>Faculty and students discuss how PCA (Principal Component Analysis) uses matrix eigenvectors to compress 8 soil variables down to 2 principal indices.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A co-designed Vector Similarity Matrix mapping soil health equivalence across multiple farm management zones.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Farm Plot Matrix Transformation & Yield Projection Challenge</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams receive a $6 \times 4$ field dataset matrix $\mathbf{X}$ (6 farm plots, 4 measured parameters: soil moisture, temperature, solar radiation, fertilizer applied) and a $4 \times 1$ agronomic sensitivity vector $\mathbf{w}$.</p>
+                            <ul>
+                                <li>Calculate the matrix-vector dot product $\mathbf{y}_{\text{pred}} = \mathbf{X}\mathbf{w} + b$ on paper first to master linear algebra mechanics.</li>
+                                <li>Verify the calculation using NumPy on laptop/Colab, checking dimension compatibility ($6 \times 4$ multiplied by $4 \times 1 = 6 \times 1$).</li>
+                                <li>Perform matrix transpose $\mathbf{X}^T$, feature-wise Min-Max normalization, and cross-evaluate calculations with a peer group.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A verified matrix calculation sheet comparing manual matrix arithmetic with programmatic NumPy execution.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Code a NumPy Matrix Engine for Precision Agriculture</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, write a complete Python script using NumPy to perform fundamental linear algebra operations on real farm data:</p>
+                            <ul>
+                                <li>Create a $5 \times 3$ NumPy matrix representing 5 farm sectors with features: <code>[temperature, rainfall, soil_pH]</code>.</li>
+                                <li>Compute column-wise mean and standard deviation vectors using <code>np.mean(axis=0)</code> and <code>np.std(axis=0)</code>.</li>
+                                <li>Perform feature standardization (Z-score normalization): $\mathbf{Z} = \frac{\mathbf{X} - \mu}{\sigma}$ using NumPy broadcasting.</li>
+                                <li>Compute the dot product with a weight vector <code>w = np.array([15.0, 8.5, 120.0])</code> to output predicted yield per plot.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An executable Colab notebook displaying normalized matrices, broadcasting steps, and printed predicted yields.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -612,12 +887,87 @@ print("Example shape: (224, 224, 3) for a 224×224 RGB image")
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Classify Your Farm Data</h3>
-                    <p>List 5 types of data you collect (or would collect) on a farm.</p>
-                    <p>For each, classify as: Structured, Unstructured, or Time Series</p>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Ingestion & Parsing of Heterogeneous Farm Data</h3>
+                            <p><strong>Educator Action:</strong> The teacher streams 3 distinct agricultural data modalities live into Google Colab simultaneously:</p>
+                            <ul>
+                                <li><strong>Structured Tabular Data:</strong> A CSV file containing certified soil chemistry lab test results (pH, Nitrogen, Organic Carbon).</li>
+                                <li><strong>Time-Series Sensor Stream:</strong> A live JSON payload of minute-by-minute soil moisture and canopy temperature.</li>
+                                <li><strong>Unstructured Image Tensor:</strong> A high-resolution drone RGB leaf image loaded as a 3D NumPy array.</li>
+                                <li>The instructor demonstrates data type casting, memory footprint profiling, and illustrates how mismatched types (e.g., float stored as string) cause silent downstream ML failures.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A live code execution log demonstrating memory footprints, schema validation, and type conversions across all 3 data modalities.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Enterprise Agro-Data Schema & Pipeline Design Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty acts as Chief Enterprise Architect for a 5,000-member Agricultural Cooperative (FPO). Student groups design a unified data lake architecture:</p>
+                            <ul>
+                                <li><strong>Faculty Challenge:</strong> How do we seamlessly link 15-minute IoT weather station time-series with bi-annual physical soil tests, smartphone pest photos taken ad-hoc, and daily Mandi prices?</li>
+                                <li><strong>Student Groups:</strong> Specify primary and foreign keys (e.g., <code>farmer_id</code>, <code>plot_polygon_geojson</code>, <code>timestamp_utc</code>) to join time-series and spatial tables.</li>
+                                <li>Faculty leads an architectural review addressing storage trade-offs between SQL (PostgreSQL/PostGIS) and NoSQL/Document stores for image metadata.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An Enterprise Agricultural Entity-Relationship (ER) Schema Diagram reviewed and approved by faculty.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Farm Data Format Triage & Preprocessing Syndicate</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams receive a raw, "dirty" agricultural data packet containing 5 corrupted field entries:</p>
+                            <ul>
+                                <li>Timestamps formatted inconsistently (<code>"12/05/24"</code> vs <code>"2024-05-12T10:30:00Z"</code>).</li>
+                                <li>Soil moisture values stored as strings with percentage symbols (<code>"34.5%"</code>).</li>
+                                <li>Unstructured farmer audio notes transcribed with slang (<code>"leaves looking pale yellow on south edge"</code>).</li>
+                                <li>Teams write a collaborative Python preprocessing module using standard data structures (nested dictionaries and lists), validate types, and swap datasets with a rival group for QA testing.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A documented Python data sanitizer script and peer audit report verifying 100% data type consistency.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Build an Agricultural Data Pipeline with Python Structures</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, build a script that defines and manipulates all three core agricultural data structures:</p>
+                            <ul>
+                                <li><strong>Structured:</strong> Create a list of dictionaries representing 4 farm plots with attributes: <code>id</code>, <code>crop</code>, <code>acreage</code>, and <code>npk_ratios</code>. Write a query to find all plots with nitrogen &lt; 50.</li>
+                                <li><strong>Time-Series:</strong> Create a dictionary indexed by date strings storing hourly canopy temperature readings and compute the daily rolling mean.</li>
+                                <li><strong>Unstructured Metadata:</strong> Create a metadata dictionary for a leaf photo containing image dimensions, GPS coordinates, capture timestamp, and an array of detected disease bounding boxes.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A runnable Colab notebook showing creation, indexing, filtering, and printing of all 3 data formats.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -745,16 +1095,87 @@ print("\\nData Validation:", validate_sensor_data(simulate_soil_sensor()))
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Design Your Farm's Data Collection System</h3>
-                    <ol>
-                        <li>Choose a crop you want to monitor</li>
-                        <li>List 5 data points you need to collect</li>
-                        <li>For each, specify: What sensor/method, How often, Where to place</li>
-                        <li>Estimate rough costs (research online)</li>
-                    </ol>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live IoT Sensor Calibration & Fault-Injection Demonstration</h3>
+                            <p><strong>Educator Action:</strong> The instructor connects a live IoT microcontroller telemetry stream (or live serial simulator) reading capacitive soil moisture, ambient temperature, and light intensity.</p>
+                            <ul>
+                                <li>The teacher dips the probe into dry sand vs wet soil to demonstrate live signal calibration curves (raw ADC values 1023&ndash;350 mapped to 0&ndash;100% volumetric water content).</li>
+                                <li>The instructor injects realistic rural sensor faults: <em>Salt water shock (salinity drift), disconnected ground wire (frozen reading / flatline), and extreme battery voltage sag</em>.</li>
+                                <li>Demonstrates live writing of sanity filters in Python to prevent bad sensor data from triggering false irrigation commands.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A live sensor calibration curve and automated fault-detection script demonstrated on the classroom screen.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Multi-Tier Farm Sensor Network Topology Co-Design</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty presents a physical terrain topographic map of a 500-acre diversified agricultural research farm at GKVK (combining dryland millets, wetland paddy, horticulture orchards, and greenhouses).</p>
+                            <ul>
+                                <li><strong>Faculty Challenge:</strong> Balance wireless transmission range, battery longevity (solar + LiFePO4), and bandwidth across 4 telemetry technologies: <em>LoRaWAN (868/865 MHz), Cellular 4G/NB-IoT, Zigbee mesh, and Satellite revisit intervals</em>.</li>
+                                <li><strong>Student Groups:</strong> Map node placements, determine optimal gateway locations on farm elevation summits, and calculate battery depletion models for 15-minute vs 1-hour reporting intervals.</li>
+                                <li>Faculty leads an architectural critique assessing total cost of ownership and recurring telecom SIM charges.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A complete Farm Sensor Network Topology Blueprint co-signed by faculty with detailed RF range and power budget models.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Sensor Selection & Bill-of-Materials (BOM) Hackathon</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams are allocated a strict procurement budget of ₹50,000 to instrument a 5-hectare commercial pomegranate orchard:</p>
+                            <ul>
+                                <li>Teams research and compare real industrial sensor models: <em>Capacitive FDR probes vs TDR sensors, leaf wetness sensors for fungal alerts, and optical rain gauges</em>.</li>
+                                <li>Define mounting schematics (soil depth: 15cm for feeder roots, 45cm for subsoil moisture) and anti-theft / rodent-protection measures.</li>
+                                <li>Compile a rigorous Bill of Materials (BOM) with commercial vendor quotes, expected lifespan, and battery replacement cycles.</li>
+                                <li>Present and defend the BOM against a peer team acting as cost-conscious farm cooperative auditors.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An itemized Bill of Materials spreadsheet with sensor specifications, placement schematics, and peer audit grades.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Implement an IoT Sensor Quality & Anomaly Validation Suite</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, write a complete Python class <code>FarmDataValidator</code> that processes raw incoming hourly sensor telemetry packets:</p>
+                            <ul>
+                                <li>Implement physical range validation: Flag temperatures &lt; 0&deg;C or &gt; 55&deg;C, moisture &lt; 0% or &gt; 100%, and pH &lt; 3.0 or &gt; 10.0.</li>
+                                <li>Implement rate-of-change validation: Flag impossible moisture jumps (&gt;35% change in 2 minutes without corresponding rain gauge trigger).</li>
+                                <li>Implement flatline detection: Flag sensors reporting the exact identical float value for 12 consecutive readings (indicating a frozen sensor).</li>
+                                <li>Process a test batch of 20 simulated packets and generate a clean automated diagnostics report.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A self-tested Colab notebook containing the <code>FarmDataValidator</code> class, test assertions, and printed validation log.
+                        </div>
+                    </div>
                 </div>
             </div>
 

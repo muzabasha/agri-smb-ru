@@ -166,3 +166,168 @@
 #handout.handout-panel {
     display: block !important;
 }
+
+/* ==========================================================================
+   LEARN BY DOING MULTI-TIER ACTIVITY FRAMEWORK
+   Four Collaborative Tiers: Teacher, Faculty & Group, Student Group, Individual
+   ========================================================================== */
+.learn-by-doing-hub {
+    margin: 2.5rem 0;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.lbd-header {
+    background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
+    color: #ffffff;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.lbd-header h2 {
+    color: #ffffff !important;
+    margin: 0 !important;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.lbd-header p {
+    color: #dcfce7 !important;
+    margin: 0.25rem 0 0 0 !important;
+    font-size: 0.95rem;
+}
+
+.lbd-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.75rem;
+}
+
+@media (min-width: 992px) {
+    .lbd-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.lbd-card {
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    border-left: 6px solid #16a34a;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lbd-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08);
+}
+
+.lbd-card.teacher-tier {
+    border-left-color: #2563eb;
+    background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
+}
+
+.lbd-card.faculty-group-tier {
+    border-left-color: #7c3aed;
+    background: linear-gradient(180deg, #f5f3ff 0%, #ffffff 100%);
+}
+
+.lbd-card.student-group-tier {
+    border-left-color: #d97706;
+    background: linear-gradient(180deg, #fffbeb 0%, #ffffff 100%);
+}
+
+.lbd-card.individual-tier {
+    border-left-color: #059669;
+    background: linear-gradient(180deg, #ecfdf5 0%, #ffffff 100%);
+}
+
+.lbd-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.85rem;
+    align-self: flex-start;
+}
+
+.badge-teacher {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.badge-faculty-group {
+    background: #ede9fe;
+    color: #5b21b6;
+}
+
+.badge-student-group {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.badge-individual {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.lbd-card h3 {
+    margin-top: 0 !important;
+    margin-bottom: 0.6rem !important;
+    font-size: 1.25rem;
+    color: #1e293b !important;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.lbd-card p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: #334155 !important;
+    margin-bottom: 0.8rem !important;
+}
+
+.lbd-card ul, .lbd-card ol {
+    margin-left: 1.25rem !important;
+    margin-bottom: 0.85rem !important;
+}
+
+.lbd-card li {
+    font-size: 0.94rem;
+    line-height: 1.55;
+    color: #334155;
+    margin-bottom: 0.4rem;
+}
+
+.lbd-task-box {
+    background: #ffffff;
+    border: 1px dashed #cbd5e1;
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    margin-top: 0.75rem;
+}
+
+.lbd-task-box strong {
+    color: #0f172a;
+}

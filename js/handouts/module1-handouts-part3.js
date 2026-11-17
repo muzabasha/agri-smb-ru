@@ -87,18 +87,85 @@ print("🚀 Your environment is ready!")
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Set Up Your First Notebook</h3>
-                    <ol>
-                        <li>Go to colab.research.google.com</li>
-                        <li>Create a new notebook</li>
-                        <li>Rename it to "My_Farm_Analysis"</li>
-                        <li>Type the code above in a cell and run it</li>
-                        <li>Modify the farm_name and area to match your farm</li>
-                        <li>Share the notebook link with a classmate</li>
-                    </ol>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Colab Cloud Runtime & GPU Provisioning Demonstration</h3>
+                            <p><strong>Educator Action:</strong> The teacher projects Google Colab and leads an end-to-end interactive setup walkthrough for agricultural data science:</p>
+                            <ul>
+                                <li>Demonstrates selecting and connecting to a free cloud T4 GPU hardware accelerator (Edit &rarr; Notebook settings &rarr; T4 GPU).</li>
+                                <li>Executes system diagnostic commands: <code>!nvidia-smi</code>, <code>!cat /etc/os-release</code>, and verifies Python scientific libraries (<code>numpy</code>, <code>pandas</code>, <code>scikit-learn</code>).</li>
+                                <li>Intentionally triggers and recovers from common beginner pitfalls: infinite loop cell interruption, runtime restarts, and cell execution order errors.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A live cloud runtime audit log displayed on screen verifying Python 3.10+ and GPU accelerator connectivity.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Collaborative Cloud Notebook Troubleshooting & Workflow Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty mentors student groups in establishing robust rural cloud coding workflows:</p>
+                            <ul>
+                                <li><strong>Faculty Challenge:</strong> How do we code on Google Colab when field internet is patchy, high-resolution drone imagery is stored in Google Drive, and team members use different laptops?</li>
+                                <li><strong>Collaborative Implementation:</strong> Faculty and student cohorts code persistent Google Drive mounting via <code>from google.colab import drive; drive.mount('/content/drive')</code>, configure git version control, and set up automatic notebook backup routines.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An official "Agri-Data Science Colab Standard Operating Procedure (SOP)" checklist co-signed by faculty and students.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Peer-to-Peer Pair Programming & Notebook Sharing Challenge</h3>
+                            <p><strong>Team Syndicate:</strong> Student pairs establish a reciprocal cloud pair-programming workflow:</p>
+                            <ul>
+                                <li>Student A creates a notebook calculating farm acreage and seed rate, intentionally embeds a hidden syntax error, and shares access with Student B.</li>
+                                <li>Student B clones the notebook, diagnoses the error, adds descriptive markdown documentation explaining the fix, and uses Colab comments to document the code review.</li>
+                                <li>Partners reverse roles for a fertilizer calculation snippet, testing collaboration and revision tracking.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A collaboratively debugged and documented shared Colab notebook with reciprocal peer code review comments.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Build & Personalize Your Master Agricultural Notebook</h3>
+                            <p><strong>Hands-on Coding Task:</strong> Open Google Colab and build your personalized master development environment:</p>
+                            <ul>
+                                <li>Create a new notebook titled <code>GKVK_AgriAI_Master_Lab.ipynb</code>.</li>
+                                <li>Create structured Markdown sections for all Unit 1 topics with custom farm badges and table of contents.</li>
+                                <li>Write and run a Python cell verifying RAM, disk space, and key library versions (<code>numpy</code>, <code>pandas</code>, <code>matplotlib</code>).</li>
+                                <li>Add an interactive farm header function that prints your custom farm name, location, and date banner.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An initialized, fully executable master Colab notebook with verified cloud environment status.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -261,28 +328,85 @@ _private_data = 100     # ✅ OK - starts with underscore
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Create Your Farm Profile</h3>
-                    <p>Create variables for your farm (real or imaginary):</p>
-                    <pre><code class="language-python">
-# Fill in your farm details
-farm_name = "___"           # String
-owner_name = "___"          # String
-total_area = ___            # Float (hectares)
-num_plots = ___             # Integer
-main_crop = "___"           # String
-has_irrigation = ___        # Boolean (True/False)
-avg_annual_rainfall = ___   # Float (mm)
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
 
-# Print a summary
-print(f"🌾 {farm_name}")
-print(f"Owner: {owner_name}")
-print(f"Area: {total_area} hectares in {num_plots} plots")
-print(f"Main crop: {main_crop}")
-print(f"Irrigated: {has_irrigation}")
-                    </code></pre>
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Type-Inference & Silent Data Corruption Demonstration</h3>
+                            <p><strong>Educator Action:</strong> The instructor demonstrates live in Colab why understanding data types is a matter of agricultural life and death:</p>
+                            <ul>
+                                <li>Shows string concatenation disaster: adding harvest yields received as text <code>"2500" + "350"</code> results in <code>"2500350"</code> kg instead of <code>2850</code> kg.</li>
+                                <li>Demonstrates floating-point precision traps in soil salinity: <code>0.1 + 0.2 == 0.3</code> evaluates to <code>False</code> due to binary floating-point representation.</li>
+                                <li>Live-codes explicit casting patterns: safely converting incoming SMS text strings (<code>"45.8"</code>) to numeric floats with error catching.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An interactive demonstration script highlighting data type coercion pitfalls and safe type-casting patterns.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Standardized Agricultural Variable Naming & Ontology Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty mentors student groups in establishing an industry-standard PEP-8 variable naming ontology for a precision smart farm:</p>
+                            <ul>
+                                <li><strong>Faculty Challenge:</strong> How do we systematically name 50 variables across 10 plots (e.g., soil moisture at 15cm depth in Plot 3 vs ambient canopy temperature in Greenhouse 2)?</li>
+                                <li><strong>Collaborative Work:</strong> Student groups debate naming conventions (e.g., <code>plot03_soil_moisture_15cm_pct</code> vs cryptic <code>sm3</code>), enforcing self-documenting code, snake_case standards, and explicit unit suffixes.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A co-created Agri-Python Variable Naming Styleguide endorsed by faculty for all lab projects.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Farm Record Data-Type Audit & Schema Validation</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams receive an unformatted, mixed-type agricultural registry containing 12 raw data points:</p>
+                            <ul>
+                                <li>Farmer Aadhaar/ID, farm area, crop variety, organic status, soil test pH, historical harvest yields, and irrigation valve state.</li>
+                                <li>Teams classify each field into its ideal primitive type (<code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code>).</li>
+                                <li>Write validation functions to verify types (e.g., assert that <code>0.0 &lt;= soil_ph &lt;= 14.0</code> and <code>isinstance(has_drip, bool)</code>).</li>
+                                <li>Exchange schemas with a peer team for adversarial testing with intentionally corrupted data inputs.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A collaborative data-type validation script and peer audit report verifying 100% schema compliance.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Code a Comprehensive Digital Farm Profile in Colab</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, build an executable Python farm profile modeling a real or simulated Karnataka holding:</p>
+                            <ul>
+                                <li>Declare at least 10 strongly typed variables covering integers (<code>num_plots</code>, <code>laborers_employed</code>), floats (<code>soil_ph</code>, <code>annual_rainfall_mm</code>, <code>hectares</code>), strings (<code>farm_name</code>, <code>crop_variety</code>, <code>taluk_location</code>), and booleans (<code>has_borewell</code>, <code>is_organic_certified</code>).</li>
+                                <li>Perform type conversions (e.g., convert string <code>"18.5"</code> to float and back to string).</li>
+                                <li>Print a formatted Farm Executive Summary Dashboard using f-strings with aligned columns and unit symbols.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A runnable Colab notebook containing variable declarations, type checking calls (<code>type()</code>), and the formatted dashboard output.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -455,28 +579,86 @@ print(f"Profitable? {net_profit > 0}")
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Build a Fertilizer Calculator</h3>
-                    <pre><code class="language-python">
-# Calculate fertilizer needs based on soil test
-nitrogen_required = 120  # kg/ha
-phosphorus_required = 60
-potassium_required = 40
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
 
-urea_n_content = 0.46  # 46% nitrogen
-dap_p_content = 0.46   # 46% phosphorus
-mop_k_content = 0.60   # 60% potassium
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Multi-Condition Agricultural Logic Gate Walkthrough</h3>
+                            <p><strong>Educator Action:</strong> The instructor live-codes an interactive automated irrigation and frost alert gate in Colab combining Arithmetic, Comparison, and Logical operators:</p>
+                            <ul>
+                                <li>Demonstrates operator precedence subtleties: why <code>temp &lt; 4 or moisture &lt; 20 and not is_raining</code> evaluates differently than <code>(temp &lt; 4 or moisture &lt; 20) and not is_raining</code>.</li>
+                                <li>Uses floor division <code>//</code> and modulo <code>%</code> to calculate grain bag pallet loading (e.g., 2,750 kg grain = 55 full 50kg bags and 0 kg remainder).</li>
+                                <li>Shows real-time boolean evaluation of compound agro-climatic conditions on the classroom display.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A live boolean truth table analysis and precedence verification script executed on the classroom screen.
+                        </div>
+                    </div>
 
-# Calculate bags needed
-urea_needed = nitrogen_required / urea_n_content
-dap_needed = phosphorus_required / dap_p_content
-mop_needed = potassium_required / mop_k_content
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Agri-Economic Profit & Subsidy Optimization Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty and student cohorts co-design a mathematical profit equation for smallholder horticulture:</p>
+                            <ul>
+                                <li><strong>Equation Co-Design:</strong> $\text{Net Profit} = (\text{Hectares} \times \text{Yield} \times \text{Mandi Price}) - (\text{Seed Cost} + \text{Fertilizer} + \text{Irrigation} + \text{Labor}) + \text{Government Subsidy}$.</li>
+                                <li><strong>Faculty Challenge:</strong> Add compound boolean expressions for state electricity rules: electricity is free during night hours (10 PM&ndash;6 AM) but billed at ₹4.50/kWh during daytime, with a surcharge if peak load exceeds 15 HP.</li>
+                                <li>Teams write and verify algebraic expressions calculating net savings for automated night irrigation.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An economic optimization algorithm verified by faculty with calculated break-even yields.
+                        </div>
+                    </div>
 
-# Your task: Print the results!
-# Also check if total cost is within budget of ₹10,000
-                    </code></pre>
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Fertilizer Formulation & Bag Math Challenge</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams calculate commercial fertilizer bag requirements for a 4.5-hectare maize field with soil test deficits of: 135 kg N, 65 kg P, and 50 kg K per hectare.</p>
+                            <ul>
+                                <li>Commercial fertilizers available: Urea (46% N), DAP (18% N, 46% P_2O_5), and MOP (60% K_2O), sold exclusively in 50 kg bags.</li>
+                                <li>Teams use arithmetic and floor division operators (<code>/</code>, <code>//</code>, <code>%</code>) to calculate exact full bags needed and leftover surplus.</li>
+                                <li>Write comparison and logical operators checking: <code>(total_cost &lt;= budget) and (p_supplied &gt;= p_required)</code>.</li>
+                                <li>Swap calculations with a peer group to audit mathematical accuracy and budget constraints.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A fertilizer requirement report with verified operator expressions and peer validation signatures.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Build an Automated Pesticide Spray Window Evaluator</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, write a standalone Python program that evaluates spraying safety based on 5 environmental readings:</p>
+                            <ul>
+                                <li>Variables: <code>wind_speed_kmh</code> (safe: 5&ndash;15), <code>temperature_c</code> (safe: 15&ndash;30), <code>humidity_pct</code> (safe: 40&ndash;75), <code>rain_forecast_next_4h</code> (must be <code>False</code>), and <code>pollinator_peak_hours</code> (must be <code>False</code>).</li>
+                                <li>Combine these with logical operators to compute boolean flags: <code>drift_risk</code>, <code>washoff_risk</code>, <code>pollinator_risk</code>, and <code>is_spray_window_safe</code>.</li>
+                                <li>Test the script across 4 weather scenarios and print clear formatted authorization banners.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A self-tested Python notebook evaluating all boolean conditions and printing formatted safety clearance reports.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -643,23 +825,85 @@ print(f"Crop Grade: {grade}")
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Build a Pest Alert System</h3>
-                    <pre><code class="language-python">
-# Create a pest alert system based on conditions
-temperature = 28
-humidity = 75
-has_recent_rain = True
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
 
-# Your task: Write if-elif-else to determine pest risk
-# - High risk: temp > 25 AND humidity > 70 AND recent rain
-# - Medium risk: humidity > 60 OR temp > 30
-# - Low risk: otherwise
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Multi-Stage Autonomous Greenhouse Controller</h3>
+                            <p><strong>Educator Action:</strong> The teacher live-codes a complete greenhouse environment controller in Google Colab using multi-branch <code>if-elif-else</code> logic:</p>
+                            <ul>
+                                <li>The instructor inputs live streaming parameters (temperature, relative humidity, light lux level).</li>
+                                <li>Demonstrates why condition order is critical: placing general conditions before specific ones creates unreachable dead code blocks (e.g., checking <code>temp &gt; 25</code> before <code>temp &gt; 40</code>).</li>
+                                <li>Live-triggers emergency actuation commands: activating exhaust louvers, shading screens, and micro-fogging nozzles in response to extreme compound stress.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An interactive decision tree flowchart and live execution log demonstrating mutually exclusive branching logic.
+                        </div>
+                    </div>
 
-# Print appropriate alert message for each risk level
-                    </code></pre>
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Disaster Early Warning & Advisory Decision Tree Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty and student cohorts co-design an institutional emergency alert decision tree for Raitha Samparka Kendras (RSKs) across Karnataka:</p>
+                            <ul>
+                                <li><strong>Faculty Challenge:</strong> How do we evaluate compound events (e.g., unseasonal rainfall coinciding with mature wheat harvest, or severe night frost following irrigation)?</li>
+                                <li><strong>Collaborative Design:</strong> Faculty guides student groups to map multi-tiered alert levels (Green: Normal, Yellow: Caution, Orange: High Risk, Red: Imminent Crop Loss) and specify actionable farmer interventions for each branch.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A faculty-approved Extreme Agro-Climatic Advisory Matrix with verified non-overlapping condition boundaries.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Crop Variety Recommendation Engine Challenge</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams build a nested conditional program recommending specific dryland vs wetland seed varieties (e.g., Ragi GPU-28 vs Paddy Jaya):</p>
+                            <ul>
+                                <li>Engine factors: <em>Soil Type (Black, Red, Alluvial), Sowing Window (Early Kharif, Late Kharif, Rabi), and Available Water (Rainfed, Borewell, Canal)</em>.</li>
+                                <li>Include nested fallback rules for late monsoon arrival (delayed sowing recommendations).</li>
+                                <li>Swap scripts with another student syndicate to conduct rigorous edge-case testing, attempting to input boundary values that break the logic tree.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A peer-tested Python decision module with an edge-case audit report documenting zero unhandled conditions.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Implement a Multi-Factor Pest Outbreak Severity Classifier</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, write a standalone Python program that evaluates pest and fungal blight risks:</p>
+                            <ul>
+                                <li>Inputs: <code>temperature</code>, <code>leaf_wetness_hours</code>, <code>spore_trap_count</code>, and <code>relative_humidity</code>.</li>
+                                <li>Implement a 4-tier <code>if-elif-else</code> ladder classifying risk: Low, Moderate, High, Critical.</li>
+                                <li>Return tailored agricultural advisory text including specific biological control agents (e.g., <em>Trichoderma</em>) or chemical thresholds.</li>
+                                <li>Execute tests across 4 synthetic weather scenarios and print formatted diagnostic cards.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A runnable Colab notebook containing code, test assertions covering every branch, and printed advisory cards.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -808,28 +1052,86 @@ for row in range(1, 4):
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Build a Harvest Tracker</h3>
-                    <pre><code class="language-python">
-# Track daily harvest for a week
-daily_harvest = []
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
 
-# Use a while loop to collect 7 days of data
-day = 1
-while day <= 7:
-    # Simulate harvest (replace with input() for real data)
-    harvest = day * 100  # Example data
-    daily_harvest.append(harvest)
-    print(f"Day {day}: Harvested {harvest} kg")
-    day += 1
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Batch Sensor Processing & Defensive Loop Architecture</h3>
+                            <p><strong>Educator Action:</strong> The instructor demonstrates iterative processing live in Colab on a multi-day agricultural sensor feed:</p>
+                            <ul>
+                                <li><strong>For Loop with Enumerate & Accumulator:</strong> Iterates across 30 days of weather telemetry, calculating cumulative Growing Degree Days (GDD) with base temperature 10&deg;C.</li>
+                                <li><strong>Defensive While Loop:</strong> Simulates an autonomous drip irrigation pump that continues pumping until soil moisture reaches 50%, with a safety timeout guard counter (<code>max_timeout = 60</code> minutes) to prevent disastrous pump burn-out if a pipe bursts.</li>
+                                <li>Demonstrates using <code>continue</code> to skip missing sensor reads and <code>break</code> to abort on motor overheating.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An interactive live demonstration script displaying accumulator patterns, timeout guards, and loop control statements.
+                        </div>
+                    </div>
 
-# Use a for loop to find best and worst days
-best_day = 1
-worst_day = 1
-# Your task: Complete this logic!
-                    </code></pre>
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Spatial Field Grid Traversal & Drone Flight Path Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty guides student groups to conceptualize automated drone surveying across a 2D field grid ($M \times N$ matrix):</p>
+                            <ul>
+                                <li><strong>Faculty Guidance:</strong> Explains nested loops (outer loop for row scan lines, inner loop for waypoints along each row) and introduces the "boustrophedon" (lawnmower back-and-forth) pathing pattern.</li>
+                                <li><strong>Student Groups:</strong> Implement alternating column orders on even vs odd rows to prevent the drone from making wasteful transit flights back to row starts.</li>
+                                <li>Faculty leads an optimization review calculating battery savings achieved through optimized loop traversal.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A co-designed Python 2D Grid Waypoint Generator script verified by faculty with simulated battery consumption stats.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Farm Sensor Anomaly Filter & Clean-Up Syndicate</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams receive a batch list of 100 hourly farm sensor readings contaminated with transmission noise (-999 error codes, impossible 120&deg;C spikes, and duplicate records):</p>
+                            <ul>
+                                <li>Teams write a collaborative Python processing loop using <code>continue</code> to discard corrupted readings and compute running averages of valid data.</li>
+                                <li>Use a <code>while</code> loop to simulate grain silo drying, stepping through hours until moisture drops from 22% to a safe storage threshold of 12%.</li>
+                                <li>Swap scripts with another student syndicate to test against an adversarial noise batch with edge-case sensor failures.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A robust iterative sensor cleaning module and peer assessment report verifying noise rejection accuracy.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Build a 7-Day Harvest Yield & Cumulative Revenue Tracker</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, write a complete Python program processing daily harvest records:</p>
+                            <ul>
+                                <li>Create a list of daily harvest weights: <code>[320, 450, 290, 510, 480, 530, 390]</code>.</li>
+                                <li>Use a <code>for</code> loop with <code>enumerate(..., start=1)</code> to calculate cumulative yield and identify peak and lowest harvest days.</li>
+                                <li>Calculate total revenue using a fixed Mandi rate of ₹28/kg.</li>
+                                <li>Use a nested loop to simulate inspecting 4 crates per day, tagging each crate with a unique serial ID (e.g., <code>"Day2-Crate3"</code>).</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A runnable Colab notebook displaying daily harvest summaries, cumulative totals, and generated crate inspection serials.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1014,27 +1316,87 @@ for key, value in result.items():
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Build Your Function Library</h3>
-                    <p>Create these farm utility functions:</p>
-                    <pre><code class="language-python">
-# 1. Water requirement calculator
-def water_requirement(crop, area, days):
-    # Return liters needed based on crop type
-    pass
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
 
-# 2. Seed calculator
-def seed_calculator(crop, area, spacing):
-    # Return number of seeds needed
-    pass
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Refactoring: Monolithic Script to Modular Farm SDK</h3>
+                            <p><strong>Educator Action:</strong> The instructor begins with an unorganized 80-line procedural Python script doing tangled calculations for soil health, irrigation timing, and fertilizer dosage:</p>
+                            <ul>
+                                <li>Live-refactors the script into 4 clean, single-responsibility functions with PEP-257 docstrings, explicit type hints, and default arguments: <code>calc_evapotranspiration()</code>, <code>estimate_yield_loss()</code>, <code>recommend_nutrients()</code>, and <code>generate_executive_summary()</code>.</li>
+                                <li>Demonstrates the critical distinction between printing inside a function (side-effect) versus returning values (reusable functional programming).</li>
+                                <li>Tests function scope, demonstrating why modifying global variables inside functions is dangerous in production farm systems.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A live side-by-side refactoring demonstration showcasing modularity, unit testability, and docstring documentation.
+                        </div>
+                    </div>
 
-# 3. Harvest date predictor
-def predict_harvest(planting_date, crop):
-    # Return expected harvest date
-    pass
-                    </code></pre>
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Open-Source Agri-Python Library Architecture Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty acts as maintainer of an institutional open-source agricultural Python library: <code>agri_toolkit</code>:</p>
+                            <ul>
+                                <li><strong>Faculty Guidance:</strong> Establishes clean module boundaries: <code>agri_toolkit.water</code>, <code>agri_toolkit.soil</code>, <code>agri_toolkit.crop_models</code>, and <code>agri_toolkit.economics</code>.</li>
+                                <li><strong>Collaborative Design:</strong> Faculty and student cohorts define standard function signatures, input validation decorators, error handling protocols, and standardized return dictionary formats so that functions from different student teams can effortlessly pipe data to one another.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An official API Architecture Specification for the <code>agri_toolkit</code> library vetted and approved by faculty.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Collaborative Farm Micro-Services Integration Challenge</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams of 4 assign distinct functional development responsibilities:</p>
+                            <ul>
+                                <li><strong>Member 1:</strong> Writes <code>water_budget(crop, area_ha, eto_mm)</code> returning irrigation requirement.</li>
+                                <li><strong>Member 2:</strong> Writes <code>fertilizer_plan(crop, soil_npk_dict, target_yield)</code> returning kg urea/dap/mop.</li>
+                                <li><strong>Member 3:</strong> Writes <code>pest_disease_risk(temp, humidity, spore_count)</code> returning risk score and biocontrol agent.</li>
+                                <li><strong>Member 4:</strong> Writes the orchestrator function <code>generate_daily_farm_plan()</code> that imports and executes all three functions, compiling an integrated JSON advisory.</li>
+                                <li>Teams execute integration tests and conduct peer code audits with a neighboring team.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A fully integrated, 4-function modular Python file with cross-team unit test assertions and code review signatures.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Code a Production-Ready Agricultural Utility Module</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, write 3 professional, fully documented Python functions with type hints and default parameters:</p>
+                            <ul>
+                                <li><code>calculate_water_requirement(crop: str, area_ha: float, soil_type: str = "loam") -&gt; float</code></li>
+                                <li><code>calculate_seed_quantity(crop: str, area_ha: float, germination_rate: float = 0.85) -&gt; dict</code></li>
+                                <li><code>predict_harvest_date(planting_date_str: str, duration_days: int) -&gt; str</code></li>
+                                <li>Include multi-line Google-style docstrings explaining parameters, returns, and examples. Verify docstring readability with <code>help(calculate_water_requirement)</code>.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A runnable Colab notebook containing all 3 functions, docstrings, and verified test execution calls.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1206,26 +1568,83 @@ print(f"Total farm production: {total_production} kg")
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Create a Crop Database</h3>
-                    <pre><code class="language-python">
-# Build a dictionary of crops with their properties
-crop_database = {
-    "wheat": {
-        "water_needs": "medium",
-        "season": "rabi",
-        "days_to_harvest": 120
-    },
-    # Add 3 more crops with their properties!
-}
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
 
-# Write code to:
-# 1. List all crop names
-# 2. Find crops with "low" water needs
-# 3. Calculate average days to harvest
-                    </code></pre>
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live In-Memory Farm Database Querying & Manipulation</h3>
+                            <p><strong>Educator Action:</strong> The instructor builds an interactive hierarchical agricultural data registry live in Google Colab combining Lists, Tuples, and Dictionaries:</p>
+                            <ul>
+                                <li>Models 5 research plots: immutable GPS bounds stored as tuples <code>(lat, lon)</code>, time-series moisture readings stored in mutable lists <code>[22, 25, 29]</code>, and metadata indexed in key-value dictionaries.</li>
+                                <li>Demonstrates dictionary lookup efficiency ($O(1)$ constant time) versus scanning lists ($O(N)$ linear time).</li>
+                                <li>Live-codes dynamic list comprehensions to query plots in real time: <code>[plot_id for plot_id, d in farm.items() if d['moisture'] &lt; 30]</code>.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A live interactive querying demonstration showing nested dictionary updates, tuple unpacking, and list comprehension filtering.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Precision Farm Digital Twin In-Memory Architecture Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty challenges student cohorts to design the in-memory data schema for an autonomous hydroponics farm Digital Twin:</p>
+                            <ul>
+                                <li><strong>Faculty Mentoring:</strong> Guides students in choosing the appropriate data collection for each data entity: why sensor calibration constants must be immutable tuples, why telemetry buffers must be dynamic lists (with max length), and why nutrient dosing tables are best modeled as dictionaries.</li>
+                                <li><strong>Collaborative Work:</strong> Groups construct a nested JSON-like dictionary representing water tanks, nutrient pumps, and climate sensors, establishing clear key hierarchy and validation rules.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An in-memory Digital Twin Data Schema Document verified and signed off by faculty.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Agro-Market Inventory Management & Price Query Syndicate</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams build an in-memory commodities trading and storage registry using nested dictionaries and lists of tuples:</p>
+                            <ul>
+                                <li>Track 4 crops (Paddy, Maize, Ragi, Groundnut) across 3 regional warehouse facilities with attributes: <code>grade</code>, <code>quantity_bags</code>, and <code>arrival_date</code>.</li>
+                                <li>Write query functions to find total stock of Grade-A produce, calculate warehouse capacity utilization %, and update stock when lots are sold.</li>
+                                <li>Swap databases with another student syndicate who executes adversarial test queries attempting to cause <code>KeyError</code> or corrupt data structures.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A collaborative Python warehouse registry module with peer-reviewed error handling and query outputs.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Build a Comprehensive Farm Plot Database & Query Suite</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, create a multi-level nested dictionary <code>farm_registry</code> containing at least 4 farm plots:</p>
+                            <ul>
+                                <li>Include plot keys: <code>crop</code> (str), <code>coordinates</code> (tuple of 2 floats), <code>soil_npk</code> (dict with keys 'N', 'P', 'K'), and <code>weekly_moisture</code> (list of 7 floats).</li>
+                                <li>Write code to: (1) Add a new plot dynamically, (2) Update the soil potassium level for Plot 2, (3) Use list comprehension to extract all plots growing cereals, (4) Calculate the overall farm average soil moisture across all 28 readings.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A runnable Colab notebook containing the nested registry, manipulation operations, and printed query results.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1338,15 +1757,84 @@ print(f"Cleaned: {clean}")
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Parse Sensor Log</h3>
-                    <p>Parse this sensor log line and extract values:</p>
-                    <pre><code class="language-python">
-log = "2024-01-15|TEMP:28.5|HUMIDITY:65|MOISTURE:45"
-# Extract date, temperature, humidity, moisture
-                    </code></pre>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live NMEA GPS Parsing & Multi-Lingual SMS Formatting</h3>
+                            <p><strong>Educator Action:</strong> The instructor projects Colab and inputs raw string payloads from agricultural hardware:</p>
+                            <ul>
+                                <li><strong>Hardware Stream:</strong> A raw NMEA sentence from a tractor GPS guidance unit: <code>"$GPRMC,123519,A,1258.03,N,07735.67,E,022.4,084.4,230324,003.1,W*6A"</code>.</li>
+                                <li>Live-codes string tokenization with <code>.split(",")</code>, extracts latitude/longitude strings, and computes decimal degrees with formatting.</li>
+                                <li>Demonstrates using advanced f-string format specifiers: padding numbers (<code>{val:05.2f}</code>), adding thousand separators (<code>{cost:,}</code>), and dynamically compiling localized SMS alerts.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An interactive string parsing demonstration parsing raw GPS strings and generating formatted agricultural dispatch alerts.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Farmer NLP & Dialect Text Normalization Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty presents unformatted, messy text queries sent by rural farmers to agricultural call center chatbots (mix of transliterated Kannada, phonetic spellings, and informal slang):</p>
+                            <ul>
+                                <li><strong>Faculty Mentoring:</strong> Explains tokenization, case-folding (<code>.lower()</code>), whitespace stripping (<code>.strip()</code>), and character replacement for dialect spelling variations (e.g., <em>"tamato"</em>, <em>"thakkali"</em> &rarr; <em>"tomato"</em>).</li>
+                                <li><strong>Collaborative Design:</strong> Student groups build a string dictionary mapping common regional crop and pest slang to canonical agronomic terms, tested live under faculty supervision.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A co-developed Agricultural Text Sanitization Function and Canonical Slang Normalization Dictionary approved by faculty.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Agricultural IoT Log Parser & Sanitizer Syndicate</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams receive a raw text file containing 50 lines of legacy weather station log data formatted as: <code>"2024-05-18|TEMP:28.5C|HUM:72%|SOIL:45%|STATUS:OK   "</code>:</p>
+                            <ul>
+                                <li>Write a collaborative parsing script that strips whitespace, splits by delimiters, removes non-numeric characters (<code>"C"</code>, <code>"%"</code>), and casts readings into numeric variables.</li>
+                                <li>Reformat the extracted data into a clean CSV string format: <code>"Timestamp,Temperature,Humidity,SoilMoisture"</code>.</li>
+                                <li>Swap scripts with another student syndicate who tests with edge-case strings containing missing delimiters and corrupted status tags.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A robust Python string parser script with a peer-reviewed data validation scorecard.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Code an Automated Weather Alert & SMS Advisory Generator</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, write a standalone Python program that transforms raw weather sensor data into clean, formatted farmer notifications:</p>
+                            <ul>
+                                <li>Take a raw sensor string: <code>"NODE_04#TEMP=38.4#RAIN=0.0#WIND=24.2#CROP=PADDY"</code> and parse the individual key-value pairs using string methods.</li>
+                                <li>Use f-strings to dynamically format a professional 160-character farmer SMS advisory with agricultural emojis (🌾, ⚠️, 🚜) warning of high evaporative demand and advising specific irrigation hours.</li>
+                                <li>Format prices with currency symbols (₹) and ensure clean text alignment across multiple lines.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A runnable Colab notebook containing string parsing logic, sanitization rules, and printed multi-scenario SMS outputs.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1453,15 +1941,85 @@ with open("crops.csv", "r") as file:
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Create a Harvest Logger</h3>
-                    <ol>
-                        <li>Create a function to log daily harvest to a file</li>
-                        <li>Add date, crop, and quantity to each entry</li>
-                        <li>Create another function to read and summarize the log</li>
-                    </ol>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Telemetry File I/O & Safe Context Management</h3>
+                            <p><strong>Educator Action:</strong> The instructor demonstrates robust file I/O live in Google Colab using real-world agricultural scenarios:</p>
+                            <ul>
+                                <li>Contrasts unsafe legacy file handling (<code>f = open()</code> where power failure leaves file descriptors open and corrupts logs) against Python's <code>with open(...)</code> context manager.</li>
+                                <li>Live-codes continuous appending (<code>"a"</code> mode) of incoming sensor telemetry lines into an archival log file.</li>
+                                <li>Demonstrates handling missing files using <code>try-except FileNotFoundError</code> to prevent automated farm gateway scripts from terminating abruptly.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A live script demonstration showing context manager mechanics, file append operations, and graceful exception handling.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Institutional Agricultural Data Archive Architecture Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty acts as Chief Information Officer for an agricultural university research station (like UAS GKVK):</p>
+                            <ul>
+                                <li><strong>Faculty Challenge:</strong> How do we organize 10 years of multi-plot sensor logs, daily harvest manifests, and soil chemistry reports so researchers can query them seamlessly without disk space explosion?</li>
+                                <li><strong>Collaborative Work:</strong> Student groups and faculty design an archival directory and file naming taxonomy: <code>/archive/{year}/{season}/{plot_id}/telemetry_{YYYYMMDD}.csv</code>, establishing standard header formats and automated file rotation rules.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An official Agricultural File Archive Specification Document approved and signed off by faculty.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Multi-Plot CSV Merge & Summary Report Syndicate</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams receive 3 separate CSV data logs from an experimental farm:</p>
+                            <ul>
+                                <li><code>weather_log.csv</code> (Daily rain & temp), <code>irrigation_log.csv</code> (Water applied per plot), and <code>harvest_log.csv</code> (Final yield & quality grade).</li>
+                                <li>Teams write a collaborative Python script using the built-in <code>csv</code> module to read all 3 files, join records on matching Plot IDs and dates, and generate an integrated <code>master_farm_analysis.csv</code>.</li>
+                                <li>Swap merged output files with another student syndicate to audit data integrity and verify that no rows were dropped during join operations.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A collaborative Python CSV ETL script and verified master CSV file with peer sign-off.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Build an Automated Daily Farm Journal & CSV Logger</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, write a standalone Python program that manages an automated agricultural ledger:</p>
+                            <ul>
+                                <li>Create a CSV file <code>daily_farm_operations.csv</code> with headers: <code>Date,Plot_ID,Activity,Quantity,Input_Cost_INR,Notes</code>.</li>
+                                <li>Write a function <code>log_activity(date, plot, activity, qty, cost, notes)</code> that safely appends records using <code>csv.writer</code>.</li>
+                                <li>Write a second function <code>summarize_plot_expenditure(plot_id)</code> that reads the CSV line by line, filters by plot, and computes total expenditure.</li>
+                                <li>Log 4 sample activities and print a formatted summary report.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A self-tested Colab notebook containing file write/append/read code, generated CSV data, and printed summary outputs.
+                        </div>
+                    </div>
                 </div>
             </div>
 

@@ -117,41 +117,86 @@ print(irrigation_advisor(75, 28, False))  # Good moisture
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Activity: AI in Your Farm Survey</h3>
-                    <p><strong>Duration:</strong> 20 minutes</p>
-                    <p><strong>Instructions:</strong></p>
-                    <ol>
-                        <li>List 5 decisions you make regularly on a farm (or imagine if you don't have one)</li>
-                        <li>For each decision, identify what information (data) you need</li>
-                        <li>Think: Could a computer make this decision if given the same data?</li>
-                        <li>Classify each as "Easy for AI" or "Needs Human Judgment"</li>
-                    </ol>
-                    <p><strong>Example Table:</strong></p>
-                    <table>
-                        <tr>
-                            <th>Decision</th>
-                            <th>Data Needed</th>
-                            <th>AI Feasibility</th>
-                        </tr>
-                        <tr>
-                            <td>When to irrigate</td>
-                            <td>Soil moisture, weather forecast</td>
-                            <td>Easy for AI ✅</td>
-                        </tr>
-                        <tr>
-                            <td>Which crop to plant</td>
-                            <td>Soil type, market prices, water availability</td>
-                            <td>Easy for AI ✅</td>
-                        </tr>
-                        <tr>
-                            <td>Negotiating with buyers</td>
-                            <td>Market trends, relationships</td>
-                            <td>Needs Human 👨‍🌾</td>
-                        </tr>
-                    </table>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Farm Decision Engine Simulation & Stress-Testing</h3>
+                            <p><strong>Educator Action:</strong> The teacher projects Google Colab and live-codes an interactive rule-based agricultural AI advisor <code>smart_farm_advisor(moisture, temp, rain_prob, crop_stage)</code>. The instructor intentionally inputs conflicting field data (e.g., soil moisture is critically dry at 18%, but forecast rain probability is 95% within 2 hours; or temperature hits 41°C during flowering stage).</p>
+                            <ul>
+                                <li>Demonstrates live how algorithmic weights prioritize crop survival over operational costs.</li>
+                                <li>Polls students in real time: <em>"Should the pump trigger now or hold for rain?"</em></li>
+                                <li>Refactors decision thresholds live based on student feedback and agronomic principles.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An interactive decision boundary chart mapped on the classroom whiteboard with live-calibrated moisture and temperature thresholds.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Smart Agro-Ecosystem AI Architecture Co-Design</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty facilitates a collaborative co-creation studio where cohorts of students represent 4 distinct agricultural production ecosystems (Sugarcane in Mandya, Coffee in Chikmagalur, Ragi in Tumakuru, and Cotton in Raichur).</p>
+                            <ul>
+                                <li><strong>Faculty Role:</strong> Challenges student teams with real-world rural bottlenecks (intermittent 3-phase grid power, patchy 2G/4G bandwidth, regional language constraints).</li>
+                                <li><strong>Student Groups:</strong> Brainstorm and sketch the four functional layers: <em>Perception (Sensors/Cameras) &rarr; Edge Processing &rarr; Reasoning (AI Engine) &rarr; Farmer Advisory (Voice/SMS/Actuation)</em>.</li>
+                                <li>Joint review session where faculty refines each team's architecture for technical feasibility and smallholder cost viability.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A finalized, faculty-vetted System Architecture Blueprint poster showing end-to-end data pipelines for regional crops.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Farm Automation Feasibility & Failure-Mode Analysis</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams of 3&ndash;4 assign internal industry roles: (1) Lead Agronomist, (2) IoT & AI Systems Engineer, (3) Smallholder Farmer Advocate, (4) Agricultural Financial Analyst.</p>
+                            <ul>
+                                <li>Teams analyze 4 common farm operations: <em>(a) Weed eradication, (b) Night-time drip fertigation, (c) Early blight diagnosis, (d) Grain moisture verification</em>.</li>
+                                <li>Evaluate each task on three metrics: <em>Data Availability (1-5)</em>, <em>AI Technical Readiness (1-5)</em>, and <em>Cost-Benefit Ratio</em>.</li>
+                                <li>Identify one catastrophic failure mode for each (e.g., AI misclassifies cash crop seedlings as broadleaf weeds) and formulate safety guardrails.</li>
+                                <li>Swap matrices with a peer group for cross-team stress testing and peer grading.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A completed 4x4 Feasibility & Risk-Mitigation Matrix signed off through peer review.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Code & Run Your Own Crop Stress Decision Engine</h3>
+                            <p><strong>Hands-on Coding Task:</strong> Open Google Colab and build a standalone Python function <code>diagnose_crop_stress(leaf_color, soil_moisture, ambient_temp, wilting_index)</code> that implements multi-criteria evaluation.</p>
+                            <ul>
+                                <li>Implement nested logical branches accounting for drought stress, heat stress, and waterlogging.</li>
+                                <li>Return a structured Python dictionary containing: <code>stress_level</code> ("None", "Moderate", "Critical"), <code>probable_cause</code>, and <code>immediate_recommendation</code>.</li>
+                                <li>Test the function across 5 synthetic field edge cases and print formatted alert banners.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A self-tested, runnable Colab notebook containing code, test assertions, and structured execution outputs.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -366,29 +411,93 @@ print(f"Best learned time: {agent.get_action()}")
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Activity: Classify the ML Problem</h3>
-                    <p><strong>Duration:</strong> 15 minutes</p>
-                    <p>For each agricultural problem below, identify the ML paradigm:</p>
-                    <ol>
-                        <li>Predicting tomorrow's crop price based on historical data</li>
-                        <li>Grouping farmers into segments without predefined categories</li>
-                        <li>Training a drone to navigate through orchards</li>
-                        <li>Classifying soil samples as "fertile" or "infertile"</li>
-                        <li>Finding unusual patterns in sensor data</li>
-                    </ol>
-                    <details>
-                        <summary>Show Answers</summary>
-                        <ol>
-                            <li>Supervised Learning (Regression)</li>
-                            <li>Unsupervised Learning (Clustering)</li>
-                            <li>Reinforcement Learning</li>
-                            <li>Supervised Learning (Classification)</li>
-                            <li>Unsupervised Learning (Anomaly Detection)</li>
-                        </ol>
-                    </details>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Paradigm Interactive Switchboard</h3>
+                            <p><strong>Educator Action:</strong> The teacher executes a live interactive coding walkthrough in Google Colab presenting a unified farm dilemma: <em>"Optimizing Greenhouse Capsicum Cultivation"</em>.</p>
+                            <ul>
+                                <li><strong>Supervised Mode:</strong> Shows live training of a decision tree classifying fruit ripeness (Green, Semi-ripe, Ripe) with labeled RGB images.</li>
+                                <li><strong>Unsupervised Mode:</strong> Strips all labels and runs K-Means on raw soil sensors (pH, EC, moisture) to discover 3 unexpected micro-climate clusters without human hints.</li>
+                                <li><strong>Reinforcement Mode:</strong> Runs a live Q-learning script where an autonomous misting nozzle receives rewards (+10 for optimal vapor pressure deficit, -15 for leaf wetness causing fungal risk).</li>
+                                <li>Instructor modifies reward penalties live to demonstrate how changing feedback reshapes AI behavior.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> Live demonstration summary table contrasting data dependencies, feedback mechanisms, and typical failure modes across the 3 paradigms.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>The Grand Agricultural Paradigm Formulation Lab</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty poses 4 complex, high-stakes agricultural problem statements to the class:</p>
+                            <ol>
+                                <li><em>Automated sorting of cashew nuts on high-speed conveyor belts.</em></li>
+                                <li><em>Discovery of unrecorded pest infestation clusters from satellite thermal bands.</em></li>
+                                <li><em>Autonomous farm drone solar recharge & spray scheduling across undulating terrain.</em></li>
+                                <li><em>Predicting crop yield loss from combined heat-drought compound events.</em></li>
+                            </ol>
+                            <ul>
+                                <li>Faculty challenges student groups to define the formal mathematical components: <em>Features ($X$), Ground Truth ($y$), Distance Metric, or State-Action-Reward tuple ($S, A, R$)</em>.</li>
+                                <li>Faculty leads Socratic inquiry on trade-offs: <em>"Why can't we use reinforcement learning for annual crop yield prediction?"</em> (Answer: feedback loop takes a full year!).</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A co-developed Paradigm Selection Rubric validated by faculty for real-world agricultural projects.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Multi-Modal Farm Dataset Paradigm Dissection</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams receive a raw dataset dossier containing 4 distinct real-world agricultural data samples:</p>
+                            <ul>
+                                <li><strong>Dataset A:</strong> 5,000 labeled leaf images with bacterial wilt tags.</li>
+                                <li><strong>Dataset B:</strong> 100,000 continuous time-series rows of unlabelled tractor engine telematics and fuel consumption.</li>
+                                <li><strong>Dataset C:</strong> Soil moisture sensor logs mapped to pump switch state and resulting crop health metrics.</li>
+                                <li><strong>Dataset D:</strong> 10-year historical Mandi market arrivals and daily clearing prices.</li>
+                            </ul>
+                            <p>Teams design an integrated ML pipeline specifying: which paradigm to apply, data labeling costs, data cleaning steps, and cross-validate their design through a 5-minute peer defense against another student team.</p>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A technical pitch poster with peer review scorecards evaluating paradigm appropriateness and deployment realism.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Code a Three-Way Agricultural Paradigm Simulator</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, write a self-contained Python script implementing basic models for each paradigm on agricultural data:</p>
+                            <ul>
+                                <li><strong>Part 1 (Supervised):</strong> Build a <code>predict_crop_type(temp, rainfall)</code> rule or Scikit-Learn classifier that predicts Wheat, Rice, or Millet with &gt;90% accuracy on sample data.</li>
+                                <li><strong>Part 2 (Unsupervised):</strong> Implement a soil sample grouping function that categorizes 6 synthetic soil samples into Acidic, Neutral, and Alkaline without using class labels.</li>
+                                <li><strong>Part 3 (Reinforcement):</strong> Complete the <code>SimpleIrrigationAgent</code> class by adding an exploration parameter (&epsilon;-greedy) to balance trying new watering hours vs exploiting the best-known slot.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An executable Colab notebook printing predictions, cluster assignments, and learned Q-values with markdown explanations.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -518,16 +627,87 @@ print(f"Best learned time: {agent.get_action()}")
                 </div>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Research Activity: AI in Your Country's Agriculture</h3>
-                    <p>Find one AI application currently used in Indian agriculture. Document:</p>
-                    <ul>
-                        <li>What problem does it solve?</li>
-                        <li>What technology does it use?</li>
-                        <li>How has it helped farmers?</li>
-                    </ul>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Expert Systems vs Modern Deep Learning Live Face-off</h3>
+                            <p><strong>Educator Action:</strong> The instructor live-executes an authentic 1980s-era agricultural expert system (a rigid tree of 15 hardcoded IF-THEN rules for wheat disease diagnosis) alongside a modern statistical model.</p>
+                            <ul>
+                                <li>The teacher deliberately introduces real-world field messiness: a misspelled symptom, a camera image taken in dim evening light, and an unseen soil pH value.</li>
+                                <li>Students observe the catastrophic brittleness of the 1980s expert system (instant crash or silent wrong advice) compared to modern ML's probabilistic confidence score.</li>
+                                <li>The teacher uses this live failure to explain the structural causes of the 1974 and 1987 AI Winters.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A live comparative diagnostics log demonstrating rule fragility versus continuous representation learning on noisy agricultural inputs.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>AI Winter Forensic Post-Mortem & Rural Resilience Blueprint</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty mentors student cohorts to investigate the historical boom-and-bust cycles of AI and extract crucial lessons for 21st-century AgriTech:</p>
+                            <ul>
+                                <li><strong>Faculty Challenge:</strong> <em>"Why did multi-million dollar agricultural expert systems of the 1980s get abandoned by farming extension officers within two years?"</em></li>
+                                <li><strong>Student Investigation:</strong> Groups analyze historical factors: maintenance bottleneck of manual rule updates, lack of rural compute power, absence of smartphone cameras, and over-promising to funding agencies.</li>
+                                <li>Faculty and students co-draft the <em>"Rural AI Anti-Fragility Principles"</em>: offline edge capability, explainable recommendations, and low-cost hardware integration.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A co-created "AgriTech Anti-Fragility Charter" signed by faculty and student groups outlining non-negotiable field deployment standards.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>The AgriTech Evolution Time-Capsule & Retrospective</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams are assigned one of 4 seminal technological eras in farming automation:</p>
+                            <ul>
+                                <li><strong>Era 1 (1950&ndash;1970):</strong> Early mechanization, analog sensors, and Turing test principles in agriculture.</li>
+                                <li><strong>Era 2 (1975&ndash;1990):</strong> Knowledge-based expert systems (MYCIN derivatives for pest management) & early Landsat satellite imagery.</li>
+                                <li><strong>Era 3 (1995&ndash;2010):</strong> Statistical ML, GPS-guided tractors, support vector machines for yield monitoring.</li>
+                                <li><strong>Era 4 (2012&ndash;Present):</strong> AlexNet revolution, convolutional neural networks for smartphone disease diagnosis, and transformer-based weather models.</li>
+                            </ul>
+                            <p>Each team prepares a 4-minute historical pitch presenting their era's breakthrough, hardware constraints, why it failed or succeeded, and peer-evaluates other teams.</p>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A 4-era chronological multimedia display detailing computational barriers and agricultural technology milestones.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Build & Stress-Test a Historical Rule-Based Agro-Advisor</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, build a historical 1985-style forward-chaining rule engine in Python for paddy leaf disease diagnosis:</p>
+                            <ul>
+                                <li>Write an explicit rule table evaluating symptoms: <code>lesion_shape</code>, <code>lesion_color</code>, <code>humidity_level</code>, and <code>crop_age</code>.</li>
+                                <li>Inject 3 realistic real-world edge cases (e.g., conflicting symptoms caused by mixed infection, missing input values, out-of-range humidity).</li>
+                                <li>Add an uncertainty handler that returns a fallback message: <em>"Confidence below threshold &mdash; consult GKVK extension agronomist"</em> rather than crashing.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A documented Python notebook demonstrating the rule engine, 3 failure stress-tests, and the graceful fallback mechanism.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -654,17 +834,87 @@ print(calculate_fertilizer(zones))
                 </div>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Case Study Analysis</h3>
-                    <p>Visit one of these AI agriculture apps (or watch demo videos):</p>
-                    <ul>
-                        <li>Plantix (Disease Detection)</li>
-                        <li>CropIn (Farm Management)</li>
-                        <li>Fasal (IoT + AI Platform)</li>
-                    </ul>
-                    <p>Answer: What AI technique does it use? What problem does it solve?</p>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Precision Variable-Rate Application (VRA) Heatmap Simulator</h3>
+                            <p><strong>Educator Action:</strong> The teacher projects a live Python script rendering a simulated 100m &times; 100m farm field divided into a 10&times;10 spatial grid with varying nitrogen and soil electrical conductivity values.</p>
+                            <ul>
+                                <li>The instructor runs an AI algorithm that calculates localized fertilizer deficit and adjusts virtual spray nozzle rates for each 10m grid cell.</li>
+                                <li>Compares live metrics: <strong>Uniform Blanket Application</strong> (120 kg/ha everywhere = high runoff, high cost) versus <strong>AI Variable-Rate Application</strong> (targeted dosing based on need).</li>
+                                <li>Shows real-time cost savings (28% reduction) and calculates nitrogen runoff prevented from contaminating groundwater.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A live interactive demonstration output showing spatial fertilizer heatmaps, cost savings graphs, and leaching reduction stats.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>End-to-End Precision Agriculture Solution Co-Design</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty mentors student groups in a real-world design studio based on GKVK's experimental dryland plots facing dual threats of irregular monsoon showers and leaf-miner infestations.</p>
+                            <ul>
+                                <li><strong>Faculty Role:</strong> Poses operational trade-offs between battery life of IoT sensor motes, cellular uplink costs, and camera resolution requirements for early pest detection.</li>
+                                <li><strong>Student Groups:</strong> Work as multidisciplinary squads (Sensor hardware team, Drone pathing team, AI model team, Farmer interface team).</li>
+                                <li>Faculty leads an interactive review of each group's proposed data pipeline: from field image capture to edge inference to automated SMS alert in Kannada/English.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An end-to-end operational blueprint featuring hardware specs, AI pipeline, and farmer notification protocol verified by faculty.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Commercial AgriTech Platform Reverse-Engineering & Audit</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams select one leading agricultural AI application operating in India (e.g., <em>Plantix, Fasal, CropIn, Intello Labs, or DeHaat</em>) and conduct a comprehensive teardown audit:</p>
+                            <ul>
+                                <li><strong>Algorithm Audit:</strong> Identify the core AI techniques (CNN for images, Random Forest for yield, ARIMA/LSTM for weather).</li>
+                                <li><strong>Farmer UX Critique:</strong> Evaluate whether an illiterate or semi-literate farmer can navigate the app using voice prompts and visual cues.</li>
+                                <li><strong>Failure Points:</strong> What happens when the farmer has no internet connection in the field?</li>
+                                <li>Teams formulate a 3-point feature upgrade proposal and defend it against another team's critique.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A structured teardown presentation and peer assessment scorecard rating usability, reliability, and algorithmic rigor.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Implement a Multi-Zone Fertilizer & Irrigation Optimizer</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, write a complete Python program that processes spatial field sensor data and generates optimized farm prescriptions:</p>
+                            <ul>
+                                <li>Accept a list of 5 farm zones, each with <code>moisture_pct</code>, <code>nitrogen_ppm</code>, and <code>crop_stage</code>.</li>
+                                <li>Calculate the exact irrigation volume (liters) and urea fertilizer (kg) required per zone using agronomic formulas.</li>
+                                <li>Format and print a professional "Tractor Operator Dispatch Log" with clear warnings for zones exhibiting salinity or waterlogging.</li>
+                                <li>Compute the total farm water and input cost savings compared to uniform irrigation.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A completed, executed Python script producing formatted farm dispatch tables and verified cost-saving metrics.
+                        </div>
+                    </div>
                 </div>
             </div>
 
