@@ -87,16 +87,85 @@ print(data.head())
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Engineer Features for Yield Prediction</h3>
-                    <ol>
-                        <li>Create a Growing Degree Days (GDD) feature</li>
-                        <li>Create a water availability index (rain + irrigation)</li>
-                        <li>One-hot encode crop varieties</li>
-                        <li>Scale all numerical features</li>
-                    </ol>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Agro-Meteorological Feature Engineering: GDD, CWSI &amp; Rolling Rain Lags</h3>
+                            <p><strong>Educator Action:</strong> The instructor demonstrates live in Google Colab on the projector:</p>
+                            <ul>
+                                <li>Ingests raw hourly weather station records and computes Growing Degree Days ($GDD = \max(0, \frac{T_{max} + T_{min}}{2} - T_{base})$ with $T_{base} = 10^\circ\text{C}$ for maize).</li>
+                                <li>Constructs cumulative rainfall deficit and rolling 7-day Crop Water Stress Index (CWSI).</li>
+                                <li>Applies <code>ColumnTransformer</code> with <code>RobustScaler</code> on skewed micro-climate measurements and <code>OneHotEncoder</code> on soil texture categories.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A live Colab script generating domain-engineered agronomic features with before/after correlation heatmaps.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Agronomic Domain Feature Engineering &amp; Leakage Prevention Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty mentors student cohorts on designing predictive features without future information leakage:</p>
+                            <ul>
+                                <li><strong>Faculty Challenge:</strong> <em>"If we predict wheat yield at harvest using seasonal weather, why will a simple full-season average rainfall feature introduce lookahead leakage, and how do we engineer stage-specific (vegetative, anthesis, grain-filling) windows?"</em></li>
+                                <li><strong>Collaborative Architecture:</strong> Faculty and students formulate physiological crop-growth phase windows, testing moving window aggregations against known phenological stages.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A Phenology-Aligned Agricultural Feature Matrix specification document.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>The Feature Engineering Yield Prediction Hackathon Syndicate</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams receive raw farm data (temperature, humidity, precipitation, fertilizer dates, soil type):</p>
+                            <ul>
+                                <li><strong>Task 1:</strong> Create at least 5 new agronomic features (e.g., vapor pressure deficit, dry spell duration, fertilizer-to-rainfall ratio).</li>
+                                <li><strong>Task 2:</strong> Train a baseline <code>RandomForestRegressor</code> and compare $R^2$ before vs after feature engineering.</li>
+                                <li><strong>Peer Audit:</strong> Teams exchange feature engineering code to audit whether any features caused multicollinearity or target leakage.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A feature engineering dossier with feature importance rankings and validation score lift tables.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Calculate GDD and Water Availability Index in Colab</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, build an independent feature engineering pipeline:</p>
+                            <ul>
+                                <li>Load a 90-day daily weather record with $T_{max}$, $T_{min}$, and rainfall.</li>
+                                <li>Compute daily GDD using $T_{base} = 10^\circ\text{C}$ and cumulative GDD over the season.</li>
+                                <li>Calculate a 10-day rolling sum of rainfall and an indicator for dry spells (consecutive days without rain &gt; 5).</li>
+                                <li>Scale all engineered numerical features using <code>StandardScaler</code> and print a summary table.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A runnable Colab notebook generating engineered phenological features with verification plots.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -253,17 +322,84 @@ print(f"Predicted yield: {prediction[0]:.0f} kg/ha")
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Build Your Yield Predictor</h3>
-                    <ol>
-                        <li>Download real crop data (Kaggle or govt sources)</li>
-                        <li>Create a Random Forest model</li>
-                        <li>Tune hyperparameters (n_estimators, max_depth)</li>
-                        <li>Compare with Gradient Boosting</li>
-                        <li>Create a simple prediction function</li>
-                    </ol>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Demonstration: Random Forest vs Gradient Boosting Yield Ensemble</h3>
+                            <p><strong>Educator Action:</strong> The instructor demonstrates ensemble crop yield forecasting live in Google Colab on the projector:</p>
+                            <ul>
+                                <li>Trains a <code>RandomForestRegressor</code> and a <code>GradientBoostingRegressor</code> on a 500-sample regional harvest dataset with weather, soil, and management inputs.</li>
+                                <li>Demonstrates weighted ensemble blending: combines both models ($\hat{y} = 0.5 \hat{y}_{RF} + 0.5 \hat{y}_{GB}$) and demonstrates error variance reduction on cross-validation.</li>
+                                <li>Extracts tree feature importances and partial dependence plots (PDP) for rainfall and fertilizer to show nonlinear biological yield plateaus.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A live Colab notebook generating ensemble prediction curves and partial dependence response plots.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Agronomic Ensemble Model Calibration &amp; Uncertainty Estimation Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty mentors student teams on quantifying prediction intervals for crop yield insurance and credit underwriting:</p>
+                            <ul>
+                                <li><strong>Faculty Challenge:</strong> <em>"A farmer needs a yield forecast to secure bank credit. Why is a single point prediction (e.g., 42 quintals/ha) risky, and how do we use quantile regression forests to generate a 90% confidence prediction interval?"</em></li>
+                                <li><strong>Collaborative Architecture:</strong> Faculty and students implement quantile random forests, extracting 10th and 90th percentiles to provide risk-bounded harvest forecasts.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A Quantile Yield Prediction Framework with probabilistic risk confidence intervals.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>The State-Level Yield Forecasting Syndicate</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams are tasked with predicting district-level soybean yield:</p>
+                            <ul>
+                                <li><strong>Task 1:</strong> Clean, preprocess, and train competing models: ElasticNet, Random Forest, and Gradient Boosting.</li>
+                                <li><strong>Task 2:</strong> Evaluate models using 5-fold spatial cross-validation and calculate RMSE, MAE, and $R^2$.</li>
+                                <li><strong>Peer Audit:</strong> Teams exchange model code, challenge each other's feature sets, and test model robustness on synthetic extreme drought weather scenarios.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A district yield forecasting dossier with spatial error distribution maps and peer-evaluated rankings.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Build &amp; Tune a Multi-Feature Crop Yield Predictor in Colab</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, build an independent yield prediction pipeline:</p>
+                            <ul>
+                                <li>Load a farm dataset with rainfall, temperature, fertilizer, soil pH, and irrigation.</li>
+                                <li>Train a <code>RandomForestRegressor</code> and perform hyperparameter tuning over <code>n_estimators</code> and <code>max_depth</code>.</li>
+                                <li>Print test RMSE and $R^2$ score; write a function <code>predict_yield(rainfall, temp, fert, ph, irrigation)</code> returning predicted yield in quintals/ha for new farm inputs.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A runnable Colab notebook generating a tuned Random Forest yield model with an interactive prediction function.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -430,16 +566,84 @@ for color, spots, spot_type in samples:
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Disease Identification Practice</h3>
-                    <ol>
-                        <li>Visit PlantVillage website or use Plantix app</li>
-                        <li>Study 5 different crop diseases</li>
-                        <li>Document: Disease name, symptoms, affected crops</li>
-                        <li>Take photos of any plants around you and try detection</li>
-                    </ol>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Demonstration: Visual Pathology Phenotyping &amp; Rule-Based Diagnostic System</h3>
+                            <p><strong>Educator Action:</strong> The instructor demonstrates visual plant pathology analysis live in Google Colab on the projector:</p>
+                            <ul>
+                                <li>Displays high-resolution field photos of healthy vs early blight, late blight, bacterial spot, and powdery mildew on tomato and potato leaves.</li>
+                                <li>Demonstrates feature extraction: quantifies necrotic lesion ratio, chlorotic halo area, and pustule color distribution.</li>
+                                <li>Live-codes an expert diagnostic decision system incorporating symptom severity scoring and outputs immediate organic and chemical advisory recommendations.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An interactive disease diagnostic notebook projecting live symptom segmentation and severity tier classification.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Field Pathology Ground-Truthing &amp; Annotation Standard Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty mentors student cohorts in establishing scientific ground-truth labeling standards for agricultural computer vision:</p>
+                            <ul>
+                                <li><strong>Faculty Challenge:</strong> <em>"When farmers upload photos taken under direct sunlight with shadows, dust, and overlapping foliage, how do we distinguish abiotic stress (sunscald, nitrogen deficiency) from biotic pathogen infections to prevent mislabeling?"</em></li>
+                                <li><strong>Collaborative Formulation:</strong> Faculty and students create a standardized Pathology Labeling Protocol defining minimum image quality, symptom confirmation keys, and multi-expert consensus criteria.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A University Extension Plant Pathology Annotation Protocol document with visual symptom disambiguation rubrics.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>The Field Pathology Diagnostic Tournament Syndicate</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams are challenged to analyze 20 unseen crop leaf anomaly cases:</p>
+                            <ul>
+                                <li><strong>Task 1:</strong> Identify causal organisms (fungal, bacterial, viral, nutritional) and assign infection severity indices (Scale 1 to 5).</li>
+                                <li><strong>Task 2:</strong> Formulate an integrated pest management (IPM) prescription including bio-control agents and chemical interventions.</li>
+                                <li><strong>Peer Defense:</strong> Teams cross-examine each other's diagnostic dossiers, defending their diagnosis against alternative differential diagnoses.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A comprehensive crop pathology dossier with severity assessments and peer-audited treatment prescriptions.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Build a Rule-Based Foliar Disease Classifier in Colab</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, build an independent pathology diagnostic script:</p>
+                            <ul>
+                                <li>Define a structured dictionary of 5 foliar diseases with key phenotypic markers: <code>dominant_color</code>, <code>lesion_pattern</code>, <code>leaf_wilting</code>, and <code>halo_present</code>.</li>
+                                <li>Write a function <code>diagnose_leaf(symptoms)</code> returning the disease diagnosis, confidence score, and recommended extension treatment.</li>
+                                <li>Test the classifier on 4 hypothetical diseased leaf symptom profiles and print formatted diagnostic reports.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A runnable Colab notebook generating structured plant pathology diagnostic advisory reports.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -571,17 +775,86 @@ print(f"Field Coverage: {coverage:.2f}%")
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Build a "Digital Weed Spotter"</h3>
-                    <p>Using Google Colab and OpenCV:</p>
-                    <ol>
-                        <li>Upload a photo of a plant on soil.</li>
-                        <li>Convert it to <strong>HSV</strong> color space.</li>
-                        <li>Experiment with <code>cv2.inRange()</code> values to create a mask that shows <strong>only</strong> the green plant parts.</li>
-                        <li>Count the white pixels in your mask to estimate the plant's size!</li>
-                    </ol>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Demonstration: OpenCV HSV Thresholding, Morphological Filtering &amp; Contour Detection</h3>
+                            <p><strong>Educator Action:</strong> The instructor demonstrates agricultural image processing live in Google Colab on the projector:</p>
+                            <ul>
+                                <li>Loads a drone orthomosaic image of an emerging row-crop field.</li>
+                                <li>Demonstrates why RGB color thresholds fail under varying solar illumination and transitions to the HSV color space for robust green leaf segmentation.</li>
+                                <li>Applies morphological opening and closing (<code>cv2.morphologyEx</code>) to remove soil background noise and fill canopy pinholes.</li>
+                                <li>Extracts connected contours (<code>cv2.findContours</code>), calculates canopy ground cover fraction percentage, and draws bounding boxes around individual crop plants.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A live interactive Colab notebook segmenting crop canopy from soil and rendering contour-bounded plant masks.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Optical Calibration &amp; Illumination Invariance Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty mentors student cohorts in solving field lighting variations in computer vision:</p>
+                            <ul>
+                                <li><strong>Faculty Challenge:</strong> <em>"When a tractor camera scans crops from 8:00 AM to 5:00 PM, changing cloud cover and sun angle constantly shift pixel values. How do we design an illumination-invariant preprocessing pipeline using CLAHE and chromatic color indices (Excess Green Index $ExG = 2G - R - B$)?"</em></li>
+                                <li><strong>Collaborative Investigation:</strong> Faculty and student groups test normalizations across sunny and overcast field images, validating contrast preservation.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An Illumination-Invariant Agricultural Image Preprocessing Benchmark dossier.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Digital Weed Spotter &amp; Canopy Coverage Syndicate</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams are challenged to build a weed-spotting computer vision script for automated spot-spraying:</p>
+                            <ul>
+                                <li><strong>Task 1:</strong> Segment vegetation from soil using HSV and ExG color indices on 10 field images.</li>
+                                <li><strong>Task 2:</strong> Differentiate between broadleaf weeds and narrow-leaf crops based on contour morphological properties (aspect ratio, circularity, solidity).</li>
+                                <li><strong>Peer Audit:</strong> Teams exchange processed masks and benchmark their detection precision and false-positive soil detection rates.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A weed segmentation benchmark report with side-by-side binary mask comparisons and coverage calculations.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Build an OpenCV Crop Canopy Extractor in Colab</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, build an independent OpenCV image analysis pipeline:</p>
+                            <ul>
+                                <li>Load a farm field image using OpenCV and convert to HSV color space.</li>
+                                <li>Apply <code>cv2.inRange</code> with green color bounds <code>[35, 40, 40]</code> to <code>[85, 255, 255]</code> to create a binary vegetation mask.</li>
+                                <li>Compute total green pixel count and canopy coverage percentage; apply <code>cv2.findContours</code> to identify the largest plant contour and draw a green bounding box around it.</li>
+                                <li>Display the original image, binary mask, and final annotated image in a 1&times;3 matplotlib subplot.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A runnable Colab notebook generating binary vegetation masks, contour bounding boxes, and canopy coverage statistics.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -734,17 +1007,84 @@ print("""
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Visualize CNN Layers</h3>
-                    <p>Use this code to understand what each layer "sees":</p>
-                    <pre><code class="language-python">
-# Visualize what convolutional filters detect
-# Run in Colab with PlantVillage dataset
-# See how early layers detect edges
-# Later layers detect complex patterns
-                    </code></pre>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Demonstration: CNN Feature Maps, Convolutional Kernels &amp; Feature Hierarchies</h3>
+                            <p><strong>Educator Action:</strong> The instructor demonstrates CNN feature extraction live in Google Colab on the projector using a leaf pathology image:</p>
+                            <ul>
+                                <li>Builds a compact 3-block convolutional neural network (<code>Conv2D</code> &rarr; <code>ReLU</code> &rarr; <code>MaxPooling2D</code> &rarr; <code>Flatten</code> &rarr; <code>Dense</code>) using TensorFlow/Keras.</li>
+                                <li>Extracts activations from intermediate convolutional layers using a feature extraction sub-model.</li>
+                                <li>Projects feature map grids: demonstrates how Layer 1 filters detect raw leaf edges and vein orientations, Layer 2 filters assemble spot textures and chlorotic boundaries, and Layer 3 filters detect complete pathogen lesion shapes.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A live Colab notebook rendering multi-layer convolutional filter activations and feature map grids.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Agronomic Receptive Fields &amp; Network Architecture Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty mentors student cohorts in configuring CNN kernel dimensions and pooling strides for microscopic vs drone-scale agricultural imagery:</p>
+                            <ul>
+                                <li><strong>Faculty Challenge:</strong> <em>"When detecting microscopic fungal spore pustules (10 pixels wide) vs canopy-wide drought patches (300 pixels wide), how should we adjust convolutional filter kernel sizes ($3\times3$ vs $7\times7$) and pooling strides to preserve spatial detail?"</em></li>
+                                <li><strong>Collaborative Design:</strong> Faculty and student groups formulate multi-scale receptive field guidelines, analyzing how dilated convolutions and skip connections prevent spatial resolution loss.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An Agricultural Vision Network Architecture Blueprint matching kernel sizes to pathological lesion dimensions.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Custom CNN Foliar Classifier &amp; Overfitting Mitigation Syndicate</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams construct a custom lightweight CNN for a 3-class crop disease dataset (Healthy, Blight, Rust):</p>
+                            <ul>
+                                <li><strong>Task 1:</strong> Design a CNN model architecture with under 250,000 trainable parameters suitable for mobile deployment.</li>
+                                <li><strong>Task 2:</strong> Implement regularization techniques (<code>Dropout(0.3)</code>, <code>BatchNormalization</code>, data augmentation with random flips/rotations) to prevent overfitting.</li>
+                                <li><strong>Peer Audit:</strong> Teams exchange trained models, examine learning curves (training vs validation loss), and test each other's models on blurred or occluded leaf test photos.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A custom CNN architecture dossier with parameter budgets, training/validation loss curves, and test confusion matrices.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Build &amp; Visualize a 3-Layer Foliar CNN in Colab</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, build an independent convolutional network:</p>
+                            <ul>
+                                <li>Construct a <code>Sequential</code> model in TensorFlow/Keras with two <code>Conv2D</code> layers (16 and 32 filters, $3\times3$), <code>MaxPooling2D(2, 2)</code>, <code>Dropout(0.25)</code>, and a <code>Dense</code> softmax output.</li>
+                                <li>Print <code>model.summary()</code> and verify total trainable parameters.</li>
+                                <li>Pass a single sample leaf tensor through the model, extract the first convolutional layer's feature maps, and plot 8 filter activation outputs in a 2&times;4 grid.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A runnable Colab notebook creating the CNN model and plotting intermediate feature map activations.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -868,16 +1208,86 @@ print(f'After differencing p-value: {result2[1]:.4f}')
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Analyze Weather Time Series</h3>
-                    <ol>
-                        <li>Download temperature data for your region</li>
-                        <li>Decompose into trend, seasonality, residual</li>
-                        <li>Identify: Is there a warming trend?</li>
-                        <li>What's the seasonal pattern?</li>
-                    </ol>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Demonstration: Agro-Climatic Time Series Decomposition, Stationarity &amp; Differencing</h3>
+                            <p><strong>Educator Action:</strong> The instructor demonstrates temporal agricultural analysis live in Google Colab on the projector:</p>
+                            <ul>
+                                <li>Loads 5 years of daily temperature and rainfall records from an agro-met observatory.</li>
+                                <li>Applies <code>seasonal_decompose</code> from statsmodels to extract multi-year warming trends, annual monsoon cycles, and high-frequency weather shocks.</li>
+                                <li>Conducts the Augmented Dickey-Fuller (ADF) test: walks through test statistics and p-values to show why raw non-stationary weather series lead to spurious models.</li>
+                                <li>Demonstrates first-order differencing and seasonal lag differencing ($y_t - y_{t-365}$) to achieve stationarity, validating with ACF/PACF plots.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A live Colab script rendering 4-panel time series decomposition plots and ACF/PACF correlograms.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Multi-Decadal Agro-Climatic Trend &amp; Seasonality Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty mentors student teams on isolating long-term climate shift signals from seasonal agricultural noise:</p>
+                            <ul>
+                                <li><strong>Faculty Challenge:</strong> <em>"In a 30-year rainfall record for semi-arid Karnataka, monsoon onset dates appear to have shifted by 18 days. How do we distinguish between multi-decadal climate shifts and cyclic El Ni&ntilde;o anomalies using rolling window statistics and Mann-Kendall trend tests?"</em></li>
+                                <li><strong>Collaborative Analysis:</strong> Faculty and student groups formulate statistical test protocols for evaluating climate stationarity across dryland farming districts.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An Agro-Climatic Stationarity &amp; Trend Protocol with rolling statistical test specifications.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Regional Drought &amp; Evapotranspiration Time Series Syndicate</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams are assigned historical daily weather records from distinct agro-climatic zones:</p>
+                            <ul>
+                                <li><strong>Task 1:</strong> Decompose daily reference evapotranspiration ($ET_0$) into trend, seasonal harmonics, and irregular residuals.</li>
+                                <li><strong>Task 2:</strong> Test for stationarity using ADF and KPSS tests; apply necessary transformations (differencing, log scaling).</li>
+                                <li><strong>Peer Audit:</strong> Teams swap decomposed series to cross-check whether the seasonal components capture peak summer evaporation spikes accurately.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A comprehensive agro-climatic time series dossier with decomposition figures, ADF test tables, and seasonal anomaly interpretations.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Decompose &amp; Stationarize Regional Temperature Series in Colab</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, build an independent time series analysis script:</p>
+                            <ul>
+                                <li>Generate a 3-year daily synthetic temperature series with a linear upward warming trend, a 365-day seasonal cycle, and Gaussian noise.</li>
+                                <li>Apply <code>seasonal_decompose(period=365)</code> and plot the 4 decomposed components.</li>
+                                <li>Run <code>adfuller</code> on the raw series and print the p-value.</li>
+                                <li>Apply first-order differencing (<code>diff()</code>), re-run the ADF test, and confirm that the differenced series is strictly stationary ($p &lt; 0.05$).</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A runnable Colab notebook generating time series decomposition plots and printed ADF stationarity test verification.
+                        </div>
+                    </div>
                 </div>
             </div>
 

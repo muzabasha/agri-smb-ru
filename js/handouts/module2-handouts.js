@@ -94,23 +94,86 @@ print(f"High yield plots (>2700): {high_yield_plots}")
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Analyze Soil Samples</h3>
-                    <pre><code class="language-python">
-import numpy as np
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
 
-# 10 soil samples with pH values
-soil_ph = np.array([6.2, 5.8, 7.1, 6.5, 5.5, 
-                    6.8, 7.3, 6.0, 5.9, 6.7])
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Multi-Plot Sensor Array Slicing & Vectorization Benchmark</h3>
+                            <p><strong>Educator Action:</strong> The instructor demonstrates NumPy vectorization live on the projector using an array of 50 plot soil sensors:</p>
+                            <ul>
+                                <li>Creates 1D and 2D arrays representing volumetric water content and soil electrical conductivity across research plots.</li>
+                                <li>Demonstrates boolean masking live: <code>critical_plots = moisture[moisture &lt; 25.0]</code> and updates dry plots instantaneously without loops.</li>
+                                <li>Benchmarks execution time: reveals how vectorized array thresholding runs 80&times; faster than standard Python list iteration.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An interactive live demonstration script showing boolean indexing, memory strides, and execution speedup.
+                        </div>
+                    </div>
 
-# Your tasks:
-# 1. Find the mean pH
-# 2. Count samples that are acidic (pH < 6.5)
-# 3. Find which sample has the highest pH
-# 4. Normalize pH to 0-1 range using (x - min)/(max - min)
-                    </code></pre>
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>High-Density Sensor Mesh Layout & Indexing Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty guides student cohorts in designing an in-memory NumPy data structure for a 100-node experimental orchard mesh:</p>
+                            <ul>
+                                <li><strong>Faculty Challenge:</strong> How do we represent multi-depth soil sensors (15cm, 30cm, 60cm) across 25 grid sectors in a single 3D NumPy array?</li>
+                                <li><strong>Collaborative Design:</strong> Faculty and student groups determine axis conventions: <code>shape = (sectors, depths, timesteps)</code>, practice multi-dimensional slicing, and compute depth-wise soil moisture gradients.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A co-designed 3D Sensor Array Architecture Specification with verified slicing syntax.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Soil Sample Vector Comparison & Anomaly Audit</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams receive a raw dataset array of 15 soil test results (pH, Nitrogen ppm, Organic Carbon %):</p>
+                            <ul>
+                                <li>Use NumPy slicing and boolean masks to isolate acidic plots (pH &lt; 6.0) and low-nitrogen zones (N &lt; 50 kg/ha).</li>
+                                <li>Perform min-max normalization: $\mathbf{X}_{\text{norm}} = \frac{\mathbf{X} - \min(\mathbf{X})}{\max(\mathbf{X}) - \min(\mathbf{X})}$.</li>
+                                <li>Calculate pairwise Euclidean distance between each plot and a benchmark reference plot, identifying the most stressed management zones.</li>
+                                <li>Swap normalization pipelines with a peer team for cross-verification.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A collaborative NumPy analysis notebook with verified normalization outputs and peer audit grades.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Code an Array Normalization & Thresholding Script</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, write an independent Python script using NumPy to analyze a 12-sample farm array:</p>
+                            <ul>
+                                <li>Create a 1D array of soil pH readings: <code>[6.2, 5.8, 7.1, 6.5, 5.5, 6.8, 7.3, 6.0, 5.9, 6.7, 5.2, 7.6]</code>.</li>
+                                <li>Calculate array mean, standard deviation, and median using built-in NumPy methods.</li>
+                                <li>Count and extract all acidic samples (pH &lt; 6.5) using boolean masking without writing any <code>for</code> loops.</li>
+                                <li>Apply min-max scaling to transform the values into a normalized $[0, 1]$ index.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A runnable Colab notebook displaying array declarations, boolean index selections, and normalized arrays.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -246,12 +309,85 @@ print(f"Total K needed: {total_npk[2][0]} kg")
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Cost Calculator Using Matrices</h3>
-                    <p>Create matrices for: inputs needed per crop, price per input, and area per crop.</p>
-                    <p>Calculate total cost using matrix multiplication.</p>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Matrix-Vector Nutrient & Economic Allocation Walkthrough</h3>
+                            <p><strong>Educator Action:</strong> The instructor demonstrates matrix multiplication live in Colab to solve multi-crop fertilizer allocation:</p>
+                            <ul>
+                                <li>Defines a $3 \times 3$ crop requirement matrix (Wheat, Rice, Maize requiring N, P, K kg/ha) and a $3 \times 1$ crop area vector.</li>
+                                <li>Live-codes the dot product <code>total_nutrients = npk_matrix.T @ area_vector</code> and shows how inner dimensions must match $(3 \times 3) \times (3 \times 1) = (3 \times 1)$.</li>
+                                <li>Demonstrates what happens when dimensions are mismatched (triggers <code>ValueError: shapes not aligned</code>) and how to transpose matrices safely with <code>.T</code>.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An interactive live demonstration script verifying matrix dimension rules and calculating multi-plot nutrient totals.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Multi-Factor Crop Yield Transformation Matrix Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty mentors student groups in formalizing multi-factor agricultural yield models using linear algebraic transformations:</p>
+                            <ul>
+                                <li><strong>Faculty Challenge:</strong> How do we model the combined impact of 4 weather and soil features across 10 distinct farm plots in a single compact matrix equation: $\mathbf{\hat{y}} = \mathbf{X}\mathbf{w} + b$?</li>
+                                <li><strong>Collaborative Design:</strong> Faculty and student cohorts define the design matrix $\mathbf{X}$ ($10 \times 4$), initialize weight vectors representing sensitivity coefficients, and compute predicted yield vectors simultaneously.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A co-designed Agricultural Transformation Matrix Formula Sheet verified by faculty.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Farm Input Cost & Revenue Matrix Calculator Challenge</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams receive a multi-crop enterprise dataset:</p>
+                            <ul>
+                                <li>Input Requirement Matrix ($4 \times 3$: Seeds, Fertilizer, Water, Labor required for 3 crops: Cotton, Groundnut, Sugarcane).</li>
+                                <li>Input Unit Cost Vector ($4 \times 1$: Cost per unit of each input in ₹).</li>
+                                <li>Calculate total production cost per hectare for each crop using matrix multiplication.</li>
+                                <li>Given market price and expected yield, calculate net profit vectors and cross-verify results with a peer syndicate.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A collaborative matrix cost calculator notebook with peer verification sign-off.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Code a NumPy Matrix Engine for Farm Economics</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, write a standalone Python program using NumPy matrix operations:</p>
+                            <ul>
+                                <li>Create a $4 \times 3$ matrix representing fertilizer needs (N, P, K) for 4 farm plots.</li>
+                                <li>Multiply by a $3 \times 1$ cost vector <code>[15.0, 32.0, 35.0]</code> (cost per kg of N, P, K) to find total fertilizer expenditure per plot.</li>
+                                <li>Compute the transpose of the matrix and find plot-wise and nutrient-wise sums using <code>np.sum(axis=0)</code> and <code>np.sum(axis=1)</code>.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A runnable Colab notebook displaying matrix declarations, dot products, transpositions, and formatted cost summaries.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -363,22 +499,85 @@ print(f"\\nBonus:\\n{bonus}")
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Monthly Rainfall Analysis</h3>
-                    <pre><code class="language-python">
-# Create a Series for monthly rainfall
-months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-          'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-rainfall = [20, 15, 30, 45, 80, 200, 
-            350, 300, 150, 60, 25, 10]
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
 
-# Create Series and find:
-# 1. Monsoon months (rainfall > 100)
-# 2. Average monthly rainfall
-# 3. Month with maximum rainfall
-                    </code></pre>
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Series Indexing & Temporal Slicing Demonstration</h3>
+                            <p><strong>Educator Action:</strong> The instructor live-codes a Pandas Series in Google Colab representing 12 months of rainfall and crop market prices:</p>
+                            <ul>
+                                <li>Demonstrates custom label indexing versus integer indexing (<code>series.loc['Jul']</code> vs <code>series.iloc[6]</code>).</li>
+                                <li>Live-demonstrates vectorized arithmetic: converting mm rainfall to m&sup3;/ha water volume, and calculating percentage deviation from the long-term historical mean.</li>
+                                <li>Shows handling of <code>NaN</code> missing values and demonstrates <code>.describe()</code> summary metrics on agricultural series.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An interactive live demonstration script showing Series creation, label indexing, and mathematical transformations.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Mandi Price Trend & Moving Average Series Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty mentors student groups in modeling daily wholesale prices for tomato crops across regional APMC markets:</p>
+                            <ul>
+                                <li><strong>Faculty Challenge:</strong> How do we compute a 7-day rolling moving average series (<code>series.rolling(7).mean()</code>) to smooth out extreme weekend arrival price volatility?</li>
+                                <li><strong>Collaborative Design:</strong> Faculty and student cohorts write boolean query masks to detect emergency market collapse flags (daily price &lt; 50% of the 30-day moving average).</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A co-designed Market Price Series Analysis Notebook reviewed by faculty with automated volatility alert rules.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Village Rainfall Series Triage & Drought Flagging Syndicate</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams receive monthly rainfall Series data for 8 neighboring villages in an arid taluk:</p>
+                            <ul>
+                                <li>Identify monsoon months (rainfall &gt; 100mm) and calculate drought deficit percentages for each village.</li>
+                                <li>Use <code>.apply()</code> with a custom lambda function to assign drought relief eligibility flags (Eligible if seasonal total &lt; 400mm).</li>
+                                <li>Exchange Series pipelines with another syndicate to audit indexing logic and edge cases.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A collaborative Pandas Series drought assessment report verified through cross-team auditing.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Code a 12-Month Agro-Climatic Series in Colab</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, write an independent script creating a custom-indexed Pandas Series:</p>
+                            <ul>
+                                <li>Create a Series of 12 monthly rainfall values with month abbreviations as explicit string indices (<code>'Jan'</code> through <code>'Dec'</code>).</li>
+                                <li>Query rainfall for peak monsoon months using <code>.loc[['Jun', 'Jul', 'Aug', 'Sep']]</code>.</li>
+                                <li>Find the maximum and minimum rainfall months along with their index labels using <code>.idxmax()</code> and <code>.idxmin()</code>.</li>
+                                <li>Calculate the cumulative sum across the year using <code>.cumsum()</code> and print a formatted summary report.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A runnable Colab notebook displaying the custom-indexed Series, slice queries, and cumulative statistics.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -494,17 +693,86 @@ print(f"\\nSummary:\\n{farm_data.describe()}")
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Build a Farm Dashboard</h3>
-                    <ol>
-                        <li>Create a DataFrame with 10 plots</li>
-                        <li>Add columns: crop, area, yield, irrigation_cost</li>
-                        <li>Calculate profit per plot (assume price ₹25/kg)</li>
-                        <li>Find top 3 profitable plots</li>
-                        <li>Find average profit by crop type</li>
-                    </ol>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Multi-Column Farm DataFrame Engineering & Filtering</h3>
+                            <p><strong>Educator Action:</strong> The instructor live-codes DataFrame operations on a simulated 20-plot agricultural enterprise dataset in Google Colab:</p>
+                            <ul>
+                                <li>Demonstrates column creation through broadcasting: <code>df['total_revenue'] = df['yield_kg'] * df['price_per_kg']</code> and <code>df['net_profit'] = df['total_revenue'] - df['total_cost']</code>.</li>
+                                <li>Live-demonstrates multi-condition filtering: selecting all organic plots producing above-average yield with irrigation costs &lt; ₹5,000.</li>
+                                <li>Shows how <code>.assign()</code> and <code>.drop()</code> modify DataFrames cleanly without setting-with-copy warnings.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A live demonstration script generating financial columns and filtered subset DataFrames on screen.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Cooperative Farm Production Ledger Schema Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty mentors student groups in structuring an end-to-end production ledger for an Agricultural Producer Organization (FPO) with 50 member farmers:</p>
+                            <ul>
+                                <li><strong>Faculty Guidance:</strong> Directs teams on data types, index choices, and calculated performance indicators: <em>Yield per Hectare, Input Cost Efficiency Ratio, and Water Productivity Index</em>.</li>
+                                <li><strong>Collaborative Work:</strong> Groups implement custom column calculations using vectorized operations and lambda expressions, stress-testing with zero-yield and missing cost edge cases.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An audited FPO Production Ledger DataFrame Schema with verified KPI formulas.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Plot Profitability Ranking & Multi-Criteria Selection Syndicate</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams receive a raw DataFrame of 15 commercial horticulture plots:</p>
+                            <ul>
+                                <li>Add calculated columns: <code>yield_per_acre</code>, <code>gross_income</code>, <code>production_cost</code>, and <code>net_margin_pct</code>.</li>
+                                <li>Rank the top 3 and bottom 3 performing plots using <code>.sort_values(by='net_margin_pct', ascending=False)</code>.</li>
+                                <li>Compute group-wise averages by crop type using <code>.groupby('crop')['net_margin_pct'].mean()</code>.</li>
+                                <li>Swap DataFrames with another syndicate to audit calculation accuracy and logic integrity.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A collaborative plot profitability report with peer verification sign-off.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Build a 10-Plot Agricultural Management DataFrame</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, build an independent agricultural DataFrame modeling 10 diverse farm plots:</p>
+                            <ul>
+                                <li>Include columns: <code>plot_id</code>, <code>crop</code>, <code>area_ha</code>, <code>yield_kg</code>, <code>irrigation_cost</code>, and <code>fertilizer_cost</code>.</li>
+                                <li>Create a new column <code>profit</code> assuming crop prices: Wheat (₹25/kg), Rice (₹30/kg), Cotton (₹65/kg).</li>
+                                <li>Filter and display all plots with profit &gt; ₹50,000 using boolean indexing.</li>
+                                <li>Export the top 5 most profitable plots to a clean CSV file <code>top_profitable_plots.csv</code>.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A runnable Colab notebook showing DataFrame construction, column engineering, filtering, and CSV export.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -637,17 +905,87 @@ plt.show()
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Create Your Farm Dashboard</h3>
-                    <ol>
-                        <li>Create a 2x2 subplot figure</li>
-                        <li>Top-left: Line plot of monthly temperatures</li>
-                        <li>Top-right: Bar chart of crop revenues</li>
-                        <li>Bottom-left: Scatter of irrigation vs yield</li>
-                        <li>Bottom-right: Pie chart of land use</li>
-                    </ol>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Dual-Axis Agronomic Figure & Subplot Construction</h3>
+                            <p><strong>Educator Action:</strong> The instructor demonstrates building publication-quality agricultural figures live in Colab using Matplotlib:</p>
+                            <ul>
+                                <li>Constructs a dual-axis chart: rainfall as blue bar chart on the left axis, and temperature as an orange line plot on the right axis using <code>ax1.twinx()</code>.</li>
+                                <li>Demonstrates formatting best practices: custom tick labels, gridlines, legends with unified frame, and annotation of drought stress thresholds.</li>
+                                <li>Shows how to handle layout clipping with <code>plt.tight_layout()</code> and export vector graphics (PDF/SVG) for research publications.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An interactive dual-axis chart script rendered and explained live on the classroom display.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Smallholder Visual Advisory Dashboard Design Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty mentors student groups in designing intuitive, low-literacy agricultural dashboards for rural extension centers:</p>
+                            <ul>
+                                <li><strong>Faculty Challenge:</strong> How do we display complex irrigation needs, soil test results, and market price trajectories so a semi-literate farmer can make instant decisions?</li>
+                                <li><strong>Collaborative Design:</strong> Faculty and student cohorts develop color-coded visual indicator charts (Green/Yellow/Red status bands, clear markers, large readable fonts) and evaluate dashboard layout usability.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A faculty-approved Extension Center Visual Dashboard Template with verified visual usability standards.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Multi-Panel Agro-Climatic Infographic Syndicate</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams build a cohesive 4-panel agricultural dashboard using <code>plt.subplots(2, 2, figsize=(12, 10))</code>:</p>
+                            <ul>
+                                <li><strong>Panel 1 (Top-Left):</strong> Line plot of monthly canopy temperature across 3 crop seasons.</li>
+                                <li><strong>Panel 2 (Top-Right):</strong> Bar chart comparing gross revenue per hectare across 4 cash crops.</li>
+                                <li><strong>Panel 3 (Bottom-Left):</strong> Scatter plot of irrigation volume vs harvested yield with a linear trendline.</li>
+                                <li><strong>Panel 4 (Bottom-Right):</strong> Donut chart of farm land utilization (Cereals, Pulses, Fallow, Agroforestry).</li>
+                                <li>Exchange dashboard figures with a peer team to evaluate visual clarity, axis scaling, and color harmony.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A completed 4-panel agricultural dashboard figure with reciprocal peer audit scorecards.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Code a Customized Farm Yield Visualization in Colab</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, write an independent visualization script using Matplotlib:</p>
+                            <ul>
+                                <li>Create a horizontal bar chart displaying actual yields for 8 farm plots.</li>
+                                <li>Use conditional color logic: green bars for plots exceeding target yield (3,000 kg/ha), and red bars for underperforming plots.</li>
+                                <li>Add a vertical dashed line indicating the regional average benchmark with an annotated label.</li>
+                                <li>Save the generated figure to disk as a high-resolution 300 DPI PNG file (<code>plt.savefig('farm_yield_report.png', dpi=300)</code>).</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A runnable Colab notebook generating and saving the annotated agricultural yield chart.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -786,18 +1124,84 @@ print(f"Predicted yield for new field: {prediction[0]:.0f} kg/ha")
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Design Your ML Project</h3>
-                    <p>Choose an agricultural problem and document:</p>
-                    <ol>
-                        <li>Problem statement (what to predict)</li>
-                        <li>Data sources needed</li>
-                        <li>Features (X) and target (y)</li>
-                        <li>Evaluation metric to use</li>
-                        <li>How you would use the predictions</li>
-                    </ol>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live End-to-End Agri-ML Pipeline Execution & Data Leakage Demo</h3>
+                            <p><strong>Educator Action:</strong> The instructor live-codes the complete 6-stage machine learning workflow in Google Colab using real agricultural data:</p>
+                            <ul>
+                                <li>Stages: <em>Problem Formulation &rarr; Data Ingestion &rarr; Train-Test Splitting &rarr; Feature Scaling &rarr; Model Fitting &rarr; Performance Evaluation</em>.</li>
+                                <li>Demonstrates a classic beginner error live: fitting the scaler on the entire dataset before splitting (data leakage) vs properly fitting only on training data (<code>scaler.fit(X_train)</code>).</li>
+                                <li>Shows how leakage artificially inflates validation accuracy while causing catastrophic drops in real-field performance.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An interactive live demonstration script executing the complete pipeline and exposing data leakage pitfalls.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Agri-ML Problem Scoping & Target Metric Formulation Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty acts as Chief AI Scientist for an Agricultural Insurance Agency designing an automated drought payout model:</p>
+                            <ul>
+                                <li><strong>Faculty Guidance:</strong> Challenges student groups to formally define the prediction task: Is it regression (predicting continuous crop yield in tons/ha) or classification (payout trigger: Yes/No)?</li>
+                                <li><strong>Collaborative Work:</strong> Groups define features ($X$), target variable ($y$), identify temporal correlation hazards (time-series data cannot be shuffled randomly!), and select appropriate evaluation metrics (RMSE vs F1-score).</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A faculty-approved Machine Learning Project Charter with formal mathematical scoping and evaluation criteria.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Pipeline Forensic Audit & Flaw Detection Challenge</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams receive a pre-written, flawed Python ML pipeline for soil organic carbon prediction:</p>
+                            <ul>
+                                <li>Audit the script for 4 critical pipeline flaws: <em>(1) Missing random seed (unreproducible splits), (2) Testing on training data, (3) Misinterpreted metrics (using $R^2$ alone without MAE/RMSE), (4) Unchecked feature scaling</em>.</li>
+                                <li>Teams refactor the code to fix all pipeline vulnerabilities and swap with a peer syndicate for an adversarial review.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A refactored, robust Python ML pipeline script with written peer audit evaluation sheets.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Code a Complete Miniature ML Workflow in Colab</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, write an end-to-end Python script implementing all 6 steps of the ML lifecycle on synthetic farm data:</p>
+                            <ul>
+                                <li>Generate synthetic data for 100 farm plots (features: rainfall, fertilizer, soil pH; target: yield).</li>
+                                <li>Split into training (80%) and testing (20%) sets using <code>train_test_split(..., random_state=42)</code>.</li>
+                                <li>Train a linear regression model on <code>X_train, y_train</code>.</li>
+                                <li>Evaluate on <code>X_test</code> computing RMSE and $R^2$, and make predictions for 2 novel farm field scenarios.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A self-contained Colab notebook displaying execution outputs for every step of the 6-stage ML workflow.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -913,16 +1317,85 @@ print(f"\\nPredicted yield: {prediction[0]:.0f} kg/ha")
                 </code></pre>
             </div>
 
-            <div class="student-activity">
-                <h2>🎯 Hands-On Activity</h2>
-                <div class="activity-box">
-                    <h3>Build Your Yield Predictor</h3>
-                    <ol>
-                        <li>Create data with 3 input features</li>
-                        <li>Train a linear regression model</li>
-                        <li>Interpret: which factor matters most?</li>
-                        <li>Make predictions for different scenarios</li>
-                    </ol>
+            <div class="learn-by-doing-hub">
+                <div class="lbd-header">
+                    <div>
+                        <h2><i class="fas fa-tools"></i> Learn by Doing Hub</h2>
+                        <p>Action-oriented experiential learning across 4 collaborative tiers</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                        <i class="fas fa-users-cog"></i> 4 Interactive Modalities
+                    </span>
+                </div>
+
+                <div class="lbd-grid">
+                    <!-- Tier 1: Teacher -->
+                    <div class="lbd-card teacher-tier">
+                        <div>
+                            <span class="lbd-badge badge-teacher"><i class="fas fa-chalkboard-teacher"></i> Teacher: Live Demonstration</span>
+                            <h3>Live Ordinary Least Squares (OLS) Fitting & Residual Diagnostics</h3>
+                            <p><strong>Educator Action:</strong> The instructor live-trains a Linear Regression model in Google Colab fitting crop yield against nitrogen fertilizer input:</p>
+                            <ul>
+                                <li>Plots the scatter points and live-fits the best-fit line: $\hat{y} = \beta_0 + \beta_1 x$.</li>
+                                <li>Visualizes residuals (vertical error lines between data points and regression line) and demonstrates how the OLS algorithm mathematically minimizes the Sum of Squared Residuals (SSR).</li>
+                                <li>Translates regression coefficients into practical agronomic advice: <em>"Each additional 1 kg of nitrogen yields an extra 15.4 kg of grain until the biological plateau"</em>.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> An interactive regression visualization displaying best-fit slope, intercept, and vertical residual lines.
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Group of students and Faculty -->
+                    <div class="lbd-card faculty-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-faculty-group"><i class="fas fa-handshake"></i> Group of Students & Faculty: Collaborative Studio</span>
+                            <h3>Multiple Regression Assumptions & Multicollinearity Studio</h3>
+                            <p><strong>Studio Workshop:</strong> Faculty mentors student groups in diagnosing regression model health on agricultural datasets:</p>
+                            <ul>
+                                <li><strong>Faculty Challenge:</strong> What happens to linear regression when features are highly correlated (e.g., ambient temperature and solar radiation, or soil clay % and water retention)?</li>
+                                <li><strong>Collaborative Investigation:</strong> Groups compute Variance Inflation Factor (VIF) and plot residual distribution histograms to verify linear regression assumptions (linearity, independence, homoscedasticity, normality).</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A faculty-approved Regression Diagnostics Report detailing feature collinearity and residual normality tests.
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Group of students -->
+                    <div class="lbd-card student-group-tier">
+                        <div>
+                            <span class="lbd-badge badge-student-group"><i class="fas fa-users"></i> Group of Students: Peer Syndicate Challenge</span>
+                            <h3>Crop Yield Prediction & Feature Sensitivity Syndicate</h3>
+                            <p><strong>Team Syndicate:</strong> Student teams train a multiple linear regression model on 50 field plot records with 3 features (Rainfall mm, Fertilizer kg, Temperature &deg;C):</p>
+                            <ul>
+                                <li>Standardize features and train <code>LinearRegression()</code> from Scikit-Learn.</li>
+                                <li>Extract and rank feature coefficients ($\beta_1, \beta_2, \beta_3$) to establish which input exerts the strongest influence on harvest yield.</li>
+                                <li>Formulate 3 economic scenarios (low rainfall season, high fertilizer price season, normal season) and present predicted harvest outcomes to a peer syndicate.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A multiple regression analysis dossier with peer-evaluated scenario forecasts and coefficient interpretations.
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Individual Student -->
+                    <div class="lbd-card individual-tier">
+                        <div>
+                            <span class="lbd-badge badge-individual"><i class="fas fa-user-graduate"></i> Individual Student: Hands-on Colab Practice</span>
+                            <h3>Build & Evaluate a Crop Yield Predictor in Colab</h3>
+                            <p><strong>Hands-on Coding Task:</strong> In Google Colab, build an independent linear regression prediction script:</p>
+                            <ul>
+                                <li>Create a DataFrame with 3 agricultural features: <code>rainfall</code>, <code>fertilizer</code>, and <code>soil_moisture</code>.</li>
+                                <li>Train a <code>LinearRegression</code> model from Scikit-Learn.</li>
+                                <li>Print model parameters: intercept ($\beta_0$) and feature coefficients ($\beta_i$).</li>
+                                <li>Compute $R^2$ score and predict yield for a new farm field scenario: <code>[220 mm rain, 60 kg fertilizer, 35% moisture]</code>.</li>
+                            </ul>
+                        </div>
+                        <div class="lbd-task-box">
+                            <strong>🎯 Actionable Deliverable:</strong> A runnable Colab notebook displaying model training, coefficient extraction, and novel scenario predictions.
+                        </div>
+                    </div>
                 </div>
             </div>
 
