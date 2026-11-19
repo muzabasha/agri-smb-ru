@@ -9,6 +9,32 @@ const module2HandoutsPart2 = {
                 <p class="duration">⏱️ Duration: 2 hours</p>
             </div>
 
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> How does NumPy's 'broadcasting' allow an agronomist to apply an 8% sensor temperature calibration offset to a matrix of 100,000 readings across 50 depths without making 50 duplicate copies of the offset?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Broadcasting automatically stretches compatible dimensions in virtual memory without allocating extra RAM. When adding a 1D calibration vector of shape (50,) to a 2D sensor matrix of shape (100000, 50), NumPy virtually expands the vector across all 100,000 rows, performing element-wise addition with zero memory duplication.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> Why does attempting to add an array of shape (50, 3) to an array of shape (50, 2) throw a 'broadcast dimensions could not be aligned' error?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> NumPy's broadcasting rule requires that trailing dimensions must either be equal or one of them must be 1. Comparing (50, 3) and (50, 2), trailing dimensions 3 and 2 are neither equal nor is either 1. NumPy cannot align 3 soil nutrients with 2 moisture sensors, rejecting the ambiguous operation.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
             <div class="learning-objectives">
                 <h2>📌 Learning Objectives</h2>
                 <ul>
@@ -173,18 +199,72 @@ print("Vectorization is ~100x faster!")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
+                
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What is broadcasting in NumPy?</p>
+                    <p><strong>Q1 (Teacher Live Aerial Spray Demo):</strong> In the Teacher's live aerial-spray simulation, how did broadcasting apply 3 distinct chemical nozzle dosage adjustments to a 10,000-cell flight GPS coordinate matrix?</p>
                     <ul>
-                        <li>A) Sending data over network</li>
-                        <li>B) Automatically expanding arrays for operations</li>
-                        <li>C) Printing output to console</li>
-                        <li>D) Saving arrays to files</li>
+                        <li>A) NumPy automatically broadcast the (3,) parameter vector across the (10000, 3) flight grid without replicating data in memory</li>
+                        <li>B) By running three nested while loops in Python</li>
+                        <li>C) By manually duplicating the 3 parameters 10,000 times into a new CSV file</li>
+                        <li>D) By deleting all flight data rows</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - Broadcasting automatically expands smaller arrays to match larger ones for element-wise operations.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Broadcasting virtually stretched the (3,) vector across the (10000, 3) matrix without memory overhead.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> NumPy broadcasting aligns trailing dimensions: a 1D vector of shape (3,) is compatible with an array of shape (10000, 3) because the trailing dimension 3 matches, enabling instant zero-copy vectorized arithmetic.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Python while loops discard NumPy's C-level vectorization benefits.</li>
+                                <li><strong>Why C is incorrect:</strong> Manual duplication wastes megabytes of RAM and slows computation.</li>
+                                <li><strong>Why D is incorrect:</strong> Deleting flight data destroys navigation records.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Sensor Normalization Studio):</strong> During the Multi-Zone Sensor Normalization Studio, what dimension manipulation was required before subtracting a 1D plot baseline mean array of shape (50,) from a 2D matrix of shape (50, 24)?</p>
+                    <ul>
+                        <li>A) Reshaping the baseline array to (50, 1) using newaxis or .reshape(50, 1) so broadcasting aligns along columns</li>
+                        <li>B) Transposing the 24-hour matrix into a 1D array</li>
+                        <li>C) Flattening the entire matrix to zero</li>
+                        <li>D) Multiplying the array by 24</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Reshaped baseline from (50,) to (50, 1) so NumPy broadcasted across the 24 hourly columns.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> A 1D array of shape (50,) aligns with trailing dimensions (mismatching 24). Reshaping it to (50, 1) introduces a singleton column dimension, allowing NumPy to broadcast that column 24 times across the time axis.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Transposing into 1D loses the plot-by-hour matrix structure.</li>
+                                <li><strong>Why C is incorrect:</strong> Flattening to zero deletes all baseline measurements.</li>
+                                <li><strong>Why D is incorrect:</strong> Multiplying by 24 scales values without fixing dimension alignment.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Vectorized Sensor Calibration Script, which code cleanly broadcast a temperature correction scalar (+1.25°C) across all elements of an entire multi-depth array?</p>
+                    <ul>
+                        <li>A) calibrated_readings = raw_readings + 1.25</li>
+                        <li>B) calibrated_readings = [x + 1.25 for x in raw_readings]</li>
+                        <li>C) calibrated_readings = raw_readings.append(1.25)</li>
+                        <li>D) calibrated_readings = np.concatenate([raw_readings, 1.25])</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>raw_readings + 1.25 broadcasted the scalar across every element in the multidimensional array.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Scalars broadcast universally to any array shape in NumPy, applying the mathematical offset to every element without loops or reshape boilerplate.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> List comprehensions on multidimensional arrays yield nested list artifacts and slow down execution.</li>
+                                <li><strong>Why C is incorrect:</strong> NumPy arrays do not have an .append() method; the function is np.append().</li>
+                                <li><strong>Why D is incorrect:</strong> Concatenation changes array shape rather than adding a numerical offset.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -205,6 +285,32 @@ print("Vectorization is ~100x faster!")
             <div class="topic-header">
                 <h1>🌾 Statistical Functions</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> When analyzing crop yield across 100 farm plots, why does reporting only the mean yield give a dangerously misleading picture if 5 plots suffered complete pest devastation while 5 had record bumper crops?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> The arithmetic mean blends extremes together, concealing high yield volatility and risk. A farm with a mean of 50 quintals/ha could have all plots producing 50, or half producing 100 and half producing 0. Statistical dispersion metrics—variance, standard deviation, and interquartile range—reveal operational risk that average figures conceal.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> Why is the Pearson correlation coefficient between fertilizer application and crop yield incapable of proving that fertilizer caused the yield increase?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Correlation measures linear association, not biological causation! High fertilizer usage may correlate strongly with high yield, but both might be driven by a confounding variable: progressive farmers who can afford fertilizer also invest in superior drip irrigation and certified hybrid seeds.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -360,18 +466,72 @@ print(f"Covariance: {covariance[0,1]:.0f}")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
+                
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> A correlation of 0.85 between rainfall and yield means:</p>
+                    <p><strong>Q1 (Teacher Live Correlation Demo):</strong> In the Teacher's live correlation demonstration on real farm telemetry, what did an r = -0.82 Pearson correlation between soil moisture deficit and vegetative canopy greenness indicate?</p>
                     <ul>
-                        <li>A) No relationship</li>
-                        <li>B) Strong positive relationship</li>
-                        <li>C) Strong negative relationship</li>
-                        <li>D) Cannot determine</li>
+                        <li>A) A strong negative linear relationship: as soil moisture deficit increased (drier soil), canopy greenness significantly decreased</li>
+                        <li>B) That soil moisture deficit causes fungal leaf blight</li>
+                        <li>C) That the sensor wires were connected backwards</li>
+                        <li>D) That canopy greenness and soil moisture are completely independent</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - 0.85 is close to 1, indicating strong positive correlation.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>A strong negative linear correlation between soil moisture deficit and canopy greenness.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> A Pearson correlation r near -1.0 indicates a strong inverse relationship: as moisture deficit climbs (drought worsens), plant chlorophyll and vegetative vigor decline proportionally.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Correlation does not identify specific fungal biological pathogens.</li>
+                                <li><strong>Why C is incorrect:</strong> Negative correlation is a natural physical relationship, not an electrical wiring error.</li>
+                                <li><strong>Why D is incorrect:</strong> Independence would be indicated by a correlation coefficient near r = 0.0.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Multi-Factor Yield Correlation Studio):</strong> During the Multi-Factor Yield Studio, how did teams prevent extreme outlier yields (caused by a combine harvester scale calibration glitch of 999 quintals) from corrupting the baseline analysis?</p>
+                    <ul>
+                        <li>A) By computing the median and Interquartile Range (IQR) alongside mean and standard deviation, and winsorizing values exceeding Q3 + 1.5*IQR</li>
+                        <li>B) By deleting all rows where yield was higher than 10 quintals</li>
+                        <li>C) By multiplying all yields by zero</li>
+                        <li>D) By replacing the entire column with random numbers</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Used robust non-parametric metrics (median, IQR) and trimmed/winsorized values exceeding 1.5*IQR bounds.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Non-parametric statistics (median and IQR) are robust against hardware anomalies, preventing rogue extreme sensor spikes from distorting baseline agricultural averages.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Deleting values above 10 quintals discards genuine high-yielding crop records.</li>
+                                <li><strong>Why C is incorrect:</strong> Multiplying by zero erases the entire experimental dataset.</li>
+                                <li><strong>Why D is incorrect:</strong> Random numbers destroy all empirical evidence.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Farm Correlation Profiler, which NumPy function computed the pairwise correlation matrix across soil pH, organic carbon, and grain yield simultaneously?</p>
+                    <ul>
+                        <li>A) np.corrcoef(farm_metrics, rowvar=False)</li>
+                        <li>B) np.std(farm_metrics)</li>
+                        <li>C) np.linalg.det(farm_metrics)</li>
+                        <li>D) np.unique(farm_metrics)</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>np.corrcoef(farm_metrics, rowvar=False) computed the standardized pairwise correlation matrix.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> The <code>np.corrcoef()</code> function computes normalized covariance matrices (Pearson correlation coefficients) between all column variables when <code>rowvar=False</code>, returning a symmetric matrix of correlation values.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> np.std() computes standard deviation, not pairwise correlation.</li>
+                                <li><strong>Why C is incorrect:</strong> np.linalg.det() computes matrix determinants.</li>
+                                <li><strong>Why D is incorrect:</strong> np.unique() extracts unique elements.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -393,6 +553,32 @@ print(f"Covariance: {covariance[0,1]:.0f}")
             <div class="topic-header">
                 <h1>🌾 Data Analysis and Visualization</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Before training a machine learning model on farm data, why should an Agri-Data Scientist always inspect <code>df.describe()</code> and <code>df.info()</code> rather than jumping straight into model fitting?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> <code>df.info()</code> reveals missing data counts and incorrect column data types (e.g., numbers stored as strings). <code>df.describe()</code> reveals statistical anomalies: minimum soil pH of -999 (a sensor disconnect error code), maximum soil moisture of 1000%, or extreme skewness that would corrupt gradient descent.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> Why does a visual histogram of crop yield frequently show a bimodal (two-peaked) distribution rather than a classic bell-shaped Gaussian normal distribution?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Agricultural data reflects physical realities! A bimodal yield distribution usually signifies two distinct sub-populations in the dataset: e.g., irrigated plots producing high yields (peak 2) versus rainfed plots suffering drought stress (peak 1), or two distinct crop varieties combined in the same dataset.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -547,18 +733,72 @@ plt.show()
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
+                
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What does describe() show?</p>
+                    <p><strong>Q1 (Teacher Live Farm-Health Dashboard Demo):</strong> In the Teacher's live farm-health profiling demo, what critical hardware anomaly was immediately exposed by running df['soil_temp'].describe()?</p>
                     <ul>
-                        <li>A) Only column names</li>
-                        <li>B) Count, mean, std, min, max, quartiles</li>
-                        <li>C) Only data types</li>
-                        <li>D) Memory usage only</li>
+                        <li>A) A minimum value of -999.0°C and maximum of 999.0°C, indicating uncleaned error codes transmitted by disconnected ADC sensor probes</li>
+                        <li>B) A perfectly Gaussian normal distribution</li>
+                        <li>C) The exact date of next year's harvest</li>
+                        <li>D) The farmer's bank account balance</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - describe() provides comprehensive statistical summary.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Min/max values of ±999.0°C revealed unhandled hardware error codes in the telemetry.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> <code>df.describe()</code> immediately flags out-of-bounds extremes. Sensor hardware frequently transmits sentinel values like -999 or 9999 when detached or uncalibrated, which must be filtered before modeling.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Extreme sentinel values break normal Gaussian symmetry.</li>
+                                <li><strong>Why C is incorrect:</strong> Statistical summaries describe historical data, not future calendar dates.</li>
+                                <li><strong>Why D is incorrect:</strong> Soil temperature telemetry does not contain banking data.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Outlier Investigation Studio):</strong> During the Outlier Investigation Studio, how did teams determine whether a yield reading of 120 quintals/ha was a recording error or a genuine biological breakthrough?</p>
+                    <ul>
+                        <li>A) By cross-referencing fertilizer application, drip fertigation logs, hybrid seed variety, and peer farmer yields from adjacent plots on the same date</li>
+                        <li>B) By immediately deleting the record because it was higher than the mean</li>
+                        <li>C) By flipping a coin</li>
+                        <li>D) By asking an LLM without providing the farm data</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Cross-referenced agronomic co-factors (inputs, variety, irrigation, neighbors) to validate biological plausibility.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Outliers are not always errors; in agriculture, they may represent elite hybrid performance or high management efficiency. True validation requires cross-referencing input logs and environmental co-factors.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Blindly deleting high values discards potential biological breakthroughs and distorts yield potential.</li>
+                                <li><strong>Why C is incorrect:</strong> Coin flipping is unscientific and arbitrary.</li>
+                                <li><strong>Why D is incorrect:</strong> Generic LLMs cannot verify empirical physical field trial records without data.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Farm Dataset Explorer, which code generated a multi-panel visual overview of yield distribution and soil pH?</p>
+                    <ul>
+                        <li>A) df[['yield', 'soil_ph']].hist(bins=20, figsize=(10, 4)) followed by plt.show()</li>
+                        <li>B) df.print()</li>
+                        <li>C) plt.close('all')</li>
+                        <li>D) df.values.sum()</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>df[['yield', 'soil_ph']].hist(bins=20) visualized frequency distributions for both variables.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Pandas integrates directly with Matplotlib: calling <code>.hist()</code> on selected DataFrame columns produces clean, multi-subplot histograms revealing skewness, bimodality, and outliers.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> DataFrames do not have a <code>.print()</code> method.</li>
+                                <li><strong>Why C is incorrect:</strong> plt.close() closes figures without rendering or displaying plots.</li>
+                                <li><strong>Why D is incorrect:</strong> Summing all values produces an uninterpretable single number.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -580,6 +820,32 @@ plt.show()
             <div class="topic-header">
                 <h1>🌾 Data Filtering and Selection</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> What is the crucial difference between <code>.loc[]</code> and <code>.iloc[]</code> in Pandas when filtering agricultural plot records?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> <code>.loc[]</code> is label-based: <code>df.loc['Plot_102', 'soil_ph']</code> accesses data by explicit index names and column header strings. <code>.iloc[]</code> is integer-position based: <code>df.iloc[0, 3]</code> accesses data by raw zero-indexed memory position. Confusing the two causes catastrophic errors if plot IDs happen to be numbers (e.g., plot ID 100 located at row index 0).</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> Why does filtering an agricultural DataFrame using standard chained indexing <code>df[df['crop'] == 'Cotton']['yield'] = 50</code> trigger Pandas' infamous <code>SettingWithCopyWarning</code>?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Chained indexing creates ambiguity: Python first evaluates <code>df[df['crop'] == 'Cotton']</code>, which might return a temporary copy rather than a direct reference (view) into the original DataFrame. Modifying <code>['yield']</code> on that copy means the original DataFrame is silently unchanged! The safe, explicit syntax is <code>.loc</code>: <code>df.loc[df['crop'] == 'Cotton', 'yield'] = 50</code>.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -733,18 +999,72 @@ print(result)
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
+                
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What's the difference between loc and iloc?</p>
+                    <p><strong>Q1 (Teacher Live Multi-Condition Query Demo):</strong> In the Teacher's live demonstration, what Pandas <code>.loc</code> expression filtered all plots growing 'Wheat' with soil pH < 6.0 while updating their 'lime_recommendation' column to True?</p>
                     <ul>
-                        <li>A) loc is faster</li>
-                        <li>B) loc uses labels, iloc uses positions</li>
-                        <li>C) They are the same</li>
-                        <li>D) iloc only works on rows</li>
+                        <li>A) df.loc[(df['crop'] == 'Wheat') & (df['soil_ph'] < 6.0), 'lime_recommendation'] = True</li>
+                        <li>B) df[df['crop'] == 'Wheat']['soil_ph'] = True</li>
+                        <li>C) if df['crop'] == 'Wheat': df['lime'] = True</li>
+                        <li>D) df.query('crop == Wheat and soil_ph < 6.0').delete()</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - loc is label-based, iloc is position-based (integer).</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>df.loc[(condition1) & (condition2), 'col'] = True cleanly selected and mutated data without SettingWithCopyWarning.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Using <code>.loc[row_condition, target_column]</code> is the gold-standard Pandas idiom for conditional mutation, ensuring direct in-place modification of the original DataFrame.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Chained indexing triggers SettingWithCopyWarning and fails to update the original DataFrame.</li>
+                                <li><strong>Why C is incorrect:</strong> Python's <code>if</code> statement cannot evaluate an entire Series truth value.</li>
+                                <li><strong>Why D is incorrect:</strong> Querying and calling .delete() is invalid syntax.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Farm Subsidy Eligibility Studio):</strong> During the Subsidy Eligibility Screening Studio, which query operator correctly selected farmers who cultivated either 'Ragi' OR 'Maize' with landholding <= 2.0 hectares?</p>
+                    <ul>
+                        <li>A) df[df['crop'].isin(['Ragi', 'Maize']) & (df['land_hectares'] <= 2.0)]</li>
+                        <li>B) df[df['crop'] == 'Ragi' or df['crop'] == 'Maize']</li>
+                        <li>C) df.filter(items=['Ragi', 'Maize'])</li>
+                        <li>D) df['land_hectares'].min()</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>df['crop'].isin(['Ragi', 'Maize']) combined with landholding <= 2.0 via bitwise & operator.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> The <code>.isin()</code> method provides clean, readable vectorized membership testing, which combines cleanly with numerical inequalities using the bitwise <code>&</code> operator.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Using Python's logical 'or' throws a ValueError on Series comparisons.</li>
+                                <li><strong>Why C is incorrect:</strong> df.filter(items=...) filters column headers, not row values.</li>
+                                <li><strong>Why D is incorrect:</strong> min() returns a scalar number, not a filtered subset of farmers.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Farm Data Query Engine, what method selected rows based on a complex string query without verbose brackets?</p>
+                    <ul>
+                        <li>A) df.query("soil_moisture < 25 and ambient_temp > 35")</li>
+                        <li>B) df.select("where moisture < 25")</li>
+                        <li>C) df.where_string("all")</li>
+                        <li>D) df.eval_string()</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>df.query("soil_moisture < 25 and ambient_temp > 35") provided clean, readable string-based query syntax.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Pandas <code>.query()</code> evaluates string expressions using numexpr under the hood, offering clean, uncluttered syntax for complex multi-variable filtering.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> DataFrames do not have a <code>.select()</code> method for SQL string clauses.</li>
+                                <li><strong>Why C is incorrect:</strong> <code>.where_string()</code> is a fictitious method.</li>
+                                <li><strong>Why D is incorrect:</strong> <code>.eval_string()</code> does not exist in Pandas.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -766,6 +1086,32 @@ print(result)
             <div class="topic-header">
                 <h1>🌾 Handling Missing Data</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> When an IoT soil moisture sensor goes offline for 3 days during a rainstorm, why is simply deleting those missing rows (<code>df.dropna()</code>) an agronomic disaster?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Deleting missing rows during a storm creates catastrophic selection bias! The missing records coincided with peak rainfall and soil saturation. Deleting them artificially removes the wettest days from the historical record, biasing long-term climatic averages toward dry conditions and breaking chronological time continuity required for hydrological modeling.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> Why should you never fill missing soil nitrogen values with the column mean (<code>df.fillna(df.mean())</code>) across a mixed farm dataset of legumes and cereals?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Legumes (like soybean or groundnut) fix atmospheric nitrogen, exhibiting vastly higher soil nitrogen levels than cereals (like maize or wheat). Imputing the global dataset mean overestimates nitrogen on cereal plots (risking fertilizer under-application) while underestimating nitrogen on legume plots. Imputation must be grouped by crop type: <code>df.groupby('crop')['nitrogen'].transform('median')</code>.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -919,18 +1265,72 @@ print(f"Original rows: {len(data)}, After drop: {len(data_dropped)}")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
+                
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> When should you drop rows with missing data?</p>
+                    <p><strong>Q1 (Teacher Live Sensor Gap Rescue Demo):</strong> In the Teacher's live telemetry demonstration, what imputation strategy accurately restored missing 15-minute temperature readings during a 2-hour sensor battery replacement?</p>
                     <ul>
-                        <li>A) Always</li>
-                        <li>B) When very few rows are affected</li>
-                        <li>C) Never</li>
-                        <li>D) Only for numerical columns</li>
+                        <li>A) Time-weighted linear interpolation: df['temperature'].interpolate(method='time')</li>
+                        <li>B) Filling all missing values with 0.0°C</li>
+                        <li>C) Dropping all preceding and succeeding rows</li>
+                        <li>D) Filling with the maximum temperature of the year</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - Drop when missing data is minimal. Otherwise, impute to avoid losing too much data.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Time-weighted linear interpolation: .interpolate(method='time') smoothed between known bounds.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> For short temporal gaps in continuous physical environmental data, time-weighted interpolation estimates intermediate temperatures based on surrounding boundary measurements, preserving diurnal trends.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Imputing 0.0°C introduces artificial freezing temperatures and triggers false frost alarms.</li>
+                                <li><strong>Why C is incorrect:</strong> Dropping surrounding valid rows destroys real measurements.</li>
+                                <li><strong>Why D is incorrect:</strong> Filling with annual maximum creates false heatwave anomalies.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Sensor Failure Triage Studio):</strong> During the Sensor Failure Triage Studio, how did teams handle an experimental plot where an entire sensor node was destroyed by a wild boar and had 95% missing data?</p>
+                    <ul>
+                        <li>A) Dropping the plot column entirely because imputing 95% of data creates artificial hallucinations with no empirical foundation</li>
+                        <li>B) Imputing all 95% missing values with random numbers</li>
+                        <li>C) Duplicating data from a farm 500 kilometers away</li>
+                        <li>D) Setting all values to 100</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Dropped the severely corrupted plot column because 95% missingness cannot be reliably imputed.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Data engineering best practices dictate that features or entities with >70–80% missingness should be pruned; synthetic imputation across 95% of records injects severe model hallucinations without empirical signal.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Imputing 95% random data corrupts machine learning models with pure noise.</li>
+                                <li><strong>Why C is incorrect:</strong> Weather and soil 500 km away have zero local micro-climatic relevance.</li>
+                                <li><strong>Why D is incorrect:</strong> Hardcoding 100 introduces extreme bias.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Missing Data Cleaning Pipeline, how did you verify the exact count and percentage of missing values per column?</p>
+                    <ul>
+                        <li>A) missing_summary = df.isnull().sum() / len(df) * 100</li>
+                        <li>B) missing_summary = df.count() * 100</li>
+                        <li>C) missing_summary = df.shape[0]</li>
+                        <li>D) missing_summary = df.empty</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>df.isnull().sum() / len(df) * 100 computed the precise missing data percentage per column.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Chaining <code>.isnull().sum()</code> calculates the total count of nulls per column, which dividing by <code>len(df)</code> converts into percentage of missingness for triage.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> <code>.count()</code> returns the number of non-null values, not missing values.</li>
+                                <li><strong>Why C is incorrect:</strong> <code>.shape[0]</code> returns the total row count.</li>
+                                <li><strong>Why D is incorrect:</strong> <code>.empty</code> returns a single boolean indicating if the DataFrame has zero rows.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -952,6 +1352,32 @@ print(f"Original rows: {len(data)}, After drop: {len(data_dropped)}")
             <div class="topic-header">
                 <h1>🌾 Data Aggregation and Grouping</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> How does Pandas' Split-Apply-Combine paradigm mirror how a district agricultural commissioner analyzes harvest productivity across 10 taluks (sub-districts)?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> A commissioner does not examine 50,000 individual farm rows. They 'Split' the dataset into 10 separate taluk groups, 'Apply' aggregate calculations to each group (mean yield, total fertilizer consumed, drought-affected acreage), and 'Combine' the results into a compact 10-row district executive dashboard using <code>df.groupby('taluk').agg({'yield': 'mean', 'fertilizer': 'sum'})</code>.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> Why does calculating the average yield across an entire state without grouping by crop type commit Simpson's Paradox?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Simpson's Paradox occurs when an apparent trend reverses or disappears when groups are aggregated! For example, high-value sugarcane yields 80 tons/ha while rainfed millets yield 2 tons/ha. If irrigated districts grow sugarcane and dry districts grow millet, an aggregated state-wide average gives meaningless numbers that reflect crop mix rather than actual farming efficiency.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -1102,18 +1528,72 @@ print(pivot)
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
+                
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What does groupby() return?</p>
+                    <p><strong>Q1 (Teacher Live Harvest Intelligence Demo):</strong> In the Teacher's live demonstration, what Pandas <code>groupby().agg()</code> statement computed both the mean yield and the maximum recorded soil moisture grouped by 'district'?</p>
                     <ul>
-                        <li>A) A single value</li>
-                        <li>B) A GroupBy object for aggregation</li>
-                        <li>C) A filtered DataFrame</li>
-                        <li>D) A sorted DataFrame</li>
+                        <li>A) df.groupby('district').agg({'yield': 'mean', 'moisture': 'max'})</li>
+                        <li>B) df.groupby('district').sum()</li>
+                        <li>C) df.aggregate(['mean', 'max'])</li>
+                        <li>D) df.pivot_table(index='district')</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - groupby() returns a GroupBy object that you can then apply aggregation functions to.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>df.groupby('district').agg({'yield': 'mean', 'moisture': 'max'}) computed custom metrics per group.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Passing a dictionary mapping column names to aggregation functions inside <code>.agg()</code> provides fine-grained control over group-wise summaries across multiple variables.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> <code>.sum()</code> applies summation to all columns, which is meaningless for soil moisture percentages.</li>
+                                <li><strong>Why C is incorrect:</strong> Calling <code>.aggregate()</code> without groupby computes statewide totals without district grouping.</li>
+                                <li><strong>Why D is incorrect:</strong> Basic pivot_table without aggfunc defaults to mean across all columns.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (District Harvest Intelligence Studio):</strong> During the District Harvest Studio, how did teams restructure harvest data to create a cross-tabulated matrix showing average crop yield with 'district' as rows and 'crop_type' as columns?</p>
+                    <ul>
+                        <li>A) df.pivot_table(index='district', columns='crop_type', values='yield', aggfunc='mean')</li>
+                        <li>B) df.melt(id_vars='district')</li>
+                        <li>C) df.unstack().dropna()</li>
+                        <li>D) df.transpose()</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>df.pivot_table(index='district', columns='crop_type', values='yield', aggfunc='mean') created a 2D cross-tabulation.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Pandas <code>.pivot_table()</code> reshapes long-format telemetry into a compact 2D matrix, enabling comparative evaluation of crop yields across districts and crop types.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> <code>.melt()</code> unpivots wide data into long format, the exact opposite of pivot_table.</li>
+                                <li><strong>Why C is incorrect:</strong> unstack() requires hierarchical MultiIndex series.</li>
+                                <li><strong>Why D is incorrect:</strong> <code>.transpose()</code> swaps rows and columns without aggregating values.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Farm Aggregation Report, how did you filter to retain only districts that had more than 100 reporting farm plots?</p>
+                    <ul>
+                        <li>A) df.groupby('district').filter(lambda x: len(x) > 100)</li>
+                        <li>B) df[df['district'] > 100]</li>
+                        <li>C) df.drop_duplicates()</li>
+                        <li>D) df.head(100)</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>df.groupby('district').filter(lambda x: len(x) > 100) filtered groups based on group size.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> The <code>.filter()</code> method on a GroupBy object applies a boolean predicate function to each sub-dataframe, discarding groups that fail the condition (e.g., sample size < 100).</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Comparing string district names with integer 100 throws a TypeError.</li>
+                                <li><strong>Why C is incorrect:</strong> drop_duplicates() removes repeated rows without group size filtering.</li>
+                                <li><strong>Why D is incorrect:</strong> head(100) returns the first 100 rows of the dataframe.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -1135,6 +1615,32 @@ print(pivot)
             <div class="topic-header">
                 <h1>🌾 Advanced Chart Types</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> When comparing soil organic carbon across 5 different tillage practices, why is a Box Plot vastly more informative than a standard Bar Chart of group means?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> A bar chart shows only a single number (the mean), hiding whether the data is tightly clustered or wildly spread. A Box Plot reveals the full five-number summary: median, 25th and 75th percentiles (IQR), whiskers, and individual extreme outlier plots. It visually demonstrates whether a tillage practice reliably improves soil carbon or merely produces erratic spikes.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> How does an agronomist interpret a Correlation Heatmap displaying 15 soil, weather, and crop factors simultaneously?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> A correlation heatmap encodes pairwise Pearson coefficients into color gradients (e.g., deep blue for +1.0, dark red for -1.0). An agronomist can scan the matrix in seconds to spot multi-collinearity (e.g., canopy temperature and vapor pressure deficit correlating at +0.95) and identify primary drivers of harvest yield.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -1305,18 +1811,72 @@ plt.show()
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
+                
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What do the whiskers on a box plot represent?</p>
+                    <p><strong>Q1 (Teacher Live Diagnostic Charting Demo):</strong> In the Teacher's live demonstration, what visual diagnostic chart immediately proved that nitrogen application data was heavily right-skewed with a few extreme over-fertilized outliers?</p>
                     <ul>
-                        <li>A) Mean and median</li>
-                        <li>B) Minimum and maximum (or 1.5×IQR)</li>
-                        <li>C) Standard deviation</li>
-                        <li>D) Mode values</li>
+                        <li>A) A histogram combined with a box plot showing a long right tail and isolated outlier points beyond 1.5*IQR</li>
+                        <li>B) A pie chart with 500 identical slices</li>
+                        <li>C) An empty scatter plot</li>
+                        <li>D) A line chart with connecting dots</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - Whiskers extend to min/max or 1.5× the interquartile range.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>A histogram and box plot clearly displayed the right-skewed tail and extreme high-rate outliers.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Combining histograms (showing frequency density) with box plots (displaying IQR bounds and outlier markers) provides the definitive visual assessment of distributional skewness and extreme values.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Pie charts with hundreds of slices are unreadable and cannot show continuous distributions.</li>
+                                <li><strong>Why C is incorrect:</strong> Empty scatter plots display no data.</li>
+                                <li><strong>Why D is incorrect:</strong> Line charts imply continuous chronological sequences, inappropriate for unordered plot samples.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Farm Analytics Dashboard Studio):</strong> During the Dashboard Design Studio, what Seaborn heatmap setting displayed exact numeric correlation coefficients directly inside each colored grid cell?</p>
+                    <ul>
+                        <li>A) sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt='.2f')</li>
+                        <li>B) sns.heatmap(corr_matrix, labels=False)</li>
+                        <li>C) sns.lineplot(corr_matrix)</li>
+                        <li>D) sns.pairplot(corr_matrix)</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>sns.heatmap(..., annot=True, fmt='.2f') overlaid formatted numeric correlation values inside cells.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Setting <code>annot=True</code> instructs Seaborn to print the actual correlation values inside every cell, with <code>fmt='.2f'</code> formatting decimals to 2 places for precise evaluation.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> <code>labels=False</code> hides text annotations.</li>
+                                <li><strong>Why C is incorrect:</strong> sns.lineplot is for 1D/2D line trends, not 2D correlation matrices.</li>
+                                <li><strong>Why D is incorrect:</strong> sns.pairplot generates a matrix of pairwise scatterplots, not a correlation heatmap.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a 4-Panel Farm Analytics Dashboard, which Matplotlib method initialized a 2x2 grid of subplots sharing a unified figure canvas?</p>
+                    <ul>
+                        <li>A) fig, axes = plt.subplots(2, 2, figsize=(12, 10))</li>
+                        <li>B) plt.figure(4)</li>
+                        <li>C) plt.grid(True)</li>
+                        <li>D) plt.axes([0, 0, 1, 1])</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>fig, axes = plt.subplots(2, 2, figsize=(12, 10)) initialized a 2x2 array of subplot axes.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> <code>plt.subplots(nrows, ncols)</code> returns both the top-level figure and a NumPy array of Axes objects (indexed via <code>axes[0, 0]</code>, <code>axes[0, 1]</code>, etc.), providing clean modular access to each panel.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> plt.figure(4) creates an empty figure window labeled 4.</li>
+                                <li><strong>Why C is incorrect:</strong> plt.grid() toggles background grid lines on the current axis.</li>
+                                <li><strong>Why D is incorrect:</strong> plt.axes() manually positions a single arbitrary axis box.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -1338,6 +1898,32 @@ plt.show()
             <div class="topic-header">
                 <h1>🌾 Seaborn: Statistical Visualization</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why is a Seaborn Violin Plot superior to a traditional box plot when analyzing yield across three different seed varieties?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> A box plot assumes unimodal distributions within the IQR box. If a seed variety has a bimodal yield distribution (e.g., performing excellently under irrigation but failing under dry spells), a box plot hides this entirely! A Violin Plot combines a box plot with a rotated Kernel Density Estimation (KDE) curve, visually showing the exact peaks, valleys, and probability density across yields.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> How does Seaborn's <code>pairplot</code> assist an agro-data scientist in spotting non-linear crop interactions before building machine learning models?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> <code>pairplot</code> automatically renders a grid of scatter plots for every pairwise combination of features alongside univariate distribution histograms on the diagonal. In one glance, an analyst can spot non-linear parabolic responses (e.g., temperature vs yield), clustering tendencies, and collinear features.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -1500,18 +2086,72 @@ plt.show()
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
+                
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What does sns.lmplot() add to a scatter plot?</p>
+                    <p><strong>Q1 (Teacher Live Seaborn Report Demo):</strong> In the Teacher's live demonstration, what did a Seaborn violin plot reveal about crop yield distributions that a standard box plot failed to show?</p>
                     <ul>
-                        <li>A) Colors</li>
-                        <li>B) A regression line with confidence interval</li>
-                        <li>C) 3D effect</li>
-                        <li>D) Animation</li>
+                        <li>A) It revealed a distinct bimodal (twin-peaked) distribution in rainfed plots caused by a split planting date</li>
+                        <li>B) It proved that all farmers had identical incomes</li>
+                        <li>C) It showed that soil moisture had negative values</li>
+                        <li>D) It printed the farmer's phone numbers</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - lmplot adds a linear regression line with shaded confidence interval.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Revealed a bimodal distribution with twin density peaks that box plots concealed.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Violin plots estimate kernel density along the vertical distribution axis, showing multiple modes (peaks), neck pinch points, and skewed distribution shapes that box plot rectangles hide.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Violin plots visualize data dispersion, not uniform equality.</li>
+                                <li><strong>Why C is incorrect:</strong> Biological bimodality does not imply negative moisture readings.</li>
+                                <li><strong>Why D is incorrect:</strong> Statistical charts do not print contact lists.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Statistical Report Design Studio):</strong> During the Report Design Studio, what Seaborn chart type was chosen to evaluate linear regression trends between nitrogen application and yield while categorizing plots by 'irrigation_type' using color hues?</p>
+                    <ul>
+                        <li>A) sns.lmplot(x='nitrogen', y='yield', hue='irrigation_type', data=df)</li>
+                        <li>B) sns.barplot(x='nitrogen', data=df)</li>
+                        <li>C) sns.heatmap(df)</li>
+                        <li>D) sns.rugplot(df['yield'])</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>sns.lmplot(x='nitrogen', y='yield', hue='irrigation_type', data=df) fitted multi-category linear regressions.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Seaborn's <code>lmplot()</code> fits linear regression lines with 95% bootstrap confidence intervals across categorical subsets designated by <code>hue</code>, allowing instant comparison of slope gradients across farming practices.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> barplot shows categorical aggregated means, not continuous linear regression trends.</li>
+                                <li><strong>Why C is incorrect:</strong> heatmap requires a 2D matrix, not raw scatter records.</li>
+                                <li><strong>Why D is incorrect:</strong> rugplot draws tick marks on an axis for marginal univariate distributions.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Seaborn Insight Report, which high-level function plotted pairwise bivariate distributions across all numeric soil and crop features in a single call?</p>
+                    <ul>
+                        <li>A) sns.pairplot(df, hue='crop_type', diag_kind='kde')</li>
+                        <li>B) sns.relplot(df)</li>
+                        <li>C) sns.catplot(df)</li>
+                        <li>D) sns.jointplot(df)</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>sns.pairplot(df, hue='crop_type', diag_kind='kde') rendered an exploratory matrix of pairwise plots.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Seaborn's <code>pairplot()</code> generates an (N x N) grid of scatterplots for every feature pair with KDE density curves along the diagonal, partitioned by categorical group hues.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> relplot plots specified (x, y) relationships, not all pairwise combinations.</li>
+                                <li><strong>Why C is incorrect:</strong> catplot is dedicated to categorical variables.</li>
+                                <li><strong>Why D is incorrect:</strong> jointplot evaluates exactly two variables at a time.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>

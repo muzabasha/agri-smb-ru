@@ -9,6 +9,32 @@ const module2Handouts = {
                 <p class="duration">⏱️ Duration: 2 hours</p>
             </div>
 
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why does processing 1,000,000 soil sensor readings in a standard Python list take seconds and drain battery, while a NumPy array finishes in milliseconds?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Python lists store pointers to scattered heap objects, incurring dynamic type checking and memory fragmentation overhead. A NumPy ndarray is stored as a contiguous block of homogeneous C-memory with fixed byte strides, leveraging hardware SIMD vectorization and cache lines for orders-of-magnitude faster computation with minimal power consumption.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> If a soil probe logs moisture at 10cm, 30cm, 60cm, and 100cm across 50 farm plots, how does NumPy indexing simplify extracting only the deep root-zone moisture (60cm and 100cm) across all plots?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> In NumPy, multidimensional array slicing enables <code>sensor_data[:, 2:]</code>—slicing all rows (plots) and selecting columns 2 and 3 (deep root zones) in zero-copy memory views without duplicating data.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
             <div class="learning-objectives">
                 <h2>📌 Learning Objectives</h2>
                 <ul>
@@ -178,33 +204,72 @@ print(f"High yield plots (>2700): {high_yield_plots}")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What is the main advantage of NumPy over Python lists?</p>
+                    <p><strong>Q1 (Teacher Live Slicing & Benchmark Demo):</strong> In the Teacher's live benchmark comparing pure Python lists against NumPy ndarrays over 1,000,000 sensor records, what performance difference was observed?</p>
                     <ul>
-                        <li>A) Easier syntax</li>
-                        <li>B) Vectorized operations (faster)</li>
-                        <li>C) More data types</li>
-                        <li>D) Prettier output</li>
+                        <li>A) NumPy executed vectorized mathematical operations over 50x faster than pure Python loops due to contiguous C-memory storage and SIMD CPU vectorization</li>
+                        <li>B) Python lists were twice as fast because they have dynamic type flexibility</li>
+                        <li>C) Both ran at identical speeds</li>
+                        <li>D) NumPy crashed because Python cannot allocate contiguous memory</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - NumPy performs operations on entire arrays at once, making it much faster than loops.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>NumPy executed over 50x faster due to contiguous memory allocation and vectorized SIMD instructions.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> NumPy bypasses Python's interpreter loop overhead by dispatching low-level vectorized C/Fortran routines directly to CPU registers, delivering massive speedups on agricultural sensor arrays.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Dynamic type checking in lists causes massive CPU pointer chasing and slows execution.</li>
+                                <li><strong>Why C is incorrect:</strong> NumPy releases the GIL and uses compiled C code, outperforming pure Python loops.</li>
+                                <li><strong>Why D is incorrect:</strong> NumPy directly allocates contiguous memory via C-level memory allocators.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>Q2:</strong> What does <code>arr[1:4]</code> return?</p>
+                    <p><strong>Q2 (Soil Vector Comparison Syndicate):</strong> During the Soil Sample Vector Audit, which NumPy boolean mask isolated all farm plots where soil moisture dropped below 20.0% OR soil pH became critically acidic (< 5.5)?</p>
                     <ul>
-                        <li>A) Elements at index 1, 2, 3, 4</li>
-                        <li>B) Elements at index 1, 2, 3</li>
-                        <li>C) Elements at index 0, 1, 2, 3</li>
-                        <li>D) Error</li>
+                        <li>A) critical_plots = (moisture < 20.0) | (ph_vals < 5.5)</li>
+                        <li>B) critical_plots = moisture < 20.0 or ph_vals < 5.5</li>
+                        <li>C) critical_plots = moisture && ph_vals</li>
+                        <li>D) critical_plots = not (moisture >= 20.0)</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - Slicing is exclusive of the end index (1 to 3 inclusive).</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>(moisture < 20.0) | (ph_vals < 5.5) using bitwise OR operator with element-wise parentheses.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> In NumPy, logical combinations of boolean arrays require bitwise operators (<code>|</code> for OR, <code>&</code> for AND) with parentheses around each condition, because Python's logical <code>or</code>/<code>and</code> evaluate the truth value of the entire array rather than per-element.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Using standard 'or' on a NumPy array throws a ValueError ('truth value of an array is ambiguous').</li>
+                                <li><strong>Why C is incorrect:</strong> Syntax '&&' is not a valid Python operator.</li>
+                                <li><strong>Why D is incorrect:</strong> Negating moisture alone ignores the pH condition completely.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building an Array Normalization Script, what formula scaled raw nitrogen readings (ranging from 120 to 380 kg/ha) into a normalized [0, 1] range?</p>
+                    <ul>
+                        <li>A) norm_n = (nitrogen - np.min(nitrogen)) / (np.max(nitrogen) - np.min(nitrogen))</li>
+                        <li>B) norm_n = nitrogen / 1000</li>
+                        <li>C) norm_n = np.sqrt(nitrogen)</li>
+                        <li>D) norm_n = nitrogen - np.mean(nitrogen)</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Min-max normalization: (x - min) / (max - min) mapped values strictly between 0.0 and 1.0.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Min-max normalization linearly shifts and scales agricultural feature arrays so the minimum maps to 0.0 and the maximum maps to 1.0, preventing large-scale features from dominating distance-based ML algorithms.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Dividing by an arbitrary 1000 does not guarantee a minimum of 0.0 or maximum of 1.0.</li>
+                                <li><strong>Why C is incorrect:</strong> Square root compresses variance but does not bound values to [0, 1].</li>
+                                <li><strong>Why D is incorrect:</strong> Subtracting the mean centers data at zero (mean centering), but leaves values unscaled.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -227,6 +292,32 @@ print(f"High yield plots (>2700): {high_yield_plots}")
             <div class="topic-header">
                 <h1>🌾 Matrix Operations</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> How can a farm cooperative calculate the total nitrogen, phosphorus, and potassium required across 20 distinct crop zones in a single matrix multiplication?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Represent the 20 crop zones as an Acreage Matrix <code>A</code> of shape (20, 1) and specific N-P-K nutrient dosage requirements as a Dosage Matrix <code>D</code> of shape (20, 3). Matrix multiplication <code>A.T @ D</code> computes the dot product of acres and nutrient rates simultaneously, yielding total kilograms of N, P, and K in a single microsecond operation.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> Why does multiplying two agricultural matrices with mismatched inner dimensions (e.g., shape (10, 4) and (5, 3)) throw a ValueError?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Matrix multiplication <code>A @ B</code> requires that the number of columns in <code>A</code> matches the number of rows in <code>B</code>. In farm math, if <code>A</code> represents 10 plots each with 4 soil factors, <code>B</code> must have 4 input weights corresponding to those exact 4 soil factors. A shape mismatch means you are attempting to multiply 4 soil properties by 5 weights—a logical impossibility.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -392,19 +483,72 @@ print(f"Total K needed: {total_npk[2][0]} kg")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> For A (3×4) and B (4×2), what is the shape of A @ B?</p>
+                    <p><strong>Q1 (Teacher Live Matrix Allocation Demo):</strong> In the Teacher's live demonstration of matrix nutrient allocation, what NumPy operator performed linear algebraic matrix multiplication between the crop acreage vector and the nutrient dosage matrix?</p>
                     <ul>
-                        <li>A) 3×4</li>
-                        <li>B) 4×4</li>
-                        <li>C) 3×2</li>
-                        <li>D) Error - incompatible</li>
+                        <li>A) The <code>@</code> operator (or np.matmul())</li>
+                        <li>B) The <code>*</code> operator (element-wise multiplication)</li>
+                        <li>C) The <code>**</code> exponentiation operator</li>
+                        <li>D) The <code>//</code> floor division operator</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: C</strong> - (3×4) @ (4×2) = (3×2). Inner dimensions must match.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>The <code>@</code> operator (np.matmul()) performed true linear algebraic matrix dot products.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> In Python 3.5+, the <code>@</code> operator computes matrix multiplication (inner dot products of rows and columns). The <code>*</code> operator performs element-wise Hadamard multiplication, which requires identical shapes and does not compute linear combinations.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> The <code>*</code> operator computes element-wise multiplication, not linear matrix dot products.</li>
+                                <li><strong>Why C is incorrect:</strong> The <code>**</code> operator raises matrix elements to exponential powers.</li>
+                                <li><strong>Why D is incorrect:</strong> Floor division truncates division results and does not perform matrix math.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Multi-Factor Yield Transformation Studio):</strong> During the Matrix Transformation Studio, when multiplying a farm feature matrix of shape (50, 4) by a weight vector of shape (4, 1), what was the shape of the resulting predicted yield array?</p>
+                    <ul>
+                        <li>A) (50, 1)</li>
+                        <li>B) (4, 4)</li>
+                        <li>C) (50, 4)</li>
+                        <li>D) (4, 50)</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>(50, 1) representing 50 individual plot yield predictions.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Multiplying an (m x k) matrix by a (k x n) matrix produces an (m x n) matrix. Here, (50 x 4) @ (4 x 1) collapses the inner dimension 4, producing a (50 x 1) vector of predicted yields for the 50 plots.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> A (4, 4) output ignores the 50 sample plots entirely.</li>
+                                <li><strong>Why C is incorrect:</strong> (50, 4) would imply features were not linearly combined.</li>
+                                <li><strong>Why D is incorrect:</strong> (4, 50) is the transposed orientation.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Farm Economics Matrix Engine, how did you compute total enterprise revenue given a sales quantity matrix Q and commodity price vector P?</p>
+                    <ul>
+                        <li>A) total_revenue = np.dot(Q, P)</li>
+                        <li>B) total_revenue = Q + P</li>
+                        <li>C) total_revenue = np.linalg.inv(Q)</li>
+                        <li>D) total_revenue = np.zeros_like(Q)</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>np.dot(Q, P) computed the linear dot product summing quantity times price across commodities.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Computing revenue across multi-crop enterprises is a classic dot product: multiplying volumes sold by their corresponding market prices and summing the products across categories in a single vectorized step.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Adding quantities to prices is mathematically meaningless and produces dimensionality errors.</li>
+                                <li><strong>Why C is incorrect:</strong> Matrix inversion is an algebraic solve tool, not a revenue summation.</li>
+                                <li><strong>Why D is incorrect:</strong> Zeros_like creates an empty array of zeros.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -425,6 +569,32 @@ print(f"Total K needed: {total_npk[2][0]} kg")
             <div class="topic-header">
                 <h1>🌾 Pandas: Introduction and Series</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why is a Pandas Series with a DateTimeIndex vastly superior to a simple Python list or NumPy array for tracking daily rainfall at an agricultural research station?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> A pure array has only integer positions (0, 1, 2...). A Pandas Series with a DateTimeIndex enables calendar-aware intelligence: slicing by date ranges (<code>rainfall['2025-06':'2025-09']</code>), resampling to monthly or seasonal aggregates (<code>rainfall.resample('M').sum()</code>), and automatically aligning rainfall on exact dates with irrigation logs.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> What happens if you add two Pandas Series with different, unaligned index labels (e.g., Series A indexed by plot IDs 1, 2, 3 and Series B indexed by 2, 3, 4)?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Pandas performs automatic index alignment! It matches elements by index label, not numerical position. For plots 2 and 3, it adds values correctly. For plot 1 (missing in B) and plot 4 (missing in A), Pandas safely inserts <code>NaN</code> (Not a Number) to prevent silent data misalignment that occurs in pure Python lists.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -582,19 +752,72 @@ print(f"\\nBonus:\\n{bonus}")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What is a Pandas Series?</p>
+                    <p><strong>Q1 (Teacher Live Series Indexing Demo):</strong> In the Teacher's live demonstration, how did a Pandas Series with a DateTimeIndex simplify calculating total Kharif season rainfall from daily weather records?</p>
                     <ul>
-                        <li>A) A 2D table</li>
-                        <li>B) A 1D labeled array</li>
-                        <li>C) A Python list</li>
-                        <li>D) A database</li>
+                        <li>A) By slicing directly with calendar strings: rainfall_series['2025-06-01':'2025-10-31'].sum()</li>
+                        <li>B) By manually counting days on a physical calendar and writing a 120-line loop</li>
+                        <li>C) By converting all dates into floating-point numbers</li>
+                        <li>D) By deleting all non-monsoon months from the hard drive</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - A Series is a one-dimensional labeled array.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Label-based date slicing: series['2025-06-01':'2025-10-31'].sum() computed seasonal precipitation.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Pandas DateTimeIndex supports partial string date slicing, enabling intuitive extraction and summation of agricultural seasons without manual calendar math.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Manual date loops are error-prone and fail to account for leap years or irregular sampling intervals.</li>
+                                <li><strong>Why C is incorrect:</strong> Floating-point date representations lose timezone and calendar semantics.</li>
+                                <li><strong>Why D is incorrect:</strong> Deleting months destroys year-round climatic history.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Rainfall Series Triage Syndicate):</strong> During the Village Rainfall Triage Syndicate, what Pandas method smoothed day-to-day rainfall noise to identify prolonged 14-day dry spells?</p>
+                    <ul>
+                        <li>A) rainfall_series.rolling(window=14).mean()</li>
+                        <li>B) rainfall_series.drop_duplicates()</li>
+                        <li>C) rainfall_series.sort_values(ascending=False)</li>
+                        <li>D) rainfall_series.tail(14)</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>rolling(window=14).mean() computed a 14-day moving average to identify chronic dry spells.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Rolling window calculations compute moving statistics across sequential time windows, smoothing high-frequency daily fluctuations to highlight underlying drought trends.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> drop_duplicates() removes identical rainfall values, destroying the chronological timeline.</li>
+                                <li><strong>Why C is incorrect:</strong> sort_values() breaks the temporal order of dates.</li>
+                                <li><strong>Why D is incorrect:</strong> tail(14) merely previews the final 14 days of the series.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a 12-Month Agro-Climatic Series, how did you verify that missing sensor days were populated with forward-filled weather observations?</p>
+                    <ul>
+                        <li>A) series.ffill() (or series.fillna(method='ffill'))</li>
+                        <li>B) series.dropna()</li>
+                        <li>C) series.clear()</li>
+                        <li>D) series.reset_index(drop=True)</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>series.ffill() forward-filled missing observation gaps with the most recent valid measurement.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Forward-filling (<code>ffill()</code>) propagates the last observed valid measurement forward to fill missing temporal gaps, a common meteorological imputation practice for short sensor dropouts.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> dropna() deletes missing dates, creating temporal discontinuities in the time series.</li>
+                                <li><strong>Why C is incorrect:</strong> clear() empties the entire data structure.</li>
+                                <li><strong>Why D is incorrect:</strong> reset_index() discards the DateTimeIndex.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -616,6 +839,32 @@ print(f"\\nBonus:\\n{bonus}")
             <div class="topic-header">
                 <h1>🌾 DataFrames Manipulation</h1>
                 <p class="duration">⏱️ Duration: 3 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why is an agricultural DataFrame considered a 2D relational table on steroids compared to an Excel spreadsheet?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Excel spreadsheets are manual, unversioned, prone to silent copy-paste formulas, and collapse at over 1,000,000 rows. A Pandas DataFrame is programmable, vectorized, handles millions of rows in memory, enforces strict schema types (dates, categories, floats), and integrates seamlessly with SQL databases and ML pipelines via automated Python scripts.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> When adding a calculated column to a DataFrame (e.g., <code>df['nitrogen_deficit'] = df['target_n'] - df['actual_n']</code>), why must beginner programmers never use a <code>for index, row in df.iterrows():</code> loop?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Iterrows() converts each row into a new Pandas Series object inside an interpreted Python loop, destroying C-level optimizations and running 500x slower. Pandas column operations are vectorized: subtracting two columns directly performs compiled C-level SIMD operations across the entire column simultaneously in microseconds.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -777,19 +1026,72 @@ print(f"\\nSummary:\\n{farm_data.describe()}")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> How do you select multiple columns in Pandas?</p>
+                    <p><strong>Q1 (Teacher Live Multi-Column Engineering Demo):</strong> In the Teacher's live demonstration, what vectorized statement computed gross plot revenue from 'yield_quintal' and 'price_per_quintal' across 20,000 farm plots?</p>
                     <ul>
-                        <li>A) df['col1', 'col2']</li>
-                        <li>B) df[['col1', 'col2']]</li>
-                        <li>C) df.select('col1', 'col2')</li>
-                        <li>D) df.cols(['col1', 'col2'])</li>
+                        <li>A) df['gross_revenue'] = df['yield_quintal'] * df['price_per_quintal']</li>
+                        <li>B) A for loop using df.iterrows() manually multiplying each row and appending to a list</li>
+                        <li>C) df['gross_revenue'] = df.sum()</li>
+                        <li>D) df.to_excel()</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - Use double brackets with a list of column names.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Vectorized column multiplication: df['gross_revenue'] = df['yield_quintal'] * df['price_per_quintal'].</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Direct vectorized column operations leverage NumPy underlying arrays, executing in compiled C at lightning speed without slow Python loop overhead.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Iterrows loops run up to 500x slower and represent an anti-pattern in Pandas.</li>
+                                <li><strong>Why C is incorrect:</strong> df.sum() aggregates all columns together into a single scalar sum.</li>
+                                <li><strong>Why D is incorrect:</strong> to_excel() exports data to disk without computing revenue.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Cooperative Production Ledger Studio):</strong> During the Cooperative Ledger Studio, which DataFrame operation merged plot-level soil sensor readings with a separate member farmer demographic table based on a shared 'plot_id' key?</p>
+                    <ul>
+                        <li>A) pd.merge(sensor_df, farmer_df, on='plot_id', how='inner')</li>
+                        <li>B) pd.concat([sensor_df, farmer_df], axis=0)</li>
+                        <li>C) sensor_df + farmer_df</li>
+                        <li>D) sensor_df.sort_index()</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>pd.merge(sensor_df, farmer_df, on='plot_id', how='inner') executed a relational database join.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Relational database joins in Pandas are executed using <code>pd.merge()</code>, matching records between independent tables on a designated foreign key (<code>plot_id</code>).</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> concat along axis 0 stacks rows vertically rather than joining columns on a shared key.</li>
+                                <li><strong>Why C is incorrect:</strong> Adding dataframes attempts arithmetic addition, not relational joining.</li>
+                                <li><strong>Why D is incorrect:</strong> sort_index() sorts index labels without merging tables.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a 10-Plot Agricultural Management DataFrame, how did you drop an obsolete legacy column 'old_sensor_id' permanently?</p>
+                    <ul>
+                        <li>A) df.drop(columns=['old_sensor_id'], inplace=True)</li>
+                        <li>B) df.delete('old_sensor_id')</li>
+                        <li>C) df['old_sensor_id'] = None</li>
+                        <li>D) df.pop() without arguments</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>df.drop(columns=['old_sensor_id'], inplace=True) removed the column from memory.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> The <code>.drop(columns=[...])</code> method deletes designated columns from a DataFrame, modifying it in place when <code>inplace=True</code> or returning a new DataFrame.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> DataFrames do not have a <code>.delete()</code> method.</li>
+                                <li><strong>Why C is incorrect:</strong> Setting to None leaves the column in the DataFrame filled with nulls.</li>
+                                <li><strong>Why D is incorrect:</strong> pop() requires the exact column name as an argument.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -812,6 +1114,32 @@ print(f"\\nSummary:\\n{farm_data.describe()}")
             <div class="topic-header">
                 <h1>🌾 Matplotlib: Basic Plotting</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why is plotting daily rainfall (bar chart in mm) and daily ambient temperature (line chart in °C) on the same single Y-axis visually misleading, and how do dual-axis subplots solve this?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Rainfall ranges from 0 to 100mm, while temperature ranges from 15°C to 40°C. Plotting both on one Y-axis compresses the temperature curve into an unreadable flat line or distorts rainfall bars. Using Matplotlib's <code>ax.twinx()</code> creates a dual-axis chart with two independent scales (left for rain mm, right for temp °C), allowing farmers to correlate rain events directly with temperature drops.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> Why should an AgriTech dashboard for smallholder farmers favor high-contrast simple charts with clear annotations over complex, cluttered multi-dimensional plots?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Farmers review advisories in bright sunlight on low-cost smartphones while working in dusty fields. Cluttered 3D graphs with small legends are unreadable in real-world conditions. High-contrast 2D line and bar charts with large threshold danger zones (e.g., a red dotted line at 38°C for heat stress) deliver immediate, life-saving clarity.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -990,19 +1318,72 @@ plt.show()
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> Which function creates a line plot in Matplotlib?</p>
+                    <p><strong>Q1 (Teacher Live Dual-Axis Demo):</strong> In the Teacher's live demonstration, which Matplotlib method constructed a secondary Y-axis sharing the same X-axis timeline to overlay rainfall bars with temperature lines?</p>
                     <ul>
-                        <li>A) plt.bar()</li>
-                        <li>B) plt.scatter()</li>
-                        <li>C) plt.plot()</li>
-                        <li>D) plt.line()</li>
+                        <li>A) ax2 = ax1.twinx()</li>
+                        <li>B) plt.copy_axis()</li>
+                        <li>C) ax2 = ax1.twiny()</li>
+                        <li>D) plt.subplot(2, 2, 2)</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: C</strong> - plt.plot() creates line plots by default.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>ax1.twinx() created an independent twin Y-axis sharing the common time X-axis.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Matplotlib's <code>.twinx()</code> creates a twin Axes sharing the x-axis with an independent y-axis on the right margin, perfect for dual-metric agronomic visualizations.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> <code>.copy_axis()</code> is a non-existent Matplotlib command.</li>
+                                <li><strong>Why C is incorrect:</strong> <code>.twiny()</code> shares the y-axis and creates a twin x-axis along the top.</li>
+                                <li><strong>Why D is incorrect:</strong> <code>.subplot(2, 2, 2)</code> generates a separate adjacent grid panel, not an overlaid dual-axis chart.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Smallholder Advisory Dashboard Studio):</strong> During the Advisory Dashboard Studio, how did teams visually highlight the danger zone where soil moisture dropped below the permanent wilting point (15%)?</p>
+                    <ul>
+                        <li>A) By adding a red horizontal threshold line using ax.axhline(y=15, color='red', linestyle='--', label='Wilting Point')</li>
+                        <li>B) By coloring all plot pixels black</li>
+                        <li>C) By deleting data points below 15%</li>
+                        <li>D) By rotating the chart upside down</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>ax.axhline(y=15, color='red', linestyle='--') drew an immediate visual reference line for crop wilting.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Horizontal span and line annotations (<code>axhline</code>, <code>axhspan</code>) provide critical agronomic context, allowing farmers to instantly see when sensor curves breach physiological safety thresholds.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Coloring pixels black destroys readability.</li>
+                                <li><strong>Why C is incorrect:</strong> Deleting low values conceals the drought crisis.</li>
+                                <li><strong>Why D is incorrect:</strong> Rotating charts produces unreadable disorientation.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Customized Farm Yield Visualization, what command ensured that date labels on the X-axis did not overlap illegibly?</p>
+                    <ul>
+                        <li>A) fig.autofmt_xdate() (or plt.xticks(rotation=45))</li>
+                        <li>B) plt.xlabel('')</li>
+                        <li>C) plt.axis('off')</li>
+                        <li>D) plt.clf()</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>fig.autofmt_xdate() rotated and formatted date labels cleanly to prevent overlapping text.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> When plotting time series with daily timestamps, date strings collide; <code>fig.autofmt_xdate()</code> automatically slants date labels at 45 degrees and aligns them to tick marks for crisp readability.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Clearing the x-label leaves overlapping date tick labels unchanged.</li>
+                                <li><strong>Why C is incorrect:</strong> plt.axis('off') hides the entire coordinate system, labels, and ticks.</li>
+                                <li><strong>Why D is incorrect:</strong> plt.clf() clears the entire figure.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -1024,6 +1405,32 @@ plt.show()
             <div class="topic-header">
                 <h1>🌾 ML Workflow Introduction</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> What is 'Data Leakage' in an agricultural machine learning pipeline, and why does it cause models that achieve 99% accuracy in Colab to fail completely in the field?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Data leakage occurs when information from the target or test dataset inadvertently leaks into the training pipeline before model training (e.g., scaling the entire dataset with <code>fit_transform</code> before splitting into train/test). The model learns test set statistics during training. When deployed on unseen future crops, accuracy collapses because future data was never truly held out.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> Why must the agricultural ML workflow always start with Problem Scoping and Agronomic Validation rather than jumping straight into algorithm selection?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> A machine learning model can optimize any mathematical loss function, but without agronomic scoping, you may optimize the wrong target! For example, predicting maximum harvest biomass rather than commercial grain yield, or predicting yield without considering cost of inputs. Clear problem scoping defines metrics aligned with real-world farm economics and actionable interventions.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -1206,19 +1613,72 @@ print(f"Predicted yield for new field: {prediction[0]:.0f} kg/ha")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What is the first step in an ML workflow?</p>
+                    <p><strong>Q1 (Teacher Live Pipeline Leakage Demo):</strong> In the Teacher's live demonstration of agricultural data leakage, what fatal methodological error artificially inflated test R² from 0.65 to 0.98?</p>
                     <ul>
-                        <li>A) Train model</li>
-                        <li>B) Collect data</li>
-                        <li>C) Define the problem</li>
-                        <li>D) Evaluate results</li>
+                        <li>A) Fitting the StandardScaler on the entire dataset before performing the train-test split, leaking test distribution parameters (mean and variance) into the training process</li>
+                        <li>B) Using Python 3.10 instead of Python 3.8</li>
+                        <li>C) Splitting data 80/20</li>
+                        <li>D) Training a linear regression model instead of deep learning</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: C</strong> - Always start by clearly defining what problem you're solving.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Fitting the scaler on the full dataset before splitting leaked test statistics into the training fold.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Data preprocessing transformations (imputation, scaling) must learn statistics strictly from the training partition (<code>fit_transform</code> on train) and only transform the test set (<code>transform</code> on test) to prevent data leakage.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Python minor version differences do not cause mathematical data leakage.</li>
+                                <li><strong>Why C is incorrect:</strong> An 80/20 split is standard practice; the error was pre-split transformation.</li>
+                                <li><strong>Why D is incorrect:</strong> Algorithm choice has no bearing on pre-split scaling leakage.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Pipeline Forensic Audit Syndicate):</strong> During the Pipeline Flaw Detection Challenge, what critical flaw did student teams discover in a model predicting sugarcane harvest maturity?</p>
+                    <ul>
+                        <li>A) The training dataset included 'mill_delivery_weight', a variable only recorded at the factory days after harvest, making it unavailable during field prediction</li>
+                        <li>B) The target variable was numeric</li>
+                        <li>C) The features were normalized using min-max scaling</li>
+                        <li>D) The model was evaluated using RMSE</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Included 'mill_delivery_weight', a post-harvest feature unavailable at prediction runtime.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> A classic form of target leakage: using features that are collected chronologically after the event being predicted. At inference time in the field, factory delivery weight does not yet exist.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Continuous regression targets are expected to be numeric.</li>
+                                <li><strong>Why C is incorrect:</strong> Min-max scaling is valid if fitted strictly on training data.</li>
+                                <li><strong>Why D is incorrect:</strong> RMSE is a standard, appropriate evaluation metric for continuous regression.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Miniature ML Workflow, what Scikit-Learn class encapsulated feature scaling and model training into an atomic, leak-free pipeline?</p>
+                    <ul>
+                        <li>A) sklearn.pipeline.Pipeline</li>
+                        <li>B) sklearn.model_selection.GridSearchCV alone</li>
+                        <li>C) sklearn.metrics.accuracy_score</li>
+                        <li>D) sklearn.preprocessing.OneHotEncoder</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>sklearn.pipeline.Pipeline chained preprocessing transformers and estimators into a single object.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Scikit-Learn's <code>Pipeline</code> guarantees that feature scaling is re-fitted strictly on training folds during cross-validation, mathematically preventing data leakage across all workflow steps.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> GridSearchCV performs hyperparameter tuning, but requires a Pipeline to prevent internal fold leakage.</li>
+                                <li><strong>Why C is incorrect:</strong> accuracy_score is a metric function, not a workflow container.</li>
+                                <li><strong>Why D is incorrect:</strong> OneHotEncoder is a single categorical transformer.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -1240,6 +1700,32 @@ print(f"Predicted yield for new field: {prediction[0]:.0f} kg/ha")
             <div class="topic-header">
                 <h1>🌾 Linear Regression Concepts</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why is Ordinary Least Squares (OLS) regression modeled as finding a line that minimizes the sum of *squared* residuals rather than the sum of *absolute* residuals?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Squaring residuals serves two mathematical purposes: First, it treats positive and negative errors equally (canceling sign differences). Second, squaring heavily penalizes large errors (e.g., an error of 10 quintals incurs a penalty of 100, while an error of 2 incurs only 4). Furthermore, squared loss yields a smooth, continuous parabola with a closed-form analytical derivative: <code>(X^T X)^(-1) X^T y</code>.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> What does the slope coefficient (m) in a univariate linear regression equation <code>Yield = 2.4 * Fertilizer + 15</code> signify to an agronomist?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> The slope (m = 2.4) represents the marginal response rate: for every additional unit (e.g., kg/ha) of fertilizer applied, crop yield increases by an expected 2.4 quintals/ha. The intercept (15) represents baseline unfertilized soil productivity. If marginal fertilizer cost exceeds the market value of 2.4 quintals, the agronomist knows fertilizer is economically unviable.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -1400,19 +1886,72 @@ print(f"\\nPredicted yield: {prediction[0]:.0f} kg/ha")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> In y = 1500 + 15x, what does 15 represent?</p>
+                    <p><strong>Q1 (Teacher Live OLS Fitting Demo):</strong> In the Teacher's live demonstration fitting Ordinary Least Squares to cotton yield, what diagnostic residual plot confirmed that the linear regression assumptions were satisfied?</p>
                     <ul>
-                        <li>A) Base yield</li>
-                        <li>B) Increase in y per unit increase in x</li>
-                        <li>C) Total prediction</li>
-                        <li>D) Error term</li>
+                        <li>A) A residual vs predicted plot showing random scatter around zero with constant variance (homoscedasticity) and no curved patterns</li>
+                        <li>B) A residual plot forming a distinct U-shaped curve</li>
+                        <li>C) Residuals that increased exponentially with yield</li>
+                        <li>D) A plot where all residuals were exactly equal to zero</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - The coefficient (15) shows how much y changes when x increases by 1.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Residuals scattered randomly around zero with constant variance (homoscedasticity) and no curvature.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Valid OLS regression requires that residuals are normally distributed with constant variance (homoscedasticity) and exhibit no non-linear patterns. A random horizontal scatter band around zero confirms model adequacy.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> A U-shaped residual pattern indicates unmodeled non-linearity requiring polynomial terms.</li>
+                                <li><strong>Why C is incorrect:</strong> Expanding residuals indicate heteroscedasticity, violating OLS assumptions.</li>
+                                <li><strong>Why D is incorrect:</strong> Exactly zero residuals indicate pure interpolation or severe overfitting.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Multicollinearity Studio):</strong> During the Regression Assumptions Studio, what diagnostic metric flagged that 'soil_moisture_pct' and 'soil_water_tension_bars' were collinear, causing unstable regression coefficients?</p>
+                    <ul>
+                        <li>A) Variance Inflation Factor (VIF) exceeding 10.0 for both variables</li>
+                        <li>B) The p-value was exactly 0.50</li>
+                        <li>C) The R-squared was negative</li>
+                        <li>D) The number of observations was odd</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Variance Inflation Factor (VIF) > 10.0 flagged severe multicollinearity between moisture metrics.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> VIF measures how much the variance of an estimated regression coefficient increases when features are correlated. A VIF > 5–10 indicates severe multicollinearity, requiring dropping or combining redundant features.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> A p-value of 0.50 indicates statistical non-significance, not multicollinearity.</li>
+                                <li><strong>Why C is incorrect:</strong> Multicollinearity typically inflates R², it does not make it negative.</li>
+                                <li><strong>Why D is incorrect:</strong> Odd or even observation counts have zero statistical connection to multicollinearity.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Crop Yield Predictor, which Scikit-Learn attributes extracted the learned feature slope weights and baseline intercept?</p>
+                    <ul>
+                        <li>A) model.coef_ and model.intercept_</li>
+                        <li>B) model.weights_ and model.bias_</li>
+                        <li>C) model.slopes_ and model.origin_</li>
+                        <li>D) model.parameters_()</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>model.coef_ holds the slope coefficient array and model.intercept_ holds the scalar intercept.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Following Scikit-Learn convention, attributes learned during <code>fit()</code> end with a trailing underscore. In <code>LinearRegression</code>, <code>coef_</code> stores feature slopes and <code>intercept_</code> stores the baseline intercept.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> weights_ and bias_ are naming conventions used in deep learning frameworks like PyTorch, not Scikit-Learn linear models.</li>
+                                <li><strong>Why C is incorrect:</strong> slopes_ and origin_ are non-existent attributes.</li>
+                                <li><strong>Why D is incorrect:</strong> parameters_() is invalid syntax.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>

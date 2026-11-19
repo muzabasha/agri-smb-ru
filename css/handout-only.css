@@ -331,3 +331,192 @@
 .lbd-task-box strong {
     color: #0f172a;
 }
+
+/* ==========================================================================
+   REFLEXIVE QUESTIONS (Pre-Topic Discovery with Hidden Answers)
+   ========================================================================== */
+.reflexive-questions {
+    margin: 2rem 0;
+    background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+    border: 2px solid #86efac;
+    border-radius: 14px;
+    padding: 1.5rem 1.8rem;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
+}
+
+.reflexive-header h2 {
+    color: #14532d !important;
+    margin-top: 0 !important;
+    margin-bottom: 0.4rem !important;
+    font-size: 1.45rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.reflexive-subtitle {
+    color: #1e3a8a;
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem !important;
+    line-height: 1.5;
+}
+
+.reflexive-card {
+    background: #ffffff;
+    border-radius: 10px;
+    border-left: 5px solid #059669;
+    padding: 1.1rem 1.3rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.reflexive-card:last-child {
+    margin-bottom: 0;
+}
+
+.reflexive-prompt {
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.7rem !important;
+    line-height: 1.55;
+}
+
+.reflexive-details {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 0.6rem 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.reflexive-details[open] {
+    background: #f0fdf4;
+    border-color: #86efac;
+}
+
+.reflexive-details summary {
+    font-weight: 600;
+    color: #047857;
+    font-size: 0.92rem;
+    outline: none;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.reflexive-details summary:hover {
+    color: #065f46;
+}
+
+.reflexive-answer {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px dashed #cbd5e1;
+    color: #334155;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   FEEDBACK-BASED MCQs (Activity-Linked Explanations)
+   ========================================================================== */
+.quiz-section {
+    margin: 2.5rem 0;
+    background: #ffffff;
+    border-radius: 14px;
+    border: 2px solid #e2e8f0;
+    padding: 1.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.quiz-section h2 {
+    color: #0f172a !important;
+    margin-top: 0 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.quiz-intro {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem !important;
+}
+
+.quiz-question {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 1.25rem 1.4rem;
+    margin-bottom: 1.25rem;
+}
+
+.quiz-question > p:first-child {
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.75rem !important;
+}
+
+.quiz-question ul {
+    list-style: none !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    margin-bottom: 1rem !important;
+}
+
+.quiz-question ul li {
+    padding: 0.45rem 0.8rem;
+    margin-bottom: 0.4rem;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.94rem;
+    color: #334155;
+}
+
+.quiz-question details {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 0.65rem 1rem;
+    cursor: pointer;
+}
+
+.quiz-question details[open] {
+    background: #f0fdf4;
+    border-color: #22c55e;
+}
+
+.quiz-question details summary {
+    font-weight: 700;
+    color: #15803d;
+    font-size: 0.92rem;
+    outline: none;
+    user-select: none;
+}
+
+.quiz-feedback {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px dashed #86efac;
+    font-size: 0.94rem;
+    line-height: 1.6;
+    color: #1e293b;
+}
+
+.quiz-feedback ul {
+    list-style: disc !important;
+    margin-left: 1.4rem !important;
+    margin-top: 0.5rem !important;
+}
+
+.quiz-feedback ul li {
+    background: transparent !important;
+    border: none !important;
+    padding: 0.15rem 0 !important;
+    margin-bottom: 0.25rem !important;
+    color: #475569 !important;
+    font-size: 0.9rem !important;
+}

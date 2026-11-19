@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         // Monkey-patch the handout getters
-        const original Get1_1 = courseContent.getHandout1_1;
+        const originalGet1_1 = courseContent.getHandout1_1;
         courseContent.getHandout1_1 = function () {
             return getEnhancedHandout1_1();
         };

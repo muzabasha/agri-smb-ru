@@ -9,6 +9,32 @@ const module2HandoutsPart3 = {
                 <p class="duration">⏱️ Duration: 2 hours</p>
             </div>
 
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why is classifying drone imagery into 'Weed vs Crop' a supervised learning task, while segmenting a 5,000-acre farm into 'Management Zones' is an unsupervised task?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Weed classification has explicit ground truth: human agronomists label bounding boxes or pixels as 'Broadleaf Weed' or 'Soybean Seedling'. Management zoning has no predefined true labels; the algorithm performs unsupervised clustering (e.g., K-Means on EC, slope, and organic matter) to discover natural soil boundaries without human preconceptions.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> Can you use unsupervised clustering to improve a downstream supervised crop yield predictor? How?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Yes! This is 'Semi-Supervised' or 'Feature Engineering': an unsupervised algorithm (like K-Means or PCA) discovers soil zones or compresses 20 spectral bands into 3 principal components. These cluster IDs or principal components are then fed as input features into a supervised regression model, boosting predictive accuracy.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
             <div class="learning-objectives">
                 <h2>📌 Learning Objectives</h2>
                 <ul>
@@ -151,22 +177,76 @@ print("Notice how it grouped similar soil samples automatically!")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
+                
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> Which type of learning requires labeled data?</p>
+                    <p><strong>Q1 (Teacher Live Dual-Pipeline Demo):</strong> In the Teacher's live demonstration comparing a weed classifier with soil zoning, what was the primary structural difference in how data was formatted for training?</p>
                     <ul>
-                        <li>A) Reinforcement Learning</li>
-                        <li>B) Unsupervised Learning</li>
-                        <li>C) Supervised Learning</li>
-                        <li>D) Self-Supervised Learning</li>
+                        <li>A) The supervised weed classifier required input features X paired with ground-truth target labels y, while the unsupervised soil clustering model received only feature matrix X</li>
+                        <li>B) The unsupervised model required labeled target strings</li>
+                        <li>C) The supervised model could not use numbers</li>
+                        <li>D) The unsupervised model ran only on quantum hardware</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: C</strong> - Supervised learning relies on input-output pairs (labels).</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Supervised training required both features X and target labels y; unsupervised clustering required only X.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Supervised learning models learn mathematical functions mapping inputs X to known labels y (<code>model.fit(X, y)</code>). Unsupervised models discover patterns in inputs X without target labels (<code>model.fit(X)</code>).</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Unsupervised models do not use target labels.</li>
+                                <li><strong>Why C is incorrect:</strong> Supervised models natively process numerical pixel tensors.</li>
+                                <li><strong>Why D is incorrect:</strong> K-Means runs on standard CPUs and GPUs.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Learning Paradigm Selection Studio):</strong> During the Paradigm Selection Studio, a farmer cooperative requested an AI system to group 10,000 member farmers into credit-risk clusters without having historical default records. Which approach was selected?</p>
+                    <ul>
+                        <li>A) Unsupervised clustering (K-Means / DBSCAN) based on land size, crop diversity, and irrigation assets to segment farmers by structural capability</li>
+                        <li>B) Supervised binary logistic regression guessing fake default labels</li>
+                        <li>C) Reinforcement learning with cash penalties for farmers</li>
+                        <li>D) Deleting the cooperative database</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Unsupervised clustering (K-Means/DBSCAN) based on structural farm assets and diversity.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> When historical ground-truth target labels (default history) do not exist, supervised classification is mathematically impossible. Unsupervised clustering groups members by multivariate asset and operational similarity.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Inventing fake labels invalidates supervised learning and creates legal liability.</li>
+                                <li><strong>Why C is incorrect:</strong> RL with real cash penalties is unethical and financially disastrous.</li>
+                                <li><strong>Why D is incorrect:</strong> Deleting databases destroys enterprise operations.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building and comparing both paradigms, what Scikit-Learn method generated cluster assignments for the unlabeled soil dataset?</p>
+                    <ul>
+                        <li>A) kmeans.fit_predict(X_soil)</li>
+                        <li>B) kmeans.predict_proba(X_soil)</li>
+                        <li>C) kmeans.score_residuals(X_soil)</li>
+                        <li>D) kmeans.cross_validate()</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>kmeans.fit_predict(X_soil) fitted centroids and returned cluster integer assignments.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> <code>fit_predict()</code> fits cluster centroids on feature matrix X and returns cluster ID assignments (0, 1, 2...) for each row in a single convenient step.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Standard K-Means does not provide class probabilities (<code>predict_proba</code>).</li>
+                                <li><strong>Why C is incorrect:</strong> score_residuals is not a Scikit-Learn clustering method.</li>
+                                <li><strong>Why D is incorrect:</strong> cross_validate is for supervised model evaluation.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
-            
+
             <div class="summary">
                 <h2>📋 Key Takeaways</h2>
                 <ul>
@@ -184,6 +264,32 @@ print("Notice how it grouped similar soil samples automatically!")
             <div class="topic-header">
                 <h1>🌾 Train-Test Split and Validation</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why does a random train-test split (<code>train_test_split(shuffle=True)</code>) cause disastrous spatial data leakage when evaluating a crop disease detection model across adjacent farm plots?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Nearby farm plots share spatial autocorrelation (Tobler's First Law of Geography: 'everything is related to everything else, but near things are more related than distant things'). If plot A is in the train set and adjacent plot B is in the test set, the model memorizes the local soil, lighting, and seed variety. It gets 99% test accuracy but fails completely when deployed on a new farm 20 km away. Spatial block splitting must be used.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> In agricultural yield forecasting, why must the test set always be drawn from future growing seasons rather than random days within the same year?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Temporal autocorrelation! Randomly splitting days leaks future weather into the past (e.g., training on Tuesday, testing on Wednesday, training on Thursday). In production, an AI model trained on historical seasons must predict the *next* unseen year's harvest without knowing future weather.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -325,18 +431,72 @@ print(f"Train: {len(X_train_full)}, Val: {len(X_val)}, Test: {len(X_test_final)}
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
+                
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> Why do we need a test set?</p>
+                    <p><strong>Q1 (Teacher Live Spatial Leakage Demo):</strong> In the Teacher's live demonstration, what happened when crop yield data was split using random shuffling versus spatial-block splitting by distinct geographic taluks?</p>
                     <ul>
-                        <li>A) To train the model faster</li>
-                        <li>B) To evaluate performance on unseen data</li>
-                        <li>C) To fix bugs in code</li>
-                        <li>D) It's required by Python syntax</li>
+                        <li>A) Random shuffling achieved an artificially high R² of 0.94 due to spatial autocorrelation leakage, while spatial-block splitting revealed the true generalization R² was only 0.68</li>
+                        <li>B) Spatial-block splitting crashed the computer</li>
+                        <li>C) Random shuffling was 100% accurate in physical field validation</li>
+                        <li>D) Both splits yielded identical performance</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - A test set simulates real-world performance on new data the model hasn't seen during training.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Random shuffling produced inflated R² (0.94) via spatial leakage; spatial splitting exposed true generalization (0.68).</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Spatial autocorrelation leaks information between adjacent training and test plots. Evaluating on geographically separated held-out blocks provides an honest assessment of model generalization to new farms.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Spatial splitting is a grouping method and does not crash hardware.</li>
+                                <li><strong>Why C is incorrect:</strong> Models with spatial leakage fail in real-world deployments.</li>
+                                <li><strong>Why D is incorrect:</strong> Due to spatial correlation, random splits always overestimate generalization.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Multi-Season Validation Studio):</strong> During the Validation Strategy Studio, how did teams structure the validation split for a 5-year agricultural dataset (2020–2024)?</p>
+                    <ul>
+                        <li>A) Time-series split: Training on 2020–2023 historical seasons and testing strictly on the held-out 2024 season to evaluate future forecasting</li>
+                        <li>B) Randomly shuffling all 5 years together</li>
+                        <li>C) Training on 2024 and testing on 2020</li>
+                        <li>D) Deleting the 2024 data</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Temporal split: trained on 2020–2023 and tested strictly on the held-out future 2024 season.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Temporal out-of-time validation mirrors real-world deployment: models learn historical multi-season trends and must predict future harvests without hindsight leakage.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Random shuffling across years creates look-ahead temporal leakage.</li>
+                                <li><strong>Why C is incorrect:</strong> Predicting past historical data from future training data reverses temporal causality.</li>
+                                <li><strong>Why D is incorrect:</strong> Deleting held-out test years eliminates validation rigor.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task implementing a 3-way Stratified Time-Aware Split, what Scikit-Learn parameter preserved the proportion of rare crop disease cases across train and validation sets?</p>
+                    <ul>
+                        <li>A) stratify=y in train_test_split()</li>
+                        <li>B) shuffle=False</li>
+                        <li>C) random_state=None</li>
+                        <li>D) test_size=0.99</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>stratify=y preserved the exact class proportions across training and test subsets.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Stratification ensures that rare target classes (e.g., a severe crop virus present in only 2% of samples) are represented in identical proportions in both train and test splits, preventing empty test classes.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> shuffle=False maintains chronological order but does not guarantee balanced class representation.</li>
+                                <li><strong>Why C is incorrect:</strong> random_state=None creates non-reproducible randomized splits.</li>
+                                <li><strong>Why D is incorrect:</strong> test_size=0.99 leaves almost no data for training.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -357,6 +517,32 @@ print(f"Train: {len(X_train_full)}, Val: {len(X_val)}, Test: {len(X_test_final)}
             <div class="topic-header">
                 <h1>🌾 Cross-Validation Techniques</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why is standard 5-Fold Cross Validation inadequate for agricultural time series and geospatial data?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Standard K-Fold randomly shuffles samples into folds, guaranteeing spatial and temporal leakage. A training fold will contain plots immediately adjacent to test plots, or days wedged between test days. Agricultural CV requires structured partitioning: GroupKFold (grouped by farm or district) or TimeSeriesSplit (expanding historical windows).</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> What is 'Purged Group Time-Series Cross-Validation', and why is it used in commodity mandi price forecasting?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> In financial and mandi price modeling, prices exhibit autocorrelation across days. If an event occurs on day 10, its market shock echoes through day 15. Purging inserts an embargo window (e.g., 5 days) between training folds and test folds to prevent residual autoregressive memory from leaking across boundaries.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -487,18 +673,72 @@ print("\\nNote: For classification with imbalanced classes (e.g., detecting rare
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
+                
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What is the main benefit of Cross-Validation?</p>
+                    <p><strong>Q1 (Teacher Live Spatial Block CV Demo):</strong> In the Teacher's live demonstration, what Scikit-Learn cross-validator ensured that all sensor readings from the same farm plot remained together in the same fold?</p>
                     <ul>
-                        <li>A) Faster training</li>
-                        <li>B) More reliable performance estimate</li>
-                        <li>C) Smaller model size</li>
-                        <li>D) Uses less memory</li>
+                        <li>A) GroupKFold(n_splits=5) passing groups=df['plot_id']</li>
+                        <li>B) KFold(shuffle=True)</li>
+                        <li>C) StratifiedKFold without groups</li>
+                        <li>D) LeaveOneOut() with random permutation</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - It reduces the chance of "lucky" or "unlucky" data splits affecting evaluation.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>GroupKFold(n_splits=5) passing groups=df['plot_id'] kept individual plots intact within folds.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> <code>GroupKFold</code> guarantees that no group (e.g., a specific farm plot or village) is split across both train and test partitions in any fold, testing true out-of-farm generalization.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Standard KFold splits rows randomly, mixing readings from the same plot into both train and test.</li>
+                                <li><strong>Why C is incorrect:</strong> StratifiedKFold balances class labels but ignores group clustering.</li>
+                                <li><strong>Why D is incorrect:</strong> LeaveOneOut without group constraints leaks plot context on repeated measurements.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Spatial Autocorrelation Audit Syndicate):</strong> During the Spatial Leakage Audit, what metric dropped significantly when student teams shifted from standard KFold to spatial GroupKFold across 8 agro-climatic zones?</p>
+                    <ul>
+                        <li>A) Cross-validated R² dropped from an over-optimistic 0.91 to a realistic 0.72, exposing spatial over-fitting</li>
+                        <li>B) Model training time increased to 48 hours</li>
+                        <li>C) The number of rows in the dataset decreased by 50%</li>
+                        <li>D) All coefficients became negative</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>CV R² dropped from 0.91 to 0.72, exposing spatial over-fitting and revealing genuine generalization.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Spatial GroupKFold exposes the true difficulty of predicting on unseen geographical regions, stripping away the artificial score inflation caused by spatial proximity.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> GroupKFold has the same computational complexity as standard KFold.</li>
+                                <li><strong>Why C is incorrect:</strong> Cross-validation partitions data without discarding rows.</li>
+                                <li><strong>Why D is incorrect:</strong> Realistic evaluation does not arbitrarily invert model coefficient signs.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task implementing TimeSeriesSplit on daily mandi prices, how did the training window evolve across consecutive folds?</p>
+                    <ul>
+                        <li>A) It expanded incrementally forward in time (Fold 1: train on month 1, test on month 2; Fold 2: train on months 1-2, test on month 3...)</li>
+                        <li>B) It randomly sampled days across all 12 months</li>
+                        <li>C) It trained only on the last day of the year</li>
+                        <li>D) It moved backwards from December to January</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>The training window expanded forward chronologically (walk-forward validation) without look-ahead bias.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Scikit-Learn's <code>TimeSeriesSplit</code> implements rolling walk-forward validation: each successive fold trains on all available historical data up to time t and evaluates on time t+1.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Random sampling across time series introduces look-ahead bias.</li>
+                                <li><strong>Why C is incorrect:</strong> Training on a single day provides insufficient historical data.</li>
+                                <li><strong>Why D is incorrect:</strong> Moving backwards violates temporal causality.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -519,6 +759,32 @@ print("\\nNote: For classification with imbalanced classes (e.g., detecting rare
             <div class="topic-header">
                 <h1>🌾 Overfitting and Underfitting (Bias vs Variance)</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> A complex deep neural network achieves 99.9% training accuracy on a small dataset of 200 rice disease photos, but drops to 45% on photos taken by farmers in the field. What happened?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Severe Overfitting (High Variance)! With 200 photos, the complex network has millions of parameters and memorized specific background details (e.g., shadows, soil color, fingernails holding leaves) rather than invariant biological lesion features. When shown new farmer photos with different backgrounds, the overfit model fails completely.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> Why is a simple linear model that underfits crop yield (High Bias) just as dangerous for a farmer as an overfit model?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> An underfit model is too simplistic to capture real biological dynamics (e.g., assuming crop yield grows infinitely with nitrogen fertilizer). It prescribes toxic fertilizer amounts because it cannot represent the curved law of diminishing returns, leading to crop burn and economic waste.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -725,18 +991,72 @@ print("Degree 15 (Overfit): Wiggles to hit every single noise point.")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
+                
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> If your model does great on training data but fails on real-world data, it is:</p>
+                    <p><strong>Q1 (Teacher Live Polynomial Degree Demo):</strong> In the Teacher's live demonstration fitting crop yield response curves, what happened when polynomial feature degree was increased from degree 2 (quadratic) to degree 15?</p>
                     <ul>
-                        <li>A) Underfitting (High Bias)</li>
-                        <li>B) Overfitting (High Variance)</li>
-                        <li>C) Perfectly fit</li>
-                        <li>D) Broken</li>
+                        <li>A) The degree 15 model oscillated wildly between training points, achieving 0.0 training loss but catastrophic test error (severe overfitting)</li>
+                        <li>B) The degree 15 model became a straight horizontal line</li>
+                        <li>C) The training loss increased to infinity</li>
+                        <li>D) The model automatically deleted redundant features</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - Overfitting (High Variance). It has learned the "noise" of the training data.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Degree 15 model oscillated wildly, achieving zero training loss but catastrophic test error.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> High-degree polynomials have extreme variance: they contort to pass through every individual training point (including noise and outliers), producing wild fluctuations that generalize terribly to new data.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Degree 1 (linear) is a straight line; high-degree polynomials are highly curved and oscillatory.</li>
+                                <li><strong>Why C is incorrect:</strong> Higher model complexity consistently reduces or zeroes out training loss.</li>
+                                <li><strong>Why D is incorrect:</strong> Unregularized high-degree polynomials retain all polynomial terms without pruning.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Learning Curve Diagnostic Studio):</strong> During the Learning Curve Diagnostic Studio, what did a plot showing a large, persistent gap between high training score (98%) and low validation score (62%) diagnose?</p>
+                    <ul>
+                        <li>A) High Variance (Overfitting) &mdash; the model memorized the training set and failed to generalize to validation data</li>
+                        <li>B) High Bias (Underfitting)</li>
+                        <li>C) Perfect model convergence</li>
+                        <li>D) Data collection completed successfully</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>High Variance (Overfitting) indicated by a wide gap between training score and validation score.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> In learning curve diagnostics, a wide divergence between training performance and validation performance is the hallmark of high variance / overfitting. Regularization, pruning, or adding training data is required.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> High bias shows both training and validation curves converging at low accuracy.</li>
+                                <li><strong>Why C is incorrect:</strong> Convergence occurs when train and validation curves meet at a high performance plateau.</li>
+                                <li><strong>Why D is incorrect:</strong> Learning curves diagnose algorithm bias/variance, not data collection completeness.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Bias-Variance Tradeoff Experiment, how did Ridge (L2) regression cure the overfitting of the high-degree polynomial model?</p>
+                    <ul>
+                        <li>A) By adding a squared penalty on coefficient weights (alpha * sum(w²)) to the loss function, shrinking weights and smoothing the curve</li>
+                        <li>B) By multiplying all feature values by 10</li>
+                        <li>C) By deleting all input data columns</li>
+                        <li>D) By rounding all predictions to integers</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Added an L2 penalty (alpha * sum(w²)) shrinking weights and curbing wild curve oscillations.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Ridge regularization penalizes large coefficient weights in the loss function, preventing the polynomial from oscillating violently between sample points and restoring generalization balance.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Multiplying features by 10 increases numerical instability without regularizing.</li>
+                                <li><strong>Why C is incorrect:</strong> Deleting all data destroys the model.</li>
+                                <li><strong>Why D is incorrect:</strong> Integer rounding does not prevent polynomial curve oscillation during training.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -758,6 +1078,32 @@ print("Degree 15 (Overfit): Wiggles to hit every single noise point.")
             <div class="topic-header">
                 <h1>🌾 Hyperparameter Tuning</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> What is the fundamental difference between a model 'parameter' and a 'hyperparameter' in precision agriculture algorithms?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> A *parameter* is learned automatically by the algorithm from data during training (e.g., the slope weights <code>w</code> in linear regression, or split thresholds in decision trees). A *hyperparameter* is an external configuration set by the data scientist *before* training begins (e.g., <code>max_depth</code> in a decision tree, <code>learning_rate</code> in gradient boosting). Hyperparameters dictate *how* the model learns.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> Why is exhaustive Grid Search (<code>GridSearchCV</code>) computationally infeasible when tuning a Random Forest on a massive national satellite dataset, and why is <code>RandomizedSearchCV</code> or Optuna preferred?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> The 'Curse of Dimensionality'! If you test 5 parameters with 4 values each across 5-fold CV, GridSearchCV trains <code>4^5 * 5 = 5,120</code> full models. On large datasets, this takes days or weeks. RandomizedSearchCV samples a fixed budget of random parameter combinations, exploring broader parameter spaces in a fraction of the time with near-identical optimization quality.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -899,18 +1245,72 @@ print(f"Best RMSE: {np.sqrt(-grid_search.best_score_):.4f}")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
+                
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> Which parameter is NOT learned by the model during training?</p>
+                    <p><strong>Q1 (Teacher Live Search Comparison Demo):</strong> In the Teacher's live tuning demonstration on a Random Forest soil classifier, how did RandomizedSearchCV compare with GridSearchCV in runtime and accuracy?</p>
                     <ul>
-                        <li>A) Weights (Slopes)</li>
-                        <li>B) Bias (Intercept)</li>
-                        <li>C) Hyperparameters (e.g., Learning Rate)</li>
-                        <li>D) None of the above</li>
+                        <li>A) RandomizedSearchCV explored 60 diverse hyperparameter combinations in 1/8th the time of GridSearchCV, converging on an F1-score within 0.5% of exhaustive search</li>
+                        <li>B) GridSearchCV was 100x faster than RandomizedSearchCV</li>
+                        <li>C) RandomizedSearchCV generated negative accuracy scores</li>
+                        <li>D) Both methods selected identical default hyperparameters</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: C</strong> - Hyperparameters are set BEFORE training.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>RandomizedSearchCV achieved comparable accuracy in 1/8th the time by sampling parameter distributions.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Randomized search samples parameter spaces probabilistically, avoiding wasted compute on unpromising parameter neighborhoods and finding near-optimal configurations dramatically faster than exhaustive grid search.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Exhaustive grid search evaluates every combination and is vastly slower than randomized sampling.</li>
+                                <li><strong>Why C is incorrect:</strong> Randomized search optimizes the same valid evaluation metrics.</li>
+                                <li><strong>Why D is incorrect:</strong> Hyperparameter search algorithms discover optimal non-default parameters.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Grid Explosion Forensic Studio):</strong> During the Grid Explosion Audit, what mathematical calculation explained why a student group's GridSearchCV took 14 hours to run on Colab?</p>
+                    <ul>
+                        <li>A) 6 hyperparameters with 5 values each across 5 cross-validation folds = 5^6 * 5 = 78,125 model fits, overwhelming the CPU</li>
+                        <li>B) The dataset was saved in CSV format</li>
+                        <li>C) Colab disconnected the internet connection immediately</li>
+                        <li>D) The target variable had only two classes</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Combinatorial explosion: 5^6 * 5 = 78,125 fits overwhelmed the single-threaded CPU runtime.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Combinatorial explosion occurs when grid spaces multiply exponentially. Tuning 6 parameters across 5 candidate values each requires evaluating 15,625 configurations, multiplied by 5 folds = 78,125 individual training runs.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> CSV loading happens once and does not explain 14-hour model training loops.</li>
+                                <li><strong>Why C is incorrect:</strong> If Colab disconnected, execution would halt immediately rather than running for 14 hours.</li>
+                                <li><strong>Why D is incorrect:</strong> Binary classification is faster than multiclass, not slower.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task optimizing hyperparameters with Optuna, how did Bayesian Tree-structured Parzen Estimators (TPE) outperform random search?</p>
+                    <ul>
+                        <li>A) By building a probabilistic model of past trial results to intelligently sample future hyperparameters in regions with highest expected improvement</li>
+                        <li>B) By testing every parameter alphabetically</li>
+                        <li>C) By running all trials simultaneously on a single CPU core</li>
+                        <li>D) By resetting all parameters to zero after every trial</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Used Bayesian probability (TPE) to guide future trials toward promising hyperparameter regions.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Optuna's Bayesian optimization uses past trial evaluations to model the objective function landscape, directing computational budget toward hyperparameter regions with high probability of performance gain.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Hyperparameters are numeric/categorical, not searched alphabetically.</li>
+                                <li><strong>Why C is incorrect:</strong> Bayesian optimization is sequential, not brute-force concurrent single-core.</li>
+                                <li><strong>Why D is incorrect:</strong> Resetting parameters to zero discards accumulated probabilistic optimization history.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -932,6 +1332,32 @@ print(f"Best RMSE: {np.sqrt(-grid_search.best_score_):.4f}")
             <div class="topic-header">
                 <h1>🌾 Scikit-Learn Library Basics</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why is Scikit-Learn's consistent three-method API design (<code>fit()</code>, <code>transform()</code>, <code>predict()</code>) considered a masterpiece of machine learning software engineering?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Consistency enables modularity! Every estimator in Scikit-Learn follows the exact same blueprint: <code>fit(X, y)</code> estimates parameters from training data, <code>transform(X)</code> applies learned transformations to features, and <code>predict(X)</code> outputs predictions. This uniformity allows data scientists to swap a Linear Regression for a Random Forest or XGBoost by changing a single line of code without rewriting the pipeline.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> How does Scikit-Learn's <code>ColumnTransformer</code> solve the problem of processing an agricultural dataset containing mixed data types (e.g., continuous numeric soil pH and categorical village names)?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> A standard scaler cannot scale text strings, and an encoder cannot scale floats. <code>ColumnTransformer</code> routes specific column subsets to dedicated preprocessing pipelines: continuous numerical features pass through <code>StandardScaler()</code>, while categorical text strings pass through <code>OneHotEncoder()</code>. The transformed arrays are then concatenated side-by-side into a single matrix for modeling.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -1073,18 +1499,72 @@ print(f"Pipeline Prediction: {pipe.predict(new_data)[0]:.0f}")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
+                
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> Which method is used to train a model in Scikit-Learn?</p>
+                    <p><strong>Q1 (Teacher Live Pipeline Demo):</strong> In the Teacher's live demonstration, what Scikit-Learn utility routed numeric columns to StandardScaler and categorical columns to OneHotEncoder in a unified step?</p>
                     <ul>
-                        <li>A) train()</li>
-                        <li>B) fit()</li>
-                        <li>C) learn()</li>
-                        <li>D) run()</li>
+                        <li>A) sklearn.compose.ColumnTransformer</li>
+                        <li>B) sklearn.preprocessing.LabelEncoder</li>
+                        <li>C) sklearn.model_selection.train_test_split</li>
+                        <li>D) sklearn.decomposition.PCA</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - .fit(X, y) is the standard training method.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>ColumnTransformer applied distinct preprocessing transformers to specified column subsets.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> <code>ColumnTransformer</code> applies different transformers to designated column slices of an array or DataFrame, combining the outputs into a single numerical feature matrix for downstream estimators.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> LabelEncoder is for 1D target labels, not multi-column feature matrix transformations.</li>
+                                <li><strong>Why C is incorrect:</strong> train_test_split partitions rows, not column preprocessing.</li>
+                                <li><strong>Why D is incorrect:</strong> PCA performs dimensionality reduction, not mixed-type feature encoding.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Pipeline Architecture Studio):</strong> During the Architecture Studio, why did student teams wrap their preprocessing and classifier inside a Scikit-Learn <code>Pipeline</code> before passing it to <code>cross_val_score()</code>?</p>
+                    <ul>
+                        <li>A) To guarantee that preprocessing (scaling and imputation) is re-fitted strictly on training folds inside each cross-validation split, completely preventing data leakage</li>
+                        <li>B) To make the Python file smaller</li>
+                        <li>C) Because Scikit-Learn models cannot run without pipelines</li>
+                        <li>D) To convert the model to C++ automatically</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Guaranteed that preprocessing was re-fitted exclusively on training folds during CV, eliminating leakage.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Wrapping transformations and models in a <code>Pipeline</code> ensures that <code>fit()</code> and <code>transform()</code> are applied cleanly within each CV split, mathematically isolating validation data from preprocessing parameter estimation.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Pipelines add software abstraction and do not reduce file size.</li>
+                                <li><strong>Why C is incorrect:</strong> Models can be run independently, but doing so manually during CV risks leakage.</li>
+                                <li><strong>Why D is incorrect:</strong> Pipelines remain native Python/Cython code and do not transpile to C++.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building an End-to-End Scikit-Learn Pipeline, which method called on the fitted pipeline simultaneously transformed unseen field test data and generated crop yield predictions?</p>
+                    <ul>
+                        <li>A) pipeline.predict(X_test)</li>
+                        <li>B) pipeline.fit_transform(X_test)</li>
+                        <li>C) pipeline.score_test()</li>
+                        <li>D) pipeline.to_json()</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>pipeline.predict(X_test) automatically applied learned transformations before model inference.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Calling <code>.predict()</code> on a fitted pipeline automatically routes raw test inputs through all intermediate <code>transform()</code> steps using previously fitted parameters before passing the array to the final estimator's <code>predict()</code> method.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Calling <code>fit_transform</code> on test data recalculates parameters on the test set, causing data leakage.</li>
+                                <li><strong>Why C is incorrect:</strong> <code>.score_test()</code> is a fictitious method name.</li>
+                                <li><strong>Why D is incorrect:</strong> to_json() is for serializing text, not executing model inference.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -1106,6 +1586,32 @@ print(f"Pipeline Prediction: {pipe.predict(new_data)[0]:.0f}")
             <div class="topic-header">
                 <h1>🌾 Regression Model Evaluation</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why is Root Mean Squared Error (RMSE) more sensitive to catastrophic agricultural prediction errors than Mean Absolute Error (MAE)?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> MAE treats all errors linearly (an error of 10 quintals is penalized exactly twice as much as an error of 5). RMSE squares the errors before averaging: an error of 10 is penalized 100, while an error of 5 is penalized 25 (4x higher!). In commercial agriculture, predicting harvest yield off by a massive margin triggers severe supply chain default penalties; RMSE heavily penalizes these disastrous large deviations.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> Why does adding 20 useless, random noise features to a linear regression model cause standard R² to increase, and why does Adjusted R² prevent this delusion?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Mathematical mechanics of OLS! Adding any new feature—even random lottery numbers—gives the optimization slight degrees of freedom to fit random sample noise, mechanically decreasing residual sum of squares and increasing standard R². Adjusted R² penalizes model complexity by dividing by degrees of freedom: if a new feature does not improve the model more than random chance, Adjusted R² decreases.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -1247,18 +1753,72 @@ else:
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
+                
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> Which metric is easiest to explain to a non-technical farmer?</p>
+                    <p><strong>Q1 (Teacher Live Metric Demonstration):</strong> In the Teacher's live evaluation of potato yield predictions, why was RMSE reported alongside MAE when comparing a baseline linear model against a gradient boosted regressor?</p>
                     <ul>
-                        <li>A) Mean Squared Error</li>
-                        <li>B) Log Loss</li>
-                        <li>C) Mean Absolute Error (MAE)</li>
-                        <li>D) Huber Loss</li>
+                        <li>A) RMSE penalizes large outlier errors quadratically, revealing that the baseline model had occasional catastrophic mispredictions that MAE masked</li>
+                        <li>B) RMSE is always smaller than MAE</li>
+                        <li>C) MAE only works on integer numbers</li>
+                        <li>D) RMSE converts yield units from quintals into kilograms</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: C</strong> - MAE tells you the average error in actual units (e.g., "We are usually off by 50kg").</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>RMSE penalizes large errors quadratically, exposing extreme mispredictions that MAE conceals.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Because RMSE squares errors before taking the root, large discrepancies pull RMSE significantly above MAE. A large gap between RMSE and MAE indicates the presence of severe prediction outliers.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Mathematically, RMSE is always greater than or equal to MAE due to Jensen's inequality.</li>
+                                <li><strong>Why C is incorrect:</strong> MAE operates seamlessly on continuous floating-point predictions.</li>
+                                <li><strong>Why D is incorrect:</strong> RMSE retains the exact same physical measurement units as the target variable (quintals).</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Metric Selection Studio):</strong> During the Metric Trade-off Studio, why did student teams choose Mean Absolute Percentage Error (MAPE) to communicate model performance to cooperative smallholder farmers?</p>
+                    <ul>
+                        <li>A) MAPE expresses prediction error as an intuitive percentage (e.g., 'on average, predictions are within 8% of actual harvest'), making it understandable without statistical training</li>
+                        <li>B) MAPE is the only metric supported by Python</li>
+                        <li>C) MAPE guarantees zero prediction errors</li>
+                        <li>D) MAPE is immune to division-by-zero errors when yields are 0</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>MAPE communicates errors as an intuitive percentage of actual harvest volume.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> While data scientists rely on RMSE and R², non-technical agricultural stakeholders and farmers intuitively understand percentage error (e.g., 'our forecast is accurate to within ±7% of your final yield').</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Python supports dozens of regression metrics via Scikit-Learn.</li>
+                                <li><strong>Why C is incorrect:</strong> No evaluation metric guarantees zero error.</li>
+                                <li><strong>Why D is incorrect:</strong> MAPE divides by actual values, making it undefined or explosive when actual yield is zero.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Regression Metrics Calculator, which Scikit-Learn function computed the coefficient of determination (R²)?</p>
+                    <ul>
+                        <li>A) sklearn.metrics.r2_score(y_true, y_pred)</li>
+                        <li>B) sklearn.metrics.accuracy_score(y_true, y_pred)</li>
+                        <li>C) sklearn.metrics.f1_score(y_true, y_pred)</li>
+                        <li>D) sklearn.metrics.roc_auc_score(y_true, y_pred)</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>r2_score(y_true, y_pred) computed the proportion of variance explained by the regression model.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> <code>r2_score</code> calculates the coefficient of determination (1 - SS_res / SS_tot), measuring the proportion of target variance explained by model features.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> accuracy_score is strictly for categorical classification.</li>
+                                <li><strong>Why C is incorrect:</strong> f1_score evaluates harmonic precision/recall in classification.</li>
+                                <li><strong>Why D is incorrect:</strong> roc_auc_score evaluates binary classification ranking.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -1279,6 +1839,32 @@ else:
             <div class="topic-header">
                 <h1>🌾 Logistic Regression</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why can't we use standard Linear Regression to predict whether a crop plot is infected with bacterial wilt (Infected = 1, Healthy = 0)?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Linear regression fits an unbounded straight line (<code>y = mx + b</code>). For extreme feature values (e.g., very high humidity), it predicts probabilities of 1.4 or -0.3—which are mathematically impossible! Logistic Regression maps the linear combination through the non-linear Sigmoid function, bounding predictions strictly between 0.0 and 1.0 as valid probabilities.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> In agricultural disease quarantine, why should the classification decision threshold be lowered from the default 0.50 to 0.25?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Asymmetric error costs! A False Negative (failing to detect an infected crop) allows an infectious pathogen to spread across the entire district, causing total agricultural quarantine and millions in losses. A False Positive (inspecting a healthy plot) incurs only minor lab testing cost. Lowering the decision threshold to 0.25 prioritizes recall, catching every possible infection.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -1414,18 +2000,72 @@ print("(False Neg True Pos)")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
+                
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What function squashes the output between 0 and 1 in Logistic Regression?</p>
+                    <p><strong>Q1 (Teacher Live Sigmoid & Threshold Demo):</strong> In the Teacher's live demonstration of logistic regression on crop fungal stress, what mathematical function compressed the unbounded linear equation z = w*x + b into a [0, 1] probability range?</p>
                     <ul>
-                        <li>A) ReLU</li>
-                        <li>B) Sigmoid</li>
-                        <li>C) Tanh</li>
-                        <li>D) Linear</li>
+                        <li>A) The Sigmoid (logistic) function: σ(z) = 1 / (1 + e^(-z))</li>
+                        <li>B) The ReLU function: max(0, z)</li>
+                        <li>C) The Tangent function: tan(z)</li>
+                        <li>D) The absolute value function: |z|</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - The Sigmoid function (S-curve) maps any number to a probability (0-1).</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>The Sigmoid function σ(z) = 1 / (1 + e^(-z)) mapped real numbers into valid [0, 1] probabilities.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> The Sigmoid function creates an S-shaped curve that asymptotically approaches 0 at negative infinity and 1 at positive infinity, converting log-odds into well-calibrated probabilities.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> ReLU outputs unbounded positive values from 0 to infinity, not bounded probabilities.</li>
+                                <li><strong>Why C is incorrect:</strong> Tangent has vertical asymptotes and oscillates across negative/positive infinity.</li>
+                                <li><strong>Why D is incorrect:</strong> Absolute value is unbounded and cannot model binary probability transitions.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Farm Cost Asymmetry Studio):</strong> During the Farm Cost Asymmetry Studio, why did student teams adjust the logistic regression classification threshold from 0.50 down to 0.20 for detecting locust swarm infestation?</p>
+                    <ul>
+                        <li>A) Because missing a locust swarm (False Negative) leads to catastrophic crop destruction, so the model was tuned for maximum Recall over Precision</li>
+                        <li>B) To increase model execution speed on the CPU</li>
+                        <li>C) Because locusts can only be detected at 0.20 probability</li>
+                        <li>D) To reduce the number of true positive detections</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Tuned threshold to 0.20 to maximize Recall, prioritizing early swarm detection over false alarms.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> In biosecurity and disaster prevention, the cost of a False Negative vastly outweighs a False Positive. Lowering the decision threshold forces the classifier to trigger alerts even on weak warning signs.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Threshold tuning changes decision boundaries on predicted probabilities; it does not change CPU inference speed.</li>
+                                <li><strong>Why C is incorrect:</strong> Probabilities are continuous; locusts do not carry fixed probability values.</li>
+                                <li><strong>Why D is incorrect:</strong> Lowering thresholds increases true positives and false positives.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Logistic Regression Classifier, which method returned the continuous class probabilities instead of hard binary (0/1) predictions?</p>
+                    <ul>
+                        <li>A) model.predict_proba(X_test)</li>
+                        <li>B) model.predict(X_test)</li>
+                        <li>C) model.decision_function(X_test)</li>
+                        <li>D) model.score(X_test)</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>model.predict_proba(X_test) returned a 2D array of class probabilities for classes 0 and 1.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> <code>predict_proba()</code> returns the raw Sigmoid probability scores (e.g., [0.15, 0.85]), allowing data scientists to evaluate custom decision thresholds and compute ROC-AUC curves.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> <code>predict()</code> applies the fixed default 0.5 threshold and outputs hard categorical labels (0 or 1).</li>
+                                <li><strong>Why C is incorrect:</strong> <code>decision_function()</code> returns unscaled log-odds distances to the decision hyperplane.</li>
+                                <li><strong>Why D is incorrect:</strong> <code>score()</code> returns overall accuracy.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -1446,6 +2086,32 @@ print("(False Neg True Pos)")
             <div class="topic-header">
                 <h1>🌾 Decision Trees for Classification</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why are Decision Trees beloved by field agronomists and agricultural extension officers over 'black-box' deep neural networks?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Interpretability! A decision tree can be drawn as an intuitive flowchart of IF-THEN rules: <code>if soil_ph < 5.5 and drainage == 'poor' -> Waterlogging Acidosis</code>. An agronomist can inspect every branch, verify that the tree's logic aligns with plant physiology, and explain the diagnosis to a farmer in plain local language.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> If an unpruned Decision Tree is allowed to grow to infinite depth on a farm dataset of 500 plots, why will it achieve 100% training accuracy but fail miserably in the field?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> An unconstrained tree will keep splitting until every single training sample occupies its own leaf node, creating complex decision boundaries that isolate individual noisy outliers (e.g., memorizing that Plot 42 with pH 6.1 on a Tuesday had mildew). Pruning (<code>max_depth</code>, <code>min_samples_split</code>) enforces Occam's Razor, keeping only generalizable rules.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -1586,18 +2252,72 @@ plt.show()
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
+                
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What creates a new branch in a Decision Tree?</p>
+                    <p><strong>Q1 (Teacher Live Tree Pruning Demo):</strong> In the Teacher's live demonstration, how did pruning a Decision Tree (setting max_depth=4 and min_samples_leaf=10) affect its performance on unlabelled test plots?</p>
                     <ul>
-                        <li>A) A mathematical formula</li>
-                        <li>B) splitting data based on a feature value</li>
-                        <li>C) Random chance</li>
-                        <li>D) User input</li>
+                        <li>A) It eliminated over-complex leaf splits, reducing training accuracy slightly but dramatically increasing test accuracy on unseen farms</li>
+                        <li>B) It reduced both training and test accuracy to zero</li>
+                        <li>C) It converted the decision tree into a neural network</li>
+                        <li>D) It increased tree depth to 100 levels</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - The tree splits data to minimize impurity (mix of classes) in the resulting groups.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Pruning prevented overfitting on noisy outliers, trading slight training drop for higher test generalization.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Unconstrained decision trees overfit by memorizing training noise. Constraining tree growth via <code>max_depth</code> and <code>min_samples_leaf</code> regularizes the tree, enforcing simpler, more robust biological decision rules.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Pruning regularizes models; it does not destroy accuracy.</li>
+                                <li><strong>Why C is incorrect:</strong> Pruning restricts tree node expansion and has nothing to do with neural networks.</li>
+                                <li><strong>Why D is incorrect:</strong> Setting max_depth=4 caps tree depth at 4, preventing deeper growth.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Decision Rule Extraction Studio):</strong> During the Tree Interpretability Studio, which metric did the Decision Tree algorithm minimize at each node split to evaluate partition purity?</p>
+                    <ul>
+                        <li>A) Gini Impurity (or Entropy / Information Gain)</li>
+                        <li>B) R-squared</li>
+                        <li>C) Euclidean distance</li>
+                        <li>D) Mean Absolute Percentage Error</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Gini Impurity (or Entropy) measured class label homogeneity across candidate feature splits.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Classification trees evaluate candidate splits by measuring the reduction in impurity (Gini or Entropy), selecting the feature and threshold that produces the purest, most homogeneous child subsets.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> R-squared evaluates continuous regression, not categorical classification splits.</li>
+                                <li><strong>Why C is incorrect:</strong> Euclidean distance is used in K-Means clustering and KNN, not decision tree splits.</li>
+                                <li><strong>Why D is incorrect:</strong> MAPE evaluates continuous percentage errors.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Pruned Decision Tree, which Scikit-Learn function visualized the trained tree as a graphical flowchart of decision nodes?</p>
+                    <ul>
+                        <li>A) sklearn.tree.plot_tree(clf, feature_names=features, filled=True)</li>
+                        <li>B) clf.show_tree()</li>
+                        <li>C) plt.imshow(clf)</li>
+                        <li>D) clf.export_flowchart()</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>sklearn.tree.plot_tree(clf, filled=True) rendered the hierarchical node flowchart with color coding.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> <code>plot_tree()</code> renders the decision nodes, split criteria, sample counts, and dominant class colors directly onto a Matplotlib figure, providing full visual transparency into model reasoning.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> show_tree() is a fictitious method.</li>
+                                <li><strong>Why C is incorrect:</strong> plt.imshow() expects a 2D/3D image pixel array, not an estimator object.</li>
+                                <li><strong>Why D is incorrect:</strong> export_flowchart is not a valid Scikit-Learn function.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -1618,6 +2338,32 @@ plt.show()
             <div class="topic-header">
                 <h1>🌾 Feature Importance Analysis</h1>
                 <p class="duration">⏱️ Duration: 1 hour</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why is Mean Decrease in Impurity (MDI / Gini Importance) dangerously biased when analyzing agricultural datasets that contain high-cardinality features (like unique plot IDs or dates)?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> MDI evaluates how often a feature is chosen for splitting across tree nodes. High-cardinality features (like unique plot IDs or timestamps) offer countless unique numerical split points, allowing the tree to use them for easy greedy impurity reduction. MDI artificially inflates their importance to the top, even though unique IDs have zero predictive generalization on new farms! Permutation Importance solves this.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> How does Permutation Importance evaluate whether 'Soil Organic Carbon' is genuinely critical for crop yield prediction?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Permutation Importance evaluates the model on held-out validation data. It takes the 'Soil Organic Carbon' column and randomly shuffles (permutes) its values, breaking its relationship with crop yield while keeping all other columns intact. If model prediction error surges dramatically after shuffling, Soil Organic Carbon is genuinely critical; if error barely changes, the feature was redundant.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -1760,18 +2506,72 @@ print("Notice how Worker ID likely has low importance compared to physical facto
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
+                
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> Why remove low-importance features?</p>
+                    <p><strong>Q1 (Teacher Live Importance Demo):</strong> In the Teacher's live demonstration comparing MDI against Permutation Importance, what occurred when a random noise column was added to the farm dataset?</p>
                     <ul>
-                        <li>A) To make the model train faster</li>
-                        <li>B) To reduce noise and overfitting</li>
-                        <li>C) To simplify data collection</li>
-                        <li>D) All of the above</li>
+                        <li>A) Tree-based MDI incorrectly assigned substantial importance to the noise feature, while Permutation Importance correctly scored its importance as zero</li>
+                        <li>B) Both methods gave the noise column 100% importance</li>
+                        <li>C) Permutation importance crashed the runtime</li>
+                        <li>D) The random noise column improved crop yield by 20%</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: D</strong> - All correspond to valid benefits of feature selection.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>MDI over-valued the random noise column, while Permutation Importance correctly gave it near-zero importance.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Default tree feature importance (MDI) is biased toward continuous or high-cardinality noise features. Permutation importance tests real performance drops on validation data, accurately exposing useless noise.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Permutation importance tests on held-out data and rejects noise.</li>
+                                <li><strong>Why C is incorrect:</strong> Permutation testing is standard shuffle-and-predict computation and runs reliably.</li>
+                                <li><strong>Why D is incorrect:</strong> Adding synthetic noise columns has no biological effect on physical crop yield.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Agronomic Plausibility Studio):</strong> During the Domain Validation Studio, an AI model flagged 'farmer_favorite_color' as the second most important feature predicting harvest yield. What corrective action was taken?</p>
+                    <ul>
+                        <li>A) Removing the spurious feature immediately and enforcing agronomic domain plausibility screening before model finalization</li>
+                        <li>B) Publishing the finding that color directly alters plant photosynthesis</li>
+                        <li>C) Painting all tractors with the favorite color to boost harvest</li>
+                        <li>D) Multiplying the color column by 100</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Removed the spurious feature and instituted agronomic domain plausibility screening.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Spurious statistical correlations occur regularly in small agricultural datasets. Machine learning models must always undergo domain plausibility validation with agronomists to prune confounding or nonsensical features.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Farmer favorite color has zero causal relationship with plant cellular biology.</li>
+                                <li><strong>Why C is incorrect:</strong> Painting tractors based on spurious correlation is wasteful and scientifically absurd.</li>
+                                <li><strong>Why D is incorrect:</strong> Scaling spurious features exacerbates model error.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task computing Permutation Importance, which Scikit-Learn function calculated the metric on the validation dataset?</p>
+                    <ul>
+                        <li>A) sklearn.inspection.permutation_importance(model, X_val, y_val, n_repeats=10, random_state=42)</li>
+                        <li>B) model.feature_importances_()</li>
+                        <li>C) sklearn.metrics.importance_score()</li>
+                        <li>D) model.shuffle_weights()</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>permutation_importance(model, X_val, y_val, n_repeats=10) computed empirical performance drops on validation data.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> <code>permutation_importance</code> shuffles each feature column <code>n_repeats</code> times on validation data, measuring the drop in model scoring metric to deliver unbiased feature relevance rankings.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> <code>feature_importances_</code> is an attribute (not a function) and computes biased MDI on training data.</li>
+                                <li><strong>Why C is incorrect:</strong> importance_score is not a valid Scikit-Learn metric function.</li>
+                                <li><strong>Why D is incorrect:</strong> shuffle_weights is a non-existent method.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>

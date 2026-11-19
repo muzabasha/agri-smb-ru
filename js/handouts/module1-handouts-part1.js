@@ -9,6 +9,32 @@ const module1Handouts = {
                 <p class="duration">⏱️ Duration: 2 hours</p>
             </div>
 
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> An experienced agronomist can walk through a field, examine leaf curling, sniff the topsoil, and decide when to irrigate without reading a manual. Can a machine ever truly replicate or exceed this organic intuition?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Human intuition is subconscious pattern recognition developed across years of experience. An AI system does not possess biology, but it analyzes millions of spectral, meteorological, and soil telemetry data points simultaneously across entire districts without fatigue. AI excels at micro-scale precision and sub-visual physiological stress detection days before symptoms are visible to the human eye.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> If a basic program turns on a water valve when soil moisture is below 30%, is that truly 'Artificial Intelligence' or simply traditional automation?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> A fixed threshold rule (if moisture < 30: pump_on()) is classical deterministic automation. It cannot adapt to upcoming rainfall forecasts, soil compaction, or crop phenological stages. True AI learns from historical multivariate patterns to make autonomous, adaptive decisions under uncertainty.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
             <div class="learning-objectives">
                 <h2>📌 Learning Objectives</h2>
                 <ul>
@@ -201,47 +227,72 @@ print(irrigation_advisor(75, 28, False))  # Good moisture
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What is the main characteristic that defines Artificial Intelligence?</p>
+                    <p><strong>Q1 (Teacher Live Demo):</strong> During the live stress-test of smart_farm_advisor, what decision was reached when soil moisture hit 18% (critical threshold) but rain probability surged to 95% within 2 hours?</p>
                     <ul>
-                        <li>A) It uses electricity to function</li>
-                        <li>B) It simulates human intelligence in machines</li>
-                        <li>C) It is always connected to the internet</li>
-                        <li>D) It replaces all human workers</li>
+                        <li>A) Trigger emergency flood irrigation unconditionally</li>
+                        <li>B) Temporarily defer irrigation and set an automated tracking window to prevent waterlogging and reduce pumping costs</li>
+                        <li>C) Halt the Python script with an uncaught exception</li>
+                        <li>D) Apply chemical foliar spray immediately</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - AI is defined by its ability to simulate human intelligence, including learning, reasoning, and problem-solving.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: B</strong> &mdash; <em>Temporarily defer irrigation and set an automated tracking window to prevent waterlogging and reduce pumping costs.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> In the teacher's live simulation, algorithmic weighting demonstrated that irrigating right before a 95% probable downpour creates severe waterlogging, anaerobic root stress, and fertilizer leaching, while wasting pump electricity. The intelligent decision boundary temporarily defers pumping while actively tracking the precipitation timeline.</p>
+                            <ul>
+                                <li><strong>Why A is incorrect:</strong> Unconditional irrigation overrides ignore weather data, causing water wastage and root asphyxiation.</li>
+                                <li><strong>Why C is incorrect:</strong> Robust decision systems evaluate compound conditional branches without crashing.</li>
+                                <li><strong>Why D is incorrect:</strong> Foliar spray is irrelevant to resolving an acute soil moisture vs precipitation dilemma.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>Q2:</strong> An app that identifies plant diseases by analyzing leaf photos is an example of:</p>
+                    <p><strong>Q2 (Syndicate Feasibility Challenge):</strong> In the 4x4 Farm Automation Feasibility Matrix, why did automated weed eradication score lower technical readiness and higher operational risk than grain moisture verification?</p>
                     <ul>
-                        <li>A) General AI</li>
-                        <li>B) Deep Learning</li>
-                        <li>C) Super AI</li>
-                        <li>D) Manual computation</li>
+                        <li>A) Grain moisture verification requires satellites, while weed eradication uses simple switches</li>
+                        <li>B) Autonomous weed eradication requires real-time computer vision in variable outdoor lighting where misclassifying crop seedlings causes irreversible economic loss</li>
+                        <li>C) Weeds cannot be photographed under direct sunlight</li>
+                        <li>D) Grain moisture sensors require active reinforcement learning loops</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - Image recognition typically uses Deep Learning (neural networks) to analyze visual patterns in photos.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: B</strong> &mdash; <em>Autonomous weed eradication requires real-time computer vision in variable outdoor lighting where misclassifying crop seedlings causes irreversible loss.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Robotic weeders operate at the physical edge under dusty, windy, and variable illumination conditions. False positive misclassifications destroy cash crops, whereas grain moisture testing is a low-risk, stationary electrical conductivity reading.</p>
+                            <ul>
+                                <li><strong>Why A is incorrect:</strong> Grain moisture is measured with compact handheld capacitive or resistive sensors, not satellites.</li>
+                                <li><strong>Why C is incorrect:</strong> Modern computer vision models detect weeds under sunlight, but outdoor noise makes edge deployment challenging.</li>
+                                <li><strong>Why D is incorrect:</strong> Grain moisture sensing is a basic sensor transduction task requiring no RL loops.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>Q3:</strong> Which type of AI exists today and is used in agriculture?</p>
+                    <p><strong>Q3 (Individual Colab Practice):</strong> When executing diagnose_crop_stress() in Colab, what structured dictionary return indicated severe drought stress in test case 3?</p>
                     <ul>
-                        <li>A) Super AI</li>
-                        <li>B) General AI</li>
-                        <li>C) Narrow AI</li>
-                        <li>D) Conscious AI</li>
+                        <li>A) {'stress_level': 'None', 'status': 'Optimal'}</li>
+                        <li>B) {'stress_level': 'Critical', 'probable_cause': 'Soil Moisture Deficit & Vapor Pressure Deficit', 'immediate_recommendation': 'Trigger Emergency Drip Cycle'}</li>
+                        <li>C) {'status': 500, 'error': 'Timeout'}</li>
+                        <li>D) {'action': 'Apply Fungicide'}</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: C</strong> - Narrow AI (also called Weak AI) is specialized for specific tasks and is what we use today, like crop disease detection or yield prediction.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: B</strong> &mdash; <em>A dictionary returning Critical stress level, environmental cause, and immediate irrigation action.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> The individual Colab activity required implementing a structured diagnostic function returning standardized JSON/dict schemas detailing categorical stress, root causes, and agronomic action steps.</p>
+                            <ul>
+                                <li><strong>Why A is incorrect:</strong> A 'None' stress level represents healthy crop vigor, not severe drought.</li>
+                                <li><strong>Why C is incorrect:</strong> HTTP status codes reflect web server errors, not agronomic diagnostic responses.</li>
+                                <li><strong>Why D is incorrect:</strong> Applying fungicide treats fungal pathogens, not moisture-deficit drought stress.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -264,6 +315,32 @@ print(irrigation_advisor(75, 28, False))  # Good moisture
             <div class="topic-header">
                 <h1>🌾 Machine Learning Paradigms</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> When training an apprentice to identify citrus greening disease, you show thousands of labeled photographs. But when zoning an uncharted 1,000-acre agricultural valley, no labels exist. Why must machine learning treat these tasks with distinct paradigms?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Citrus greening detection is Supervised Learning: the model learns an explicit mathematical mapping between inputs (leaf pixels) and ground-truth targets (infected/healthy). Soil zoning has no predefined ground truth; it is Unsupervised Learning, where clustering algorithms group plots based on intrinsic mathematical similarities in soil texture, pH, and electrical conductivity.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> Why can't farmers use Reinforcement Learning to discover the optimal annual nitrogen fertilizer schedule through pure trial-and-error?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Reinforcement Learning requires thousands of rapid reward iterations. A farm field only provides one yield reward signal per year at harvest. Running 10,000 trial-and-error steps in real life would take 10,000 years and bankrupt the farmer on ruined harvests. Therefore, RL in agriculture is confined to computer simulations and rapid greenhouse environments.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -502,47 +579,72 @@ print(f"Best learned time: {agent.get_action()}")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> A model that learns from photos labeled "healthy crop" or "diseased crop" uses:</p>
+                    <p><strong>Q1 (Teacher Live Switchboard):</strong> During the Teacher's Live Switchboard demo, when shifting from historical yield data to unlabeled soil electrical conductivity (EC) rasters, how did the loss formulation change?</p>
                     <ul>
-                        <li>A) Unsupervised Learning</li>
-                        <li>B) Supervised Learning</li>
-                        <li>C) Reinforcement Learning</li>
-                        <li>D) No learning at all</li>
+                        <li>A) From Mean Squared Error against known harvest targets to minimizing within-cluster inertia (sum of squared distances to cluster centroids)</li>
+                        <li>B) From unsupervised clustering to supervised deep learning</li>
+                        <li>C) It remained identical because all algorithms use human ground-truth labels</li>
+                        <li>D) It switched to reward-based Q-learning</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - Supervised Learning uses labeled data (input-output pairs) to train models.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>From Mean Squared Error against targets to minimizing within-cluster inertia.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Supervised yield prediction minimizes prediction error against actual harvest numbers. Unsupervised clustering has no target labels, so its mathematical objective minimizes inertia—the geometric distance from sample points to cluster centroids.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> The transition demonstrated moving from supervised prediction to unsupervised clustering.</li>
+                                <li><strong>Why C is incorrect:</strong> Unsupervised models have no ground-truth labels.</li>
+                                <li><strong>Why D is incorrect:</strong> Q-learning is a reinforcement learning technique, not an unsupervised clustering metric.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>Q2:</strong> Automatically grouping farm plots based on soil characteristics without predefined categories is:</p>
+                    <p><strong>Q2 (Syndicate Formulation Lab):</strong> In the Multi-Modal Farm Dataset Dissection, which paradigm was chosen for training an autonomous orchard navigation robot, and why?</p>
                     <ul>
-                        <li>A) Supervised Learning</li>
-                        <li>B) Reinforcement Learning</li>
-                        <li>C) Unsupervised Learning</li>
-                        <li>D) Semi-supervised Learning</li>
+                        <li>A) Unsupervised PCA because navigation is purely about matrix dimensionality reduction</li>
+                        <li>B) Supervised Linear Regression because steering angle is a single number</li>
+                        <li>C) Reinforcement Learning because the robot learns a dynamic sequential navigation policy through real-time state-action-reward interactions</li>
+                        <li>D) Static hardcoded lookup tables</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: C</strong> - Unsupervised Learning discovers patterns and groupings in unlabeled data.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: C</strong> &mdash; <em>Reinforcement Learning because the robot learns dynamic policies via continuous state-action-reward feedback.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Orchard navigation requires continuous sequential decisions in an uncertain physical environment. The RL agent receives state observations (LiDAR, camera), executes actions (speed, steering), and receives rewards for obstacle-free path completion.</p>
+                            <ul>
+                                <li><strong>Why A is incorrect:</strong> PCA compresses feature vectors; it cannot navigate a moving vehicle.</li>
+                                <li><strong>Why B is incorrect:</strong> Linear regression cannot handle dynamic sequential decision-making in changing terrain.</li>
+                                <li><strong>Why D is incorrect:</strong> Hardcoded tables fail instantly when encountering unpredictable moving obstacles like animals or fallen branches.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>Q3:</strong> An autonomous tractor that learns the best field navigation by receiving positive feedback when it avoids obstacles uses:</p>
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your three-way agricultural paradigm simulator in Colab, what did the unsupervised K-Means module generate when given unlabeled N-P-K soil samples?</p>
                     <ul>
-                        <li>A) Supervised Learning</li>
-                        <li>B) Unsupervised Learning</li>
-                        <li>C) Deep Learning</li>
-                        <li>D) Reinforcement Learning</li>
+                        <li>A) Market price predictions in rupees per quintal</li>
+                        <li>B) Distinct management zone cluster assignments (Cluster 0, 1, 2) classifying nutrient-deficient vs fertile zones</li>
+                        <li>C) Image bounding boxes around weeds</li>
+                        <li>D) Diesel consumption rates for tractors</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: D</strong> - Reinforcement Learning involves agents learning through rewards and penalties from their actions.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: B</strong> &mdash; <em>Distinct management zone cluster assignments classifying nutrient-deficient vs fertile zones.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> The unsupervised Colab module grouped continuous multidimensional soil nutrient measurements into discrete management clusters without human intervention, defining variable fertilizer management zones.</p>
+                            <ul>
+                                <li><strong>Why A is incorrect:</strong> Price prediction is a supervised regression task.</li>
+                                <li><strong>Why C is incorrect:</strong> Bounding box localization is a supervised object detection task.</li>
+                                <li><strong>Why D is incorrect:</strong> Fuel consumption tracking is an engineering measurement or supervised regression task.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -565,6 +667,32 @@ print(f"Best learned time: {agent.get_action()}")
             <div class="topic-header">
                 <h1>🌾 History and Evolution of AI/ML</h1>
                 <p class="duration">⏱️ Duration: 1 hour</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> In the 1980s, millions of dollars were invested into agricultural Expert Systems with thousands of hand-crafted IF-THEN rules. Why did almost all of them collapse when deployed in real farming communities?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Agriculture is biologically diverse, weather-dependent, and non-linear. A rigid rule authored for clay soil in temperate zones failed completely in tropical alluvial or black cotton soils. Expert systems were brittle, unable to ingest real-time sensor streams, and broke whenever an unforeseen biological edge case arose.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> What triggered the historical 'AI Winters', and what makes modern AgriTech fundamentally immune to another total collapse?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Past AI Winters were caused by astronomical hype colliding with slow computers and virtually non-existent digital datasets. Modern AgriTech is anchored in real-world infrastructure: cheap cloud GPUs, high-resolution constellations of Earth observation satellites, low-cost IoT hardware, and proven commercial ROI.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -712,33 +840,72 @@ print(f"Best learned time: {agent.get_action()}")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> Who coined the term "Artificial Intelligence"?</p>
+                    <p><strong>Q1 (Expert Systems vs Deep Learning Face-off):</strong> In the live comparison between a 1980s expert system and a modern CNN on shadowed leaf photos, why did the expert system fail immediately?</p>
                     <ul>
-                        <li>A) Alan Turing</li>
-                        <li>B) John McCarthy</li>
-                        <li>C) Geoffrey Hinton</li>
-                        <li>D) Elon Musk</li>
+                        <li>A) It ran out of cloud GPU memory</li>
+                        <li>B) It required rigid symbolic text inputs (e.g., exact lesion diameter) and could not ingest raw spatial pixel matrices or handle lighting variations</li>
+                        <li>C) It attempted to download unsupervised datasets</li>
+                        <li>D) It required a LoRaWAN connection</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - John McCarthy coined the term at the 1956 Dartmouth Conference.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: B</strong> &mdash; <em>It required rigid symbolic text inputs and could not parse raw spatial pixel matrices or lighting variations.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> 1980s expert systems operated exclusively on manual symbolic logic (e.g., 'if spot_color == brown and diameter > 2mm'). They possessed zero capability to process raw image tensors or learn invariant spatial features.</p>
+                            <ul>
+                                <li><strong>Why A is incorrect:</strong> Expert systems ran on simple CPUs, not modern GPUs.</li>
+                                <li><strong>Why C is incorrect:</strong> Rule engines do not download or train on ML datasets.</li>
+                                <li><strong>Why D is incorrect:</strong> LoRaWAN is a modern wireless standard invented decades later.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>Q2:</strong> What event in 2012 marked the beginning of the modern AI boom?</p>
+                    <p><strong>Q2 (Forensic Post-Mortem Syndicate):</strong> What historic bottleneck identified in the syndicate audit caused early agricultural decision systems to be abandoned by farm extension services?</p>
                     <ul>
-                        <li>A) Creation of ChatGPT</li>
-                        <li>B) Deep Blue beats Kasparov</li>
-                        <li>C) AlexNet wins ImageNet</li>
-                        <li>D) First smartphone launched</li>
+                        <li>A) The Knowledge Acquisition Bottleneck—human specialists could not translate the immense complexity of agricultural ecosystems into rigid IF-THEN rules</li>
+                        <li>B) Farmers possessed too many 5G smartphones and refused desktop tools</li>
+                        <li>C) Government bans on artificial intelligence in crop production</li>
+                        <li>D) Satellite imagery was too inexpensive and flooded computer hard drives</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: C</strong> - AlexNet's victory showed deep neural networks could outperform traditional methods in image recognition.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>The Knowledge Acquisition Bottleneck—human specialists could not codify every micro-climatic exception into rules.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Codifying the intricate, dynamic interactions of plant physiology, pathology, weather, and soil chemistry into deterministic rules proved impossible. Modern ML bypassed this bottleneck by letting models extract patterns directly from sensor and image data.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Smartphones and 5G did not exist in the 1980s.</li>
+                                <li><strong>Why C is incorrect:</strong> Governments actively subsidized agricultural computerization; there was no ban.</li>
+                                <li><strong>Why D is incorrect:</strong> Commercial satellite imagery was virtually non-existent for civilian farming in that era.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> When you stress-tested your rule-based agricultural advisor with out-of-range sensor values (pH = 9.8, Moisture = 3%), what behavior occurred?</p>
+                    <ul>
+                        <li>A) The script automatically morphed into a deep neural network</li>
+                        <li>B) The program either hit an unhandled branch error or executed an inappropriate default fallback action</li>
+                        <li>C) The program calculated an optimal non-linear fertilizer curve</li>
+                        <li>D) The program initiated automated cloud model retraining</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: B</strong> &mdash; <em>The program either hit an unhandled branch error or executed an inappropriate default fallback action.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Handcrafted rule engines lack generalizability: if an agricultural situation falls outside the pre-programmed conditional logic, the code either crashes or prescribes dangerously inappropriate blanket advice.</p>
+                            <ul>
+                                <li><strong>Why A is incorrect:</strong> Rule scripts cannot autonomously rewrite their architecture into neural nets.</li>
+                                <li><strong>Why C is incorrect:</strong> Static rules cannot compute non-linear regression curves without explicit algorithmic code.</li>
+                                <li><strong>Why D is incorrect:</strong> Rule engines do not possess training pipelines or automated cloud integration.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -760,6 +927,32 @@ print(f"Best learned time: {agent.get_action()}")
             <div class="topic-header">
                 <h1>🌾 AI/ML Applications in Agriculture</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Traditional agriculture applies fertilizer uniformly across an entire 20-acre plot. Why is this uniform application both economically wasteful and environmentally harmful?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Farm soils are inherently heterogeneous in organic matter, pH, and historical nutrient retention. Uniform application over-fertilizes naturally fertile zones—wasting costly inputs and causing groundwater nitrate runoff—while under-fertilizing nutrient-deprived zones, suppressing overall yield potential.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> If an AI crop disease model detects early blight from a smartphone photo, why must the app also record GPS coordinates, timestamp, and weather conditions?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Disease epidemiology is driven by micro-climatic context. High humidity, warm temperatures, and geographical proximity to previous disease vectors determine whether a fungal spore will trigger an epidemic. Integrating spatial-temporal co-factors transforms a simple photo classifier into an intelligent regional early-warning epidemiological network.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -919,33 +1112,72 @@ print(calculate_fertilizer(zones))
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> Precision farming helps farmers by:</p>
+                    <p><strong>Q1 (Teacher Live VRA Heatmap):</strong> In the Variable-Rate Application (VRA) heatmap simulator, how did the system calculate site-specific fertilizer dosage across distinct management zones?</p>
                     <ul>
-                        <li>A) Applying same treatment to entire field</li>
-                        <li>B) Using uniform irrigation everywhere</li>
-                        <li>C) Treating different zones based on their specific needs</li>
-                        <li>D) Ignoring soil variation</li>
+                        <li>A) By applying a constant 60 kg/ha blanket rate across all grid cells</li>
+                        <li>B) By intersecting multispectral NDVI canopy vigor with baseline soil nutrient grids to generate spatial prescription dosages</li>
+                        <li>C) By maximizing fertilizer delivery to zones with highest weed infestation</li>
+                        <li>D) By randomly assigning application rates to measure plant stress</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: C</strong> - Precision farming applies variable treatments based on specific zone characteristics.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: B</strong> &mdash; <em>By intersecting multispectral NDVI canopy vigor with baseline soil nutrient grids to generate spatial prescriptions.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Variable-Rate Application works by fusing vegetative vigor rasters with underlying soil fertility maps to determine precisely where crops can convert supplemental nutrients into yield and where inputs should be moderated.</p>
+                            <ul>
+                                <li><strong>Why A is incorrect:</strong> Blanket application is the exact opposite of precision VRA technology.</li>
+                                <li><strong>Why C is incorrect:</strong> Fertilizing weeds wastes chemicals and chokes cash crops.</li>
+                                <li><strong>Why D is incorrect:</strong> Randomized application destroys commercial farm yields and is never used in precision farming.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>Q2:</strong> Which technology enables smartphone apps to identify plant diseases from photos?</p>
+                    <p><strong>Q2 (Commercial AgriTech Audit Syndicate):</strong> During the commercial platform reverse-engineering audit, what fatal operational flaw caused cloud-based real-time pest diagnosis apps to fail in rural smallholder villages?</p>
                     <ul>
-                        <li>A) GPS</li>
-                        <li>B) Bluetooth</li>
-                        <li>C) Deep Learning / CNN</li>
-                        <li>D) 5G networks</li>
+                        <li>A) Dependency on high-bandwidth, low-latency 4G/5G connectivity for cloud image inference, rendering the app unusable in remote fields without cellular reception</li>
+                        <li>B) Tractor alternators producing excessive electric voltage for phone charging</li>
+                        <li>C) Farmers refusing to take photographs of crops</li>
+                        <li>D) Camera sensors being unable to focus on green leaves</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: C</strong> - Convolutional Neural Networks (Deep Learning) analyze image patterns to identify diseases.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Dependency on high-bandwidth cloud connectivity for inference, failing in fields without network reception.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> A major hurdle in AgriTech is the rural connectivity gap. Systems that require streaming high-resolution images to cloud servers fail in remote farm locations. Successful solutions deploy quantized edge-AI models running directly on device hardware.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Tractor alternators have standard regulated 12V outputs and do not impact app design.</li>
+                                <li><strong>Why C is incorrect:</strong> Smallholder farmers readily adopt photo-based advisory tools when functional offline.</li>
+                                <li><strong>Why D is incorrect:</strong> Mobile phone camera optics easily focus on foliage.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Colab Multi-Zone Optimizer script, which mathematical constraint ensured that the aggregate water delivered to all 4 field zones did not exceed the pump's 10,000-liter capacity?</p>
+                    <ul>
+                        <li>A) An unbounded exponential expansion function</li>
+                        <li>B) A linear inequality constraint: sum(zone_flow_rates * durations) <= daily_pump_limit</li>
+                        <li>C) Dividing water equally regardless of individual soil moisture deficits</li>
+                        <li>D) Setting irrigation duration to zero when ambient temperature exceeded 25°C</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: B</strong> &mdash; <em>A linear inequality constraint ensuring total allocated water remained within the borehole pump capacity.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Agricultural resource optimization problems are framed as constrained mathematical programs: an objective function (crop yield) is maximized subject to physical boundary constraints (total available water, pump flow rate limits).</p>
+                            <ul>
+                                <li><strong>Why A is incorrect:</strong> Unbounded functions violate physical conservation laws and pump capacities.</li>
+                                <li><strong>Why C is incorrect:</strong> Equal division ignores soil moisture variations and produces waterlogging in moist zones.</li>
+                                <li><strong>Why D is incorrect:</strong> Shutting off irrigation at 25°C causes severe heat stress during normal sunny crop growth conditions.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>

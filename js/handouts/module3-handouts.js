@@ -9,6 +9,32 @@ const module3Handouts = {
                 <p class="duration">⏱️ Duration: 3 hours</p>
             </div>
 
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why is feeding raw daily temperature (°C) into a crop yield model far less predictive than transforming it into Growing Degree Days (GDD)?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Plants do not experience calendar days; they accumulate physiological thermal heat! A crop does not grow below its base temperature (e.g., 10°C for maize), and growth halts above heat stress thresholds (30°C). Growing Degree Days <code>GDD = max(0, (T_max + T_min)/2 - T_base)</code> converts calendar time into biological physiological time, directly tracking plant phenological stages.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> Why does creating rolling lagged rainfall features (e.g., rainfall over the previous 14 days) matter more for predicting harvest yield than the rainfall recorded on harvest day?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Crops have critical phenological windows (flowering, silking, grain filling). A 50mm rainfall event during flowering determines pollination success, while the same rainfall on harvest day merely delays machinery. Lagged rolling features capture moisture availability during sensitive historical growth phases that directly dictate final yield.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
             <div class="learning-objectives">
                 <h2>📌 Learning Objectives</h2>
                 <ul>
@@ -170,19 +196,72 @@ print(data.head())
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> Why do we scale features before training ML models?</p>
+                    <p><strong>Q1 (Teacher Live GDD & CWSI Demo):</strong> In the Teacher's live agro-meteorological feature engineering demo, what physiological base temperature was subtracted when computing daily Growing Degree Days (GDD) for maize?</p>
                     <ul>
-                        <li>A) To make data look prettier</li>
-                        <li>B) To ensure all features contribute equally</li>
-                        <li>C) To reduce file size</li>
-                        <li>D) It's optional and rarely needed</li>
+                        <li>A) T_base = 10.0°C, the minimum physiological threshold below which maize vegetative growth halts</li>
+                        <li>B) 0.0°C (freezing point of water)</li>
+                        <li>C) 100.0°C</li>
+                        <li>D) -10.0°C</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - Scaling ensures features with different ranges contribute equally, preventing dominance by large-value features.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>T_base = 10.0°C, the biological minimum threshold below which maize stops development.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> GDD accumulates thermal time above a species-specific baseline. For maize, biochemical enzymatic processes cease below 10°C, making T_base = 10°C the standard agronomic reference.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> 0°C is the baseline for winter wheat and cold-hardy cereals, not warm-season maize.</li>
+                                <li><strong>Why C is incorrect:</strong> 100°C is boiling point of water and lethal to all plant life.</li>
+                                <li><strong>Why D is incorrect:</strong> Negative temperatures reflect freezing conditions with zero biological growth.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Agro-Meteorological Feature Studio):</strong> During the Feature Architecture Studio, which engineered feature proved most effective at capturing acute mid-season crop water stress?</p>
+                    <ul>
+                        <li>A) Crop Water Stress Index (CWSI) computed from canopy-to-air temperature differences and Vapor Pressure Deficit (VPD)</li>
+                        <li>B) The farmer's email address length</li>
+                        <li>C) The absolute latitude integer</li>
+                        <li>D) Total historical rainfall over the last 100 years</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Crop Water Stress Index (CWSI) linking canopy temperature depression with atmospheric VPD.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> CWSI leverages thermal physics: well-watered plants transpire rapidly, evaporatively cooling leaves 2–5°C below ambient air; water-stressed plants close stomata, causing leaf temperatures to spike above air temperature.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Text string lengths have zero biological or physical relationship to crop water status.</li>
+                                <li><strong>Why C is incorrect:</strong> Raw integer latitudes ignore localized weather and soil dynamics.</li>
+                                <li><strong>Why D is incorrect:</strong> Century-long historical rainfall fails to capture acute weekly soil moisture deficits.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building an Agricultural Feature Pipeline, which Pandas expression generated a 14-day cumulative rainfall rolling feature?</p>
+                    <ul>
+                        <li>A) df['rain_14d_sum'] = df['daily_rainfall'].rolling(window=14, min_periods=1).sum()</li>
+                        <li>B) df['rain_14d_sum'] = df['daily_rainfall'] * 14</li>
+                        <li>C) df['daily_rainfall'].cumsum().tail(14)</li>
+                        <li>D) df['daily_rainfall'].shift(-14)</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>df['daily_rainfall'].rolling(window=14, min_periods=1).sum() computed the backward-looking 14-day rolling sum.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Rolling window summation aggregates the past 14 days of rainfall for each row, with <code>min_periods=1</code> ensuring valid accumulations even at the start of the time series.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Multiplying by 14 assumes identical rainfall every day.</li>
+                                <li><strong>Why C is incorrect:</strong> <code>.cumsum().tail(14)</code> extracts only the final 14 days of total cumulative annual rainfall.</li>
+                                <li><strong>Why D is incorrect:</strong> <code>.shift(-14)</code> looks 14 days into the future, creating temporal look-ahead leakage.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -204,6 +283,32 @@ print(data.head())
             <div class="topic-header">
                 <h1>🌾 Crop Yield Prediction Models</h1>
                 <p class="duration">⏱️ Duration: 3 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why do Tree Ensemble models (Random Forest and XGBoost) consistently outperform Linear Regression in predicting regional crop yields?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Agricultural yield responses are inherently non-linear and governed by complex biological interactions (e.g., high nitrogen fertilizer increases yield *only if* soil moisture is adequate, but triggers toxic salt stress if soil is dry). Linear models cannot capture these multi-way feature interactions without manual polynomial expansion, whereas Decision Trees partition feature spaces into non-linear interaction boxes automatically.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> What is the danger of relying solely on satellite NDVI to predict final harvest yield three months before harvest?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> NDVI measures green canopy biomass, not reproductive grain fill! A field can have a lush, dark-green vegetative canopy (high NDVI), but if a severe heatwave or water deficit hits during pollination/flowering, flowers abort and grain ears remain empty ('chaff'). Early NDVI must be combined with post-flowering meteorological thermal indices for accurate yield prediction.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -404,19 +509,72 @@ print(f"Predicted yield: {prediction[0]:.0f} kg/ha")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What is an ensemble model?</p>
+                    <p><strong>Q1 (Teacher Live Ensemble Comparison Demo):</strong> In the Teacher's live demonstration comparing Random Forest and Gradient Boosting on district-level soybean yield, why did Gradient Boosting achieve lower RMSE?</p>
                     <ul>
-                        <li>A) A very large single model</li>
-                        <li>B) Combination of multiple models</li>
-                        <li>C) A model that only works on images</li>
-                        <li>D) A model without training</li>
+                        <li>A) Gradient Boosting builds trees sequentially to iteratively correct the residual errors of preceding trees, capturing subtle non-linear climate thresholds</li>
+                        <li>B) Gradient Boosting runs without using any computer memory</li>
+                        <li>C) Random Forest only works on image data</li>
+                        <li>D) Gradient Boosting ignores weather data</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - Ensemble models combine predictions from multiple models for better accuracy.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Gradient Boosting sequentially minimizes residual errors, fitting complex non-linear yield responses.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> While Random Forest trains independent trees in parallel and averages them, Gradient Boosting fits successive trees to the pseudo-residuals of the loss function, steadily reducing bias on complex biological interactions.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Gradient boosting utilizes standard RAM and CPU/GPU memory.</li>
+                                <li><strong>Why C is incorrect:</strong> Random Forest is a general tabular estimator widely used across regression and classification.</li>
+                                <li><strong>Why D is incorrect:</strong> Weather features are essential inputs in crop yield gradient boosting.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Crop Model Benchmarking Studio):</strong> During the Model Benchmarking Studio, how did teams handle extreme drought years (e.g., 2016 severe monsoon failure) where crop yields plummeted by 70%?</p>
+                    <ul>
+                        <li>A) By verifying that the training set included historical drought years and applying sample weighting to prevent the ensemble from under-predicting extreme climate tail events</li>
+                        <li>B) By deleting the 2016 data as an 'unrealistic outlier'</li>
+                        <li>C) By assuming drought never happens</li>
+                        <li>D) By setting all predicted yields to the mean</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Retained extreme drought years and applied sample weighting to capture climatic tail risk.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Deleting climate shock years blinds predictive models to future drought events. Retaining extreme events with proper loss weighting ensures models learn catastrophic crop failure triggers.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Deleting extreme drought records guarantees models fail during the next climate anomaly.</li>
+                                <li><strong>Why C is incorrect:</strong> Ignoring drought risk produces catastrophic farm loan underwriting defaults.</li>
+                                <li><strong>Why D is incorrect:</strong> Mean prediction destroys all variance and predictive capability.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Crop Yield Prediction Ensemble, what Scikit-Learn class blended predictions from a Random Forest and an XGBoost model into an optimal weighted meta-model?</p>
+                    <ul>
+                        <li>A) sklearn.ensemble.VotingRegressor or StackingRegressor</li>
+                        <li>B) sklearn.neighbors.KNeighborsClassifier</li>
+                        <li>C) sklearn.cluster.KMeans</li>
+                        <li>D) sklearn.naive_bayes.GaussianNB</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>VotingRegressor or StackingRegressor combined diverse individual model predictions.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> <code>VotingRegressor</code> averages individual model predictions, while <code>StackingRegressor</code> trains a final meta-regressor on cross-validated out-of-fold predictions, leveraging complementary model strengths.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> KNeighborsClassifier is a classification algorithm, not a continuous yield meta-regressor.</li>
+                                <li><strong>Why C is incorrect:</strong> KMeans is unsupervised clustering.</li>
+                                <li><strong>Why D is incorrect:</strong> GaussianNB is a probabilistic classifier for categorical labels.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -438,6 +596,32 @@ print(f"Predicted yield: {prediction[0]:.0f} kg/ha")
             <div class="topic-header">
                 <h1>🌾 Plant Disease Detection Basics</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> A farmer observes yellowing leaves in a tomato field and assumes it is nitrogen deficiency. How can an automated diagnostic system differentiate nutrient deficiency from Early Blight fungal infection?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Symptom morphology! Nitrogen deficiency causes generalized chlorosis starting on older leaves with uniform pale yellowing along leaf margins. Early Blight (Alternaria solani) produces discrete, irregular brown necrotic lesions characterized by concentric rings ('target-board' or 'bullseye' pattern) surrounded by a yellow chlorotic halo. Computer vision models recognize these distinct spatial geometries and textures.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> Why is diagnosing crop diseases from RGB smartphone photographs taken under direct midday sun prone to severe misclassification?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Harsh direct sunlight produces intense specular reflections (glare) and deep, hard-edged shadow occlusions. Glare washes out subtle necrotic fungal discoloration, while shadows mimic dark fungal spots. AI vision pipelines must apply color normalization, shadow removal, or instruct users to capture foliage under diffuse lighting.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -648,19 +832,72 @@ for color, spots, spot_type in samples:
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What type of AI is typically used for image-based disease detection?</p>
+                    <p><strong>Q1 (Teacher Live Visual Pathology Demo):</strong> In the Teacher's live pathology demonstration, what distinct visual geometric pattern distinguished Alternaria fungal lesions from bacterial leaf spot?</p>
                     <ul>
-                        <li>A) Linear Regression</li>
-                        <li>B) Convolutional Neural Networks (CNN)</li>
-                        <li>C) Decision Trees</li>
-                        <li>D) K-Means Clustering</li>
+                        <li>A) Concentric circular rings forming a 'target-board' pattern with a surrounding yellow chlorotic halo</li>
+                        <li>B) Square pixels arranged in a checkerboard pattern</li>
+                        <li>C) Perfectly uniform leaf discoloration across all veins</li>
+                        <li>D) Pure white metallic reflections</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - CNNs are specialized for image analysis and pattern recognition.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Concentric circular rings forming a 'target-board' pattern characteristic of Alternaria fungal lesions.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Alternaria solani creates characteristic concentric dark brown rings surrounded by yellow chlorosis due to cyclical mycelial expansion and toxin release.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Biological pathogens grow in organic patterns, not artificial digital square checkerboards.</li>
+                                <li><strong>Why C is incorrect:</strong> Uniform chlorosis typically indicates systemic nutrient deficiencies, not localized fungal lesions.</li>
+                                <li><strong>Why D is incorrect:</strong> Leaves do not emit metallic reflections.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Diagnostic Decision Rules Studio):</strong> During the Pathology Studio, what environmental co-factor was integrated into the diagnostic decision engine to distinguish fungal blight from physiological drought scorching?</p>
+                    <ul>
+                        <li>A) Relative humidity history (>85% relative humidity for 48 hours strongly favors fungal spore germination over simple heat scorch)</li>
+                        <li>B) The farmer's footwear type</li>
+                        <li>C) The price of diesel fuel</li>
+                        <li>D) The day of the week</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Relative humidity history (>85% for 48 hours) confirming physiological conditions for fungal sporulation.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Fungal spores require free moisture and high humidity (>85–90%) to germinate and penetrate leaf stomata, providing a crucial environmental validation signal.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Footwear has zero physiological connection to plant pathology.</li>
+                                <li><strong>Why C is incorrect:</strong> Diesel prices do not impact microscopic fungal spores.</li>
+                                <li><strong>Why D is incorrect:</strong> Pathogens respond to biology and physics, not calendar days.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Rule-Based Crop Disease Classifier, what image feature extracted the ratio of diseased lesion pixels to total healthy green leaf area?</p>
+                    <ul>
+                        <li>A) Color thresholding in HSV color space to segment brown lesion masks vs green canopy masks</li>
+                        <li>B) Counting the number of letters in the filename</li>
+                        <li>C) Summing all raw pixel values without color conversion</li>
+                        <li>D) Converting the image to a sound file</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Segmented lesion masks versus green canopy masks using HSV color thresholding.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> HSV color space cleanly separates chromaticity (Hue) from lighting intensity (Value), allowing precise color mask thresholding to isolate brown diseased spots from healthy green tissue.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Filenames carry zero visual pixel information.</li>
+                                <li><strong>Why C is incorrect:</strong> Summing raw RGB values without thresholding yields a meaningless brightness total.</li>
+                                <li><strong>Why D is incorrect:</strong> Audio conversion is completely irrelevant to optical leaf pathology.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -682,6 +919,32 @@ for color, spots, spot_type in samples:
             <div class="topic-header">
                 <h1>🌾 Computer Vision Fundamentals</h1>
                 <p class="duration">⏱️ Duration: 3 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why is the HSV (Hue, Saturation, Value) color space far more robust than standard RGB for isolating diseased plant foliage under changing outdoor sunlight?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> In RGB, a cloud passing overhead changes all three channels (R, G, and B) simultaneously because brightness is entangled with color. In HSV, lighting intensity is isolated completely into the 'V' (Value) channel. The 'H' (Hue) channel stays constant, representing true color pigment (green foliage = Hue 35–85) regardless of whether the leaf is in direct sun or shadow.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> What role do morphological operations (Erosion and Dilation) play in cleaning noisy agricultural computer vision segmentations?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Outdoor farm images contain dust particles, camera sensor salt-and-pepper noise, and tiny dew reflections. Morphological 'Opening' (erosion followed by dilation) removes isolated noisy white speckles without altering the boundary of actual disease lesions. Morphological 'Closing' bridges tiny cracks and fills dark holes inside solid leaf contours.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -859,33 +1122,72 @@ print(f"Field Coverage: {coverage:.2f}%")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> In an RGB image, what does the value (255, 0, 0) represent?</p>
+                    <p><strong>Q1 (Teacher Live OpenCV HSV Demo):</strong> In the Teacher's live OpenCV demonstration, how was healthy green canopy segmented away from dark agricultural background soil?</p>
                     <ul>
-                        <li>A) Pure Green</li>
-                        <li>B) Pure Blue</li>
-                        <li>C) Pure Red</li>
-                        <li>D) Black</li>
+                        <li>A) By converting from BGR to HSV and thresholding Hue between 35 and 85 with cv2.inRange()</li>
+                        <li>B) By deleting all green pixels from the image</li>
+                        <li>C) By blurring the image until it became gray</li>
+                        <li>D) By setting camera exposure to zero</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: C</strong> - RGB stands for Red, Green, Blue. The first channel is Red.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Converted to HSV and applied cv2.inRange() with Hue boundaries (35 to 85) to isolate green chlorophyll.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> In OpenCV HSV (where Hue ranges from 0 to 180), green vegetation sits tightly between Hue 35 and 85, allowing robust binary thresholding of plant canopies independent of shadows.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Deleting green pixels removes the very crop canopy you intend to segment.</li>
+                                <li><strong>Why C is incorrect:</strong> Excessive blurring destroys all edge and contour resolution.</li>
+                                <li><strong>Why D is incorrect:</strong> Zero exposure produces a completely black image.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>Q2:</strong> Why do we use HSV instead of RGB for color detection?</p>
+                    <p><strong>Q2 (Morphological Filtering Studio):</strong> During the Morphological Filtering Studio, what OpenCV sequence removed tiny dust speckles and filled small holes in leaf contour masks?</p>
                     <ul>
-                        <li>A) It uses fewer bytes</li>
-                        <li>B) It separates Color (Hue) from Brightness (Value)</li>
-                        <li>C) It is the default for cameras</li>
-                        <li>D) It looks better</li>
+                        <li>A) cv2.morphologyEx() with cv2.MORPH_OPEN (remove noise) followed by cv2.MORPH_CLOSE (fill small holes)</li>
+                        <li>B) cv2.invert() twice</li>
+                        <li>C) Resizing the image to 1x1 pixel</li>
+                        <li>D) Adding Gaussian noise to the image</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - HSV makes it easier to track a color (like green) even if shadows make it darker or lighter.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>cv2.morphologyEx() applying MORPH_OPEN to strip noise and MORPH_CLOSE to close internal voids.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Morphological Opening (erode then dilate) removes tiny foreground speckles; Closing (dilate then erode) fills small holes within segmented contours, creating clean binary masks.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Inverting twice returns the original noisy image unchanged.</li>
+                                <li><strong>Why C is incorrect:</strong> Shrinking to 1x1 collapses the image to an uninformative single pixel.</li>
+                                <li><strong>Why D is incorrect:</strong> Adding noise increases image degradation rather than cleaning it.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task detecting leaf disease lesions, which OpenCV function extracted geometric contours and computed lesion surface area in pixels?</p>
+                    <ul>
+                        <li>A) contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE) followed by cv2.contourArea(cnt)</li>
+                        <li>B) cv2.imwrite('leaf.jpg', mask)</li>
+                        <li>C) cv2.waitKey(0)</li>
+                        <li>D) cv2.destroyAllWindows()</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>cv2.findContours() extracted boundary coordinates and cv2.contourArea() calculated pixel areas.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> <code>cv2.findContours()</code> traces spatial topological boundaries of segmented binary masks, and <code>cv2.contourArea()</code> integrates pixel coordinates to compute exact lesion surface area.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> imwrite writes an image file to disk without calculating contours.</li>
+                                <li><strong>Why C is incorrect:</strong> waitKey pauses execution for keyboard input.</li>
+                                <li><strong>Why D is incorrect:</strong> destroyAllWindows closes graphical UI windows.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -907,6 +1209,32 @@ print(f"Field Coverage: {coverage:.2f}%")
             <div class="topic-header">
                 <h1>🌾 CNN Introduction</h1>
                 <p class="duration">⏱️ Duration: 3 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why do Convolutional Neural Networks (CNNs) succeed in detecting microscopic leaf spots where traditional Multi-Layer Perceptrons (MLPs) fail completely?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Spatial locality and parameter sharing! An MLP flattens a 512x512 image into 262,144 independent inputs, losing all 2D spatial relationships and requiring billions of weights. A CNN slides small shared convolutional kernels (e.g., 3x3) across the image, preserving spatial neighborhood context and detecting edges, textures, and lesions regardless of where they appear on the leaf (translation invariance).</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> How do hierarchical layers in a deep CNN mirror how an agronomist visually diagnoses a sick plant?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Hierarchical feature abstraction! Early convolutional layers detect simple low-level primitives: sharp edges, color transitions, and texture gradients. Middle layers combine edges into geometric shapes (vein structures, circular lesion halos). Deep layers assemble these shapes into high-level semantic pathology concepts: 'powdery mildew mycelial patch' or 'downy mildew angular lesion'.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -1089,19 +1417,72 @@ print("""
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What does a convolutional layer do?</p>
+                    <p><strong>Q1 (Teacher Live CNN Feature Map Demo):</strong> In the Teacher's live demonstration visualizing intermediate CNN feature activations on a diseased maize leaf, what visual features were captured by the earliest convolutional layers?</p>
                     <ul>
-                        <li>A) Classifies images</li>
-                        <li>B) Detects patterns like edges and textures</li>
-                        <li>C) Reduces image size</li>
-                        <li>D) Stores images</li>
+                        <li>A) Low-level edge boundaries, high-frequency textural contrasts, and color gradients along leaf veins</li>
+                        <li>B) Fully classified disease diagnoses with confidence scores</li>
+                        <li>C) The exact date of planting</li>
+                        <li>D) An audio file of insect chewing</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - Convolutional layers use filters to detect patterns in images.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Low-level edge boundaries, vein textures, and localized color gradients.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> First-layer convolutional filters act as Gabor-like edge and color detectors, preserving high-resolution spatial details before pooling layers downsample the representation.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Semantic classification happens at the final fully-connected softmax layer, not early conv layers.</li>
+                                <li><strong>Why C is incorrect:</strong> Conv layers process visual pixels, not external planting metadata.</li>
+                                <li><strong>Why D is incorrect:</strong> Vision CNNs operate on optical images, not acoustic signals.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Convolutional Kernel Architecture Studio):</strong> During the CNN Architecture Studio, why did student teams insert MaxPooling layers (e.g., 2x2 pool with stride 2) after convolutional blocks?</p>
+                    <ul>
+                        <li>A) To downsample spatial dimensions by 50%, reducing parameter computation while conferring translation invariance</li>
+                        <li>B) To increase image resolution by 400%</li>
+                        <li>C) To convert 2D images into 3D holograms</li>
+                        <li>D) To force all weights to zero</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Downsampled spatial dimensions to reduce computation and build spatial translation invariance.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> MaxPooling extracts dominant features within pooling windows, halving spatial dimensions, expanding the receptive field of downstream layers, and making representations robust to small spatial shifts.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> MaxPooling downsamples dimensions; it does not upscale resolution.</li>
+                                <li><strong>Why C is incorrect:</strong> Pooling produces 2D feature maps, not 3D holograms.</li>
+                                <li><strong>Why D is incorrect:</strong> Zeroing weights destroys neural network representations.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Miniature Agro-CNN in PyTorch or Keras, which layer flattened the 2D feature maps before passing them into the final dense classification layer?</p>
+                    <ul>
+                        <li>A) layers.Flatten() or torch.flatten(x, 1)</li>
+                        <li>B) layers.Dropout(0.5)</li>
+                        <li>C) layers.BatchNormalization()</li>
+                        <li>D) layers.Activation('relu')</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Flatten() reshaped 3D feature tensors (channels x height x width) into a 1D vector for dense classification.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Dense (fully-connected) layers expect 1D vector inputs; <code>Flatten()</code> bridges convolutional tensor feature maps to the output classification logits.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Dropout randomly zeroes out activations during training to curb overfitting.</li>
+                                <li><strong>Why C is incorrect:</strong> BatchNormalization standardizes activations across batches.</li>
+                                <li><strong>Why D is incorrect:</strong> ReLU applies element-wise non-linear activation.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -1123,6 +1504,32 @@ print("""
             <div class="topic-header">
                 <h1>🌾 Time Series Analysis Fundamentals</h1>
                 <p class="duration">⏱️ Duration: 3 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why is an agricultural commodity price time series (e.g., onion prices at Lasalgaon Mandi) non-stationary, and why does non-stationarity destroy standard statistical forecasting models?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Non-stationarity means statistical properties (mean, variance, autocorrelation) change over time. Mandi prices exhibit strong seasonal harvest cycles, multi-year inflation trends, and extreme monsoon volatility. Classical statistical models require stationarity—constant mean and variance over time. Modeling non-stationary prices directly leads to spurious correlations and explosive forecast intervals. Stationarity is achieved through differencing (<code>diff()</code>) or log-transformation.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> How does 'Additive' versus 'Multiplicative' time series decomposition apply to seasonal agricultural rainfall and crop yield?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> In Additive decomposition <code>Y(t) = Trend + Seasonal + Residual</code>, the seasonal swings have constant amplitude regardless of the trend level. In Multiplicative decomposition <code>Y(t) = Trend * Seasonal * Residual</code>, seasonal swings expand proportionally as the trend grows (e.g., seasonal price fluctuations grow wider as overall crop value increases). Most agricultural economics follows multiplicative dynamics.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -1292,19 +1699,72 @@ print(f'After differencing p-value: {result2[1]:.4f}')
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What are the three components of a time series?</p>
+                    <p><strong>Q1 (Teacher Live Time Series Decomposition Demo):</strong> In the Teacher's live demonstration of seasonal decomposition on 10 years of onion mandi prices, what did the Augmented Dickey-Fuller (ADF) test indicate prior to differencing?</p>
                     <ul>
-                        <li>A) Mean, Median, Mode</li>
-                        <li>B) Trend, Seasonality, Noise</li>
-                        <li>C) X, Y, Z</li>
-                        <li>D) Past, Present, Future</li>
+                        <li>A) A p-value > 0.05, failing to reject the null hypothesis and confirming the price series was non-stationary with a unit root</li>
+                        <li>B) A p-value of 0.000001 proving perfect stationarity</li>
+                        <li>C) That onion prices never change</li>
+                        <li>D) That the database had zero records</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - Time series can be decomposed into trend, seasonality, and noise (residual).</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>p-value > 0.05 confirmed non-stationarity with a unit root, requiring differencing prior to modeling.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> In the ADF test, the null hypothesis states that a unit root is present (series is non-stationary). A p-value above 0.05 fails to reject the null, indicating trends or seasonality that require differencing.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Raw commodity price series with inflation trends and seasonal peaks are virtually never stationary without differencing.</li>
+                                <li><strong>Why C is incorrect:</strong> Onion markets are famous for high price volatility.</li>
+                                <li><strong>Why D is incorrect:</strong> ADF tests evaluate existing numeric series, not empty databases.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Differencing & Stationarity Studio):</strong> During the Stationarity Studio, how did student teams transform a non-stationary agricultural price series with an upward trend and expanding seasonal variance into a stationary series?</p>
+                    <ul>
+                        <li>A) Applying a logarithmic transformation to stabilize variance, followed by first-order seasonal differencing (diff(12)) to remove trend and seasonality</li>
+                        <li>B) Deleting all records from odd-numbered years</li>
+                        <li>C) Multiplying all prices by 100</li>
+                        <li>D) Replacing all prices with the average of the first month</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Log-transformation stabilized variance, and seasonal differencing (diff(12)) removed trend and seasonality.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> The classic Box-Jenkins methodology: log transformation converts multiplicative variance into additive variance, and subsequent differencing eliminates polynomial trends and annual seasonal cycles.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Deleting odd years destroys continuous chronological sequence and seasonality.</li>
+                                <li><strong>Why C is incorrect:</strong> Multiplying by a constant scalar preserves non-stationarity perfectly.</li>
+                                <li><strong>Why D is incorrect:</strong> Replacing data with a constant erases all historical price dynamics.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task performing Agro-Climatic Decomposition, which statsmodels function decomposed temperature time series into Trend, Seasonal, and Residual components?</p>
+                    <ul>
+                        <li>A) statsmodels.tsa.seasonal.seasonal_decompose(series, model='additive', period=12)</li>
+                        <li>B) statsmodels.cluster()</li>
+                        <li>C) statsmodels.ols()</li>
+                        <li>D) statsmodels.filter_zeros()</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>seasonal_decompose() extracted underlying trend, repeating seasonal cycles, and irregular residuals.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> <code>seasonal_decompose</code> applies moving averages and seasonal averaging to separate a time series into distinct additive or multiplicative Trend, Seasonal, and Residual component arrays.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> statsmodels.cluster is a non-existent method.</li>
+                                <li><strong>Why C is incorrect:</strong> ols() fits ordinary least squares regression, not seasonal time-series decomposition.</li>
+                                <li><strong>Why D is incorrect:</strong> filter_zeros is not a statsmodels decomposition function.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>

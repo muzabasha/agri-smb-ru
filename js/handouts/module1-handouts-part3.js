@@ -9,6 +9,32 @@ const module1HandoutsPart3 = {
                 <p class="duration">⏱️ Duration: 1 hour</p>
             </div>
 
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why do modern Agri-Data Scientists use cloud environments like Google Colab instead of installing Python and dependencies solely on local desktop machines?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Agricultural datasets involve heavy multi-spectral satellite rasters, high-resolution drone orthomosaics, and deep neural networks that require massive RAM and GPU acceleration. Cloud environments like Colab provide free instant access to GPUs/TPUs, eliminate operating system compatibility issues, and enable instant collaborative sharing between researchers across institutions without complex local environment configuration.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> If a cloud notebook crashes with an 'Out of Memory' (OOM) error while processing drone imagery, what architectural change should be made rather than simply rebooting?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Rebooting will only crash again at the exact same image tensor. In agricultural data engineering, OOM crashes indicate that the entire raster was loaded into RAM at once. The proper computational approach is batch processing or using windowed streaming (e.g., rasterio windowed reads / generator pipelines) to stream spatial tiles sequentially.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
             <div class="learning-objectives">
                 <h2>📌 Learning Objectives</h2>
                 <ul>
@@ -170,33 +196,72 @@ print("🚀 Your environment is ready!")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What keyboard shortcut runs a cell in Colab?</p>
+                    <p><strong>Q1 (Teacher Live GPU Demo):</strong> In the Teacher's Colab Runtime demonstration, what diagnostic bash command verified that the GPU accelerator was active and displayed available VRAM for deep learning?</p>
                     <ul>
-                        <li>A) Ctrl+C</li>
-                        <li>B) Shift+Enter</li>
-                        <li>C) Alt+R</li>
-                        <li>D) Ctrl+S</li>
+                        <li>A) !nvidia-smi</li>
+                        <li>B) !ping google.com</li>
+                        <li>C) !cat /etc/passwd</li>
+                        <li>D) !mkdir farm_data</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - Shift+Enter runs the current cell and moves to the next one.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>!nvidia-smi verified GPU driver status and memory allocation.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Running !nvidia-smi queries the NVIDIA System Management Interface in Google Colab, displaying the GPU model (e.g., T4/V100), driver version, CUDA toolkit status, and available video RAM.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Ping tests network reachability, not GPU hardware status.</li>
+                                <li><strong>Why C is incorrect:</strong> Cat /etc/passwd displays system users, unrelated to GPU acceleration.</li>
+                                <li><strong>Why D is incorrect:</strong> Mkdir creates a directory.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>Q2:</strong> What does the # symbol do in Python?</p>
+                    <p><strong>Q2 (Collaborative Cloud Studio):</strong> During the Collaborative Studio, when two researchers executed cells simultaneously in a shared Colab session, what issue was identified and resolved?</p>
                     <ul>
-                        <li>A) Multiplies numbers</li>
-                        <li>B) Creates a comment (ignored by Python)</li>
-                        <li>C) Prints output</li>
-                        <li>D) Saves the file</li>
+                        <li>A) State conflicts and variable overwriting in the shared runtime, resolved by assigning distinct variable namespaces or using independent runtime instances</li>
+                        <li>B) Hardware failure of the researcher's monitor</li>
+                        <li>C) Automatic deletion of the Google Drive account</li>
+                        <li>D) Python converting all integers to strings</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - # starts a comment, which Python ignores. Use comments to explain your code!</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>State conflicts in shared runtime, resolved by separate namespaces or independent sessions.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Colab sessions share a single active Python kernel when multiple users edit concurrently. Simultaneous execution can lead to race conditions and silent variable overwrites, requiring disciplined modular design and individual runtimes.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Software collaboration issues do not damage hardware monitors.</li>
+                                <li><strong>Why C is incorrect:</strong> Concurrent execution never deletes Google Drive accounts.</li>
+                                <li><strong>Why D is incorrect:</strong> Python's type system is unaffected by multi-user editing.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab notebook setup, which command successfully mounted your Google Drive to store agricultural datasets persistently across runtime restarts?</p>
+                    <ul>
+                        <li>A) from google.colab import drive; drive.mount('/content/drive')</li>
+                        <li>B) import os; os.delete('drive')</li>
+                        <li>C) !download all drive files</li>
+                        <li>D) google.drive.open_all()</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>from google.colab import drive; drive.mount('/content/drive') mounted persistent cloud storage.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Google Colab runtimes are ephemeral (wiped on disconnect). Persistent dataset storage requires mounting Google Drive programmatically using drive.mount().</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> There is no os.delete() function; attempting it throws an AttributeError.</li>
+                                <li><strong>Why C is incorrect:</strong> This is invalid shell syntax.</li>
+                                <li><strong>Why D is incorrect:</strong> This is a fictitious Python module call.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -219,6 +284,32 @@ print("🚀 Your environment is ready!")
             <div class="topic-header">
                 <h1>🌾 Variables and Data Types</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> If a soil pH sensor transmits the value '6.5' as a string instead of a floating-point number, why does adding 1.0 produce a runtime error in Python, and how does this affect downstream irrigation logic?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Python is strongly typed: it will not implicitly coerce a string '6.5' into a number when using the addition operator (+), raising a TypeError ('can only concatenate str to str'). If left unhandled in automated farm software, this silent type mismatch crashes the telemetry ingestion service and prevents scheduled irrigation valves from firing.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> Why should agricultural financial figures (e.g., farmer loan repayments in rupees) never be stored using standard 32-bit floating-point numbers?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Standard floating-point numbers (IEEE 754) represent decimal fractions using binary approximations, leading to small representation errors (e.g., 0.1 + 0.2 = 0.30000000000000004). In banking, agricultural subsidies, and cooperative audits, these compounding fractional errors cause legal audit discrepancies. High-precision decimal types (e.g., Python's decimal module) must be used.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -411,47 +502,72 @@ _private_data = 100     # ✅ OK - starts with underscore
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What is the type of: <code>temperature = 32.5</code>?</p>
+                    <p><strong>Q1 (Teacher Live Type Inference Demo):</strong> In the Teacher's live demonstration, what happened when raw sensor telemetry reading = '24.5' was passed into a threshold check if reading < 30 without explicit type casting?</p>
                     <ul>
-                        <li>A) int</li>
-                        <li>B) float</li>
-                        <li>C) str</li>
-                        <li>D) bool</li>
+                        <li>A) Python automatically converted it to float without any error</li>
+                        <li>B) Python 3 raised a TypeError because '<' is not supported between instances of 'str' and 'int'</li>
+                        <li>C) The threshold check always evaluated to True</li>
+                        <li>D) The computer turned off the sensor hardware</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - 32.5 has a decimal point, making it a float.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: B</strong> &mdash; <em>Python raised a TypeError because comparisons between str and int are disallowed in Python 3.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Unlike weakly typed languages, Python 3 refuses to compare strings with numerical integers, raising a TypeError. In telemetry pipelines, incoming strings must be explicitly cast via float(reading).</p>
+                            <ul>
+                                <li><strong>Why A is incorrect:</strong> Python 3 does not perform implicit string-to-numeric type coercion in comparisons.</li>
+                                <li><strong>Why C is incorrect:</strong> The statement does not evaluate; execution halts immediately with an exception.</li>
+                                <li><strong>Why D is incorrect:</strong> Software type errors do not send hardware shutdown signals to physical sensors.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>Q2:</strong> Which variable name is INVALID in Python?</p>
+                    <p><strong>Q2 (Farm Record Schema Audit Syndicate):</strong> During the Farm Record Schema Audit, which data type mapping correctly represented the attributes: plot_id ('PLT-102'), organic_certified (True), soil_ec (1.45), and tree_count (450)?</p>
                     <ul>
-                        <li>A) crop_yield</li>
-                        <li>B) _temp</li>
-                        <li>C) 2024_harvest</li>
-                        <li>D) soilPH</li>
+                        <li>A) str, bool, float, int</li>
+                        <li>B) int, str, float, bool</li>
+                        <li>C) float, bool, int, str</li>
+                        <li>D) list, tuple, set, dict</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: C</strong> - Variable names cannot start with a number.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>str for identifier, bool for certification flag, float for electrical conductivity, and int for discrete tree count.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Agricultural data schemas must rigorously align real-world properties to primitive data types: alphanumeric codes are strings, binary state flags are booleans, continuous physical measurements are floats, and discrete countable units are integers.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Plot IDs contain hyphens and cannot be integers.</li>
+                                <li><strong>Why C is incorrect:</strong> Tree counts are discrete whole numbers, not continuous floats.</li>
+                                <li><strong>Why D is incorrect:</strong> These are composite collection data structures, not primitive single-value types.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>Q3:</strong> What does <code>int("50")</code> return?</p>
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Digital Farm Profile, how did you verify that user-entered yield data was valid prior to computing average production?</p>
                     <ul>
-                        <li>A) "50"</li>
-                        <li>B) 50</li>
-                        <li>C) Error</li>
-                        <li>D) 50.0</li>
+                        <li>A) Using isinstance(yield_val, (int, float)) combined with a positive boundary check yield_val >= 0</li>
+                        <li>B) Assuming all user input is automatically correct</li>
+                        <li>C) Converting every input to a boolean value</li>
+                        <li>D) Wrapping the code in an infinite while loop</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - int() converts the string "50" to the integer 50.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Using isinstance() type verification paired with a domain boundary check (>= 0).</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Defensive agricultural programming requires validating both data types (ensuring inputs are numeric) and domain boundaries (verifying that crop yields are non-negative numbers).</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Assuming valid input leads to silent system crashes when corrupted data enters.</li>
+                                <li><strong>Why C is incorrect:</strong> Converting to boolean collapses all non-zero numbers to True, discarding numerical values.</li>
+                                <li><strong>Why D is incorrect:</strong> Infinite loops freeze execution without performing validation.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -474,6 +590,32 @@ _private_data = 100     # ✅ OK - starts with underscore
             <div class="topic-header">
                 <h1>🌾 Operators and Expressions</h1>
                 <p class="duration">⏱️ Duration: 1 hour</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why is the expression <code>if soil_moisture < 20 or forecast_rain == False and temp > 35:</code> a dangerous trap for beginner AgriTech programmers?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Operator precedence! In Python, <code>and</code> has higher precedence than <code>or</code>. The expression evaluates as <code>if soil_moisture < 20 or (forecast_rain == False and temp > 35)</code>. If soil moisture is 15%, the condition triggers irrigation even if a massive torrential rainstorm is forecasted! Defensive programming requires explicit parentheses: <code>if (soil_moisture < 20 or temp > 35) and not forecast_rain:</code>.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> In drone pesticide spraying, why is calculating spray dosage using floor division <code>//</code> versus standard true division <code>/</code> a matter of life and death for crops?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> True division (<code>/</code>) returns a continuous float (e.g., 5 / 2 = 2.5 liters/ha), allowing precise chemical calibration. Floor division (<code>//</code>) truncates fractional values to the nearest lower integer (e.g., 5 // 2 = 2). In concentrated pesticide delivery, truncating dosage or rounding up can either fail to suppress an insect infestation or burn the foliage from chemical toxicity.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -663,33 +805,72 @@ print(f"Profitable? {net_profit > 0}")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What is the result of <code>15 % 4</code>?</p>
+                    <p><strong>Q1 (Live Multi-Condition Logic Walkthrough):</strong> In the Teacher's pesticide spray window evaluator, what compound Boolean expression correctly triggered a 'SAFE_TO_SPRAY' advisory?</p>
                     <ul>
-                        <li>A) 3.75</li>
-                        <li>B) 3</li>
-                        <li>C) 4</li>
-                        <li>D) 1</li>
+                        <li>A) wind_speed < 15 and rain_prob < 20 and 15 <= temp <= 30</li>
+                        <li>B) wind_speed > 40 or rain_prob > 80</li>
+                        <li>C) not (temp == 25)</li>
+                        <li>D) wind_speed == 0 or temp == 0</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - 15 ÷ 4 = 3 remainder 3. The % operator returns the remainder.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>wind_speed < 15 and rain_prob < 20 and 15 <= temp <= 30 ensured calm winds, dry weather, and moderate temperatures.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Safe agricultural spraying requires meeting multiple physical constraints simultaneously: low wind prevents drift onto neighboring plots, low rain probability prevents wash-off, and moderate temperatures prevent pesticide vaporization.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> High winds and heavy rain guarantee chemical wash-off and environmental contamination.</li>
+                                <li><strong>Why C is incorrect:</strong> Restricting spraying to a single exact temperature is agronomically unfeasible.</li>
+                                <li><strong>Why D is incorrect:</strong> Zero wind or zero temperature are rare extremes and do not represent safe operational windows.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>Q2:</strong> What does <code>True and False</code> evaluate to?</p>
+                    <p><strong>Q2 (Fertilizer Bag Math Syndicate):</strong> During the Fertilizer Bag Math Challenge, how did student syndicates compute the exact whole 50kg bags of Urea required plus the leftover kilograms needed for a 4.5-hectare wheat crop requiring 185 kg/ha of Urea?</p>
                     <ul>
-                        <li>A) True</li>
-                        <li>B) False</li>
-                        <li>C) Error</li>
-                        <li>D) None</li>
+                        <li>A) Total bags = total_kg // 50, and remainder = total_kg % 50</li>
+                        <li>B) Total bags = total_kg ** 50, and remainder = total_kg / 50</li>
+                        <li>C) Total bags = total_kg << 50</li>
+                        <li>D) Total bags = total_kg == 50</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - AND requires both sides to be True. Since one is False, the result is False.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Floor division // calculated full 50kg bags, and modulus % calculated remaining kilograms.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Integer floor division (//) computes whole commercial package units, while the modulo operator (%) computes the exact fractional remainder required for spot application.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Exponentiation (**) produces astronomical numbers and destroys fertilizer calculations.</li>
+                                <li><strong>Why C is incorrect:</strong> Bitwise left shift (<<) is for binary manipulation, not package unit arithmetic.</li>
+                                <li><strong>Why D is incorrect:</strong> Equality comparison (==) returns a boolean True/False.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building an Automated Pesticide Spray Evaluator, how did Python evaluate the chained comparison <code>18 <= temp <= 28</code>?</p>
+                    <ul>
+                        <li>A) As <code>(18 <= temp) and (temp <= 28)</code> with lazy evaluation</li>
+                        <li>B) It threw a SyntaxError because Python does not support chained comparisons</li>
+                        <li>C) It evaluated <code>(18 <= temp)</code> to True (1), then checked <code>1 <= 28</code></li>
+                        <li>D) As a bitwise bit-shift operation</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Python natively evaluates chained comparisons as <code>(18 <= temp) and (temp <= 28)</code>.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Python uniquely supports mathematical chained comparisons, cleanly expressing environmental tolerance ranges without cumbersome repeated variable names.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Chained comparisons are standard, idiomatic Python syntax.</li>
+                                <li><strong>Why C is incorrect:</strong> Unlike C or JavaScript, Python does not coerce the first boolean into an integer to compare with the second operand.</li>
+                                <li><strong>Why D is incorrect:</strong> Chained comparison is purely logical, not bitwise manipulation.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -711,6 +892,32 @@ print(f"Profitable? {net_profit > 0}")
             <div class="topic-header">
                 <h1>🌾 Control Structures (If-Else)</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why is an agricultural greenhouse climate control system structured as an <code>if-elif-else</code> ladder rather than a series of independent <code>if</code> statements?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Independent <code>if</code> statements all execute sequentially. If heating and cooling are written as separate <code>if</code> blocks: <code>if temp < 20: heater_on()</code> followed by <code>if temp > 15: cooler_on()</code>, both can evaluate to True at 18°C! The heater and air conditioner would fight each other simultaneously, wasting energy. An <code>if-elif-else</code> ladder guarantees mutual exclusivity—exactly one action branch fires per control cycle.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> How does an emergency fail-safe in smart farming handle missing sensor data within conditional logic?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> If a sensor wire is severed, the value reads <code>None</code> or <code>NaN</code>. Evaluating <code>if temp > 40:</code> when <code>temp = None</code> throws a fatal TypeError, halting the program. Robust control architectures implement guard clauses: <code>if temp is None: trigger_sensor_fault_alert(); activate_failsafe_irrigation()</code> before executing normal operational thresholds.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -908,33 +1115,72 @@ print(f"Crop Grade: {grade}")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What keyword checks additional conditions after if?</p>
+                    <p><strong>Q1 (Live Greenhouse Controller Demo):</strong> In the Teacher's live greenhouse simulation, what architectural pattern prevented the heating and ventilation fans from running at the same time?</p>
                     <ul>
-                        <li>A) else if</li>
-                        <li>B) elif</li>
-                        <li>C) elseif</li>
-                        <li>D) otherwise</li>
+                        <li>A) An mutually exclusive if-elif-else ladder with a built-in deadband (hysteresis) zone</li>
+                        <li>B) Two separate Python scripts competing for CPU time</li>
+                        <li>C) Turning off the greenhouse electrical generator</li>
+                        <li>D) Using an infinite recursion loop</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - Python uses 'elif' (short for else-if).</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>A mutually exclusive if-elif-else ladder with a built-in deadband (hysteresis) zone.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Deadband hysteresis prevents rapid oscillation (chattering) between heating and cooling. Structuring the logic in a single if-elif-else ladder guarantees that heater and cooling actuators cannot be active concurrently.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Competing scripts cause race conditions and actuator conflicts.</li>
+                                <li><strong>Why C is incorrect:</strong> Cutting power disables all climate protection and suffocates plants.</li>
+                                <li><strong>Why D is incorrect:</strong> Infinite recursion triggers a RecursionError stack overflow.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>Q2:</strong> What is required after if/elif/else conditions in Python?</p>
+                    <p><strong>Q2 (Disaster Early Warning Decision Tree Studio):</strong> During the Early Warning Decision Tree Studio, how did student syndicates structure the priority hierarchy for cold wave frost alerts?</p>
                     <ul>
-                        <li>A) Semicolon ;</li>
-                        <li>B) Colon :</li>
-                        <li>C) Curly braces {}</li>
-                        <li>D) Nothing</li>
+                        <li>A) Checking relative humidity first and ignoring sub-zero temperatures</li>
+                        <li>B) Evaluating temperature <= 0°C at the highest priority root node, followed by wind speed and dew point depression to differentiate black frost from hoar frost</li>
+                        <li>C) Placing the emergency alert at the very bottom of an optional else block</li>
+                        <li>D) Relying solely on manual SMS messages sent by farmers</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - Python uses a colon : and indentation (spaces) for code blocks.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: B</strong> &mdash; <em>Evaluating lethal sub-zero temperature at the highest priority root node followed by micro-climate co-factors.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> In agricultural risk triage, life-threatening conditions (freezing temperatures) must sit at the top of the decision tree so emergency frost protection (sprinklers, heaters) is triggered immediately without being delayed by secondary criteria.</p>
+                            <ul>
+                                <li><strong>Why A is incorrect:</strong> Ignoring temperature during a frost event leads to total crop freezing.</li>
+                                <li><strong>Why C is incorrect:</strong> Burying emergency alerts in an optional else block guarantees warnings are never fired.</li>
+                                <li><strong>Why D is incorrect:</strong> Manual SMS is too slow to protect crops from rapid nighttime radiative freezing.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task implementing a Multi-Factor Pest Severity Classifier, what Python construct handled invalid pest count inputs (e.g., negative numbers or None values)?</p>
+                    <ul>
+                        <li>A) An initial guard clause raising or handling ValueError before proceeding to classification logic</li>
+                        <li>B) Ignoring the invalid input and classifying it as 'Low Risk'</li>
+                        <li>C) Formatting the hard drive</li>
+                        <li>D) Multiplying the negative number by zero silently</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>An initial guard clause raising or handling ValueError before classification logic.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Guard clauses at the top of functions validate inputs immediately. If invalid data enters (e.g., negative insect counts), the guard clause catches it cleanly, preventing corrupted classifications.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Treating negative counts as 'Low Risk' creates silent data corruption.</li>
+                                <li><strong>Why C is incorrect:</strong> Formatting hard drives is destructive and irrelevant to input validation.</li>
+                                <li><strong>Why D is incorrect:</strong> Silent zeroing obscures sensor telemetry failures.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -957,6 +1203,32 @@ print(f"Crop Grade: {grade}")
             <div class="topic-header">
                 <h1>🌾 Loops (For and While)</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> When iterating through 10,000 IoT soil sensor readings, why is an unbounded <code>while True:</code> loop dangerous without a defensive timeout or heartbeat break condition?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> In field deployments, if a hardware sensor disconnects or stops sending line breaks, an unbounded <code>while</code> loop with no timeout blocks CPU execution indefinitely. The application freezes, memory leaks accumulate, and downstream safety monitoring stops entirely. Industrial farm software uses watchdog timers, break conditions, and bounded <code>for</code> loops.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> How does a drone's spatial field scanning algorithm map a 2D agricultural grid into Python loops?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> A drone navigates a farm field using nested loops: an outer loop iterates across latitude transect lines (north-to-south flight lines), while an inner loop iterates across longitude waypoints (east-to-west image capture triggers). This spatial serpentine pattern guarantees complete photographic coverage with consistent 80% image overlap.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -1136,33 +1408,72 @@ for row in range(1, 4):
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> How many times does this loop run? <code>for i in range(5):</code></p>
+                    <p><strong>Q1 (Teacher Live Batch Sensor Processing):</strong> In the Teacher's live demonstration, how did the loop handle corrupted sensor readings (e.g., None or 'ERR') without crashing the entire batch processing pipeline?</p>
                     <ul>
-                        <li>A) 4 times</li>
-                        <li>B) 5 times</li>
-                        <li>C) 6 times</li>
-                        <li>D) Infinite</li>
+                        <li>A) Using the continue statement to skip corrupted entries and log a warning while processing the remaining records</li>
+                        <li>B) Using the break statement to shut down the script immediately</li>
+                        <li>C) Deleting the entire database file</li>
+                        <li>D) Multiplying the error string by 10</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - range(5) gives 0,1,2,3,4 = 5 iterations.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Using the continue statement to skip corrupted records and continue processing valid telemetry.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> The <code>continue</code> statement skips the current iteration and jumps immediately to the next loop cycle, allowing batch agricultural pipelines to process millions of valid records even if individual packets are corrupted.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> The <code>break</code> statement terminates the entire loop prematurely, leaving remaining records unparsed.</li>
+                                <li><strong>Why C is incorrect:</strong> Deleting files destroys valuable historical data.</li>
+                                <li><strong>Why D is incorrect:</strong> Multiplying error strings produces longer error strings and does not resolve the data defect.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>Q2:</strong> What does 'break' do in a loop?</p>
+                    <p><strong>Q2 (Drone Flight Path Traversal Studio):</strong> During the Spatial Grid Traversal Studio, which nested loop structure accurately simulated a serpentine (boustrophedon) drone flight path across an orchard?</p>
                     <ul>
-                        <li>A) Pauses the loop</li>
-                        <li>B) Exits the loop immediately</li>
-                        <li>C) Skips to next iteration</li>
-                        <li>D) Restarts the loop</li>
+                        <li>A) Outer loop over rows; inner loop over columns with columns reversed on alternate rows using list slicing [::-1]</li>
+                        <li>B) An infinite while loop with no coordinate increment</li>
+                        <li>C) A single for loop that only visits diagonal coordinates</li>
+                        <li>D) Randomly selecting coordinates without tracking visited waypoints</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - break exits the entire loop immediately.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Outer loop over rows; inner loop over columns with alternate rows reversed to minimize flight turns.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Serpentine lawnmower patterns fly down one crop row and up the adjacent row, reversing direction on alternating rows to conserve drone battery and prevent redundant deadhead transit flights.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Infinite loops without increments freeze the simulator at the first coordinate.</li>
+                                <li><strong>Why C is incorrect:</strong> Diagonal visits leave large unmapped triangular zones across the orchard.</li>
+                                <li><strong>Why D is incorrect:</strong> Random walks waste battery and produce chaotic gaps in aerial mapping.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a 7-Day Cumulative Revenue Tracker, what loop pattern accumulated daily mandi sales into a rolling sum?</p>
+                    <ul>
+                        <li>A) cumulative_revenue += daily_sales inside a for loop iterating over the weekly sales list</li>
+                        <li>B) cumulative_revenue = daily_sales * 7 outside any loop</li>
+                        <li>C) An empty loop that repeatedly prints 'Calculating...'</li>
+                        <li>D) Overwriting cumulative_revenue = 0 on every line</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>cumulative_revenue += daily_sales inside a for loop accumulating daily receipts.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> The accumulator pattern initializes a running total variable to zero before the loop, then uses the <code>+=</code> augmented assignment operator on each iteration to compute rolling sums.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Multiplying by 7 assumes identical sales every day, ignoring market price fluctuations.</li>
+                                <li><strong>Why C is incorrect:</strong> Empty loops perform no mathematical accumulation.</li>
+                                <li><strong>Why D is incorrect:</strong> Resetting to zero inside the loop discards all prior accumulated days.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -1184,6 +1495,32 @@ for row in range(1, 4):
             <div class="topic-header">
                 <h1>🌾 Functions and Modularity</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why is a 500-line monolithic agricultural Python script a maintenance nightmare compared to a modular codebase of small, pure functions?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Monolithic scripts couple everything together: a bug in the moisture-reading code can crash the fertilizer billing logic. Small, modular functions follow the Single Responsibility Principle: each function does exactly one thing (e.g., <code>calculate_et0()</code>, <code>check_frost_risk()</code>). They can be independently tested, reused across different farm projects, and debugged without side effects.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> What are 'pure functions' in agricultural calculations, and why are they essential for automated decision verification?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> A pure function given the same inputs always returns the exact same output and has zero side effects (it does not modify global variables, write to disk, or alter external hardware). Calculating crop water requirement <code>et0(temp, humidity, radiation)</code> should be pure: it enables researchers to verify mathematical formulas with unit tests without worrying that calling the function accidentally triggers a water valve.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -1401,33 +1738,72 @@ for key, value in result.items():
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What keyword defines a function in Python?</p>
+                    <p><strong>Q1 (Teacher Live Refactoring Demo):</strong> In the Teacher's live refactoring session, what was the primary architectural benefit of extracting inline irrigation formulas into a dedicated calculate_gdd(t_max, t_min, t_base) function?</p>
                     <ul>
-                        <li>A) function</li>
-                        <li>B) def</li>
-                        <li>C) func</li>
-                        <li>D) define</li>
+                        <li>A) Code reusability, testability, and isolated unit verification without duplicating formulas across the project</li>
+                        <li>B) Making the code run on quantum computers</li>
+                        <li>C) Increasing the file size so it looks more impressive</li>
+                        <li>D) Forcing Python to run without an operating system</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - 'def' is the keyword to define functions.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Code reusability, testability, and isolated unit testing across crop models.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Growing Degree Day (GDD) calculations are needed across phenology models, harvest forecasting, and pest emergence calculators. Encapsulating GDD logic in a single function ensures uniform agronomic math across the entire codebase.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Functions do not convert code for quantum execution.</li>
+                                <li><strong>Why C is incorrect:</strong> Good software engineering minimizes unnecessary lines of code.</li>
+                                <li><strong>Why D is incorrect:</strong> Python requires an underlying OS runtime regardless of function modularity.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>Q2:</strong> What does 'return' do in a function?</p>
+                    <p><strong>Q2 (Open-Source Agri-Python SDK Studio):</strong> During the Open-Source Agri-Python Architecture Studio, what design principle ensured that third-party farm developers could import soil utility functions without running test execution scripts accidentally?</p>
                     <ul>
-                        <li>A) Prints output</li>
-                        <li>B) Exits the program</li>
-                        <li>C) Sends a value back to the caller</li>
-                        <li>D) Repeats the function</li>
+                        <li>A) Encapsulating executable demonstration code inside the <code>if __name__ == '__main__':</code> guard block</li>
+                        <li>B) Password protecting the Python .py file</li>
+                        <li>C) Renaming all functions to single-letter names</li>
+                        <li>D) Deleting all docstrings and comments</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: C</strong> - return sends a value back and exits the function.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Encapsulating executable test scripts inside the <code>if __name__ == '__main__':</code> block.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> When a Python file is imported as a module, top-level code runs automatically unless protected by the <code>if __name__ == '__main__':</code> idiom. This ensures library functions can be imported cleanly without running demo code.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Python source files cannot be password protected from the import system.</li>
+                                <li><strong>Why C is incorrect:</strong> Single-letter function names violate PEP 8 readability standards.</li>
+                                <li><strong>Why D is incorrect:</strong> Docstrings are essential for developer documentation and do not affect module importing.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building an Agricultural Utility Module, what docstring standard provided automated parameter types, return descriptions, and usage examples?</p>
+                    <ul>
+                        <li>A) Standardized docstrings (e.g., Google or NumPy docstring format) containing Parameters, Returns, and Examples sections</li>
+                        <li>B) Writing comments in Microsoft Word and pasting screenshots</li>
+                        <li>C) Leaving the function body completely blank</li>
+                        <li>D) Encrypting docstrings with base64</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Structured Google/NumPy style docstrings defining Parameters, Types, and Returns.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Professional agricultural software libraries use standard docstring conventions (such as Google or NumPy style) to enable automated documentation generation (Sphinx) and IDE intellisense code completion.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Pasted images cannot be parsed by documentation generators or Python's help() function.</li>
+                                <li><strong>Why C is incorrect:</strong> Blank docstrings provide zero documentation to downstream developers.</li>
+                                <li><strong>Why D is incorrect:</strong> Base64 encryption prevents humans and IDE tools from reading function documentation.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -1450,6 +1826,32 @@ for key, value in result.items():
             <div class="topic-header">
                 <h1>🌾 Lists, Tuples, and Dictionaries</h1>
                 <p class="duration">⏱️ Duration: 3 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> Why would an AgriTech engineer store GPS boundary coordinates of a farm plot as a list of immutable <code>(lat, lon)</code> tuples rather than mutable lists?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Immutability protects data integrity! A farm's legal spatial boundary coordinates should never be modified accidentally during runtime analysis. Tuples <code>(12.9716, 77.5946)</code> cannot be altered, appended, or popped. Furthermore, because tuples are hashable, they can serve as dictionary keys (e.g., mapping exact GPS coordinates to soil test records).</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> When looking up the real-time sensor reading of 'Plot_742' among 100,000 plots, why is a Python dictionary vastly superior to searching through a Python list?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Time complexity! Searching a Python list requires scanning elements sequentially (O(n) linear time)—checking up to 100,000 items. A Python dictionary uses an underlying hash table to achieve O(1) constant-time lookup. Accessing <code>farm_registry['Plot_742']</code> is virtually instantaneous regardless of whether the farm has 10 plots or 10 million plots.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -1649,33 +2051,72 @@ print(f"Total farm production: {total_production} kg")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> Which collection can't be modified after creation?</p>
+                    <p><strong>Q1 (Live In-Memory Farm Database Demo):</strong> In the Teacher's live demonstration, how did the data structure choice impact the performance of retrieving crop records across 50,000 farm plots?</p>
                     <ul>
-                        <li>A) List</li>
-                        <li>B) Dictionary</li>
-                        <li>C) Tuple</li>
-                        <li>D) Set</li>
+                        <li>A) Dictionary key lookups executed in O(1) constant time, while searching an unsorted list required slow O(n) linear scans</li>
+                        <li>B) Lists were 1,000x faster than dictionaries because lists have no keys</li>
+                        <li>C) Dictionaries crashed the server due to lack of hash functions</li>
+                        <li>D) Both structures performed identically at all scales</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: C</strong> - Tuples are immutable (cannot be changed).</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Dictionary key lookups operated in O(1) constant time versus O(n) linear list scans.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Hash-based key-value lookups in Python dictionaries provide O(1) time complexity, making them the standard choice for in-memory indexing of large agricultural asset registries.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Lists require sequential linear traversal, making lookups significantly slower on large datasets.</li>
+                                <li><strong>Why C is incorrect:</strong> Python dictionaries natively implement robust built-in cryptographic hashing.</li>
+                                <li><strong>Why D is incorrect:</strong> At 50,000 elements, O(1) vs O(n) difference is orders of magnitude in execution speed.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
 
                 <div class="quiz-question">
-                    <p><strong>Q2:</strong> How do you access a dictionary value?</p>
+                    <p><strong>Q2 (Precision Farm Digital Twin Studio):</strong> During the Digital Twin Architecture Studio, which compound Python data structure was chosen to model an entire agricultural cooperative containing multiple farms, plots, and daily sensor streams?</p>
                     <ul>
-                        <li>A) dict.0</li>
-                        <li>B) dict["key"]</li>
-                        <li>C) dict(key)</li>
-                        <li>D) dict->key</li>
+                        <li>A) A dictionary of farms, where each farm contains a list of plot dictionaries, and each plot contains a list of sensor reading tuples</li>
+                        <li>B) A single flat list containing all numbers mixed together</li>
+                        <li>C) A tuple of immutable strings with no numeric values</li>
+                        <li>D) A set of random floating-point values</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - Use square brackets with the key name.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>A nested dictionary hierarchy of farms, plots, and sensor reading tuples.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Agricultural systems have natural physical hierarchies (Cooperative -> Farms -> Plots -> Sensors -> Readings). Nested dictionaries and lists mirror this taxonomy cleanly, facilitating intuitive dot/bracket data access.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Flat unstructured lists lose all relational associations between farms and sensors.</li>
+                                <li><strong>Why C is incorrect:</strong> Tuples of strings cannot store multi-level numerical telemetry.</li>
+                                <li><strong>Why D is incorrect:</strong> Sets do not preserve order, cannot store duplicates, and lack key-value mapping.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building a Farm Plot Database, which dictionary method safely retrieved the nitrogen level for 'Plot_99' without throwing a KeyError if the plot was not yet registered?</p>
+                    <ul>
+                        <li>A) farm_data.get('Plot_99', {'nitrogen': 0, 'status': 'Unregistered'})</li>
+                        <li>B) farm_data['Plot_99'] directly without error handling</li>
+                        <li>C) farm_data.delete()</li>
+                        <li>D) farm_data.keys()[99]</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>farm_data.get('Plot_99', default) returned default values safely without crashing on missing keys.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Direct bracket indexing <code>dict[key]</code> raises an unhandled KeyError when a key is absent. The <code>.get(key, default)</code> method provides defensive access, returning a sensible fallback without halting execution.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Direct bracket indexing throws an immediate KeyError on missing keys.</li>
+                                <li><strong>Why C is incorrect:</strong> There is no <code>.delete()</code> method on Python dictionaries; the keyword is <code>del</code>.</li>
+                                <li><strong>Why D is incorrect:</strong> In Python 3, <code>dict.keys()</code> returns a view object that does not support integer index slicing.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -1697,6 +2138,32 @@ print(f"Total farm production: {total_production} kg")
             <div class="topic-header">
                 <h1>🌾 String Manipulation</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> A farmer sends an SMS in Kannada or Hindi: 'ನನ್ನ ಹೊಲದಲ್ಲಿ ಎಲೆಗಳು ಹಳದಿಯಾಗುತ್ತಿವೆ' ('Leaves are turning yellow in my field'). Why can't traditional ASCII string methods process this, and how does UTF-8 encoding solve regional AgriTech communication?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> ASCII uses 7 bits and can only represent 128 English characters. Non-Latin Indian languages require Unicode (UTF-8), which uses variable multi-byte sequences (up to 4 bytes per character). AgriTech platforms serving rural smallholders must configure string pipelines with UTF-8 encoding to prevent garbled text ('mojibake') and ensure natural language queries in regional dialects are processed correctly.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> Why is parsing raw NMEA GPS sentences from tractor telemetry (<code>$GPRMC,123519,A,4807.038,N,01131.000,E...</code>) using string splitting and formatting critical for precision spraying?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Agricultural machinery communicates via standard NMEA text protocols over serial/CAN buses. The raw string contains comma-delimited tokens: fix validity, latitude, longitude, knots, and date. String parsing functions must strip whitespace, split on commas, validate the checksum token, and convert latitude/longitude from degrees-minutes format into decimal degrees for GIS mapping.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -1839,19 +2306,73 @@ print(f"Cleaned: {clean}")
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What does "hello".upper() return?</p>
+                    <p><strong>Q1 (Teacher Live NMEA GPS Parser):</strong> In the Teacher's live NMEA GPS parsing demonstration, how did the script extract decimal latitude from the raw token '1258.4567,N'?</p>
                     <ul>
-                        <li>A) "hello"</li>
-                        <li>B) "HELLO"</li>
-                        <li>C) "Hello"</li>
-                        <li>D) Error</li>
+                        <li>A) By extracting degrees via string slice [:2], converting minutes [2:] to float, dividing by 60, and summing the parts: float(lat[:2]) + float(lat[2:])/60</li>
+                        <li>B) By deleting the letter 'N' and treating the rest as a raw integer</li>
+                        <li>C) By converting the entire string into uppercase</li>
+                        <li>D) By replacing all numbers with zeroes</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - upper() converts all characters to uppercase.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Extracted 2-digit degrees, divided remaining minutes by 60, and summed into decimal degrees.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> NMEA GPS sentences format latitude as DDMM.MMMM (Degrees and Decimal Minutes). Converting to standard GIS decimal degrees requires splitting degrees from minutes, dividing minutes by 60, and applying sign based on N/S hemisphere.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Treating DDMM.MMMM as a raw integer produces coordinates hundreds of miles off target.</li>
+                                <li><strong>Why C is incorrect:</strong> Uppercase transformation does not perform coordinate math.</li>
+                                <li><strong>Why D is incorrect:</strong> Zeroing numbers annihilates the location data.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Farmer NLP & Dialect Normalization Studio):</strong> During the Farmer Text Normalization Studio, what string preprocessing sequence cleaned messy SMS inputs (e.g., '  FERTILIZER  pRiCe??? 
+') before routing to the advisory database?</p>
+                    <ul>
+                        <li>A) text.strip().lower().replace('?', '') to remove whitespace, normalize casing, and strip punctuation</li>
+                        <li>B) text.upper() without removing punctuation or trailing whitespace</li>
+                        <li>C) Reversing the string backwards</li>
+                        <li>D) Multiplying the string by 3</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Chained .strip().lower().replace() to clean whitespace, standardize case, and sanitize punctuation.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Text preprocessing pipelines standardize user input by stripping leading/trailing whitespace and newlines, lowercasing all tokens, and removing extraneous punctuation to enable reliable keyword lookup.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Uppercasing leaves whitespace and punctuation intact, causing database query mismatches.</li>
+                                <li><strong>Why C is incorrect:</strong> Reversing strings turns text into unreadable gibberish.</li>
+                                <li><strong>Why D is incorrect:</strong> String multiplication repeats errors without cleaning data.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building an Automated Weather Alert & SMS Advisory Generator, what Python feature constructed multi-variable messages cleanly?</p>
+                    <ul>
+                        <li>A) Formatted string literals (f-strings) like f'Alert: {crop} in plot {plot_id} faces {temp}°C heat stress!'</li>
+                        <li>B) Manually concatenating 20 separate string variables using the + operator</li>
+                        <li>C) Writing messages on paper and scanning them</li>
+                        <li>D) Printing the variable names without their values</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Python f-strings (f'...') interpolating dynamic variables directly into the message template.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> F-strings (formatted string literals) provide readable, performant, and maintainable string interpolation in Python, allowing expressions and variables to be embedded directly within string templates.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Manual + concatenation is brittle, verbose, and requires repetitive str() type casting.</li>
+                                <li><strong>Why C is incorrect:</strong> Manual paper scanning cannot be automated in software.</li>
+                                <li><strong>Why D is incorrect:</strong> Printing variable names fails to deliver actual sensor values to farmers.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -1872,6 +2393,32 @@ print(f"Cleaned: {clean}")
             <div class="topic-header">
                 <h1>🌾 File Handling Basics</h1>
                 <p class="duration">⏱️ Duration: 2 hours</p>
+            </div>
+
+<!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
+            <div class="reflexive-questions">
+                <div class="reflexive-header">
+                    <h2><i class="fas fa-brain"></i> 🤔 Reflexive Questions (Think Before You Learn)</h2>
+                    <p class="reflexive-subtitle">Pause and ponder these real-world dilemmas before exploring the concepts. Formulate your intuition, then click to reveal the deeper insight.</p>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 1:</strong> If a background Python process writes real-time greenhouse sensor data to a CSV file every 10 seconds, what happens if the server loses power while the file is opened with standard <code>open()</code> without a <code>with</code> context manager?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> If power cuts while a file buffer is held in memory, the operating system never writes the buffer to physical disk, resulting in a zero-byte corrupted file and total data loss. Using <code>with open(...) as f:</code> ensures that context managers flush buffers and close file descriptors automatically, even during unexpected power cuts or runtime exceptions.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="reflexive-card">
+                    <p class="reflexive-prompt"><strong>🤔 Reflection 2:</strong> Why do large-scale agricultural monitoring systems prefer appending (<code>mode='a'</code>) to daily rotating log files rather than overwriting (<code>mode='w'</code>) or loading giant single files?</p>
+                    <details class="reflexive-details">
+                        <summary><i class="fas fa-lightbulb"></i> Click to Reveal Perspective &amp; Intuition</summary>
+                        <div class="reflexive-answer">
+                            <p><strong>Agronomic &amp; Computational Insight:</strong> Overwriting (<code>mode='w'</code>) destroys historical records instantly upon opening. Conversely, loading a multi-gigabyte monolithic file into memory just to add one sensor row causes memory exhaustion. Appending (<code>mode='a'</code>) appends new telemetry rows directly to the end of the file on disk in O(1) time without reading previous data, preserving continuous immutable audit logs.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
             <div class="learning-objectives">
@@ -2024,19 +2571,72 @@ with open("crops.csv", "r") as file:
             </div>
 
             <div class="quiz-section">
-                <h2>📝 Knowledge Check</h2>
+                <h2>📝 Knowledge Check: Activity-Based Feedback MCQs</h2>
+                <p class="quiz-intro">Test your understanding of the simulations, multi-tier architectures, and edge cases examined in this topic's Learn by Doing hub.</p>
                 
                 <div class="quiz-question">
-                    <p><strong>Q1:</strong> What does the 'w' mode do when opening a file?</p>
+                    <p><strong>Q1 (Teacher Live Telemetry Context Management):</strong> In the Teacher's live demonstration of telemetry file I/O, what construct guaranteed that the sensor data file closed properly even when an unhandled exception occurred during writing?</p>
                     <ul>
-                        <li>A) Read only</li>
-                        <li>B) Write (creates or overwrites)</li>
-                        <li>C) Append</li>
-                        <li>D) Execute</li>
+                        <li>A) The with open(...) as file_handle: context manager block</li>
+                        <li>B) Calling file_handle.close() at the very end of the script after the error</li>
+                        <li>C) Relying on the Windows or Linux OS to close files eventually</li>
+                        <li>D) Turning off the computer monitor</li>
                     </ul>
                     <details>
-                        <summary>Show Answer</summary>
-                        <p><strong>Answer: B</strong> - 'w' opens for writing, creating or overwriting the file.</p>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>The with context manager guaranteed automated file flushing and closing under all conditions.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Python's <code>with</code> statement implements context management protocols (__enter__ and __exit__). It guarantees that file handles are safely closed and buffers flushed, even if catastrophic exceptions occur inside the block.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> If an exception occurs before reaching .close(), the call is never executed, leaking file handles.</li>
+                                <li><strong>Why C is incorrect:</strong> Relying on OS garbage collection risks buffer corruption and file locking conflicts.</li>
+                                <li><strong>Why D is incorrect:</strong> Monitor states have zero impact on disk I/O management.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2 (Multi-Plot CSV Merge Syndicate):</strong> During the Multi-Plot CSV Merge Syndicate, how did student teams combine 50 independent plot CSV files into a unified master ledger without duplicating the column header row 50 times?</p>
+                    <ul>
+                        <li>A) Writing the header line only on the first file (index == 0), then skipping line 1 (header) for all subsequent files using csv_reader or itertools.islice()</li>
+                        <li>B) Leaving all 50 header rows throughout the middle of the dataset</li>
+                        <li>C) Deleting all text from the files</li>
+                        <li>D) Renaming the files to .jpg</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>Wrote the header only once from the initial file and stripped headers from all subsequent appends.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Merging batch agricultural CSVs requires defensive header management: writing the schema header once at the start of the master file, then skipping the first line of subsequent files to maintain clean, uninterrupted numerical rows.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Interleaving header strings inside numerical data rows crashes downstream pandas parsers.</li>
+                                <li><strong>Why C is incorrect:</strong> Deleting text destroys the experimental data.</li>
+                                <li><strong>Why D is incorrect:</strong> Renaming file extensions does not alter underlying text content.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3 (Individual Colab Practice):</strong> In your Individual Colab task building an Automated Daily Farm Journal Logger, what file open mode ensured new sensor readings were added to the end of today's log without erasing morning data?</p>
+                    <ul>
+                        <li>A) mode='a' (append mode)</li>
+                        <li>B) mode='w' (write mode)</li>
+                        <li>C) mode='r' (read-only mode)</li>
+                        <li>D) mode='x' (exclusive creation mode)</li>
+                    </ul>
+                    <details>
+                        <summary>Show Answer &amp; Feedback</summary>
+                        <div class="quiz-feedback">
+                            <p><strong>Correct Answer: A</strong> &mdash; <em>mode='a' (append mode) appended new telemetry records without overwriting existing entries.</em></p>
+                            <p><strong>Detailed Activity Feedback:</strong> Open mode 'a' places the file pointer at the end of the file. If the file exists, new write operations append data to the end; if it does not exist, a new file is created. Mode 'w' truncates the file to 0 bytes immediately upon opening.</p>
+                            <ul>
+                                <li><strong>Why B is incorrect:</strong> Write mode ('w') instantly truncates and erases all prior data in the file.</li>
+                                <li><strong>Why C is incorrect:</strong> Read-only mode ('r') disallows write operations, throwing an io.UnsupportedOperation error.</li>
+                                <li><strong>Why D is incorrect:</strong> Exclusive mode ('x') throws a FileExistsError if the log already exists.</li>
+                            </ul>
+                        </div>
                     </details>
                 </div>
             </div>
