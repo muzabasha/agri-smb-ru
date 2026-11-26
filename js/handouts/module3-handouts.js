@@ -9,6 +9,16 @@ const module3Handouts = {
                 <p class="duration">⏱️ Duration: 3 hours</p>
             </div>
 
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>Raw weather station data only logs daily maximum and minimum temperatures.</p>
+                <p>Raw temperature alone does not tell plants when to flower or ripen.</p>
+                <p>Crops grow based on accumulated biological thermal energy above base temperature.</p>
+                <p>Feature engineering computes Growing Degree Days (GDD) to predict harvest dates accurately.</p>
+                <p>How do we engineer biological features from raw agricultural sensor streams?</p>
+            </div>
+
+
 <!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
             <div class="reflexive-questions">
                 <div class="reflexive-header">
@@ -52,6 +62,35 @@ const module3Handouts = {
                     <p>Raw ingredients (data) need to be washed, chopped, and prepared. Similarly, raw farm data needs transformation to become useful for ML "recipes"!</p>
                 </div>
             </div>
+
+<div class="ipo-model">
+                <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+                <div class="ipo-container">
+                    <div class="ipo-section input">
+                        <h3>📥 INPUT</h3>
+                        <ul>
+                            <li><strong>Daily Temperatures:</strong> Max Temp = 32.0°C, Min Temp = 20.0°C.</li>
+                            <li><strong>Crop Base:</strong> Maize baseline biological threshold (10.0°C).</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section processing">
+                        <h3>⚙️ PROCESSING</h3>
+                        <ul>
+                            <li><strong>Mean Temp:</strong> (32.0 + 20.0) / 2 = 26.0°C.</li>
+                            <li><strong>GDD Formula:</strong> Mean Temp - Base Temp = 26.0 - 10.0 = 16.0 units.</li>
+                            <li><strong>Accumulation:</strong> Add daily units to seasonal cumulative total.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section output">
+                        <h3>📤 OUTPUT</h3>
+                        <ul>
+                            <li><strong>Daily GDD:</strong> 16.0 thermal degree day units accumulated.</li>
+                            <li><strong>Phenology Stage:</strong> Crop enters tassel flowering stage on schedule.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="code-section">
                 <h2>💻 Python Implementation</h2>
@@ -112,6 +151,12 @@ print(f"\\nFinal feature count: {len(data.columns)}")
 print(data.head())
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> Change <code>base_temp_maize = 12.0</code> (testing wheat or ragi baseline). How does changing baseline temperature alter cumulative heat units?</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">
@@ -285,6 +330,16 @@ print(data.head())
                 <p class="duration">⏱️ Duration: 3 hours</p>
             </div>
 
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>A regional food security agency must predict district-wide rice harvest two months early.</p>
+                <p>Waiting for manual harvesting cuts delays warehouse storage preparation and price stabilization.</p>
+                <p>Early harvest estimates require combining satellite vegetation vigor with soil sensor numbers.</p>
+                <p>Ensemble machine learning models forecast crop harvest yields with high precision.</p>
+                <p>How do multi-variable regression pipelines forecast crop yield before harvest?</p>
+            </div>
+
+
 <!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
             <div class="reflexive-questions">
                 <div class="reflexive-header">
@@ -334,6 +389,35 @@ print(data.head())
                     </ul>
                 </div>
             </div>
+
+<div class="ipo-model">
+                <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+                <div class="ipo-container">
+                    <div class="ipo-section input">
+                        <h3>📥 INPUT</h3>
+                        <ul>
+                            <li><strong>Satellite NDVI:</strong> 0.72 mid-season vegetation vigor index.</li>
+                            <li><strong>Soil Moisture:</strong> 28.5% average root-zone moisture.</li>
+                            <li><strong>Fertilizer:</strong> 120 kg/acre nitrogen applied.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section processing">
+                        <h3>⚙️ PROCESSING</h3>
+                        <ul>
+                            <li><strong>Random Forest Fit:</strong> Model evaluates complex agronomic interactions.</li>
+                            <li><strong>Prediction:</strong> Estimate final grain harvest in quintals per acre.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section output">
+                        <h3>📤 OUTPUT</h3>
+                        <ul>
+                            <li><strong>Predicted Yield:</strong> 48.2 quintals per acre (94% model confidence).</li>
+                            <li><strong>Warehouse Alert:</strong> Reserve 500 storage bags for this field.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="code-section">
                 <h2>💻 Python Implementation</h2>
@@ -426,6 +510,12 @@ prediction = rf_model.predict(new_field)
 print(f"Predicted yield: {prediction[0]:.0f} kg/ha")
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> Test drought conditions: <code>new_plot_data = np.array([[0.40, 14.0, 70.0]])</code>. What does the yield forecast drop to?</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">
@@ -598,6 +688,16 @@ print(f"Predicted yield: {prediction[0]:.0f} kg/ha")
                 <p class="duration">⏱️ Duration: 2 hours</p>
             </div>
 
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>Early blight disease symptoms start as tiny brown speckles on lower tomato leaves.</p>
+                <p>Busy farmers only notice infections when leaves turn completely yellow and dry.</p>
+                <p>By that stage, fungal spores have already infected neighboring plants across the field.</p>
+                <p>Computer vision algorithms detect microscopic fungal lesions days before human eyes spot them.</p>
+                <p>How do image classification models diagnose plant diseases from smartphone photos?</p>
+            </div>
+
+
 <!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
             <div class="reflexive-questions">
                 <div class="reflexive-header">
@@ -640,6 +740,33 @@ print(f"Predicted yield: {prediction[0]:.0f} kg/ha")
                     <p>Just as you'd show a doctor your symptoms, you can show AI a photo of a sick plant. The AI has "seen" millions of diseased leaves and instantly recognizes patterns!</p>
                 </div>
             </div>
+
+<div class="ipo-model">
+                <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+                <div class="ipo-container">
+                    <div class="ipo-section input">
+                        <h3>📥 INPUT</h3>
+                        <ul>
+                            <li><strong>Leaf Photo:</strong> RGB image of diseased tomato foliage.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section processing">
+                        <h3>⚙️ PROCESSING</h3>
+                        <ul>
+                            <li><strong>Feature Extraction:</strong> Scan for circular brown concentric rings.</li>
+                            <li><strong>Probability Softmax:</strong> Compute class probabilities across 38 diseases.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section output">
+                        <h3>📤 OUTPUT</h3>
+                        <ul>
+                            <li><strong>Diagnosis:</strong> Tomato Early Blight (94.8% confidence).</li>
+                            <li><strong>Recommendation:</strong> Apply copper oxychloride spray within 48 hours.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="core-concepts">
                 <h2>📖 Common Crop Diseases</h2>
@@ -749,6 +876,12 @@ for color, spots, spot_type in samples:
     print(f"   Treatment: {treatment}")
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> Change <code>simulated_probabilities = np.array([0.91, 0.05, 0.02, 0.02])</code>. Does the alert trigger when the canopy is diagnosed healthy?</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">
@@ -921,6 +1054,16 @@ for color, spots, spot_type in samples:
                 <p class="duration">⏱️ Duration: 3 hours</p>
             </div>
 
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>Digital cameras record field photos as millions of individual color pixel numbers.</p>
+                <p>Computers do not possess human biological eyes or innate visual understanding.</p>
+                <p>To detect a diseased leaf, a computer must analyze numbers in red, green, and blue grids.</p>
+                <p>Computer vision transforms raw color pixel matrices into meaningful agricultural shapes.</p>
+                <p>How does computer vision translate raw pixel numbers into crop health diagnoses?</p>
+            </div>
+
+
 <!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
             <div class="reflexive-questions">
                 <div class="reflexive-header">
@@ -963,6 +1106,32 @@ for color, spots, spot_type in samples:
                     <p>To a computer, an image of a farm field isn't "crops and soil"—it's a giant spreadsheet of numbers (pixels). By analyzing these numbers, we can teach the computer to spot weeds just like a farmer spots them by their distinct green color against brown soil.</p>
                 </div>
             </div>
+
+<div class="ipo-model">
+                <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+                <div class="ipo-container">
+                    <div class="ipo-section input">
+                        <h3>📥 INPUT</h3>
+                        <ul>
+                            <li><strong>Pixel Array:</strong> Red, Green, and Blue color channel matrices (0 to 255).</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section processing">
+                        <h3>⚙️ PROCESSING</h3>
+                        <ul>
+                            <li><strong>Color Thresholding:</strong> Separate green plant canopy from brown background soil.</li>
+                            <li><strong>Coverage Ratio:</strong> Calculate percentage of green pixels in the frame.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section output">
+                        <h3>📤 OUTPUT</h3>
+                        <ul>
+                            <li><strong>Canopy Fraction:</strong> 74.2% ground cover estimated by computer vision.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="core-concepts">
                 <h2>📖 Key Concepts</h2>
@@ -1037,6 +1206,12 @@ print(f"Field Coverage: {coverage:.2f}%")
 # In lab: plt.imshow(mask, cmap='gray')
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> Change the segmentation threshold from <code>> 120</code> to <code>> 150</code>. How does setting a stricter greenness filter affect estimated crop cover?</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">
@@ -1211,6 +1386,16 @@ print(f"Field Coverage: {coverage:.2f}%")
                 <p class="duration">⏱️ Duration: 3 hours</p>
             </div>
 
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>Standard machine learning algorithms lose spatial relationships when images are flattened into lists.</p>
+                <p>Recognizing leaf veins, fungal edges, and caterpillar bite marks requires spatial filtering.</p>
+                <p>Convolutional Neural Networks (CNNs) slide tiny mathematical filters across the image.</p>
+                <p>This sliding filter detects edges, textures, and disease lesions regardless of leaf orientation.</p>
+                <p>How do convolutional filters extract diagnostic features from plant foliage photos?</p>
+            </div>
+
+
 <!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
             <div class="reflexive-questions">
                 <div class="reflexive-header">
@@ -1258,6 +1443,33 @@ print(f"Field Coverage: {coverage:.2f}%")
                     </ul>
                 </div>
             </div>
+
+<div class="ipo-model">
+                <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+                <div class="ipo-container">
+                    <div class="ipo-section input">
+                        <h3>📥 INPUT</h3>
+                        <ul>
+                            <li><strong>Leaf Pixel Region:</strong> 5x5 grayscale patch of leaf blade.</li>
+                            <li><strong>Edge Filter:</strong> 3x3 Sobel kernel detecting vertical vein lines.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section processing">
+                        <h3>⚙️ PROCESSING</h3>
+                        <ul>
+                            <li><strong>Convolution:</strong> Slide 3x3 filter across pixels, multiplying and summing.</li>
+                            <li><strong>Feature Map:</strong> Generate activation map highlighting sharp edges.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section output">
+                        <h3>📤 OUTPUT</h3>
+                        <ul>
+                            <li><strong>Convolved Feature Map:</strong> Isolated leaf edge contours ready for CNN layers.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="code-section">
                 <h2>💻 Python Implementation</h2>
@@ -1334,6 +1546,12 @@ print("""
 """)
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> If all window numbers are identical (e.g., <code>window = np.ones((3,3)) * 50</code>, flat green leaf with zero edges), what does the convolution output equal?</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">
@@ -1506,6 +1724,16 @@ print("""
                 <p class="duration">⏱️ Duration: 3 hours</p>
             </div>
 
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>Farm weather telemetry readings are linked through time, not independent random events.</p>
+                <p>Tomorrow's soil temperature depends strongly on today's heat and yesterday's rain.</p>
+                <p>Standard regression models ignore time order and shuffle dates like playing cards.</p>
+                <p>Time series analysis models consecutive trends, seasonality, and cyclic weather patterns.</p>
+                <p>How do time series models forecast multi-day agricultural weather trends?</p>
+            </div>
+
+
 <!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
             <div class="reflexive-questions">
                 <div class="reflexive-header">
@@ -1554,6 +1782,32 @@ print("""
                     </ul>
                 </div>
             </div>
+
+<div class="ipo-model">
+                <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+                <div class="ipo-container">
+                    <div class="ipo-section input">
+                        <h3>📥 INPUT</h3>
+                        <ul>
+                            <li><strong>Daily Soil Temp:</strong> 7 consecutive days of 8:00 AM soil temperatures.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section processing">
+                        <h3>⚙️ PROCESSING</h3>
+                        <ul>
+                            <li><strong>Lag Features:</strong> Use yesterday's temp (t-1) to predict today (t).</li>
+                            <li><strong>Moving Average:</strong> Smooth random fluctuations over 3-day window.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section output">
+                        <h3>📤 OUTPUT</h3>
+                        <ul>
+                            <li><strong>Next-Day Forecast:</strong> Accurate 24-hour ahead soil temperature advisory.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="code-section">
                 <h2>💻 Python Implementation</h2>
@@ -1614,6 +1868,12 @@ result2 = adfuller(ts_diff)
 print(f'After differencing p-value: {result2[1]:.4f}')
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> Compute the correlation between <code>'Soil_Temp_C'</code> and <code>'Yesterday_Temp'</code>. Why is auto-correlation so strong in soil temperatures?</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">
