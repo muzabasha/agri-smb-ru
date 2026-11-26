@@ -1,0 +1,1019 @@
+[
+  {
+    "id": "m1-t1",
+    "title": "Introduction to Artificial Intelligence",
+    "status": "PRESENT",
+    "file": "js/handouts/module1-handouts-part1.js",
+    "char_count": 25368,
+    "word_count": 2153,
+    "h2_count": 9,
+    "h2_titles": [
+      "\ud83e\udd14 Reflexive Questions (Think Before You Learn)",
+      "\ud83d\udccc Learning Objectives",
+      "\ud83d\ude9c The Farming Connection",
+      "Input-Process-Output (IPO) Model",
+      "\ud83d\udcd6 Core Concepts",
+      "\ud83d\udcbb Python Demonstration",
+      "Learn by Doing Hub",
+      "\ud83d\udcdd Knowledge Check: Activity-Based Feedback MCQs",
+      "\ud83d\udccb Key Takeaways"
+    ],
+    "code_blocks": 8,
+    "has_reflexive": true,
+    "has_objectives": true,
+    "has_analogy": true,
+    "has_ipo": true,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": true,
+    "has_pitfalls": false,
+    "subtopics_matched": [
+      [
+        "What is AI?",
+        true
+      ],
+      [
+        "Types of AI",
+        true
+      ],
+      [
+        "AI vs ML vs DL",
+        false
+      ]
+    ]
+  },
+  {
+    "id": "m1-t2",
+    "title": "Machine Learning Paradigms",
+    "status": "PRESENT",
+    "file": "js/handouts/module1-handouts-part1.js",
+    "char_count": 26816,
+    "word_count": 2263,
+    "h2_count": 9,
+    "h2_titles": [
+      "\ud83e\udd14 Reflexive Questions (Think Before You Learn)",
+      "\ud83d\udccc Learning Objectives",
+      "\ud83d\ude9c The Farming Connection",
+      "Input-Process-Output (IPO) Model",
+      "\ud83d\udcd6 Core Concepts",
+      "\ud83d\udcbb Python Implementation",
+      "Learn by Doing Hub",
+      "\ud83d\udcdd Knowledge Check: Activity-Based Feedback MCQs",
+      "\ud83d\udccb Key Takeaways"
+    ],
+    "code_blocks": 4,
+    "has_reflexive": true,
+    "has_objectives": true,
+    "has_analogy": true,
+    "has_ipo": true,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": true,
+    "has_pitfalls": true,
+    "subtopics_matched": [
+      [
+        "Supervised Learning",
+        true
+      ],
+      [
+        "Unsupervised Learning",
+        true
+      ],
+      [
+        "Reinforcement Learning",
+        true
+      ]
+    ]
+  },
+  {
+    "id": "m1-t3",
+    "title": "History and Evolution of AI/ML",
+    "status": "PRESENT",
+    "file": "js/handouts/module1-handouts-part1.js",
+    "char_count": 23715,
+    "word_count": 1989,
+    "h2_count": 9,
+    "h2_titles": [
+      "\ud83e\udd14 Reflexive Questions (Think Before You Learn)",
+      "\ud83d\udccc Learning Objectives",
+      "\ud83d\ude9c The Farming Connection",
+      "Input-Process-Output (IPO) Model",
+      "\ud83d\udcd6 AI Timeline",
+      "\ud83d\udcbb Python Implementation (Google Colab Ready)",
+      "Learn by Doing Hub",
+      "\ud83d\udcdd Knowledge Check: Activity-Based Feedback MCQs",
+      "\ud83d\udccb Key Takeaways"
+    ],
+    "code_blocks": 6,
+    "has_reflexive": true,
+    "has_objectives": true,
+    "has_analogy": true,
+    "has_ipo": true,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": true,
+    "has_pitfalls": false,
+    "subtopics_matched": [
+      [
+        "Timeline of AI",
+        true
+      ],
+      [
+        "Key Milestones",
+        true
+      ],
+      [
+        "Modern AI Era",
+        true
+      ]
+    ]
+  },
+  {
+    "id": "m1-t4",
+    "title": "AI/ML Applications in Agriculture",
+    "status": "PRESENT",
+    "file": "js/handouts/module1-handouts-part1.js",
+    "char_count": 24340,
+    "word_count": 2024,
+    "h2_count": 9,
+    "h2_titles": [
+      "\ud83e\udd14 Reflexive Questions (Think Before You Learn)",
+      "\ud83d\udccc Learning Objectives",
+      "\ud83d\ude9c The Farming Connection",
+      "Input-Process-Output (IPO) Model",
+      "\ud83d\udcd6 Key Applications",
+      "\ud83d\udcbb Python Implementation (Google Colab Ready)",
+      "Learn by Doing Hub",
+      "\ud83d\udcdd Knowledge Check: Activity-Based Feedback MCQs",
+      "\ud83d\udccb Key Takeaways"
+    ],
+    "code_blocks": 7,
+    "has_reflexive": true,
+    "has_objectives": true,
+    "has_analogy": true,
+    "has_ipo": true,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": true,
+    "has_pitfalls": false,
+    "subtopics_matched": [
+      [
+        "Precision Farming",
+        true
+      ],
+      [
+        "Crop Monitoring",
+        true
+      ],
+      [
+        "Yield Prediction",
+        true
+      ],
+      [
+        "Disease Detection",
+        true
+      ]
+    ]
+  },
+  {
+    "id": "m1-t5",
+    "title": "Career Opportunities in AgriTech",
+    "status": "PRESENT",
+    "file": "js/handouts/module1-handouts-part2.js",
+    "char_count": 24602,
+    "word_count": 2033,
+    "h2_count": 9,
+    "h2_titles": [
+      "\ud83e\udd14 Reflexive Questions (Think Before You Learn)",
+      "\ud83d\udccc Learning Objectives",
+      "\ud83d\ude9c The Farming Connection",
+      "Input-Process-Output (IPO) Model",
+      "\ud83d\udcd6 Career Paths",
+      "\ud83d\udcbb Python Implementation (Google Colab Ready)",
+      "Learn by Doing Hub",
+      "\ud83d\udcdd Knowledge Check: Activity-Based Feedback MCQs",
+      "\ud83d\udccb Key Takeaways"
+    ],
+    "code_blocks": 3,
+    "has_reflexive": true,
+    "has_objectives": true,
+    "has_analogy": true,
+    "has_ipo": true,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": true,
+    "has_pitfalls": false,
+    "subtopics_matched": [
+      [
+        "Job Roles",
+        true
+      ],
+      [
+        "Industry Landscape",
+        true
+      ],
+      [
+        "Skill Requirements",
+        true
+      ]
+    ]
+  },
+  {
+    "id": "m1-t6",
+    "title": "Mathematical Foundations for ML",
+    "status": "PRESENT",
+    "file": "js/handouts/module1-handouts-part2.js",
+    "char_count": 23840,
+    "word_count": 2072,
+    "h2_count": 9,
+    "h2_titles": [
+      "\ud83e\udd14 Reflexive Questions (Think Before You Learn)",
+      "\ud83d\udccc Learning Objectives",
+      "\ud83d\ude9c The Farming Connection",
+      "Input-Process-Output (IPO) Model",
+      "\ud83d\udcd6 Core Concepts",
+      "\ud83d\udcbb Python Implementation",
+      "Learn by Doing Hub",
+      "\ud83d\udcdd Knowledge Check: Activity-Based Feedback MCQs",
+      "\ud83d\udccb Key Takeaways"
+    ],
+    "code_blocks": 2,
+    "has_reflexive": true,
+    "has_objectives": true,
+    "has_analogy": true,
+    "has_ipo": true,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": true,
+    "has_pitfalls": true,
+    "subtopics_matched": [
+      [
+        "Why Math Matters",
+        true
+      ],
+      [
+        "Essential Concepts",
+        true
+      ],
+      [
+        "Application in ML",
+        true
+      ]
+    ]
+  },
+  {
+    "id": "m1-t7",
+    "title": "Statistics and Probability Basics",
+    "status": "PRESENT",
+    "file": "js/handouts/module1-handouts-part2.js",
+    "char_count": 23272,
+    "word_count": 1959,
+    "h2_count": 9,
+    "h2_titles": [
+      "\ud83e\udd14 Reflexive Questions (Think Before You Learn)",
+      "\ud83d\udccc Learning Objectives",
+      "\ud83d\ude9c The Farming Connection",
+      "Input-Process-Output (IPO) Model",
+      "\ud83d\udcd6 Core Concepts",
+      "\ud83d\udcbb Python Implementation",
+      "Learn by Doing Hub",
+      "\ud83d\udcdd Knowledge Check: Activity-Based Feedback MCQs",
+      "\ud83d\udccb Key Takeaways"
+    ],
+    "code_blocks": 13,
+    "has_reflexive": true,
+    "has_objectives": true,
+    "has_analogy": true,
+    "has_ipo": true,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": true,
+    "has_pitfalls": false,
+    "subtopics_matched": [
+      [
+        "Mean, Median, Mode",
+        true
+      ],
+      [
+        "Variance & Standard Deviation",
+        true
+      ],
+      [
+        "Probability Distributions",
+        true
+      ]
+    ]
+  },
+  {
+    "id": "m1-t8",
+    "title": "Linear Algebra for Machine Learning",
+    "status": "PRESENT",
+    "file": "js/handouts/module1-handouts-part2.js",
+    "char_count": 22697,
+    "word_count": 1961,
+    "h2_count": 9,
+    "h2_titles": [
+      "\ud83e\udd14 Reflexive Questions (Think Before You Learn)",
+      "\ud83d\udccc Learning Objectives",
+      "\ud83d\ude9c The Farming Connection",
+      "Input-Process-Output (IPO) Model",
+      "\ud83d\udcd6 Core Concepts",
+      "\ud83d\udcbb Python Implementation",
+      "Learn by Doing Hub",
+      "\ud83d\udcdd Knowledge Check: Activity-Based Feedback MCQs",
+      "\ud83d\udccb Key Takeaways"
+    ],
+    "code_blocks": 18,
+    "has_reflexive": true,
+    "has_objectives": true,
+    "has_analogy": true,
+    "has_ipo": true,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": true,
+    "has_pitfalls": false,
+    "subtopics_matched": [
+      [
+        "Vectors & Matrices",
+        true
+      ],
+      [
+        "Matrix Operations",
+        true
+      ],
+      [
+        "Eigenvalues",
+        false
+      ]
+    ]
+  },
+  {
+    "id": "m1-t9",
+    "title": "Data Types and Structures",
+    "status": "PRESENT",
+    "file": "js/handouts/module1-handouts-part2.js",
+    "char_count": 23482,
+    "word_count": 2033,
+    "h2_count": 9,
+    "h2_titles": [
+      "\ud83e\udd14 Reflexive Questions (Think Before You Learn)",
+      "\ud83d\udccc Learning Objectives",
+      "\ud83d\ude9c The Farming Connection",
+      "Input-Process-Output (IPO) Model",
+      "\ud83d\udcd6 Core Concepts",
+      "\ud83d\udcbb Python Implementation",
+      "Learn by Doing Hub",
+      "\ud83d\udcdd Knowledge Check: Activity-Based Feedback MCQs",
+      "\ud83d\udccb Key Takeaways"
+    ],
+    "code_blocks": 19,
+    "has_reflexive": true,
+    "has_objectives": true,
+    "has_analogy": true,
+    "has_ipo": true,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": true,
+    "has_pitfalls": false,
+    "subtopics_matched": [
+      [
+        "Structured vs Unstructured",
+        true
+      ],
+      [
+        "Time Series Data",
+        true
+      ],
+      [
+        "Image Data",
+        true
+      ]
+    ]
+  },
+  {
+    "id": "m1-t10",
+    "title": "Data Collection Methods in Agriculture",
+    "status": "PRESENT",
+    "file": "js/handouts/module1-handouts-part2.js",
+    "char_count": 24065,
+    "word_count": 2063,
+    "h2_count": 9,
+    "h2_titles": [
+      "\ud83e\udd14 Reflexive Questions (Think Before You Learn)",
+      "\ud83d\udccc Learning Objectives",
+      "\ud83d\ude9c The Farming Connection",
+      "Input-Process-Output (IPO) Model",
+      "\ud83d\udcd6 Data Collection Methods",
+      "\ud83d\udcbb Python Implementation",
+      "Learn by Doing Hub",
+      "\ud83d\udcdd Knowledge Check: Activity-Based Feedback MCQs",
+      "\ud83d\udccb Key Takeaways"
+    ],
+    "code_blocks": 5,
+    "has_reflexive": true,
+    "has_objectives": true,
+    "has_analogy": true,
+    "has_ipo": true,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": true,
+    "has_pitfalls": false,
+    "subtopics_matched": [
+      [
+        "IoT Sensors",
+        true
+      ],
+      [
+        "Satellite Imagery",
+        true
+      ],
+      [
+        "Manual Collection",
+        true
+      ]
+    ]
+  },
+  {
+    "id": "m1-t11",
+    "title": "Python Environment Setup",
+    "status": "PRESENT",
+    "file": "js/handouts/module1-handouts-part3.js",
+    "char_count": 21098,
+    "word_count": 1730,
+    "h2_count": 9,
+    "h2_titles": [
+      "\ud83e\udd14 Reflexive Questions (Think Before You Learn)",
+      "\ud83d\udccc Learning Objectives",
+      "\ud83d\ude9c The Farming Connection",
+      "Input-Process-Output (IPO) Model",
+      "\ud83d\udcd6 Setting Up Google Colab",
+      "\ud83d\udcbb Practice Code",
+      "Learn by Doing Hub",
+      "\ud83d\udcdd Knowledge Check: Activity-Based Feedback MCQs",
+      "\ud83d\udccb Key Takeaways"
+    ],
+    "code_blocks": 15,
+    "has_reflexive": true,
+    "has_objectives": true,
+    "has_analogy": true,
+    "has_ipo": true,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": true,
+    "has_pitfalls": true,
+    "subtopics_matched": [
+      [
+        "Installing Python",
+        true
+      ],
+      [
+        "Google Colab Setup",
+        true
+      ],
+      [
+        "IDE Configuration",
+        true
+      ]
+    ]
+  },
+  {
+    "id": "m1-t12",
+    "title": "Variables and Data Types",
+    "status": "PRESENT",
+    "file": "js/handouts/module1-handouts-part3.js",
+    "char_count": 22845,
+    "word_count": 1897,
+    "h2_count": 9,
+    "h2_titles": [
+      "\ud83e\udd14 Reflexive Questions (Think Before You Learn)",
+      "\ud83d\udccc Learning Objectives",
+      "\ud83d\ude9c The Farming Connection",
+      "Input-Process-Output (IPO) Model",
+      "\ud83d\udcd6 Data Types in Python",
+      "\ud83d\udcbb Python Implementation",
+      "Learn by Doing Hub",
+      "\ud83d\udcdd Knowledge Check: Activity-Based Feedback MCQs",
+      "\ud83d\udccb Key Takeaways"
+    ],
+    "code_blocks": 44,
+    "has_reflexive": true,
+    "has_objectives": true,
+    "has_analogy": true,
+    "has_ipo": true,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": true,
+    "has_pitfalls": true,
+    "subtopics_matched": [
+      [
+        "int, float, string, bool",
+        true
+      ],
+      [
+        "Type Conversion",
+        true
+      ],
+      [
+        "Variable Naming",
+        true
+      ]
+    ]
+  },
+  {
+    "id": "m1-t13",
+    "title": "Operators and Expressions",
+    "status": "PRESENT",
+    "file": "js/handouts/module1-handouts-part3.js",
+    "char_count": 22849,
+    "word_count": 2026,
+    "h2_count": 8,
+    "h2_titles": [
+      "\ud83e\udd14 Reflexive Questions (Think Before You Learn)",
+      "\ud83d\udccc Learning Objectives",
+      "\ud83d\ude9c The Farming Connection",
+      "Input-Process-Output (IPO) Model",
+      "\ud83d\udcbb Python Implementation",
+      "Learn by Doing Hub",
+      "\ud83d\udcdd Knowledge Check: Activity-Based Feedback MCQs",
+      "\ud83d\udccb Key Takeaways"
+    ],
+    "code_blocks": 35,
+    "has_reflexive": true,
+    "has_objectives": true,
+    "has_analogy": true,
+    "has_ipo": true,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": true,
+    "has_pitfalls": false,
+    "subtopics_matched": [
+      [
+        "Arithmetic Operators",
+        true
+      ],
+      [
+        "Comparison Operators",
+        true
+      ],
+      [
+        "Logical Operators",
+        true
+      ]
+    ]
+  },
+  {
+    "id": "m1-t14",
+    "title": "Control Structures (If-Else)",
+    "status": "PRESENT",
+    "file": "js/handouts/module1-handouts-part3.js",
+    "char_count": 22188,
+    "word_count": 1940,
+    "h2_count": 8,
+    "h2_titles": [
+      "\ud83e\udd14 Reflexive Questions (Think Before You Learn)",
+      "\ud83d\udccc Learning Objectives",
+      "\ud83d\ude9c The Farming Connection",
+      "Input-Process-Output (IPO) Model",
+      "\ud83d\udcbb Python Implementation",
+      "Learn by Doing Hub",
+      "\ud83d\udcdd Knowledge Check: Activity-Based Feedback MCQs",
+      "\ud83d\udccb Key Takeaways"
+    ],
+    "code_blocks": 22,
+    "has_reflexive": true,
+    "has_objectives": true,
+    "has_analogy": true,
+    "has_ipo": true,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": true,
+    "has_pitfalls": false,
+    "subtopics_matched": [
+      [
+        "if statements",
+        true
+      ],
+      [
+        "if-else",
+        true
+      ],
+      [
+        "elif chains",
+        true
+      ],
+      [
+        "Nested conditionals",
+        true
+      ]
+    ]
+  },
+  {
+    "id": "m1-t15",
+    "title": "Loops (For and While)",
+    "status": "PRESENT",
+    "file": "js/handouts/module1-handouts-part3.js",
+    "char_count": 21939,
+    "word_count": 1981,
+    "h2_count": 8,
+    "h2_titles": [
+      "\ud83e\udd14 Reflexive Questions (Think Before You Learn)",
+      "\ud83d\udccc Learning Objectives",
+      "\ud83d\ude9c The Farming Connection",
+      "Input-Process-Output (IPO) Model",
+      "\ud83d\udcbb Python Implementation",
+      "Learn by Doing Hub",
+      "\ud83d\udcdd Knowledge Check: Activity-Based Feedback MCQs",
+      "\ud83d\udccb Key Takeaways"
+    ],
+    "code_blocks": 18,
+    "has_reflexive": true,
+    "has_objectives": true,
+    "has_analogy": true,
+    "has_ipo": true,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": true,
+    "has_pitfalls": true,
+    "subtopics_matched": [
+      [
+        "for loops",
+        true
+      ],
+      [
+        "while loops",
+        true
+      ],
+      [
+        "break & continue",
+        true
+      ],
+      [
+        "Loop patterns",
+        true
+      ]
+    ]
+  },
+  {
+    "id": "m1-t16",
+    "title": "Functions and Modularity",
+    "status": "PRESENT",
+    "file": "js/handouts/module1-handouts-part3.js",
+    "char_count": 23538,
+    "word_count": 1945,
+    "h2_count": 8,
+    "h2_titles": [
+      "\ud83e\udd14 Reflexive Questions (Think Before You Learn)",
+      "\ud83d\udccc Learning Objectives",
+      "\ud83d\ude9c The Farming Connection",
+      "Input-Process-Output (IPO) Model",
+      "\ud83d\udcbb Python Implementation",
+      "Learn by Doing Hub",
+      "\ud83d\udcdd Knowledge Check: Activity-Based Feedback MCQs",
+      "\ud83d\udccb Key Takeaways"
+    ],
+    "code_blocks": 30,
+    "has_reflexive": true,
+    "has_objectives": true,
+    "has_analogy": true,
+    "has_ipo": true,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": true,
+    "has_pitfalls": false,
+    "subtopics_matched": [
+      [
+        "Defining functions",
+        true
+      ],
+      [
+        "Parameters & Arguments",
+        true
+      ],
+      [
+        "Return values",
+        true
+      ],
+      [
+        "Scope",
+        true
+      ]
+    ]
+  },
+  {
+    "id": "m1-t17",
+    "title": "Lists, Tuples, and Dictionaries",
+    "status": "PRESENT",
+    "file": "js/handouts/module1-handouts-part3.js",
+    "char_count": 22565,
+    "word_count": 1969,
+    "h2_count": 8,
+    "h2_titles": [
+      "\ud83e\udd14 Reflexive Questions (Think Before You Learn)",
+      "\ud83d\udccc Learning Objectives",
+      "\ud83d\ude9c The Farming Connection",
+      "Input-Process-Output (IPO) Model",
+      "\ud83d\udcbb Python Implementation",
+      "Learn by Doing Hub",
+      "\ud83d\udcdd Knowledge Check: Activity-Based Feedback MCQs",
+      "\ud83d\udccb Key Takeaways"
+    ],
+    "code_blocks": 24,
+    "has_reflexive": true,
+    "has_objectives": true,
+    "has_analogy": true,
+    "has_ipo": true,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": true,
+    "has_pitfalls": false,
+    "subtopics_matched": [
+      [
+        "List operations",
+        true
+      ],
+      [
+        "Tuple immutability",
+        true
+      ],
+      [
+        "Dictionary key-value pairs",
+        true
+      ]
+    ]
+  },
+  {
+    "id": "m1-t18",
+    "title": "String Manipulation",
+    "status": "PRESENT",
+    "file": "js/handouts/module1-handouts-part3.js",
+    "char_count": 20849,
+    "word_count": 1716,
+    "h2_count": 8,
+    "h2_titles": [
+      "\ud83e\udd14 Reflexive Questions (Think Before You Learn)",
+      "\ud83d\udccc Learning Objectives",
+      "\ud83d\ude9c The Farming Connection",
+      "Input-Process-Output (IPO) Model",
+      "\ud83d\udcbb Python Implementation",
+      "Learn by Doing Hub",
+      "\ud83d\udcdd Knowledge Check: Activity-Based Feedback MCQs",
+      "\ud83d\udccb Key Takeaways"
+    ],
+    "code_blocks": 14,
+    "has_reflexive": true,
+    "has_objectives": true,
+    "has_analogy": true,
+    "has_ipo": true,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": true,
+    "has_pitfalls": false,
+    "subtopics_matched": [
+      [
+        "String methods",
+        true
+      ],
+      [
+        "Formatting",
+        true
+      ],
+      [
+        "Regular expressions basics",
+        true
+      ]
+    ]
+  },
+  {
+    "id": "m1-t19",
+    "title": "File Handling Basics",
+    "status": "PRESENT",
+    "file": "js/handouts/module1-handouts-part3.js",
+    "char_count": 20886,
+    "word_count": 1829,
+    "h2_count": 8,
+    "h2_titles": [
+      "\ud83e\udd14 Reflexive Questions (Think Before You Learn)",
+      "\ud83d\udccc Learning Objectives",
+      "\ud83d\ude9c The Farming Connection",
+      "Input-Process-Output (IPO) Model",
+      "\ud83d\udcbb Python Implementation",
+      "Learn by Doing Hub",
+      "\ud83d\udcdd Knowledge Check: Activity-Based Feedback MCQs",
+      "\ud83d\udccb Key Takeaways"
+    ],
+    "code_blocks": 25,
+    "has_reflexive": true,
+    "has_objectives": true,
+    "has_analogy": true,
+    "has_ipo": true,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": true,
+    "has_pitfalls": false,
+    "subtopics_matched": [
+      [
+        "Reading files",
+        true
+      ],
+      [
+        "Writing files",
+        true
+      ],
+      [
+        "CSV handling",
+        true
+      ]
+    ]
+  },
+  {
+    "id": "m1-activity1",
+    "title": "Activity: Google Colab Setup",
+    "status": "PRESENT",
+    "file": "js/handouts/activities-handouts.js",
+    "char_count": 8178,
+    "word_count": 647,
+    "h2_count": 3,
+    "h2_titles": [
+      "Project Goal",
+      "\ud83d\udcbb System Verification Script",
+      "Learn by Doing Hub"
+    ],
+    "code_blocks": 8,
+    "has_reflexive": false,
+    "has_objectives": false,
+    "has_analogy": false,
+    "has_ipo": false,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": false,
+    "has_pitfalls": false,
+    "subtopics_matched": [
+      [
+        "Colab Interface",
+        true
+      ],
+      [
+        "GPU Runtime",
+        true
+      ],
+      [
+        "Mounting Drive",
+        true
+      ]
+    ]
+  },
+  {
+    "id": "m1-activity2",
+    "title": "Activity: Python Programming Exercises",
+    "status": "PRESENT",
+    "file": "js/handouts/activities-handouts.js",
+    "char_count": 7933,
+    "word_count": 647,
+    "h2_count": 2,
+    "h2_titles": [
+      "\ud83d\udcbb Core Exercise Starter Code",
+      "Learn by Doing Hub"
+    ],
+    "code_blocks": 2,
+    "has_reflexive": false,
+    "has_objectives": false,
+    "has_analogy": false,
+    "has_ipo": false,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": false,
+    "has_quiz": false,
+    "has_pitfalls": false,
+    "subtopics_matched": [
+      [
+        "Basic Exercises",
+        true
+      ],
+      [
+        "Agri Calculations",
+        true
+      ],
+      [
+        "Looping",
+        false
+      ]
+    ]
+  },
+  {
+    "id": "m1-activity3",
+    "title": "Activity: Agricultural Data Analysis Project",
+    "status": "PRESENT",
+    "file": "js/handouts/activities-handouts.js",
+    "char_count": 8298,
+    "word_count": 670,
+    "h2_count": 2,
+    "h2_titles": [
+      "\ud83d\udcbb Data Analysis Starter Script",
+      "Learn by Doing Hub"
+    ],
+    "code_blocks": 5,
+    "has_reflexive": false,
+    "has_objectives": false,
+    "has_analogy": false,
+    "has_ipo": false,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": false,
+    "has_pitfalls": false,
+    "subtopics_matched": [
+      [
+        "Data Loading",
+        true
+      ],
+      [
+        "Summary Stats",
+        true
+      ],
+      [
+        "Insights",
+        true
+      ]
+    ]
+  },
+  {
+    "id": "m1-activity4",
+    "title": "Activity: Data Visualization with Matplotlib",
+    "status": "PRESENT",
+    "file": "js/handouts/activities-handouts.js",
+    "char_count": 8422,
+    "word_count": 696,
+    "h2_count": 2,
+    "h2_titles": [
+      "\ud83d\udcbb Plotting Starter Script",
+      "Learn by Doing Hub"
+    ],
+    "code_blocks": 5,
+    "has_reflexive": false,
+    "has_objectives": false,
+    "has_analogy": false,
+    "has_ipo": false,
+    "has_code": true,
+    "has_code_python": true,
+    "has_hands_on": true,
+    "has_agri_case": true,
+    "has_quiz": false,
+    "has_pitfalls": false,
+    "subtopics_matched": [
+      [
+        "Plotting Crops",
+        true
+      ],
+      [
+        "Bar Charts",
+        true
+      ],
+      [
+        "Scatter Plots",
+        true
+      ]
+    ]
+  }
+]
