@@ -4,20 +4,73 @@
 function m5BonusCard(num, icon, title, objective, concepts, code) {
     return `
     <div class="handout-premium">
-        <div class="topic-header"><h1>${icon} Bonus Project ${num}: ${title}</h1>
-            <p class="duration">⏱️ Estimated: 2-3 hours</p>
+        <div class="topic-header">
+            <h1>${icon} Bonus Project ${num}: ${title}</h1>
+            <p class="duration">⏱️ Estimated: 2-3 hours | Real-World Capstone</p>
         </div>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges managing ${title.toLowerCase()} in dynamic field environments.</p>
+            <p>Manual monitoring is slow and misses critical crop and soil changes.</p>
+            <p>Data science automates ${title.toLowerCase()} to protect harvests and maximize farmer profits.</p>
+            <p>How do we develop and deploy this agricultural solution effectively?</p>
+        </div>
+
         <div class="learning-objectives">
             <h2>🎯 Objective</h2>
             <p>${objective}</p>
         </div>
+
         <div class="concept-section">
             <h2>📌 Key Concepts</h2>
             <ul>${concepts.map(c => '<li>' + c + '</li>').join('')}</ul>
         </div>
+
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Real-world agricultural sensors, imagery, or market data.</li>
+                        <li><strong>Agronomic Baseline:</strong> Crop variety specifications and environmental bounds.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Feature Pipeline:</strong> Clean, filter, and extract key agricultural indicators.</li>
+                        <li><strong>Core Algorithm:</strong> ${concepts[0] || 'Machine learning model pipeline'}.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Actionable Insight:</strong> High-precision prediction and automated farm advisory.</li>
+                        <li><strong>Farmer Value:</strong> Reduced chemical waste, conserved water, or higher crop yields.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <div class="code-section">
-            <h2>💻 Starter Code</h2>
+            <h2>💻 Starter Code (Google Colab Ready)</h2>
             <pre><code class="language-python">${code}</code></pre>
+        </div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the starter code above. Re-run the cell. Observe how the agricultural prediction or decision output updates!</p>
+        </div>
+
+        <div class="summary">
+            <h2>📋 Key Takeaways</h2>
+            <ul>
+                <li>${title} bridges data science directly to commercial agricultural impact.</li>
+                <li>Real-world deployment requires robust handling of sensor noise and weather variance.</li>
+                <li>Deliver clear, actionable recommendations that farmers can easily understand and trust.</li>
+            </ul>
         </div>
     </div>`;
 }

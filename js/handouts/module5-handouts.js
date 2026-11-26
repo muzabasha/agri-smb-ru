@@ -108,8 +108,46 @@ const module5Handouts = {
     'm5-t1': `
         <div class="handout-premium">
             <div class="topic-header"><h1>🚀 Project 1: Deploying AI Solutions</h1></div>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing deploying ai solutions under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
             <div class="summary"><h2>Project Goal</h2><p>Deploy a trained model using Streamlit (Python web app).</p></div>
-            <div class="code-section"><h2>💻 Colab/Local Code</h2>
+            
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab/Local Code</h2>
             <pre><code class="language-python">
 # Install Streamlit
 # !pip install streamlit
@@ -134,6 +172,13 @@ if st.button('Predict'):
 
 st.write("Deploy this script using 'streamlit run app.py'")
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
     `,
 
@@ -141,8 +186,46 @@ st.write("Deploy this script using 'streamlit run app.py'")
     'm5-t2': `
         <div class="handout-premium">
             <div class="topic-header"><h1>💧 Bonus Project 1: Smart Irrigation System</h1></div>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing smart irrigation system under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
             <div class="summary"><h2>Project Goal</h2><p>Simulate an IoT system that decides when to water crops using Soil Moisture, Temperature, and Rainfall data.</p></div>
-            <div class="code-section"><h2>💻 Colab Code</h2>
+            
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code</h2>
             <pre><code class="language-python">
 # 💧 Smart Irrigation Logic Simulation
 import pandas as pd
@@ -195,6 +278,13 @@ print("\\n=== 🚜 Live Field Test ===")
 print(smart_irrigation_controller(20, 35, 0)) # Dry, Hot, No Rain -> Should be ON
 print(smart_irrigation_controller(45, 30, 0)) # Wet -> Should be OFF
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
     `,
 
@@ -202,8 +292,46 @@ print(smart_irrigation_controller(45, 30, 0)) # Wet -> Should be OFF
     'm5-t3': `
         <div class="handout-premium">
             <div class="topic-header"><h1>🦠 Bonus Project 2: Crop Disease API</h1></div>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing crop disease api under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
             <div class="summary"><h2>Project Goal</h2><p>Build a simple API using FastAPI to serve a Disease Detection Model.</p></div>
-            <div class="code-section"><h2>💻 Colab Code (Simulation)</h2>
+            
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code (Simulation)</h2>
             <pre><code class="language-python">
 # 🦠 Crop Disease API Simulation
 # Note: In Colab, we simulate the API logic as FastAPI requires a running server.
@@ -248,6 +376,13 @@ print("=== 🚀 API Test Request ===")
 result = predict_endpoint("tomato_leaf_01.jpg")
 print(result)
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
     `,
 
@@ -255,8 +390,46 @@ print(result)
     'm5-t4': `
         <div class="handout-premium">
             <div class="topic-header"><h1>💹 Bonus Project 3: Market Price Dashboard</h1></div>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing market price dashboard under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
             <div class="summary"><h2>Project Goal</h2><p>Visualize price trends using Plotly for interactive dashboards.</p></div>
-            <div class="code-section"><h2>💻 Colab Code</h2>
+            
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code</h2>
             <pre><code class="language-python">
 # 💹 Market Price Dashboard
 import plotly.graph_objects as go
@@ -302,6 +475,13 @@ fig.update_layout(
 fig.show()
 print("Interactive chart generated. Hover over points to see exact prices.")
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
     `,
 
@@ -309,7 +489,45 @@ print("Interactive chart generated. Hover over points to see exact prices.")
     'm5-t5': `
         <div class="handout-premium">
             <div class="topic-header"><h1>🧪 Bonus Project 4: Soil Nutrient Predictor</h1></div>
-            <div class="code-section"><h2>💻 Colab Code</h2>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing soil nutrient predictor under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
+            
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code</h2>
             <pre><code class="language-python">
 # 🧪 Soil Nutrient Prediction with Gradient Boosting
 import pandas as pd
@@ -342,13 +560,58 @@ print(f"Input: {new_sample.to_dict(orient='records')[0]}")
 print(f"Predicted Nitrogen: {pred_n:.2f} mg/kg")
 print(f"Interpretation: {'Low' if pred_n < 100 else 'Adequate'}")
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
     `,
 
     'm5-t6': `
         <div class="handout-premium">
             <div class="topic-header"><h1>🕸️ Bonus Project 5: Weed Detection System</h1></div>
-            <div class="code-section"><h2>💻 Colab Code</h2>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing 🕸️ bonus project 5: weed detection system under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
+            
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code</h2>
             <pre><code class="language-python">
 # 🕸️ Weed Detection logic (YOLO-style bounding box format)
 import matplotlib.pyplot as plt
@@ -385,13 +648,58 @@ plt.show()
 
 print("In a real YOLO deployment, this visualization helps verify detection accuracy.")
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
     `,
 
     'm5-t7': `
         <div class="handout-premium">
             <div class="topic-header"><h1>🍎 Bonus Project 6: Fruit Maturity Grading</h1></div>
-            <div class="code-section"><h2>💻 Colab Code</h2>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing fruit maturity grading under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
+            
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code</h2>
             <pre><code class="language-python">
 # 🍎 Fruit Maturity Grading using Color Analysis (HSV)
 import numpy as np
@@ -424,13 +732,58 @@ plt.title(f"Fruit Color: {grade}")
 plt.axis('off')
 plt.show()
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
      `,
 
     'm5-t8': `
         <div class="handout-premium">
             <div class="topic-header"><h1>🌡️ Bonus Project 7: Greenhouse Temp Control</h1></div>
-            <div class="code-section"><h2>💻 Colab Code</h2>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing 🌡️ bonus project 7: greenhouse temp control under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
+            
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code</h2>
             <pre><code class="language-python">
 # 🌡️ PID Controller Simulation for Greenhouse
 import matplotlib.pyplot as plt
@@ -477,13 +830,58 @@ plt.legend()
 plt.grid(True)
 plt.show()
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
      `,
 
     'm5-t9': `
         <div class="handout-premium">
             <div class="topic-header"><h1>🤖 Bonus Project 8: Automated Fruit Picker Logic</h1></div>
-             <div class="code-section"><h2>💻 Colab Code</h2>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing 🤖 bonus project 8: automated fruit picker logic under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
+             
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code</h2>
             <pre><code class="language-python">
 # 🤖 Robotic Arm Path Planning (Inverse Kinematics Logic)
 import numpy as np
@@ -537,13 +935,58 @@ if t1 is not None:
 else:
     print("Fruit out of reach!")
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
     `,
 
     'm5-t10': `
         <div class="handout-premium">
             <div class="topic-header"><h1>🚁 Bonus Project 9: Drone Path Planning</h1></div>
-            <div class="code-section"><h2>💻 Colab Code</h2>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing 🚁 bonus project 9: drone path planning under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
+            
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code</h2>
             <pre><code class="language-python">
 # 🚁 Drone Path Planning with A* Search
 import heapq
@@ -621,13 +1064,58 @@ plt.title("Drone Path Planning A*")
 plt.legend()
 plt.show()
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
     `,
 
     'm5-t11': `
         <div class="handout-premium">
             <div class="topic-header"><h1>🐄 Bonus Project 10: Livestock Health Monitor</h1></div>
-            <div class="code-section"><h2>💻 Colab Code</h2>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing 🐄 bonus project 10: livestock health monitor under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
+            
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code</h2>
             <pre><code class="language-python">
 # 🐄 Livestock Activity Classification (Anomaly Detection)
 import pandas as pd
@@ -667,13 +1155,58 @@ plt.title("Livestock Activity Analysis (Blue=Sick, Red=Healthy)")
 plt.ylabel("Activity Level")
 plt.show()
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
     `,
 
     'm5-t12': `
         <div class="handout-premium">
             <div class="topic-header"><h1>🌦️ Bonus Project 11: Weather Forecasting App</h1></div>
-            <div class="code-section"><h2>💻 Colab Code</h2>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing 🌦️ bonus project 11: weather forecasting app under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
+            
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code</h2>
             <pre><code class="language-python">
 from statsmodels.tsa.arima.model import ARIMA
 import pandas as pd
@@ -702,13 +1235,58 @@ plt.title("Local Temperature Forecast")
 plt.legend()
 plt.show()
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
     `,
 
     'm5-t13': `
         <div class="handout-premium">
             <div class="topic-header"><h1>🔄 Bonus Project 12: Crop Rotation Recommender</h1></div>
-             <div class="code-section"><h2>💻 Colab Code</h2>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing 🔄 bonus project 12: crop rotation recommender under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
+             
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code</h2>
             <pre><code class="language-python">
 # 🔄 Rule-Based Expert System for Crop Rotation
 # Logic: Improve Soil Nitrogen (N) and manage pests
@@ -736,13 +1314,58 @@ print(f"Prev: Corn, Soil N: Low -> Rec: {scenario1}")
 scenario2 = recommend_next_crop("Soybean", 80)
 print(f"Prev: Soybean, Soil N: High -> Rec: {scenario2}")
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
     `,
 
     'm5-t14': `
         <div class="handout-premium">
              <div class="topic-header"><h1>💬 Bonus Project 13: Farmer Assistant Chatbot</h1></div>
-             <div class="code-section"><h2>💻 Colab Code</h2>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing 💬 bonus project 13: farmer assistant chatbot under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
+             
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code</h2>
             <pre><code class="language-python">
 # 💬 Simple Keyword-Based Chatbot Logic
 import random
@@ -770,13 +1393,58 @@ print(farmer_bot_response("My tomato plants have blight"))
 print(farmer_bot_response("What is the fertilizer for corn?"))
 print(farmer_bot_response("Hello"))
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
     `,
 
     'm5-t15': `
         <div class="handout-premium">
              <div class="topic-header"><h1>🛰️ Bonus Project 14: Satellite Yield Estimation</h1></div>
-             <div class="code-section"><h2>💻 Colab Code</h2>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing 🛰️ bonus project 14: satellite yield estimation under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
+             
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code</h2>
             <pre><code class="language-python">
 # 🛰️ Satellite Data Correlation Analysis
 import pandas as pd
@@ -800,12 +1468,57 @@ plt.show()
 
 print("High correlation (near 1.0) means NDVI is a good predictor of Yield!")
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
     `,
     'm5-t16': `
          <div class="handout-premium">
             <div class="topic-header"><h1>🚛 Bonus Project 15: Supply Chain Optimization</h1></div>
-            <div class="code-section"><h2>💻 Colab Code</h2>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing 🚛 bonus project 15: supply chain optimization under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
+            
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code</h2>
             <pre><code class="language-python">
 # 🚛 Transport Cost Minimization (Linear Programming)
 # install: pip install scipy
@@ -834,12 +1547,57 @@ if res.success:
 else:
     print("No solution found")
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
     `,
     'm5-t17': `
         <div class="handout-premium">
             <div class="topic-header"><h1>🏙️ Bonus Project 16: Hydroponics Monitoring</h1></div>
-            <div class="code-section"><h2>💻 Colab Code</h2>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing 🏙️ bonus project 16: hydroponics monitoring under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
+            
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code</h2>
             <pre><code class="language-python">
 # 🏙️ Hydroponic Nutrient Tank Simulation
 import matplotlib.pyplot as plt
@@ -874,13 +1632,58 @@ plt.ylabel("pH")
 plt.legend()
 plt.show()
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
     `,
 
     'm5-t18': `
         <div class="handout-premium">
             <div class="topic-header"><h1>🦟 Bonus Project 17: Pest Count from Traps</h1></div>
-            <div class="code-section"><h2>💻 Colab Code</h2>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing 🦟 bonus project 17: pest count from traps under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
+            
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code</h2>
             <pre><code class="language-python">
 # 🦟 Automated Trap Counting (Blob Detection)
 import matplotlib.pyplot as plt
@@ -910,13 +1713,58 @@ plt.show()
 if bug_count > 10:
     print("🚨 Threshold Exceeded! Spray Required.")
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
     `,
 
     'm5-t19': `
         <div class="handout-premium">
             <div class="topic-header"><h1>💧 Bonus Project 18: Water Quality Indexer</h1></div>
-            <div class="code-section"><h2>💻 Colab Code</h2>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing water quality indexer under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
+            
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code</h2>
             <pre><code class="language-python">
 # 💧 WQI (Water Quality Index) Calculation
 # Formula: WQI = Σ (Qi * Wi) / Σ Wi
@@ -960,12 +1808,57 @@ elif wqi < 100:
 else:
     print("Quality: Poor ❌")
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
     `,
     'm5-t20': `
         <div class="handout-premium">
             <div class="topic-header"><h1>🧬 Bonus Project 19: Crop Scheduling Genetic Algo</h1></div>
-            <div class="code-section"><h2>💻 Colab Code</h2>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing 🧬 bonus project 19: crop scheduling genetic algo under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
+            
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code</h2>
             <pre><code class="language-python">
 # 🧬 Genetic Algorithm for Crop Selection Optimization
 # Goal: Maximize Profit given Constraints (Water, Cost)
@@ -1029,12 +1922,57 @@ for crop, acre in zip(crops, best_sol):
 print(f"\\nTotal Profit: {fitness(best_sol)}")
 print(f"Total Water Used: {sum([c * w for c, w in zip(best_sol, water_req)])}/{max_water}")
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
     `,
     'm5-t21': `
         <div class="handout-premium">
             <div class="topic-header"><h1>⚙️ Bonus Project 20: Equipment Maintenance Predictor</h1></div>
-            <div class="code-section"><h2>💻 Colab Code</h2>
+
+        <div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+            <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+            <p>Farmers face real challenges implementing ⚙️ bonus project 20: equipment maintenance predictor under harsh outdoor conditions.</p>
+            <p>Manual monitoring is slow, labor-intensive, and fails to catch rapid crop stress.</p>
+            <p>Automated software and sensors solve this dilemma by providing live agricultural intelligence.</p>
+            <p>How do we build and deploy this system for practical farm operations?</p>
+        </div>
+        
+
+            
+        <div class="ipo-model">
+            <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+            <div class="ipo-container">
+                <div class="ipo-section input">
+                    <h3>📥 INPUT</h3>
+                    <ul>
+                        <li><strong>Field Telemetry:</strong> Live sensor readings, weather feeds, or crop photos.</li>
+                        <li><strong>Agronomic Threshold:</strong> Safe biological operating boundaries.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section processing">
+                    <h3>⚙️ PROCESSING</h3>
+                    <ul>
+                        <li><strong>Data Pipeline:</strong> Filter noise and compute key agricultural indicators.</li>
+                        <li><strong>Decision Logic:</strong> Automated rules and machine learning model inference.</li>
+                    </ul>
+                </div>
+                <div class="ipo-section output">
+                    <h3>📤 OUTPUT</h3>
+                    <ul>
+                        <li><strong>Advisory Alert:</strong> Actionable guidance delivered to farmer mobile devices.</li>
+                        <li><strong>Field Action:</strong> Automated solenoid valve or actuator response.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+<div class="code-section"><h2>💻 Colab Code</h2>
             <pre><code class="language-python">
 # ⚙️ Predictive Maintenance for Tractors (Vibration Analysis)
 import pandas as pd
@@ -1089,6 +2027,13 @@ if pred == 1:
 else:
     print("✅ System Healthy")
             </code></pre></div>
+
+        <div class="interactive-whatif">
+            <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+            <p><strong>Try it in Colab:</strong> Modify one input parameter in the Python code above. Re-run the cell. Observe how the farm decision or prediction output updates!</p>
+        </div>
+        
+
         </div>
     `
 };
