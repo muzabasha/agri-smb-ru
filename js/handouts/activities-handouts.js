@@ -523,6 +523,15 @@ plt.show()
                 <h1>🧪 Activity: NumPy &amp; Pandas Soil Sensor Matrix Laboratory</h1>
                 <p class="duration">⏱️ Duration: 1.5 hours | Practical Lab</p>
             </div>
+
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>A research trial measures moisture, temperature, and bulk density across fifty soil cores.</p>
+                <p>Computing soil compaction indexes manually for fifty cores is slow and error-prone.</p>
+                <p>NumPy multi-dimensional arrays vectorize soil compaction math in milliseconds.</p>
+                <p>How do we apply vector operations to identify compacted root barriers in fields?</p>
+            </div>
+
             <div class="summary">
                 <h2>Project Goal</h2>
                 <p>Transform raw multi-depth soil sensor telemetry across experimental farm research plots into clean vectorized matrices, computing zonal moisture deficits and nutrient availability indices using NumPy and Pandas.</p>
@@ -553,6 +562,12 @@ print(f"🚨 Priority Irrigation/Liming Plots (0-indexed): {critical_plots}")
 print(f"✅ Mean Moisture: {np.mean(moisture):.1f}% | Mean pH: {np.mean(ph_vals):.2f}")
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> In your NumPy soil matrix, change the moisture reading of Row 2 from <code>14.5</code> to <code>26.0</code>. Observe how the root penetration resistance index updates automatically!</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">
@@ -643,6 +658,15 @@ print(f"✅ Mean Moisture: {np.mean(moisture):.1f}% | Mean pH: {np.mean(ph_vals)
                 <h1>📉 Activity: Multiple Linear Regression &amp; Harvest Forecasting Lab</h1>
                 <p class="duration">⏱️ Duration: 2 hours | Practical Lab</p>
             </div>
+
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>A farmer cooperative wants to forecast wheat harvest yield using rainfall and fertilizer logs.</p>
+                <p>Overestimating harvest leads to unfulfilled buyer contracts and heavy financial penalties.</p>
+                <p>Underestimating harvest causes emergency warehouse shortages and spoiled grain bags.</p>
+                <p>How do we build a Scikit-Learn Linear Regression pipeline to predict exact grain yields?</p>
+            </div>
+
             <div class="summary">
                 <h2>Project Goal</h2>
                 <p>Train, diagnose, and interpret a multiple linear regression model predicting crop harvest yields based on micro-climatic features, fertilizer application rates, and irrigation volumes.</p>
@@ -679,6 +703,12 @@ test_plot = np.array([[600, 110, 27.0]])
 print(f"🔮 Forecast Harvest Yield: {model.predict(test_plot)[0]:.1f} quintals/ha")
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> Test your regression model with <code>seasonal_rainfall_mm = 550.0</code> and <code>fertilizer_kg = 135.0</code>. What is the predicted wheat harvest per acre?</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">
@@ -769,6 +799,15 @@ print(f"🔮 Forecast Harvest Yield: {model.predict(test_plot)[0]:.1f} quintals/
                 <h1>🏷️ Activity: Decision Tree &amp; Random Forest Crop &amp; Pest Classification Lab</h1>
                 <p class="duration">⏱️ Duration: 2 hours | Practical Lab</p>
             </div>
+
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>An agricultural bank evaluates loan applications from farmers across Karnataka.</p>
+                <p>The bank must verify that recommended crops match local soil pH and annual rainfall.</p>
+                <p>Recommending water-hungry paddy for dry, low-rainfall zones guarantees crop failure.</p>
+                <p>How do we train a multi-class decision tree classifier to recommend optimal crops?</p>
+            </div>
+
             <div class="summary">
                 <h2>Project Goal</h2>
                 <p>Construct, prune, and visualize interpretable tree models for precision plant pathology diagnosis and crop recommendation across variable soil types.</p>
@@ -799,6 +838,12 @@ test_plot = [[30, 0.6, 95]]
 print(f"🎯 Recommended Crop for Test Plot: {clf.predict(test_plot)[0]}")
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> Feed new soil numbers <code>[Soil_pH: 7.2, Rainfall: 550 mm]</code> into your trained decision tree. Which drought-tolerant crop does your model recommend?</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">
@@ -889,6 +934,15 @@ print(f"🎯 Recommended Crop for Test Plot: {clf.predict(test_plot)[0]}")
                 <h1>⚖️ Activity: Comprehensive Model Evaluation &amp; Validation Suite Lab</h1>
                 <p class="duration">⏱️ Duration: 2 hours | Practical Lab</p>
             </div>
+
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>A research team builds four competing machine learning models for potato yield forecasting.</p>
+                <p>Model A has high R² on training data, but Model B has lower MAE on unseen test data.</p>
+                <p>Picking the wrong model causes financial loss when deployed across thousand-acre commercial farms.</p>
+                <p>How do we systematically compare MAE, RMSE, and R² across multiple algorithms?</p>
+            </div>
+
             <div class="summary">
                 <h2>Project Goal</h2>
                 <p>Implement a rigorous multi-metric evaluation harness for precision farming models, assessing regression and classification models with cross-validation, confusion matrices, ROC-AUC, and residual analysis.</p>
@@ -911,6 +965,12 @@ print(f"🎯 ROC-AUC Score: {roc_auc_score(y_true, y_prob):.3f}")
 print("\\n📋 Detailed Classification Report:\\n", classification_report(y_true, y_pred, target_names=['Healthy', 'Outbreak']))
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> Compare the test MAE between Random Forest and Linear Regression in your evaluation table. Which algorithm achieved lower prediction error on unseen fields?</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">

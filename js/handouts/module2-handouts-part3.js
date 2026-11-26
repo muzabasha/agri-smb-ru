@@ -9,6 +9,16 @@ const module2HandoutsPart3 = {
                 <p class="duration">⏱️ Duration: 2 hours</p>
             </div>
 
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>A seed processing mill receives thousands of unlabelled heirloom bean seeds.</p>
+                <p>The manager wants to group them by seed coat patterns and seed sizes automatically.</p>
+                <p>Nobody knows the exact genetic variety names, so supervised training labels do not exist.</p>
+                <p>Unsupervised clustering algorithms discover natural groupings from unlabeled physical measurements.</p>
+                <p>When should agronomists choose supervised prediction versus unsupervised clustering?</p>
+            </div>
+
+
 <!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
             <div class="reflexive-questions">
                 <div class="reflexive-header">
@@ -55,6 +65,32 @@ const module2HandoutsPart3 = {
                 </div>
             </div>
 
+<div class="ipo-model">
+                <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+                <div class="ipo-container">
+                    <div class="ipo-section input">
+                        <h3>📥 INPUT</h3>
+                        <ul>
+                            <li><strong>Unlabeled Seeds:</strong> Length (mm), Width (mm), Weight (mg).</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section processing">
+                        <h3>⚙️ PROCESSING</h3>
+                        <ul>
+                            <li><strong>K-Means Clustering:</strong> Measure geometric distances between seeds.</li>
+                            <li><strong>Cluster Assignment:</strong> Group similar seeds into natural clusters.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section output">
+                        <h3>📤 OUTPUT</h3>
+                        <ul>
+                            <li><strong>Seed Batches:</strong> 3 distinct physical seed varieties identified.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="code-section">
                 <h2>💻 Python Implementation</h2>
                 <pre><code class="language-python">
@@ -94,6 +130,12 @@ print(kmeans.labels_)
 print("Notice how it grouped similar soil samples automatically!")
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> Change <code>n_clusters=2</code>. How does the algorithm merge the seeds into two broader size categories?</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">
@@ -266,6 +308,16 @@ print("Notice how it grouped similar soil samples automatically!")
                 <p class="duration">⏱️ Duration: 2 hours</p>
             </div>
 
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>A student tests a yield prediction model using the exact same fields it was trained on.</p>
+                <p>The model reports 99% accuracy on those familiar training fields in the laboratory.</p>
+                <p>When deployed on a neighbor's unfamiliar farm, its predictions fail completely.</p>
+                <p>Testing on familiar training data gives a dangerous false illusion of model accuracy.</p>
+                <p>How does train-test splitting verify that models work on unseen real-world farms?</p>
+            </div>
+
+
 <!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
             <div class="reflexive-questions">
                 <div class="reflexive-header">
@@ -309,6 +361,32 @@ print("Notice how it grouped similar soil samples automatically!")
                 </div>
             </div>
 
+<div class="ipo-model">
+                <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+                <div class="ipo-container">
+                    <div class="ipo-section input">
+                        <h3>📥 INPUT</h3>
+                        <ul>
+                            <li><strong>Field Matrix:</strong> 100 historical farm records with crop features and yields.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section processing">
+                        <h3>⚙️ PROCESSING</h3>
+                        <ul>
+                            <li><strong>Train Split (80%):</strong> Fit the model using 80 farm records.</li>
+                            <li><strong>Test Split (20%):</strong> Lock away 20 records for blind exam testing.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section output">
+                        <h3>📤 OUTPUT</h3>
+                        <ul>
+                            <li><strong>True Generalization:</strong> Verified test accuracy on unseen farms.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="code-section">
                 <h2>💻 Python Implementation</h2>
                 <pre><code class="language-python">
@@ -348,6 +426,12 @@ X_val, X_test_final, y_val, y_test_final = train_test_split(X_temp, y_temp, test
 print(f"Train: {len(X_train_full)}, Val: {len(X_val)}, Test: {len(X_test_final)}")
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> Change <code>test_size=0.50</code>. How many samples remain for training? Why is keeping enough training data critical?</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">
@@ -519,6 +603,16 @@ print(f"Train: {len(X_train_full)}, Val: {len(X_val)}, Test: {len(X_test_final)}
                 <p class="duration">⏱️ Duration: 2 hours</p>
             </div>
 
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>Agricultural field trials are expensive and yield only twenty total data samples.</p>
+                <p>Splitting small datasets into fixed train and test sets wastes scarce training data.</p>
+                <p>A single unlucky split might put all flood-damaged fields into the test set.</p>
+                <p>K-Fold cross-validation rotates training and test folds so every field gets evaluated.</p>
+                <p>How does cross-validation ensure fair model evaluation on small farm trials?</p>
+            </div>
+
+
 <!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
             <div class="reflexive-questions">
                 <div class="reflexive-header">
@@ -562,6 +656,33 @@ print(f"Train: {len(X_train_full)}, Val: {len(X_val)}, Test: {len(X_test_final)}
                 </div>
             </div>
 
+<div class="ipo-model">
+                <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+                <div class="ipo-container">
+                    <div class="ipo-section input">
+                        <h3>📥 INPUT</h3>
+                        <ul>
+                            <li><strong>Field Trial Data:</strong> Small sample dataset from research trials.</li>
+                            <li><strong>K-Folds:</strong> 5 rotating folds.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section processing">
+                        <h3>⚙️ PROCESSING</h3>
+                        <ul>
+                            <li><strong>Rotation:</strong> Train on 4 folds, test on 1 fold. Repeat 5 times.</li>
+                            <li><strong>Average Score:</strong> Compute mean accuracy across all 5 iterations.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section output">
+                        <h3>📤 OUTPUT</h3>
+                        <ul>
+                            <li><strong>Cross-Validation Score:</strong> Unbiased evaluation without wasting trial data.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="code-section">
                 <h2>💻 Python Implementation</h2>
                 <pre><code class="language-python">
@@ -589,6 +710,12 @@ print(f"Standard Deviation: {np.std(rmse_scores):.4f}")
 print("\\nNote: For classification with imbalanced classes (e.g., detecting rare diseases), use StratifiedKFold to ensure each fold has enough disease samples!")
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> Change <code>cv=3</code>. How many fold scores are printed now? What is the new average score?</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">
@@ -761,6 +888,16 @@ print("\\nNote: For classification with imbalanced classes (e.g., detecting rare
                 <p class="duration">⏱️ Duration: 2 hours</p>
             </div>
 
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>A complex neural network memorizes every pebble and stray weed in five training photos.</p>
+                <p>It achieves 100% training score because it memorized noise instead of general patterns.</p>
+                <p>When tested on a new field, it mistakes normal crop leaves for weeds.</p>
+                <p>This failure is called overfitting: memorizing training noise instead of true biological rules.</p>
+                <p>How do we recognize and prevent overfitting in agricultural machine learning?</p>
+            </div>
+
+
 <!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
             <div class="reflexive-questions">
                 <div class="reflexive-header">
@@ -806,6 +943,33 @@ print("\\nNote: For classification with imbalanced classes (e.g., detecting rare
                         <p style="font-size: 0.9em; color: #666; margin-top: 5px;">Figure 1: Visualizing Model Performance</p>
                     </div>
                 </div>
+
+<div class="ipo-model">
+                <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+                <div class="ipo-container">
+                    <div class="ipo-section input">
+                        <h3>📥 INPUT</h3>
+                        <ul>
+                            <li><strong>Training Accuracy:</strong> 99.5% score on familiar training images.</li>
+                            <li><strong>Validation Accuracy:</strong> 54.0% score on unseen field images.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section processing">
+                        <h3>⚙️ PROCESSING</h3>
+                        <ul>
+                            <li><strong>Gap Analysis:</strong> Large accuracy gap flags severe overfitting.</li>
+                            <li><strong>Regularization:</strong> Prune decision tree depth to simplify rules.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section output">
+                        <h3>📤 OUTPUT</h3>
+                        <ul>
+                            <li><strong>Balanced Model:</strong> Consistent 88% accuracy across both train and test.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             </div>
 
             <div class="core-concepts">
@@ -908,6 +1072,12 @@ print("Degree 4 (Good): Captures the cosine wave.")
 print("Degree 15 (Overfit): Wiggles to hit every single noise point.")
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> Set <code>max_depth=1</code> on <code>pruned_tree</code>. What is the single most important rule it uses to separate healthy from diseased leaves?</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">
@@ -1080,6 +1250,16 @@ print("Degree 15 (Overfit): Wiggles to hit every single noise point.")
                 <p class="duration">⏱️ Duration: 2 hours</p>
             </div>
 
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>A precision sprayer uses an AI algorithm with dozens of adjustable tuning knobs.</p>
+                <p>Tuning settings manually by trial and error wastes hours of field testing time.</p>
+                <p>Incorrect settings make sprayers either miss pests or spray excessive pesticide.</p>
+                <p>GridSearchCV automatically tests combinations of tuning settings to find the best model.</p>
+                <p>How does automated hyperparameter tuning optimize agricultural machine learning models?</p>
+            </div>
+
+
 <!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
             <div class="reflexive-questions">
                 <div class="reflexive-header">
@@ -1123,6 +1303,32 @@ print("Degree 15 (Overfit): Wiggles to hit every single noise point.")
                 </div>
             </div>
 
+<div class="ipo-model">
+                <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+                <div class="ipo-container">
+                    <div class="ipo-section input">
+                        <h3>📥 INPUT</h3>
+                        <ul>
+                            <li><strong>Candidate Knobs:</strong> max_depth = [2, 3, 5], min_samples_split = [2, 4].</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section processing">
+                        <h3>⚙️ PROCESSING</h3>
+                        <ul>
+                            <li><strong>Grid Search:</strong> Train and score models for all parameter pairings.</li>
+                            <li><strong>Selection:</strong> Rank combinations by cross-validated accuracy.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section output">
+                        <h3>📤 OUTPUT</h3>
+                        <ul>
+                            <li><strong>Best Configuration:</strong> max_depth=3 delivers optimal field accuracy.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="code-section">
                 <h2>💻 Python Implementation</h2>
                 <pre><code class="language-python">
@@ -1160,6 +1366,12 @@ print(f"\\nBest Parameters: {grid_search.best_params_}")
 print(f"Best RMSE: {np.sqrt(-grid_search.best_score_):.4f}")
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> Add <code>'min_samples_split': [2, 3]</code> to <code>hyperparameter_grid</code>. How many total combinations does GridSearchCV explore now?</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">
@@ -1334,6 +1546,16 @@ print(f"Best RMSE: {np.sqrt(-grid_search.best_score_):.4f}")
                 <p class="duration">⏱️ Duration: 2 hours</p>
             </div>
 
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>Writing custom machine learning algorithms from scratch requires thousands of lines of math.</p>
+                <p>Agronomists need simple, standard tools to fit and test models quickly.</p>
+                <p>Scikit-Learn provides a clean, uniform interface for hundreds of algorithms.</p>
+                <p>Every algorithm follows the exact same three steps: instantiate, .fit(), and .predict().</p>
+                <p>How does Scikit-Learn standardize agricultural machine learning workflows?</p>
+            </div>
+
+
 <!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
             <div class="reflexive-questions">
                 <div class="reflexive-header">
@@ -1377,6 +1599,33 @@ print(f"Best RMSE: {np.sqrt(-grid_search.best_score_):.4f}")
                 </div>
             </div>
 
+<div class="ipo-model">
+                <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+                <div class="ipo-container">
+                    <div class="ipo-section input">
+                        <h3>📥 INPUT</h3>
+                        <ul>
+                            <li><strong>X Matrix:</strong> Feature columns (Soil Moisture, Temperature).</li>
+                            <li><strong>y Vector:</strong> Target output (Irrigation Action: 0 or 1).</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section processing">
+                        <h3>⚙️ PROCESSING</h3>
+                        <ul>
+                            <li><strong>.fit(X, y):</strong> Algorithm learns mathematical patterns from data.</li>
+                            <li><strong>.predict(X_new):</strong> Model predicts outcomes on new sensor readings.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section output">
+                        <h3>📤 OUTPUT</h3>
+                        <ul>
+                            <li><strong>Action Prediction:</strong> Automated decisions for new field sensors.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="code-section">
                 <h2>💻 Python Implementation</h2>
                 <pre><code class="language-python">
@@ -1417,6 +1666,12 @@ pipe.fit(X, y) # Handles scaling automatically!
 print(f"Pipeline Prediction: {pipe.predict(new_data)[0]:.0f}")
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> Change <code>new_reading = np.array([[32.0, 23.0]])</code>. Does the model recommend irrigation for cool, wet soil?</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">
@@ -1588,6 +1843,16 @@ print(f"Pipeline Prediction: {pipe.predict(new_data)[0]:.0f}")
                 <p class="duration">⏱️ Duration: 2 hours</p>
             </div>
 
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>Two researchers present competing yield prediction models to a sugarcane factory.</p>
+                <p>Model 1 boasts an R² score of 0.85, while Model 2 claims a Mean Absolute Error of 2 tons.</p>
+                <p>Without understanding evaluation metrics, managers cannot decide which model to trust.</p>
+                <p>MAE, RMSE, and R² scores reveal average error in real farm kilograms and explainable variance.</p>
+                <p>How do evaluation metrics measure the real-world accuracy of yield models?</p>
+            </div>
+
+
 <!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
             <div class="reflexive-questions">
                 <div class="reflexive-header">
@@ -1635,6 +1900,34 @@ print(f"Pipeline Prediction: {pipe.predict(new_data)[0]:.0f}")
                 </div>
             </div>
 
+<div class="ipo-model">
+                <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+                <div class="ipo-container">
+                    <div class="ipo-section input">
+                        <h3>📥 INPUT</h3>
+                        <ul>
+                            <li><strong>Actual Harvest:</strong> [42, 50, 48, 55, 38] tons per acre.</li>
+                            <li><strong>Predicted Yield:</strong> [40, 52, 45, 54, 41] tons per acre.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section processing">
+                        <h3>⚙️ PROCESSING</h3>
+                        <ul>
+                            <li><strong>MAE:</strong> Average absolute difference between actual and predicted.</li>
+                            <li><strong>RMSE:</strong> Square root of mean squared error (penalizes large misses).</li>
+                            <li><strong>R² Score:</strong> Percentage of yield variation explained by the model.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section output">
+                        <h3>📤 OUTPUT</h3>
+                        <ul>
+                            <li><strong>Metric Report:</strong> MAE = 2.2 tons, R² = 0.88. Model approved for use.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="code-section">
                 <h2>💻 Python Implementation</h2>
                 <pre><code class="language-python">
@@ -1669,6 +1962,12 @@ else:
     print("❌ Poor model - need better features.")
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> Make <code>predicted_yields</code> match <code>actual_yields</code> exactly. What does the R² score and MAE become?</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">
@@ -1841,6 +2140,16 @@ else:
                 <p class="duration">⏱️ Duration: 2 hours</p>
             </div>
 
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>A farmer wants to predict whether a tomato crop will suffer late blight disease (Yes or No).</p>
+                <p>Linear regression produces numbers like 1.4 or -0.3, which do not make sense for probabilities.</p>
+                <p>Classification requires a probability between 0% and 100% to assess disease risk.</p>
+                <p>Logistic Regression squashes mathematical predictions into clean probabilities using an S-curve.</p>
+                <p>How does Logistic Regression predict disease outbreaks from weather conditions?</p>
+            </div>
+
+
 <!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
             <div class="reflexive-questions">
                 <div class="reflexive-header">
@@ -1885,6 +2194,32 @@ else:
                 </div>
             </div>
 
+<div class="ipo-model">
+                <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+                <div class="ipo-container">
+                    <div class="ipo-section input">
+                        <h3>📥 INPUT</h3>
+                        <ul>
+                            <li><strong>Weather:</strong> Relative Humidity (%), Leaf Wetness Duration (hours).</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section processing">
+                        <h3>⚙️ PROCESSING</h3>
+                        <ul>
+                            <li><strong>Sigmoid Function:</strong> Squash linear combination into 0 to 1 curve.</li>
+                            <li><strong>Probability Check:</strong> If risk > 0.50, flag disease outbreak warning.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section output">
+                        <h3>📤 OUTPUT</h3>
+                        <ul>
+                            <li><strong>Blight Probability:</strong> 82% risk. Trigger preventative bio-fungicide spray.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="code-section">
                 <h2>💻 Python Implementation</h2>
                 <pre><code class="language-python">
@@ -1915,6 +2250,12 @@ print("(True Neg  False Pos)")
 print("(False Neg True Pos)")
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> Change <code>incoming_weather = np.array([[60.0, 1.0]])</code> (dry, sunny day). What does the blight outbreak probability drop to?</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">
@@ -2088,6 +2429,16 @@ print("(False Neg True Pos)")
                 <p class="duration">⏱️ Duration: 2 hours</p>
             </div>
 
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>Complex neural networks make accurate farm predictions, but cannot explain why.</p>
+                <p>Farmers refuse to follow advisory recommendations if the machine cannot explain its logic.</p>
+                <p>Agronomists need explainable rules that mirror human biological reasoning.</p>
+                <p>Decision Trees build transparent, question-and-answer flowcharts that anyone can audit.</p>
+                <p>How do Decision Trees create transparent diagnostic rules for agricultural decisions?</p>
+            </div>
+
+
 <!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
             <div class="reflexive-questions">
                 <div class="reflexive-header">
@@ -2138,6 +2489,33 @@ print("(False Neg True Pos)")
                 </div>
             </div>
 
+<div class="ipo-model">
+                <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+                <div class="ipo-container">
+                    <div class="ipo-section input">
+                        <h3>📥 INPUT</h3>
+                        <ul>
+                            <li><strong>Soil Parameters:</strong> pH level, Moisture %, Nitrogen level.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section processing">
+                        <h3>⚙️ PROCESSING</h3>
+                        <ul>
+                            <li><strong>Rule 1:</strong> Is soil moisture < 20%?</li>
+                            <li><strong>Rule 2:</strong> Is soil pH < 6.0?</li>
+                            <li><strong>Split Purity:</strong> Use Gini impurity to select top splitting threshold.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section output">
+                        <h3>📤 OUTPUT</h3>
+                        <ul>
+                            <li><strong>Transparent Path:</strong> Explainable recommendation flowchart.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="code-section">
                 <h2>💻 Python Implementation</h2>
                 <pre><code class="language-python">
@@ -2166,6 +2544,12 @@ plot_tree(clf, feature_names=['Yellow', 'Spots', 'Insects'], class_names=clf.cla
 plt.show()
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> Use <code>crop_tree.predict([[6.6, 950]])</code> to predict which crop to grow on a neutral soil plot with 950 mm rainfall!</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">
@@ -2340,6 +2724,16 @@ plt.show()
                 <p class="duration">⏱️ Duration: 1 hour</p>
             </div>
 
+<div class="farm-dilemma-box" style="background:#f0fdf4; border-left:5px solid #16a34a; padding:1.25rem; border-radius:8px; margin:1.5rem 0;">
+                <h3 style="color:#166534; margin-top:0;"><i class="fas fa-tractor"></i> 📖 The Farm Dilemma</h3>
+                <p>A precision agronomist collects twenty different soil and weather sensor variables.</p>
+                <p>Maintaining twenty sensors on every acre costs thousands of dollars per season.</p>
+                <p>The agronomist needs to know which three variables truly drive crop harvest yield.</p>
+                <p>Feature Importance calculates the mathematical contribution of each measurement.</p>
+                <p>How does feature importance analysis reduce sensor costs while keeping model accuracy?</p>
+            </div>
+
+
 <!-- 💭 Reflexive Questions (Pre-Topic Discovery) -->
             <div class="reflexive-questions">
                 <div class="reflexive-header">
@@ -2384,6 +2778,33 @@ plt.show()
                 </div>
             </div>
 
+<div class="ipo-model">
+                <h2><i class="fas fa-cogs"></i> Input-Process-Output (IPO) Model</h2>
+                <div class="ipo-container">
+                    <div class="ipo-section input">
+                        <h3>📥 INPUT</h3>
+                        <ul>
+                            <li><strong>Multi-Sensor Data:</strong> Rainfall, Nitrogen, Phosphorus, Potassium, Temp.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section processing">
+                        <h3>⚙️ PROCESSING</h3>
+                        <ul>
+                            <li><strong>Tree Training:</strong> Train Random Forest on all twenty candidate features.</li>
+                            <li><strong>Gini Importance:</strong> Measure error increase when each feature is removed.</li>
+                        </ul>
+                    </div>
+                    <div class="ipo-section output">
+                        <h3>📤 OUTPUT</h3>
+                        <ul>
+                            <li><strong>Ranked Importance:</strong> Rainfall (45%), Nitrogen (35%), Others (<20%).</li>
+                            <li><strong>Cost Reduction:</strong> Keep only top sensors, saving 60% hardware budget.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="code-section">
                 <h2>💻 Python Implementation</h2>
                 <pre><code class="language-python">
@@ -2420,6 +2841,12 @@ plt.show()
 print("Notice how Worker ID likely has low importance compared to physical factors.")
                 </code></pre>
             </div>
+
+<div class="interactive-whatif">
+    <h4><i class="fas fa-flask"></i> 🔄 Interactive What-If Challenge</h4>
+    <p><strong>Try it in Colab:</strong> Which single feature has the highest percentage importance in predicting maize harvest?</p>
+</div>
+
 
             <div class="learn-by-doing-hub">
                 <div class="lbd-header">
